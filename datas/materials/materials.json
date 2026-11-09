@@ -1,0 +1,200 @@
+{
+  "linhtuyphothong": {
+    "id": "linhtuyphothong",
+    "name": "Linh Túy Phổ Thông",
+    "original_name": "普通的灵粹",
+    "image": "../../assets/materials/linhtuyphothong.png"
+  },
+  "linhtuyngungtu": {
+    "id": "linhtuyngungtu",
+    "name": "Linh Túy Ngưng Tụ",
+    "original_name": "凝聚的灵粹",
+    "image": "../../assets/materials/linhtuyngungtu.png"
+  },
+  "linhtuycuontrao": {
+    "id": "linhtuycuontrao",
+    "name": "Linh Túy Cuộn Trào",
+    "original_name": "涌动的灵粹",
+    "image": "../../assets/materials/linhtuycuontrao.png"
+  },
+  "linhtuyanhsang": {
+    "id": "linhtuyanhsang",
+    "name": "Linh Túy Ánh Sáng",
+    "original_name": "萦光的灵粹",
+    "image": "../../assets/materials/linhtuyanhsang.png"
+  },
+  "linhtuyhuyensac": {
+    "id": "linhtuyhuyensac",
+    "name": "Linh Túy Huyễn Sắc",
+    "original_name": "幻彩的灵粹",
+    "image": "../../assets/materials/linhtuyhuyensac.png"
+  },
+  "vayuquang": {
+    "id": "vayuquang",
+    "name": "Vảy U Quang",
+    "original_name": "幽光鳞片",
+    "image": "../../assets/materials/vayuquang.png"
+  },
+  "banhxematvan": {
+    "id": "banhxematvan",
+    "name": "Bánh Xe Mật Văn",
+    "original_name": "密文轮盘",
+    "image": "../../assets/materials/banhxematvan.png"
+  },
+  "dungdichtinhchat": {
+    "id": "dungdichtinhchat",
+    "name": "Dung Dịch Tinh Chất",
+    "original_name": "星质原液",
+    "image": "../../assets/materials/dungdichtinhchat.png"
+  },
+  "mangmonglanquang": {
+    "id": "mangmonglanquang",
+    "name": "Màng Mỏng Lân Quang",
+    "original_name": "鳞光薄膜",
+    "image": "../../assets/materials/mangmonglanquang.png"
+  },
+  "tinhhachngunghinh": {
+    "id": "tinhhachngunghinh",
+    "name": "Tinh Hạch Ngưng Hình",
+    "original_name": "凝形晶核",
+    "image": "../../assets/materials/tinhhachngunghinh.png"
+  },
+  "modongminmang": {
+    "id": "modongminmang",
+    "name": "Mỡ Đông Mịn Màng",
+    "original_name": "顺滑凝脂",
+    "image": "../../assets/materials/modongminmang.png"
+  },
+  "vihatnguyentoquang": {
+    "id": "vihatnguyentoquang",
+    "name": "Vi Hạt Nguyên Tố Quang",
+    "original_name": "光元素微粒",
+    "image": "../../assets/materials/vihatnguyentoquang.png"
+  },
+  "uni": {
+    "id": "uni",
+    "name": "Uni",
+    "original_name": "尤尼",
+    "image": "../../assets/materials/uni.png"
+  },
+  "vomemdichchuyen": {
+    "id": "vomemdichchuyen",
+    "name": "Vỏ Mềm Biến Hình",
+    "original_name": "移形软壳",
+    "image": "../../assets/materials/vomemdichchuyen.png"
+  },
+  "vihatnguyentoam": {
+    "id": "vihatnguyentoam",
+    "name": "Vi Hạt Nguyên Tố Ám",
+    "original_name": "暗元素微粒",
+    "image": "../../assets/materials/vihatnguyentoam.png"
+  },
+  "linhkienhaomon": {
+    "id": "linhkienhaomon",
+    "name": "Linh Kiện Hao Mòn",
+    "original_name": "磨损部件",
+    "image": "../../assets/materials/linhkienhaomon.png"
+  },
+  "longtominmang": {
+    "id": "longtominmang",
+    "name": "Lông Tơ Mịn Màng",
+    "original_name": "细密软绒",
+    "image": "../../assets/materials/longtominmang.png"
+  },
+  "voxacroirung": {
+    "id": "voxacroirung",
+    "name": "Vỏ Xác Rơi Rụng",
+    "original_name": "遗落旧蜕",
+    "image": "../../assets/materials/voxacroirung.png"
+  },
+  "loihangdinh": {
+    "id": "loihangdinh",
+    "name": "Lõi Hằng Định",
+    "original_name": "恒定核心",
+    "image": "../../assets/materials/loihangdinh.png"
+  },
+  "sunglinhthu": {
+    "id": "sunglinhthu",
+    "name": "Sừng Linh Thú",
+    "original_name": "兽灵之角",
+    "image": "../../assets/materials/sunglinhthu.png"
+  },
+  "ngungchatnguyento": {
+    "id": "ngungchatnguyento",
+    "name": "Ngưng Chất Nguyên Tố",
+    "original_name": "元素凝质",
+    "image": "../../assets/materials/ngungchatnguyento.png"
+  },
+  "vihatnguyenthoa": {
+    "id": "vihatnguyenthoa",
+    "name": "Vi Hạt Nguyên Tố Hỏa",
+    "original_name": "火元素微粒",
+    "image": "../../assets/materials/vihatnguyenthoa.png"
+  },
+  "thotrenhoidat": {
+    "id": "thotrenhoidat",
+    "name": "Đất Phủ Rêu",
+    "original_name": "苔覆土壤",
+    "image": "../../assets/materials/thotrenhoidat.png"
+  },
+  "longvubansac": {
+    "id": "longvubansac",
+    "name": "Lông Vũ Rực Rỡ",
+    "original_name": "斑斓飞羽",
+    "image": "../../assets/materials/longvubansac.png"
+  },
+  "catbanthan": {
+    "id": "catbanthan",
+    "name": "Cát Bản Thể",
+    "original_name": "本质之砂",
+    "image": "../../assets/materials/catbanthan.png"
+  },
+  "laphongmach": {
+    "id": "laphongmach",
+    "name": "Phiến Lá Khổng Mạch",
+    "original_name": "空脉叶片",
+    "image": "../../assets/materials/laphongmach.png"
+  },
+  "moysacnhon": {
+    "id": "moysacnhon",
+    "name": "Mỏ Nhọn Sắc Bén",
+    "original_name": "锋锐利喙",
+    "image": "../../assets/materials/moysacnhon.png"
+  },
+  "vihatnguyentodia": {
+    "id": "vihatnguyentodia",
+    "name": "Vi Hạt Nguyên Tố Địa",
+    "original_name": "地元素微粒",
+    "image": "../../assets/materials/vihatnguyentodia.png"
+  },
+  "vihatnguyentothuy": {
+    "id": "vihatnguyentothuy",
+    "name": "Vi Hạt Nguyên Tố Thủy",
+    "original_name": "水元素微粒",
+    "image": "../../assets/materials/vihatnguyentothuy.png"
+  },
+  "vihatnguyentoloi": {
+    "id": "vihatnguyentoloi",
+    "name": "Vi Hạt Nguyên Tố Lôi",
+    "original_name": "雷元素微粒",
+    "image": "../../assets/materials/vihatnguyentoloi.png"
+  },
+  "vihatnguyentophong": {
+    "id": "vihatnguyentophong",
+    "name": "Vi Hạt Nguyên Tố Phong",
+    "original_name": "风元素微粒",
+    "image": "../../assets/materials/vihatnguyentophong.png"
+  },
+  "vihatnguyentobang": {
+    "id": "vihatnguyentobang",
+    "name": "Vi Hạt Nguyên Tố Băng",
+    "original_name": "冰元素微粒",
+    "image": "../../assets/materials/vihatnguyentobang.png"
+  },
+  "vihatnguyentomoc": {
+    "id": "vihatnguyentomoc",
+    "name": "Vi Hạt Nguyên Tố Mộc",
+    "original_name": "木元素微粒",
+    "image": "../../assets/materials/vihatnguyentomoc.png"
+  }
+}

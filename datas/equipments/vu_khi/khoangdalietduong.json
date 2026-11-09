@@ -1,0 +1,581 @@
+{
+  "id": "khoangdalietduong",
+  "name": "Khoáng Dã Liệt Dương",
+  "original_name": "旷野烈阳",
+  "item_type": "Vũ khí (Đại thái đao)",
+  "base_rarity": 4,
+  "max_stars": "Có thể thăng 6 sao",
+  "max_star_count": 6,
+  "image": "../../../assets/equipment/khoangdalietduong.png",
+  "rarity_bg_image": "../../../assets/equipment/khoangdalietduong_bg.png",
+  "suit": "Không có bộ trang bị",
+  "description": "Một thanh đại thái đao có lưỡi dài bảy thước hai tấc, lưỡi đao sáng như tuyết, chuôi đao và hoa văn trên bao đều làm bằng đồng đỏ. Tương truyền khi rút đao ra khỏi vỏ, ánh đao chói lọi như mặt trời giữa trưa trên hoang dã, tự mang theo khí phách khoáng đạt và rực lửa mãnh liệt, đáng tiếc là những ghi chép thực tế về việc đao này xuất vỏ lại rất hiếm hoi.",
+  "original_description": "一柄大太刀，刃长七尺二寸，锋刃雪亮，刀镡与鞘饰均为赤铜，据传出鞘时其刃光如荒野正午烈日灼目，自有一股坦荡炽烈的豪气，可惜真实的出鞘记录寥寥。",
+  "acquisition_sources": [
+    "Gia viên - Tiệm rèn",
+    "Ủy thác - Phù Hộ Lửa Đỏ V",
+    "Ủy thác - Phù Hộ Lửa Đỏ IV"
+  ],
+  "main_attributes_by_quality": [
+    {
+      "quality_level": 1,
+      "quality_name": "Tân thủ",
+      "original_quality_name": "新手",
+      "attributes": [
+        {
+          "attribute": "Tấn công%",
+          "original_attribute": "攻击%",
+          "enhancement_0": "+7.2%",
+          "enhancement_15": "+28.8%",
+          "range": "+7.2% / +28.8%"
+        },
+        {
+          "attribute": "Sát thương thuộc tính Hỏa",
+          "original_attribute": "火属性伤害",
+          "enhancement_0": "+7.2%",
+          "enhancement_15": "+28.8%",
+          "range": "+7.2% / +28.8%"
+        }
+      ]
+    },
+    {
+      "quality_level": 2,
+      "quality_name": "Tiến giai",
+      "original_quality_name": "进阶",
+      "attributes": [
+        {
+          "attribute": "Tấn công%",
+          "original_attribute": "攻击%",
+          "enhancement_0": "+7.6%",
+          "enhancement_15": "+30.6%",
+          "range": "+7.6% / +30.6%"
+        },
+        {
+          "attribute": "Sát thương thuộc tính Hỏa",
+          "original_attribute": "火属性伤害",
+          "enhancement_0": "+7.6%",
+          "enhancement_15": "+30.6%",
+          "range": "+7.6% / +30.6%"
+        }
+      ]
+    },
+    {
+      "quality_level": 3,
+      "quality_name": "Tinh lương",
+      "original_quality_name": "精良",
+      "attributes": [
+        {
+          "attribute": "Tấn công%",
+          "original_attribute": "攻击%",
+          "enhancement_0": "+8.1%",
+          "enhancement_15": "+32.4%",
+          "range": "+8.1% / +32.4%"
+        },
+        {
+          "attribute": "Sát thương thuộc tính Hỏa",
+          "original_attribute": "火属性伤害",
+          "enhancement_0": "+8.1%",
+          "enhancement_15": "+32.4%",
+          "range": "+8.1% / +32.4%"
+        }
+      ]
+    },
+    {
+      "quality_level": 4,
+      "quality_name": "Sử thi",
+      "original_quality_name": "史诗",
+      "attributes": [
+        {
+          "attribute": "Tấn công%",
+          "original_attribute": "攻击%",
+          "enhancement_0": "+8.5%",
+          "enhancement_15": "+34.2%",
+          "range": "+8.5% / +34.2%"
+        },
+        {
+          "attribute": "Sát thương thuộc tính Hỏa",
+          "original_attribute": "火属性伤害",
+          "enhancement_0": "+8.5%",
+          "enhancement_15": "+34.2%",
+          "range": "+8.5% / +34.2%"
+        }
+      ]
+    },
+    {
+      "quality_level": 5,
+      "quality_name": "Truyền kỳ",
+      "original_quality_name": "传奇",
+      "attributes": [
+        {
+          "attribute": "Tấn công%",
+          "original_attribute": "攻击%",
+          "enhancement_0": "+9.0%",
+          "enhancement_15": "+36.0%",
+          "range": "+9.0% / +36.0%"
+        },
+        {
+          "attribute": "Sát thương thuộc tính Hỏa",
+          "original_attribute": "火属性伤害",
+          "enhancement_0": "+9.0%",
+          "enhancement_15": "+36.0%",
+          "range": "+9.0% / +36.0%"
+        }
+      ]
+    }
+  ],
+  "star_ascensions": [
+    {
+      "star_level": "Khởi đầu",
+      "original_star_level": "初始",
+      "affix_name": "Mãnh Kích",
+      "original_affix_name": "猛击",
+      "affix_level": "Cấp 2",
+      "description": "Tăng 4.5% tấn công.",
+      "original_description": "攻击力提高4.5%",
+      "upgrade_cost": null
+    },
+    {
+      "star_level": "1 sao",
+      "original_star_level": "1星",
+      "affix_name": "Quán Kích - Tăng Sát Thương",
+      "original_affix_name": "贯击·增伤",
+      "affix_level": "Cấp 1",
+      "description": "Sát thương do Đòn đánh thường và Đòn đánh mạnh gây ra tăng 3.5%.",
+      "original_description": "普攻和重击造成的伤害提高3.5%",
+      "upgrade_cost": [
+        {
+          "material_id": "khoangdalietduong",
+          "name": "Trang bị cùng tên",
+          "quantity": 1
+        },
+        {
+          "material_id": "uni",
+          "name": "Uni",
+          "quantity": 14000
+        }
+      ]
+    },
+    {
+      "star_level": "2 sao",
+      "original_star_level": "2星",
+      "affix_name": "Mãnh Kích",
+      "original_affix_name": "猛击",
+      "affix_level": "Cấp 3",
+      "description": "Tăng 5.8% tấn công.",
+      "original_description": "攻击力提高5.8%",
+      "upgrade_cost": [
+        {
+          "material_id": "khoangdalietduong",
+          "name": "Trang bị cùng tên",
+          "quantity": 2
+        },
+        {
+          "material_id": "uni",
+          "name": "Uni",
+          "quantity": 15000
+        }
+      ]
+    },
+    {
+      "star_level": "3 sao",
+      "original_star_level": "3星",
+      "affix_name": "Quán Kích - Tăng Sát Thương",
+      "original_affix_name": "贯击·增伤",
+      "affix_level": "Cấp 2",
+      "description": "Sát thương do Đòn đánh thường và Đòn đánh mạnh gây ra tăng 4.5%.",
+      "original_description": "普攻和重击造成的伤害提高4.5%",
+      "upgrade_cost": [
+        {
+          "material_id": "khoangdalietduong",
+          "name": "Trang bị cùng tên",
+          "quantity": 2
+        },
+        {
+          "material_id": "uni",
+          "name": "Uni",
+          "quantity": 16000
+        }
+      ]
+    },
+    {
+      "star_level": "4 sao",
+      "original_star_level": "4星",
+      "affix_name": "Kình Quán",
+      "original_affix_name": "劲贯",
+      "affix_level": "Cấp 2",
+      "description": "Tăng 2.5% tỉ lệ bạo kích.",
+      "original_description": "暴击率提高2.5%",
+      "upgrade_cost": [
+        {
+          "material_id": "khoangdalietduong",
+          "name": "Trang bị cùng tên",
+          "quantity": 3
+        },
+        {
+          "material_id": "uni",
+          "name": "Uni",
+          "quantity": 17000
+        }
+      ]
+    },
+    {
+      "star_level": "5 sao",
+      "original_star_level": "5星",
+      "affix_name": "Mãnh Kích",
+      "original_affix_name": "猛击",
+      "affix_level": "Cấp 4",
+      "description": "Tăng 8% tấn công.",
+      "original_description": "攻击力提高8%",
+      "upgrade_cost": [
+        {
+          "material_id": "khoangdalietduong",
+          "name": "Trang bị cùng tên",
+          "quantity": 3
+        },
+        {
+          "material_id": "uni",
+          "name": "Uni",
+          "quantity": 18000
+        }
+      ]
+    },
+    {
+      "star_level": "6 sao",
+      "original_star_level": "6星",
+      "affix_name": "Quán Kích - Tăng Sát Thương",
+      "original_affix_name": "贯击·增伤",
+      "affix_level": "Cấp 4",
+      "description": "Sát thương do Đòn đánh thường và Đòn đánh mạnh gây ra tăng 8%.",
+      "original_description": "普攻和重击造成的伤害提高8%",
+      "upgrade_cost": [
+        {
+          "material_id": "khoangdalietduong",
+          "name": "Trang bị cùng tên",
+          "quantity": 4
+        },
+        {
+          "material_id": "uni",
+          "name": "Uni",
+          "quantity": 19000
+        }
+      ]
+    }
+  ],
+  "enhancement_materials": [
+    {
+      "stage": "+0 → +1",
+      "materials": [
+        {
+          "material_id": "linhtuyphothong",
+          "quantity": 2
+        },
+        {
+          "material_id": "ngungchatnguyento",
+          "quantity": 24
+        },
+        {
+          "material_id": "vihatnguyenthoa",
+          "quantity": 100
+        },
+        {
+          "material_id": "uni",
+          "quantity": 500
+        }
+      ]
+    },
+    {
+      "stage": "+1 → +2",
+      "materials": [
+        {
+          "material_id": "linhtuyphothong",
+          "quantity": 4
+        },
+        {
+          "material_id": "ngungchatnguyento",
+          "quantity": 24
+        },
+        {
+          "material_id": "vihatnguyenthoa",
+          "quantity": 100
+        },
+        {
+          "material_id": "uni",
+          "quantity": 1000
+        }
+      ]
+    },
+    {
+      "stage": "+2 → +3",
+      "materials": [
+        {
+          "material_id": "linhtuyphothong",
+          "quantity": 8
+        },
+        {
+          "material_id": "ngungchatnguyento",
+          "quantity": 24
+        },
+        {
+          "material_id": "vihatnguyenthoa",
+          "quantity": 100
+        },
+        {
+          "material_id": "uni",
+          "quantity": 1500
+        }
+      ]
+    },
+    {
+      "stage": "+3 → +4",
+      "materials": [
+        {
+          "material_id": "linhtuyngungtu",
+          "quantity": 6
+        },
+        {
+          "material_id": "thotrenhoidat",
+          "quantity": 24
+        },
+        {
+          "material_id": "vihatnguyenthoa",
+          "quantity": 200
+        },
+        {
+          "material_id": "uni",
+          "quantity": 2000
+        }
+      ]
+    },
+    {
+      "stage": "+4 → +5",
+      "materials": [
+        {
+          "material_id": "linhtuyngungtu",
+          "quantity": 8
+        },
+        {
+          "material_id": "thotrenhoidat",
+          "quantity": 24
+        },
+        {
+          "material_id": "vihatnguyenthoa",
+          "quantity": 200
+        },
+        {
+          "material_id": "uni",
+          "quantity": 3000
+        }
+      ]
+    },
+    {
+      "stage": "+5 → +6",
+      "materials": [
+        {
+          "material_id": "linhtuyngungtu",
+          "quantity": 10
+        },
+        {
+          "material_id": "thotrenhoidat",
+          "quantity": 24
+        },
+        {
+          "material_id": "vihatnguyenthoa",
+          "quantity": 200
+        },
+        {
+          "material_id": "uni",
+          "quantity": 4000
+        }
+      ]
+    },
+    {
+      "stage": "+6 → +7",
+      "materials": [
+        {
+          "material_id": "linhtuycuontrao",
+          "quantity": 2
+        },
+        {
+          "material_id": "longvubansac",
+          "quantity": 24
+        },
+        {
+          "material_id": "vihatnguyenthoa",
+          "quantity": 400
+        },
+        {
+          "material_id": "uni",
+          "quantity": 5000
+        }
+      ]
+    },
+    {
+      "stage": "+7 → +8",
+      "materials": [
+        {
+          "material_id": "linhtuycuontrao",
+          "quantity": 4
+        },
+        {
+          "material_id": "longvubansac",
+          "quantity": 24
+        },
+        {
+          "material_id": "vihatnguyenthoa",
+          "quantity": 400
+        },
+        {
+          "material_id": "uni",
+          "quantity": 6000
+        }
+      ]
+    },
+    {
+      "stage": "+8 → +9",
+      "materials": [
+        {
+          "material_id": "linhtuycuontrao",
+          "quantity": 8
+        },
+        {
+          "material_id": "longvubansac",
+          "quantity": 24
+        },
+        {
+          "material_id": "vihatnguyenthoa",
+          "quantity": 400
+        },
+        {
+          "material_id": "uni",
+          "quantity": 7000
+        }
+      ]
+    },
+    {
+      "stage": "+9 → +10",
+      "materials": [
+        {
+          "material_id": "linhtuyanhsang",
+          "quantity": 2
+        },
+        {
+          "material_id": "catbanthan",
+          "quantity": 24
+        },
+        {
+          "material_id": "vihatnguyenthoa",
+          "quantity": 600
+        },
+        {
+          "material_id": "uni",
+          "quantity": 8000
+        }
+      ]
+    },
+    {
+      "stage": "+10 → +11",
+      "materials": [
+        {
+          "material_id": "linhtuyanhsang",
+          "quantity": 4
+        },
+        {
+          "material_id": "laphongmach",
+          "quantity": 24
+        },
+        {
+          "material_id": "vihatnguyenthoa",
+          "quantity": 600
+        },
+        {
+          "material_id": "uni",
+          "quantity": 9000
+        }
+      ]
+    },
+    {
+      "stage": "+11 → +12",
+      "materials": [
+        {
+          "material_id": "linhtuyanhsang",
+          "quantity": 8
+        },
+        {
+          "material_id": "moysacnhon",
+          "quantity": 24
+        },
+        {
+          "material_id": "vihatnguyenthoa",
+          "quantity": 600
+        },
+        {
+          "material_id": "uni",
+          "quantity": 10000
+        }
+      ]
+    },
+    {
+      "stage": "+12 → +13",
+      "materials": [
+        {
+          "material_id": "linhtuyhuyensac",
+          "quantity": 1
+        },
+        {
+          "material_id": "catbanthan",
+          "quantity": 24
+        },
+        {
+          "material_id": "vihatnguyenthoa",
+          "quantity": 800
+        },
+        {
+          "material_id": "uni",
+          "quantity": 11000
+        }
+      ]
+    },
+    {
+      "stage": "+13 → +14",
+      "materials": [
+        {
+          "material_id": "linhtuyhuyensac",
+          "quantity": 2
+        },
+        {
+          "material_id": "laphongmach",
+          "quantity": 24
+        },
+        {
+          "material_id": "vihatnguyenthoa",
+          "quantity": 1100
+        },
+        {
+          "material_id": "uni",
+          "quantity": 12000
+        }
+      ]
+    },
+    {
+      "stage": "+14 → +15",
+      "materials": [
+        {
+          "material_id": "linhtuyhuyensac",
+          "quantity": 4
+        },
+        {
+          "material_id": "moysacnhon",
+          "quantity": 24
+        },
+        {
+          "material_id": "vihatnguyenthoa",
+          "quantity": 1500
+        },
+        {
+          "material_id": "uni",
+          "quantity": 13000
+        }
+      ]
+    }
+  ]
+}

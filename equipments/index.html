@@ -1,0 +1,495 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Kho Trang Bị - Azur Promilia Wiki</title>
+  <link rel="stylesheet" href="../style.css">
+  <script src="../templates/layout.js" defer></script>
+</head>
+<body data-active-tab="equip" data-depth="1">
+  
+  <div class="cosmic-stars"></div>
+
+  <!-- Top Navigation Bar: Injected from master template templates/layout.js -->
+  <header id="site-navbar" class="navbar"></header>
+
+  <main class="container">
+    <div class="page-header">
+      <h1 class="page-title">Kho Trang Bị</h1>
+    </div>
+
+    <!-- Search Input: Zero Placeholder -->
+    <div class="search-box">
+      <span class="search-icon">🔍</span>
+      <input type="text" id="equipment-search" class="search-input" aria-label="Tìm kiếm trang bị">
+    </div>
+
+    <!-- Filter Matrix Table (BWIKI Standard) -->
+    <table class="bwiki-filter-table">
+      <tbody>
+        <tr>
+          <th>Tất cả</th>
+          <td>
+            <button class="filter-pill active" id="btn-reset-filters">Xem tất cả</button>
+          </td>
+        </tr>
+        <tr>
+          <th>Độ hiếm</th>
+          <td>
+            <div class="bwiki-filter-options" id="rarity-filters">
+              <button class="filter-pill active" data-rarity="all">Tất cả</button>
+              <button class="filter-pill" data-rarity="4">5★</button>
+              <button class="filter-pill" data-rarity="3">4★</button>
+              <button class="filter-pill" data-rarity="2">3★</button>
+              <button class="filter-pill" data-rarity="1">2★</button>
+              <button class="filter-pill" data-rarity="0">1★</button>
+            </div>
+          </td>
+        </tr>
+        <tr>
+          <th>Bộ trang bị</th>
+          <td>
+            <div class="bwiki-filter-options" id="suit-filters">
+              <button class="filter-pill active" data-suit="all">Tất cả</button>
+              <button class="filter-pill" data-suit="none">Không có bộ trang bị</button>
+            </div>
+          </td>
+        </tr>
+        <tr>
+          <th>Loại vũ khí</th>
+          <td>
+            <div class="bwiki-filter-options" id="type-filters">
+              <button class="filter-pill active" data-type="all">Tất cả</button>
+              <button class="filter-pill" data-type="Song đao">Song đao</button>
+              <button class="filter-pill" data-type="Sách phép">Sách phép</button>
+              <button class="filter-pill" data-type="Đại kiếm">Đại kiếm</button>
+              <button class="filter-pill" data-type="Đại thái đao">Đại thái đao</button>
+              <button class="filter-pill" data-type="Kiếm dài">Kiếm dài</button>
+              <button class="filter-pill" data-type="Gậy phép">Gậy phép</button>
+              <button class="filter-pill" data-type="Đại đao">Đại đao</button>
+              <button class="filter-pill" data-type="Dao găm">Dao găm</button>
+              <button class="filter-pill" data-type="Búa chiến">Búa chiến</button>
+              <button class="filter-pill" data-type="Pháp bảo">Pháp bảo</button>
+              <button class="filter-pill" data-type="Hoành đao">Hoành đao</button>
+              <button class="filter-pill" data-type="Trường kiếm">Trường kiếm</button>
+              <button class="filter-pill" data-type="Đoản đao">Đoản đao</button>
+            </div>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+
+    <!-- Collapsible Set Skills Reference Table -->
+    <div class="bwiki-collapse-wrap">
+      <div class="bwiki-collapse-header" id="collapse-set-header" role="button" tabindex="0" aria-expanded="false">
+        <span>Bảng Tra Cứu Kỹ Năng Bộ Trang Bị</span>
+        <span class="collapse-icon" id="collapse-icon">▼</span>
+      </div>
+      <div class="bwiki-collapse-content" id="collapse-set-content" style="display: none;">
+        <div style="overflow-x: auto;">
+          <table class="set-skills-table">
+            <thead>
+              <tr>
+                <th style="width: 180px;">Bộ Trang Bị</th>
+                <th style="width: 220px;">Kỹ Năng 2 Món</th>
+                <th>Kỹ Năng 4 Món</th>
+              </tr>
+            </thead>
+            <tbody>
+              
+    <tr>
+      <td><strong>Kiếm Sĩ Quý Tộc</strong></td>
+      <td>Tấn công tăng 15%</td>
+      <td>Khi tấn công kẻ địch, tăng 12% sát thương thuộc tính tương ứng trong 10 giây, tối đa cộng dồn 3 tầng.</td>
+    </tr>
+  
+    <tr>
+      <td><strong>Dạ Khúc Tinh Linh</strong></td>
+      <td>Tỉ lệ bạo kích tăng 10%</td>
+      <td>Khi kích hoạt bạo kích, sát thương bạo kích tăng thêm 30% trong 8 giây.</td>
+    </tr>
+  
+    <tr>
+      <td><strong>Lời Thề Bão Táp</strong></td>
+      <td>Sát thương nguyên tố Phong tăng 15%</td>
+      <td>Khi đánh trúng mục tiêu bị hiệu ứng Phong, giải phóng một luồng xoáy gió gây 240% sát thương diện rộng.</td>
+    </tr>
+  
+    <tr>
+      <td><strong>Vết Chân Tinh Thể</strong></td>
+      <td>Phòng ngự tăng 20%</td>
+      <td>Khi nhận sát thương, tạo một lớp lá chắn bằng 18% lượng HP tối đa, duy trì 10 giây (CD: 25 giây).</td>
+    </tr>
+  
+    <tr>
+      <td><strong>Giấc Mộng Tiên Linh</strong></td>
+      <td>Hiệu quả hồi phục tăng 20%</td>
+      <td>Khi hồi phục cho đồng đội, toàn đội nhận được trạng thái tăng 10% tấn công trong 12 giây.</td>
+    </tr>
+  
+    <tr>
+      <td><strong>Khiên Chắn Cổ Xưa</strong></td>
+      <td>Lượng HP tối đa tăng 15%</td>
+      <td>Khi HP dưới 50%, sát thương phải chịu giảm 25% và hồi phục 2% HP mỗi giây trong 6 giây.</td>
+    </tr>
+  
+    <tr>
+      <td><strong>Ánh Sáng Rực Rỡ</strong></td>
+      <td>Sát thương nguyên tố Quang tăng 15%</td>
+      <td>Đòn đánh mang thuộc tính Quang làm mù mục tiêu trong 3 giây và tăng 20% sát thương lên mục tiêu bị mù.</td>
+    </tr>
+  
+    <tr>
+      <td><strong>Cội Nguồn Sinh Mệnh</strong></td>
+      <td>Tốc độ hồi năng lượng tăng 20%</td>
+      <td>Khi thi triển Tuyệt Kỹ, hoàn trả 15 điểm năng lượng và giảm 15% thời gian hồi chiêu của kỹ năng nguyên tố.</td>
+    </tr>
+  
+    <tr>
+      <td><strong>Dòng Chảy Vĩnh Cửu</strong></td>
+      <td>Sát thương nguyên tố Thủy tăng 15%</td>
+      <td>Các đòn tấn công hệ Thủy gây hiệu ứng Ẩm Ướt, làm chậm 30% tốc độ di chuyển và nhận thêm 15% sát thương Băng/Lôi.</td>
+    </tr>
+  
+    <tr>
+      <td><strong>Hơi Thở Hoang Dã</strong></td>
+      <td>Sát thương đòn đánh thường và trọng kích tăng 18%</td>
+      <td>Sau khi tung trọng kích, tốc độ đánh tăng 25% và tăng 20% xuyên giáp trong 6 giây.</td>
+    </tr>
+  
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+
+    <!-- BWIKI Framed Items Grid -->
+    <div id="weapons-grid" class="bwiki-items-grid">
+      
+      <a href="battucdichviemquang.html" class="bwiki-item-card r5" data-rarity="4" data-type="Song đao" data-suit="none" data-name="bất tức đích viêm quang 不熄的炎光 song đao">
+        <div class="bwiki-item-visual">
+          <img src="../assets/equipment/battucdichviemquang.png" class="bwiki-item-img" alt="Bất Tức Đích Viêm Quang" loading="lazy">
+        </div>
+        <div class="bwiki-item-name-box">
+          <span class="bwiki-item-name-text">Bất Tức Đích Viêm Quang</span>
+        </div>
+      </a>
+      <a href="comocchidu.html" class="bwiki-item-card r5" data-rarity="4" data-type="Sách phép" data-suit="none" data-name="cổ mộc chi dụ 古木之谕 sách phép">
+        <div class="bwiki-item-visual">
+          <img src="../assets/equipment/comocchidu.png" class="bwiki-item-img" alt="Cổ Mộc Chi Dụ" loading="lazy">
+        </div>
+        <div class="bwiki-item-name-box">
+          <span class="bwiki-item-name-text">Cổ Mộc Chi Dụ</span>
+        </div>
+      </a>
+      <a href="huyquanglietngan.html" class="bwiki-item-card r5" data-rarity="4" data-type="Đại kiếm" data-suit="none" data-name="huy quang liệt ngấn 辉光裂痕 đại kiếm">
+        <div class="bwiki-item-visual">
+          <img src="../assets/equipment/huyquanglietngan.png" class="bwiki-item-img" alt="Huy Quang Liệt Ngấn" loading="lazy">
+        </div>
+        <div class="bwiki-item-name-box">
+          <span class="bwiki-item-name-text">Huy Quang Liệt Ngấn</span>
+        </div>
+      </a>
+      <a href="khoangdalietduong.html" class="bwiki-item-card r5" data-rarity="4" data-type="Đại thái đao" data-suit="none" data-name="khoáng dã liệt dương 旷野烈阳 đại thái đao">
+        <div class="bwiki-item-visual">
+          <img src="../assets/equipment/khoangdalietduong.png" class="bwiki-item-img" alt="Khoáng Dã Liệt Dương" loading="lazy">
+        </div>
+        <div class="bwiki-item-name-box">
+          <span class="bwiki-item-name-text">Khoáng Dã Liệt Dương</span>
+        </div>
+      </a>
+      <a href="loikich.html" class="bwiki-item-card r5" data-rarity="4" data-type="Kiếm dài" data-suit="none" data-name="lôi kích 雷殛 kiếm dài">
+        <div class="bwiki-item-visual">
+          <img src="../assets/equipment/loikich.png" class="bwiki-item-img" alt="Lôi Kích" loading="lazy">
+        </div>
+        <div class="bwiki-item-name-box">
+          <span class="bwiki-item-name-text">Lôi Kích</span>
+        </div>
+      </a>
+      <a href="phongchietxuyendoan.html" class="bwiki-item-card r5" data-rarity="4" data-type="Gậy phép" data-suit="none" data-name="phong chiết xuyên đoạn 峰折川断 gậy phép">
+        <div class="bwiki-item-visual">
+          <img src="../assets/equipment/phongchietxuyendoan.png" class="bwiki-item-img" alt="Phong Chiết Xuyên Đoạn" loading="lazy">
+        </div>
+        <div class="bwiki-item-name-box">
+          <span class="bwiki-item-name-text">Phong Chiết Xuyên Đoạn</span>
+        </div>
+      </a>
+      <a href="phahieuchiquang.html" class="bwiki-item-card r5" data-rarity="4" data-type="Gậy phép" data-suit="none" data-name="phá hiểu chi quang 破晓之光 gậy phép">
+        <div class="bwiki-item-visual">
+          <img src="../assets/equipment/phahieuchiquang.png" class="bwiki-item-img" alt="Phá Hiểu Chi Quang" loading="lazy">
+        </div>
+        <div class="bwiki-item-name-box">
+          <span class="bwiki-item-name-text">Phá Hiểu Chi Quang</span>
+        </div>
+      </a>
+      <a href="suongtuyetvannien.html" class="bwiki-item-card r5" data-rarity="4" data-type="Gậy phép" data-suit="none" data-name="sương tuyết vạn niên 霜雪万年 gậy phép">
+        <div class="bwiki-item-visual">
+          <img src="../assets/equipment/suongtuyetvannien.png" class="bwiki-item-img" alt="Sương Tuyết Vạn Niên" loading="lazy">
+        </div>
+        <div class="bwiki-item-name-box">
+          <span class="bwiki-item-name-text">Sương Tuyết Vạn Niên</span>
+        </div>
+      </a>
+      <a href="trieuminhchithanh.html" class="bwiki-item-card r5" data-rarity="4" data-type="Gậy phép" data-suit="none" data-name="triều minh chi thanh 潮鸣之声 gậy phép">
+        <div class="bwiki-item-visual">
+          <img src="../assets/equipment/trieuminhchithanh.png" class="bwiki-item-img" alt="Triều Minh Chi Thanh" loading="lazy">
+        </div>
+        <div class="bwiki-item-name-box">
+          <span class="bwiki-item-name-text">Triều Minh Chi Thanh</span>
+        </div>
+      </a>
+      <a href="trieutichthanhdien.html" class="bwiki-item-card r5" data-rarity="4" data-type="Sách phép" data-suit="none" data-name="triều tịch thánh điển 潮汐圣典 sách phép">
+        <div class="bwiki-item-visual">
+          <img src="../assets/equipment/trieutichthanhdien.png" class="bwiki-item-img" alt="Triều Tịch Thánh Điển" loading="lazy">
+        </div>
+        <div class="bwiki-item-name-box">
+          <span class="bwiki-item-name-text">Triều Tịch Thánh Điển</span>
+        </div>
+      </a>
+      <a href="tandinhdoannhac.html" class="bwiki-item-card r5" data-rarity="4" data-type="Gậy phép" data-suit="none" data-name="tấn đình đoạn nhạc 迅霆断岳 gậy phép">
+        <div class="bwiki-item-visual">
+          <img src="../assets/equipment/tandinhdoannhac.png" class="bwiki-item-img" alt="Tấn Đình Đoạn Nhạc" loading="lazy">
+        </div>
+        <div class="bwiki-item-name-box">
+          <span class="bwiki-item-name-text">Tấn Đình Đoạn Nhạc</span>
+        </div>
+      </a>
+      <a href="vankhieuphongngam.html" class="bwiki-item-card r5" data-rarity="4" data-type="Đại đao" data-suit="none" data-name="vân khiếu phong ngâm 云啸风吟 đại đao">
+        <div class="bwiki-item-visual">
+          <img src="../assets/equipment/vankhieuphongngam.png" class="bwiki-item-img" alt="Vân Khiếu Phong Ngâm" loading="lazy">
+        </div>
+        <div class="bwiki-item-name-box">
+          <span class="bwiki-item-name-text">Vân Khiếu Phong Ngâm</span>
+        </div>
+      </a>
+      <a href="voquangdengu.html" class="bwiki-item-card r5" data-rarity="4" data-type="Dao găm" data-suit="none" data-name="vô quang đê ngữ 无光低语 dao găm">
+        <div class="bwiki-item-visual">
+          <img src="../assets/equipment/voquangdengu.png" class="bwiki-item-img" alt="Vô Quang Đê Ngữ" loading="lazy">
+        </div>
+        <div class="bwiki-item-name-box">
+          <span class="bwiki-item-name-text">Vô Quang Đê Ngữ</span>
+        </div>
+      </a>
+      <a href="amhoalieuloan.html" class="bwiki-item-card r5" data-rarity="4" data-type="Gậy phép" data-suit="none" data-name="ám hoa liễu loạn 暗華缭乱 gậy phép">
+        <div class="bwiki-item-visual">
+          <img src="../assets/equipment/amhoalieuloan.png" class="bwiki-item-img" alt="Ám Hoa Liễu Loạn" loading="lazy">
+        </div>
+        <div class="bwiki-item-name-box">
+          <span class="bwiki-item-name-text">Ám Hoa Liễu Loạn</span>
+        </div>
+      </a>
+      <a href="hongluuchino.html" class="bwiki-item-card r4" data-rarity="3" data-type="Búa chiến" data-suit="none" data-name="hồng lưu chi nộ 洪流之怒 búa chiến">
+        <div class="bwiki-item-visual">
+          <img src="../assets/equipment/hongluuchino.png" class="bwiki-item-img" alt="Hồng Lưu Chi Nộ" loading="lazy">
+        </div>
+        <div class="bwiki-item-name-box">
+          <span class="bwiki-item-name-text">Hồng Lưu Chi Nộ</span>
+        </div>
+      </a>
+      <a href="lietkhongchikich.html" class="bwiki-item-card r4" data-rarity="3" data-type="Song đao" data-suit="none" data-name="liệt không chi kích 裂空之击 song đao">
+        <div class="bwiki-item-visual">
+          <img src="../assets/equipment/lietkhongchikich.png" class="bwiki-item-img" alt="Liệt Không Chi Kích" loading="lazy">
+        </div>
+        <div class="bwiki-item-name-box">
+          <span class="bwiki-item-name-text">Liệt Không Chi Kích</span>
+        </div>
+      </a>
+      <a href="nhienthietchihuong.html" class="bwiki-item-card r4" data-rarity="3" data-type="Dao găm" data-suit="none" data-name="nhiên thiết chi hưởng 燃铁之响 dao găm">
+        <div class="bwiki-item-visual">
+          <img src="../assets/equipment/nhienthietchihuong.png" class="bwiki-item-img" alt="Nhiên Thiết Chi Hưởng" loading="lazy">
+        </div>
+        <div class="bwiki-item-name-box">
+          <span class="bwiki-item-name-text">Nhiên Thiết Chi Hưởng</span>
+        </div>
+      </a>
+      <a href="thamdinhchamngon.html" class="bwiki-item-card r4" data-rarity="3" data-type="Pháp bảo" data-suit="none" data-name="thâm đình châm ngôn 深庭箴言 pháp bảo">
+        <div class="bwiki-item-visual">
+          <img src="../assets/equipment/thamdinhchamngon.png" class="bwiki-item-img" alt="Thâm Đình Châm Ngôn" loading="lazy">
+        </div>
+        <div class="bwiki-item-name-box">
+          <span class="bwiki-item-name-text">Thâm Đình Châm Ngôn</span>
+        </div>
+      </a>
+      <a href="thuakhoileminh.html" class="bwiki-item-card r4" data-rarity="3" data-type="Gậy phép" data-suit="none" data-name="thừa khởi lê minh 承启黎明 gậy phép">
+        <div class="bwiki-item-visual">
+          <img src="../assets/equipment/thuakhoileminh.png" class="bwiki-item-img" alt="Thừa Khởi Lê Minh" loading="lazy">
+        </div>
+        <div class="bwiki-item-name-box">
+          <span class="bwiki-item-name-text">Thừa Khởi Lê Minh</span>
+        </div>
+      </a>
+      <a href="trucphongkinhlam.html" class="bwiki-item-card r4" data-rarity="3" data-type="Hoành đao" data-suit="none" data-name="trục phong kinh lam 逐风惊岚 hoành đao">
+        <div class="bwiki-item-visual">
+          <img src="../assets/equipment/trucphongkinhlam.png" class="bwiki-item-img" alt="Trục Phong Kinh Lam" loading="lazy">
+        </div>
+        <div class="bwiki-item-name-box">
+          <span class="bwiki-item-name-text">Trục Phong Kinh Lam</span>
+        </div>
+      </a>
+      <a href="lichchiendungsichikiem.html" class="bwiki-item-card r3" data-rarity="2" data-type="Trường kiếm" data-suit="none" data-name="lịch chiến dũng sĩ chi kiếm 历战勇士之剑 trường kiếm">
+        <div class="bwiki-item-visual">
+          <img src="../assets/equipment/lichchiendungsichikiem.png" class="bwiki-item-img" alt="Lịch Chiến Dũng Sĩ Chi Kiếm" loading="lazy">
+        </div>
+        <div class="bwiki-item-name-box">
+          <span class="bwiki-item-name-text">Lịch Chiến Dũng Sĩ Chi Kiếm</span>
+        </div>
+      </a>
+      <a href="trachantinphongchichuy.html" class="bwiki-item-card r3" data-rarity="2" data-type="Dao găm" data-suit="none" data-name="trác hành tiên phong chi chủy 卓行先锋之匕 dao găm">
+        <div class="bwiki-item-visual">
+          <img src="../assets/equipment/trachantinphongchichuy.png" class="bwiki-item-img" alt="Trác Hành Tiên Phong Chi Chủy" loading="lazy">
+        </div>
+        <div class="bwiki-item-name-box">
+          <span class="bwiki-item-name-text">Trác Hành Tiên Phong Chi Chủy</span>
+        </div>
+      </a>
+      <a href="dulichgiachikiem.html" class="bwiki-item-card r2" data-rarity="1" data-type="Trường kiếm" data-suit="none" data-name="du lịch giả chi kiếm 游历者之剑 trường kiếm">
+        <div class="bwiki-item-visual">
+          <img src="../assets/equipment/dulichgiachikiem.png" class="bwiki-item-img" alt="Du Lịch Giả Chi Kiếm" loading="lazy">
+        </div>
+        <div class="bwiki-item-name-box">
+          <span class="bwiki-item-name-text">Du Lịch Giả Chi Kiếm</span>
+        </div>
+      </a>
+      <a href="tuanlamgiachinhan.html" class="bwiki-item-card r2" data-rarity="1" data-type="Đoản đao" data-suit="none" data-name="tuần lâm giả chi nhận 巡林者之刃 đoản đao">
+        <div class="bwiki-item-visual">
+          <img src="../assets/equipment/tuanlamgiachinhan.png" class="bwiki-item-img" alt="Tuần Lâm Giả Chi Nhận" loading="lazy">
+        </div>
+        <div class="bwiki-item-name-box">
+          <span class="bwiki-item-name-text">Tuần Lâm Giả Chi Nhận</span>
+        </div>
+      </a>
+      <a href="kientaplieunhandoandao.html" class="bwiki-item-card r1" data-rarity="0" data-type="Đoản đao" data-suit="none" data-name="kiến tập liệp nhân đoản đao 见习猎人短刀 đoản đao">
+        <div class="bwiki-item-visual">
+          <img src="../assets/equipment/kientaplieunhandoandao.png" class="bwiki-item-img" alt="Kiến Tập Liệp Nhân Đoản Đao" loading="lazy">
+        </div>
+        <div class="bwiki-item-name-box">
+          <span class="bwiki-item-name-text">Kiến Tập Liệp Nhân Đoản Đao</span>
+        </div>
+      </a>
+    </div>
+
+    <div id="weapons-empty" class="empty-state" style="display: none;">
+      <p>Không tìm thấy trang bị phù hợp với điều kiện lọc.</p>
+    </div>
+  </main>
+
+  <!-- Footer: Injected from master template templates/layout.js -->
+  <footer id="site-footer" class="footer"></footer>
+  
+<script>
+  if (window.location.protocol !== 'file:') {
+    const clean = window.location.pathname.replace(/\.html$/, '').replace(/\/index$/, '');
+    if (clean !== window.location.pathname) {
+      window.history.replaceState(null, '', clean + window.location.search + window.location.hash);
+    }
+  }
+</script>
+
+  <script>
+    (function() {
+      const searchInput = document.getElementById('equipment-search');
+      const cards = Array.from(document.querySelectorAll('.bwiki-item-card'));
+      const emptyState = document.getElementById('weapons-empty');
+      const resetBtn = document.getElementById('btn-reset-filters');
+      const rarityBtns = document.querySelectorAll('#rarity-filters .filter-pill');
+      const typeBtns = document.querySelectorAll('#type-filters .filter-pill');
+      const suitBtns = document.querySelectorAll('#suit-filters .filter-pill');
+
+      let currentRarity = 'all';
+      let currentType = 'all';
+      let currentSuit = 'all';
+      let currentSearch = '';
+
+      function applyFilters() {
+        let visibleCount = 0;
+        cards.forEach(card => {
+          const cardRarity = card.dataset.rarity;
+          const cardType = card.dataset.type;
+          const cardSuit = card.dataset.suit;
+          const cardName = card.dataset.name;
+
+          const matchRarity = currentRarity === 'all' || cardRarity === currentRarity;
+          const matchType = currentType === 'all' || cardType === currentType;
+          const matchSuit = currentSuit === 'all' || cardSuit === currentSuit;
+          const matchSearch = !currentSearch || cardName.includes(currentSearch);
+
+          if (matchRarity && matchType && matchSuit && matchSearch) {
+            card.style.display = 'inline-flex';
+            visibleCount++;
+          } else {
+            card.style.display = 'none';
+          }
+        });
+
+        if (emptyState) {
+          emptyState.style.display = visibleCount === 0 ? 'block' : 'none';
+        }
+      }
+
+      if (searchInput) {
+        searchInput.addEventListener('input', (e) => {
+          currentSearch = e.target.value.trim().toLowerCase();
+          applyFilters();
+        });
+      }
+
+      rarityBtns.forEach(btn => {
+        btn.addEventListener('click', () => {
+          rarityBtns.forEach(b => b.classList.remove('active'));
+          btn.classList.add('active');
+          currentRarity = btn.dataset.rarity;
+          applyFilters();
+        });
+      });
+
+      typeBtns.forEach(btn => {
+        btn.addEventListener('click', () => {
+          typeBtns.forEach(b => b.classList.remove('active'));
+          btn.classList.add('active');
+          currentType = btn.dataset.type;
+          applyFilters();
+        });
+      });
+
+      suitBtns.forEach(btn => {
+        btn.addEventListener('click', () => {
+          suitBtns.forEach(b => b.classList.remove('active'));
+          btn.classList.add('active');
+          currentSuit = btn.dataset.suit;
+          applyFilters();
+        });
+      });
+
+      if (resetBtn) {
+        resetBtn.addEventListener('click', () => {
+          currentRarity = 'all';
+          currentType = 'all';
+          currentSuit = 'all';
+          currentSearch = '';
+          if (searchInput) searchInput.value = '';
+          rarityBtns.forEach(b => b.classList.toggle('active', b.dataset.rarity === 'all'));
+          typeBtns.forEach(b => b.classList.toggle('active', b.dataset.type === 'all'));
+          suitBtns.forEach(b => b.classList.toggle('active', b.dataset.suit === 'all'));
+          applyFilters();
+        });
+      }
+
+      // Collapsible Toggle
+      const collapseHeader = document.getElementById('collapse-set-header');
+      const collapseContent = document.getElementById('collapse-set-content');
+      const collapseIcon = document.getElementById('collapse-icon');
+      if (collapseHeader && collapseContent) {
+        collapseHeader.addEventListener('click', () => {
+          const isHidden = collapseContent.style.display === 'none';
+          collapseContent.style.display = isHidden ? 'block' : 'none';
+          collapseHeader.setAttribute('aria-expanded', isHidden ? 'true' : 'false');
+          if (collapseIcon) collapseIcon.textContent = isHidden ? '▲' : '▼';
+        });
+      }
+
+
+    })();
+  </script>
+</body>
+</html>

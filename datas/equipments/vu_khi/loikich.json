@@ -1,0 +1,581 @@
+{
+  "id": "loikich",
+  "name": "Lôi Kích",
+  "original_name": "雷殛",
+  "item_type": "Vũ khí (Kiếm dài)",
+  "base_rarity": 4,
+  "max_stars": "Có thể thăng 6 sao",
+  "max_star_count": 6,
+  "image": "../../../assets/equipment/loikich.png",
+  "rarity_bg_image": "../../../assets/equipment/loikich_bg.png",
+  "suit": "Không có bộ trang bị",
+  "description": "Một thanh kiếm dài thẳng và thanh mảnh, mũi kiếm cực kỳ sắc nhọn, khi rút kiếm ánh sáng chớp lóe dữ dội, tựa như uy lực của sấm sét xé toạc bầu trời trong chớp mắt.",
+  "original_description": "一柄修长细直之剑，剑尖极锐，出鞘时光色骤闪，可如霆威一瞬贯空。",
+  "acquisition_sources": [
+    "Gia viên - Tiệm rèn",
+    "Ủy thác - Thủ Hộ Dòng Chảy V",
+    "Ủy thác - Thủ Hộ Dòng Chảy IV"
+  ],
+  "main_attributes_by_quality": [
+    {
+      "quality_level": 1,
+      "quality_name": "Tân thủ",
+      "original_quality_name": "新手",
+      "attributes": [
+        {
+          "attribute": "Cường độ Siêu Hạn",
+          "original_attribute": "超限强度",
+          "enhancement_0": "+76",
+          "enhancement_15": "+307",
+          "range": "+76 / +307"
+        },
+        {
+          "attribute": "Sát thương thuộc tính Lôi",
+          "original_attribute": "雷属性伤害",
+          "enhancement_0": "+7.2%",
+          "enhancement_15": "+28.8%",
+          "range": "+7.2% / +28.8%"
+        }
+      ]
+    },
+    {
+      "quality_level": 2,
+      "quality_name": "Tiến giai",
+      "original_quality_name": "进阶",
+      "attributes": [
+        {
+          "attribute": "Cường độ Siêu Hạn",
+          "original_attribute": "超限强度",
+          "enhancement_0": "+81",
+          "enhancement_15": "+326",
+          "range": "+81 / +326"
+        },
+        {
+          "attribute": "Sát thương thuộc tính Lôi",
+          "original_attribute": "雷属性伤害",
+          "enhancement_0": "+7.6%",
+          "enhancement_15": "+30.6%",
+          "range": "+7.6% / +30.6%"
+        }
+      ]
+    },
+    {
+      "quality_level": 3,
+      "quality_name": "Tinh lương",
+      "original_quality_name": "精良",
+      "attributes": [
+        {
+          "attribute": "Cường độ Siêu Hạn",
+          "original_attribute": "超限强度",
+          "enhancement_0": "+86",
+          "enhancement_15": "+345",
+          "range": "+86 / +345"
+        },
+        {
+          "attribute": "Sát thương thuộc tính Lôi",
+          "original_attribute": "雷属性伤害",
+          "enhancement_0": "+8.1%",
+          "enhancement_15": "+32.4%",
+          "range": "+8.1% / +32.4%"
+        }
+      ]
+    },
+    {
+      "quality_level": 4,
+      "quality_name": "Sử thi",
+      "original_quality_name": "史诗",
+      "attributes": [
+        {
+          "attribute": "Cường độ Siêu Hạn",
+          "original_attribute": "超限强度",
+          "enhancement_0": "+91",
+          "enhancement_15": "+364",
+          "range": "+91 / +364"
+        },
+        {
+          "attribute": "Sát thương thuộc tính Lôi",
+          "original_attribute": "雷属性伤害",
+          "enhancement_0": "+8.5%",
+          "enhancement_15": "+34.2%",
+          "range": "+8.5% / +34.2%"
+        }
+      ]
+    },
+    {
+      "quality_level": 5,
+      "quality_name": "Truyền kỳ",
+      "original_quality_name": "传奇",
+      "attributes": [
+        {
+          "attribute": "Cường độ Siêu Hạn",
+          "original_attribute": "超限强度",
+          "enhancement_0": "+96",
+          "enhancement_15": "+384",
+          "range": "+96 / +384"
+        },
+        {
+          "attribute": "Sát thương thuộc tính Lôi",
+          "original_attribute": "雷属性伤害",
+          "enhancement_0": "+9.0%",
+          "enhancement_15": "+36.0%",
+          "range": "+9.0% / +36.0%"
+        }
+      ]
+    }
+  ],
+  "star_ascensions": [
+    {
+      "star_level": "Khởi đầu",
+      "original_star_level": "初始",
+      "affix_name": "Cường độ Siêu Hạn",
+      "original_affix_name": "超限强度",
+      "affix_level": "Cấp 2",
+      "description": "Cường độ Siêu Hạn tăng 35 điểm.",
+      "original_description": "超限强度增加35点",
+      "upgrade_cost": null
+    },
+    {
+      "star_level": "1 sao",
+      "original_star_level": "1星",
+      "affix_name": "Tích Thế",
+      "original_affix_name": "累势",
+      "affix_level": "Cấp 1",
+      "description": "Tấn công tăng 40 điểm.",
+      "original_description": "攻击力增加40点",
+      "upgrade_cost": [
+        {
+          "material_id": "loikich",
+          "name": "Trang bị cùng tên",
+          "quantity": 1
+        },
+        {
+          "material_id": "uni",
+          "name": "Uni",
+          "quantity": 14000
+        }
+      ]
+    },
+    {
+      "star_level": "2 sao",
+      "original_star_level": "2星",
+      "affix_name": "Cường độ Siêu Hạn",
+      "original_affix_name": "超限强度",
+      "affix_level": "Cấp 3",
+      "description": "Cường độ Siêu Hạn tăng 50 điểm.",
+      "original_description": "超限强度增加50点",
+      "upgrade_cost": [
+        {
+          "material_id": "loikich",
+          "name": "Trang bị cùng tên",
+          "quantity": 2
+        },
+        {
+          "material_id": "uni",
+          "name": "Uni",
+          "quantity": 15000
+        }
+      ]
+    },
+    {
+      "star_level": "3 sao",
+      "original_star_level": "3星",
+      "affix_name": "Tích Thế",
+      "original_affix_name": "累势",
+      "affix_level": "Cấp 2",
+      "description": "Tấn công tăng 50 điểm.",
+      "original_description": "攻击力增加50点",
+      "upgrade_cost": [
+        {
+          "material_id": "loikich",
+          "name": "Trang bị cùng tên",
+          "quantity": 2
+        },
+        {
+          "material_id": "uni",
+          "name": "Uni",
+          "quantity": 16000
+        }
+      ]
+    },
+    {
+      "star_level": "4 sao",
+      "original_star_level": "4星",
+      "affix_name": "Cường Kích - Tăng Sát Thương",
+      "original_affix_name": "强袭·增伤",
+      "affix_level": "Cấp 2",
+      "description": "Sát thương do Tinh Minh Kỹ và Tinh Quyết Kỹ gây ra tăng 4.5%.",
+      "original_description": "星鸣技和星决技造成的伤害提高4.5%",
+      "upgrade_cost": [
+        {
+          "material_id": "loikich",
+          "name": "Trang bị cùng tên",
+          "quantity": 3
+        },
+        {
+          "material_id": "uni",
+          "name": "Uni",
+          "quantity": 17000
+        }
+      ]
+    },
+    {
+      "star_level": "5 sao",
+      "original_star_level": "5星",
+      "affix_name": "Tích Thế",
+      "original_affix_name": "累势",
+      "affix_level": "Cấp 3",
+      "description": "Tấn công tăng 70 điểm.",
+      "original_description": "攻击力增加70点",
+      "upgrade_cost": [
+        {
+          "material_id": "loikich",
+          "name": "Trang bị cùng tên",
+          "quantity": 3
+        },
+        {
+          "material_id": "uni",
+          "name": "Uni",
+          "quantity": 18000
+        }
+      ]
+    },
+    {
+      "star_level": "6 sao",
+      "original_star_level": "6星",
+      "affix_name": "Cường Kích - Tăng Sát Thương",
+      "original_affix_name": "强袭·增伤",
+      "affix_level": "Cấp 4",
+      "description": "Sát thương do Tinh Minh Kỹ và Tinh Quyết Kỹ gây ra tăng 8%.",
+      "original_description": "星鸣技和星决技造成的伤害提高8%",
+      "upgrade_cost": [
+        {
+          "material_id": "loikich",
+          "name": "Trang bị cùng tên",
+          "quantity": 4
+        },
+        {
+          "material_id": "uni",
+          "name": "Uni",
+          "quantity": 19000
+        }
+      ]
+    }
+  ],
+  "enhancement_materials": [
+    {
+      "stage": "+0 → +1",
+      "materials": [
+        {
+          "material_id": "linhtuyphothong",
+          "quantity": 2
+        },
+        {
+          "material_id": "dungdichtinhchat",
+          "quantity": 24
+        },
+        {
+          "material_id": "vihatnguyentoloi",
+          "quantity": 100
+        },
+        {
+          "material_id": "uni",
+          "quantity": 500
+        }
+      ]
+    },
+    {
+      "stage": "+1 → +2",
+      "materials": [
+        {
+          "material_id": "linhtuyphothong",
+          "quantity": 4
+        },
+        {
+          "material_id": "dungdichtinhchat",
+          "quantity": 24
+        },
+        {
+          "material_id": "vihatnguyentoloi",
+          "quantity": 100
+        },
+        {
+          "material_id": "uni",
+          "quantity": 1000
+        }
+      ]
+    },
+    {
+      "stage": "+2 → +3",
+      "materials": [
+        {
+          "material_id": "linhtuyphothong",
+          "quantity": 8
+        },
+        {
+          "material_id": "dungdichtinhchat",
+          "quantity": 24
+        },
+        {
+          "material_id": "vihatnguyentoloi",
+          "quantity": 100
+        },
+        {
+          "material_id": "uni",
+          "quantity": 1500
+        }
+      ]
+    },
+    {
+      "stage": "+3 → +4",
+      "materials": [
+        {
+          "material_id": "linhtuyngungtu",
+          "quantity": 6
+        },
+        {
+          "material_id": "vayuquang",
+          "quantity": 24
+        },
+        {
+          "material_id": "vihatnguyentoloi",
+          "quantity": 200
+        },
+        {
+          "material_id": "uni",
+          "quantity": 2000
+        }
+      ]
+    },
+    {
+      "stage": "+4 → +5",
+      "materials": [
+        {
+          "material_id": "linhtuyngungtu",
+          "quantity": 8
+        },
+        {
+          "material_id": "vayuquang",
+          "quantity": 24
+        },
+        {
+          "material_id": "vihatnguyentoloi",
+          "quantity": 200
+        },
+        {
+          "material_id": "uni",
+          "quantity": 3000
+        }
+      ]
+    },
+    {
+      "stage": "+5 → +6",
+      "materials": [
+        {
+          "material_id": "linhtuyngungtu",
+          "quantity": 10
+        },
+        {
+          "material_id": "vayuquang",
+          "quantity": 24
+        },
+        {
+          "material_id": "vihatnguyentoloi",
+          "quantity": 200
+        },
+        {
+          "material_id": "uni",
+          "quantity": 4000
+        }
+      ]
+    },
+    {
+      "stage": "+6 → +7",
+      "materials": [
+        {
+          "material_id": "linhtuycuontrao",
+          "quantity": 2
+        },
+        {
+          "material_id": "banhxematvan",
+          "quantity": 24
+        },
+        {
+          "material_id": "vihatnguyentoloi",
+          "quantity": 400
+        },
+        {
+          "material_id": "uni",
+          "quantity": 5000
+        }
+      ]
+    },
+    {
+      "stage": "+7 → +8",
+      "materials": [
+        {
+          "material_id": "linhtuycuontrao",
+          "quantity": 4
+        },
+        {
+          "material_id": "banhxematvan",
+          "quantity": 24
+        },
+        {
+          "material_id": "vihatnguyentoloi",
+          "quantity": 400
+        },
+        {
+          "material_id": "uni",
+          "quantity": 6000
+        }
+      ]
+    },
+    {
+      "stage": "+8 → +9",
+      "materials": [
+        {
+          "material_id": "linhtuycuontrao",
+          "quantity": 8
+        },
+        {
+          "material_id": "banhxematvan",
+          "quantity": 24
+        },
+        {
+          "material_id": "vihatnguyentoloi",
+          "quantity": 400
+        },
+        {
+          "material_id": "uni",
+          "quantity": 7000
+        }
+      ]
+    },
+    {
+      "stage": "+9 → +10",
+      "materials": [
+        {
+          "material_id": "linhtuyanhsang",
+          "quantity": 2
+        },
+        {
+          "material_id": "modongminmang",
+          "quantity": 24
+        },
+        {
+          "material_id": "vihatnguyentoloi",
+          "quantity": 600
+        },
+        {
+          "material_id": "uni",
+          "quantity": 8000
+        }
+      ]
+    },
+    {
+      "stage": "+10 → +11",
+      "materials": [
+        {
+          "material_id": "linhtuyanhsang",
+          "quantity": 4
+        },
+        {
+          "material_id": "mangmonglanquang",
+          "quantity": 24
+        },
+        {
+          "material_id": "vihatnguyentoloi",
+          "quantity": 600
+        },
+        {
+          "material_id": "uni",
+          "quantity": 9000
+        }
+      ]
+    },
+    {
+      "stage": "+11 → +12",
+      "materials": [
+        {
+          "material_id": "linhtuyanhsang",
+          "quantity": 8
+        },
+        {
+          "material_id": "tinhhachngunghinh",
+          "quantity": 24
+        },
+        {
+          "material_id": "vihatnguyentoloi",
+          "quantity": 600
+        },
+        {
+          "material_id": "uni",
+          "quantity": 10000
+        }
+      ]
+    },
+    {
+      "stage": "+12 → +13",
+      "materials": [
+        {
+          "material_id": "linhtuyhuyensac",
+          "quantity": 1
+        },
+        {
+          "material_id": "modongminmang",
+          "quantity": 24
+        },
+        {
+          "material_id": "vihatnguyentoloi",
+          "quantity": 800
+        },
+        {
+          "material_id": "uni",
+          "quantity": 11000
+        }
+      ]
+    },
+    {
+      "stage": "+13 → +14",
+      "materials": [
+        {
+          "material_id": "linhtuyhuyensac",
+          "quantity": 2
+        },
+        {
+          "material_id": "mangmonglanquang",
+          "quantity": 24
+        },
+        {
+          "material_id": "vihatnguyentoloi",
+          "quantity": 1100
+        },
+        {
+          "material_id": "uni",
+          "quantity": 12000
+        }
+      ]
+    },
+    {
+      "stage": "+14 → +15",
+      "materials": [
+        {
+          "material_id": "linhtuyhuyensac",
+          "quantity": 4
+        },
+        {
+          "material_id": "tinhhachngunghinh",
+          "quantity": 24
+        },
+        {
+          "material_id": "vihatnguyentoloi",
+          "quantity": 1500
+        },
+        {
+          "material_id": "uni",
+          "quantity": 13000
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,581 @@
+{
+  "id": "phahieuchiquang",
+  "name": "Phá Hiểu Chi Quang",
+  "original_name": "破晓之光",
+  "item_type": "Vũ khí (Gậy phép)",
+  "base_rarity": 4,
+  "max_stars": "Có thể thăng 6 sao",
+  "max_star_count": 6,
+  "image": "../../../assets/equipment/phahieuchiquang.png",
+  "rarity_bg_image": "../../../assets/equipment/phahieuchiquang_bg.png",
+  "suit": "Không có bộ trang bị",
+  "description": "Một cây gậy phép có thân thon dài, được đúc từ chất liệu vàng nhạt và bạc trắng, phần đỉnh nâng đỡ một lõi pha lê rực sáng, hoa văn ánh sáng xung quanh tỏa ra như ánh bình minh xé tan mây mờ. Kiểu dáng của nó cao quý và trang nghiêm, tương truyền cây gậy này được đặt tên như vậy vì đã thu trọn luồng ánh sáng đầu tiên của trời đất bùng lên nơi tận cùng của đêm dài vào đầu gậy.",
+  "original_description": "一柄法杖，杖身修长，以浅金与银白材质铸成，顶端托起一枚明耀晶核，周围光纹舒展如晨曦破云。其形华贵而肃正，据说此杖因将长夜尽头骤然迸发的第一缕天光收束于杖顶而得名。",
+  "acquisition_sources": [
+    "Gia viên - Tiệm rèn",
+    "Ủy thác - Hộ Vệ Bỏng Cháy V",
+    "Ủy thác - Hộ Vệ Bỏng Cháy IV"
+  ],
+  "main_attributes_by_quality": [
+    {
+      "quality_level": 1,
+      "quality_name": "Tân thủ",
+      "original_quality_name": "新手",
+      "attributes": [
+        {
+          "attribute": "Tỉ lệ bạo kích",
+          "original_attribute": "暴击率",
+          "enhancement_0": "+3.8%",
+          "enhancement_15": "+15.3%",
+          "range": "+3.8% / +15.3%"
+        },
+        {
+          "attribute": "Sát thương thuộc tính Quang",
+          "original_attribute": "光属性伤害",
+          "enhancement_0": "+7.2%",
+          "enhancement_15": "+28.8%",
+          "range": "+7.2% / +28.8%"
+        }
+      ]
+    },
+    {
+      "quality_level": 2,
+      "quality_name": "Tiến giai",
+      "original_quality_name": "进阶",
+      "attributes": [
+        {
+          "attribute": "Tỉ lệ bạo kích",
+          "original_attribute": "暴击率",
+          "enhancement_0": "+4.0%",
+          "enhancement_15": "+16.3%",
+          "range": "+4.0% / +16.3%"
+        },
+        {
+          "attribute": "Sát thương thuộc tính Quang",
+          "original_attribute": "光属性伤害",
+          "enhancement_0": "+7.6%",
+          "enhancement_15": "+30.6%",
+          "range": "+7.6% / +30.6%"
+        }
+      ]
+    },
+    {
+      "quality_level": 3,
+      "quality_name": "Tinh lương",
+      "original_quality_name": "精良",
+      "attributes": [
+        {
+          "attribute": "Tỉ lệ bạo kích",
+          "original_attribute": "暴击率",
+          "enhancement_0": "+4.3%",
+          "enhancement_15": "+17.2%",
+          "range": "+4.3% / +17.2%"
+        },
+        {
+          "attribute": "Sát thương thuộc tính Quang",
+          "original_attribute": "光属性伤害",
+          "enhancement_0": "+8.1%",
+          "enhancement_15": "+32.4%",
+          "range": "+8.1% / +32.4%"
+        }
+      ]
+    },
+    {
+      "quality_level": 4,
+      "quality_name": "Sử thi",
+      "original_quality_name": "史诗",
+      "attributes": [
+        {
+          "attribute": "Tỉ lệ bạo kích",
+          "original_attribute": "暴击率",
+          "enhancement_0": "+4.5%",
+          "enhancement_15": "+18.2%",
+          "range": "+4.5% / +18.2%"
+        },
+        {
+          "attribute": "Sát thương thuộc tính Quang",
+          "original_attribute": "光属性伤害",
+          "enhancement_0": "+8.5%",
+          "enhancement_15": "+34.2%",
+          "range": "+8.5% / +34.2%"
+        }
+      ]
+    },
+    {
+      "quality_level": 5,
+      "quality_name": "Truyền kỳ",
+      "original_quality_name": "传奇",
+      "attributes": [
+        {
+          "attribute": "Tỉ lệ bạo kích",
+          "original_attribute": "暴击率",
+          "enhancement_0": "+4.8%",
+          "enhancement_15": "+19.2%",
+          "range": "+4.8% / +19.2%"
+        },
+        {
+          "attribute": "Sát thương thuộc tính Quang",
+          "original_attribute": "光属性伤害",
+          "enhancement_0": "+9.0%",
+          "enhancement_15": "+36.0%",
+          "range": "+9.0% / +36.0%"
+        }
+      ]
+    }
+  ],
+  "star_ascensions": [
+    {
+      "star_level": "Khởi đầu",
+      "original_star_level": "初始",
+      "affix_name": "Kình Quán",
+      "original_affix_name": "劲贯",
+      "affix_level": "Cấp 2",
+      "description": "Tăng 2.5% tỉ lệ bạo kích.",
+      "original_description": "暴击率提高2.5%",
+      "upgrade_cost": null
+    },
+    {
+      "star_level": "1 sao",
+      "original_star_level": "1星",
+      "affix_name": "Tinh Di - Kình Quán",
+      "original_affix_name": "星移·劲贯",
+      "affix_level": "Cấp 1",
+      "description": "Khi vào trận, bản thân tăng 3.5% tỉ lệ bạo kích, tăng 7% sát thương bạo kích, duy trì 15 giây.",
+      "original_description": "入场时，自身暴击率提高3.5%，暴击伤害提高7%，持续15秒。",
+      "upgrade_cost": [
+        {
+          "material_id": "phahieuchiquang",
+          "name": "Trang bị cùng tên",
+          "quantity": 1
+        },
+        {
+          "material_id": "uni",
+          "name": "Uni",
+          "quantity": 14000
+        }
+      ]
+    },
+    {
+      "star_level": "2 sao",
+      "original_star_level": "2星",
+      "affix_name": "Kình Quán",
+      "original_affix_name": "劲贯",
+      "affix_level": "Cấp 3",
+      "description": "Tăng 3.5% tỉ lệ bạo kích.",
+      "original_description": "暴击率提高3.5%",
+      "upgrade_cost": [
+        {
+          "material_id": "phahieuchiquang",
+          "name": "Trang bị cùng tên",
+          "quantity": 2
+        },
+        {
+          "material_id": "uni",
+          "name": "Uni",
+          "quantity": 15000
+        }
+      ]
+    },
+    {
+      "star_level": "3 sao",
+      "original_star_level": "3星",
+      "affix_name": "Tinh Di - Kình Quán",
+      "original_affix_name": "星移·劲贯",
+      "affix_level": "Cấp 2",
+      "description": "Khi vào trận, bản thân tăng 5% tỉ lệ bạo kích, tăng 10% sát thương bạo kích, duy trì 15 giây.",
+      "original_description": "入场时，自身暴击率提高5%，暴击伤害提高10%，持续15秒。",
+      "upgrade_cost": [
+        {
+          "material_id": "phahieuchiquang",
+          "name": "Trang bị cùng tên",
+          "quantity": 2
+        },
+        {
+          "material_id": "uni",
+          "name": "Uni",
+          "quantity": 16000
+        }
+      ]
+    },
+    {
+      "star_level": "4 sao",
+      "original_star_level": "4星",
+      "affix_name": "Nhuệ Thủ",
+      "original_affix_name": "锐守",
+      "affix_level": "Cấp 2",
+      "description": "Phòng ngự tăng 7 điểm, sát thương bạo kích gây ra tăng 7%.",
+      "original_description": "防御力增加7点，造成的暴击伤害提高7%",
+      "upgrade_cost": [
+        {
+          "material_id": "phahieuchiquang",
+          "name": "Trang bị cùng tên",
+          "quantity": 3
+        },
+        {
+          "material_id": "uni",
+          "name": "Uni",
+          "quantity": 17000
+        }
+      ]
+    },
+    {
+      "star_level": "5 sao",
+      "original_star_level": "5星",
+      "affix_name": "Kình Quán",
+      "original_affix_name": "劲贯",
+      "affix_level": "Cấp 4",
+      "description": "Tăng 5% tỉ lệ bạo kích.",
+      "original_description": "暴击率提高5%",
+      "upgrade_cost": [
+        {
+          "material_id": "phahieuchiquang",
+          "name": "Trang bị cùng tên",
+          "quantity": 3
+        },
+        {
+          "material_id": "uni",
+          "name": "Uni",
+          "quantity": 18000
+        }
+      ]
+    },
+    {
+      "star_level": "6 sao",
+      "original_star_level": "6星",
+      "affix_name": "Tinh Di - Kình Quán",
+      "original_affix_name": "星移·劲贯",
+      "affix_level": "Cấp 3",
+      "description": "Khi vào trận, bản thân tăng 7% tỉ lệ bạo kích, tăng 14% sát thương bạo kích, duy trì 15 giây.",
+      "original_description": "入场时，自身暴击率提高7%，暴击伤害提高14%，持续15秒。",
+      "upgrade_cost": [
+        {
+          "material_id": "phahieuchiquang",
+          "name": "Trang bị cùng tên",
+          "quantity": 4
+        },
+        {
+          "material_id": "uni",
+          "name": "Uni",
+          "quantity": 19000
+        }
+      ]
+    }
+  ],
+  "enhancement_materials": [
+    {
+      "stage": "+0 → +1",
+      "materials": [
+        {
+          "material_id": "linhtuyphothong",
+          "quantity": 2
+        },
+        {
+          "material_id": "vayuquang",
+          "quantity": 24
+        },
+        {
+          "material_id": "vihatnguyentoquang",
+          "quantity": 30
+        },
+        {
+          "material_id": "uni",
+          "quantity": 500
+        }
+      ]
+    },
+    {
+      "stage": "+1 → +2",
+      "materials": [
+        {
+          "material_id": "linhtuyphothong",
+          "quantity": 4
+        },
+        {
+          "material_id": "vayuquang",
+          "quantity": 24
+        },
+        {
+          "material_id": "vihatnguyentoquang",
+          "quantity": 30
+        },
+        {
+          "material_id": "uni",
+          "quantity": 1000
+        }
+      ]
+    },
+    {
+      "stage": "+2 → +3",
+      "materials": [
+        {
+          "material_id": "linhtuyphothong",
+          "quantity": 8
+        },
+        {
+          "material_id": "vayuquang",
+          "quantity": 24
+        },
+        {
+          "material_id": "vihatnguyentoquang",
+          "quantity": 30
+        },
+        {
+          "material_id": "uni",
+          "quantity": 1500
+        }
+      ]
+    },
+    {
+      "stage": "+3 → +4",
+      "materials": [
+        {
+          "material_id": "linhtuyngungtu",
+          "quantity": 6
+        },
+        {
+          "material_id": "banhxematvan",
+          "quantity": 24
+        },
+        {
+          "material_id": "vihatnguyentoquang",
+          "quantity": 70
+        },
+        {
+          "material_id": "uni",
+          "quantity": 2000
+        }
+      ]
+    },
+    {
+      "stage": "+4 → +5",
+      "materials": [
+        {
+          "material_id": "linhtuyngungtu",
+          "quantity": 8
+        },
+        {
+          "material_id": "banhxematvan",
+          "quantity": 24
+        },
+        {
+          "material_id": "vihatnguyentoquang",
+          "quantity": 70
+        },
+        {
+          "material_id": "uni",
+          "quantity": 3000
+        }
+      ]
+    },
+    {
+      "stage": "+5 → +6",
+      "materials": [
+        {
+          "material_id": "linhtuyngungtu",
+          "quantity": 10
+        },
+        {
+          "material_id": "banhxematvan",
+          "quantity": 24
+        },
+        {
+          "material_id": "vihatnguyentoquang",
+          "quantity": 70
+        },
+        {
+          "material_id": "uni",
+          "quantity": 4000
+        }
+      ]
+    },
+    {
+      "stage": "+6 → +7",
+      "materials": [
+        {
+          "material_id": "linhtuycuontrao",
+          "quantity": 2
+        },
+        {
+          "material_id": "dungdichtinhchat",
+          "quantity": 24
+        },
+        {
+          "material_id": "vihatnguyentoquang",
+          "quantity": 130
+        },
+        {
+          "material_id": "uni",
+          "quantity": 5000
+        }
+      ]
+    },
+    {
+      "stage": "+7 → +8",
+      "materials": [
+        {
+          "material_id": "linhtuycuontrao",
+          "quantity": 4
+        },
+        {
+          "material_id": "dungdichtinhchat",
+          "quantity": 24
+        },
+        {
+          "material_id": "vihatnguyentoquang",
+          "quantity": 130
+        },
+        {
+          "material_id": "uni",
+          "quantity": 6000
+        }
+      ]
+    },
+    {
+      "stage": "+8 → +9",
+      "materials": [
+        {
+          "material_id": "linhtuycuontrao",
+          "quantity": 8
+        },
+        {
+          "material_id": "dungdichtinhchat",
+          "quantity": 24
+        },
+        {
+          "material_id": "vihatnguyentoquang",
+          "quantity": 130
+        },
+        {
+          "material_id": "uni",
+          "quantity": 7000
+        }
+      ]
+    },
+    {
+      "stage": "+9 → +10",
+      "materials": [
+        {
+          "material_id": "linhtuyanhsang",
+          "quantity": 2
+        },
+        {
+          "material_id": "mangmonglanquang",
+          "quantity": 24
+        },
+        {
+          "material_id": "vihatnguyentoquang",
+          "quantity": 200
+        },
+        {
+          "material_id": "uni",
+          "quantity": 8000
+        }
+      ]
+    },
+    {
+      "stage": "+10 → +11",
+      "materials": [
+        {
+          "material_id": "linhtuyanhsang",
+          "quantity": 4
+        },
+        {
+          "material_id": "tinhhachngunghinh",
+          "quantity": 24
+        },
+        {
+          "material_id": "vihatnguyentoquang",
+          "quantity": 200
+        },
+        {
+          "material_id": "uni",
+          "quantity": 9000
+        }
+      ]
+    },
+    {
+      "stage": "+11 → +12",
+      "materials": [
+        {
+          "material_id": "linhtuyanhsang",
+          "quantity": 8
+        },
+        {
+          "material_id": "modongminmang",
+          "quantity": 24
+        },
+        {
+          "material_id": "vihatnguyentoquang",
+          "quantity": 200
+        },
+        {
+          "material_id": "uni",
+          "quantity": 10000
+        }
+      ]
+    },
+    {
+      "stage": "+12 → +13",
+      "materials": [
+        {
+          "material_id": "linhtuyhuyensac",
+          "quantity": 1
+        },
+        {
+          "material_id": "mangmonglanquang",
+          "quantity": 24
+        },
+        {
+          "material_id": "vihatnguyentoquang",
+          "quantity": 270
+        },
+        {
+          "material_id": "uni",
+          "quantity": 11000
+        }
+      ]
+    },
+    {
+      "stage": "+13 → +14",
+      "materials": [
+        {
+          "material_id": "linhtuyhuyensac",
+          "quantity": 2
+        },
+        {
+          "material_id": "tinhhachngunghinh",
+          "quantity": 24
+        },
+        {
+          "material_id": "vihatnguyentoquang",
+          "quantity": 370
+        },
+        {
+          "material_id": "uni",
+          "quantity": 12000
+        }
+      ]
+    },
+    {
+      "stage": "+14 → +15",
+      "materials": [
+        {
+          "material_id": "linhtuyhuyensac",
+          "quantity": 4
+        },
+        {
+          "material_id": "modongminmang",
+          "quantity": 24
+        },
+        {
+          "material_id": "vihatnguyentoquang",
+          "quantity": 500
+        },
+        {
+          "material_id": "uni",
+          "quantity": 13000
+        }
+      ]
+    }
+  ]
+}

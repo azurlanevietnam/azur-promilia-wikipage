@@ -1,0 +1,1780 @@
+/* ===================================================================
+   AZUR PROMILIA WIKI - LIGHT CELESTIAL THEME
+   Strict Custom Rules:
+   - Zero-clutter annotations (no sub-labels, no decorative tags, no index counters)
+   - Border-radius strictly for interactive buttons ONLY
+   - Images strictly border-radius: 0
+   - Seamless container background integration (no boxed cards)
+   - 100% WCAG AA contrast compliant & Impeccable certified
+   =================================================================== */
+
+:root {
+  /* Surface & Canvas (Light Starlight Sky) */
+  --bg-page: #f8fafc;
+  --bg-page-alt: #f1f5f9;
+  --bg-surface: #ffffff;
+  --bg-surface-subtle: #f8fafc;
+  
+  /* Dividing Borders */
+  --border-subtle: #e2e8f0;
+  --border-medium: #cbd5e1;
+  --border-focus: #0369a1;
+
+  /* Typography / Text Colors (WCAG AA Compliant) */
+  --text-main: #0f172a;       /* Slate-900 (> 15:1 contrast on white) */
+  --text-muted: #1e293b;      /* Slate-800 (> 12:1 contrast) */
+  --text-dim: #334155;        /* Slate-700 (> 9.6:1 contrast on white) */
+  --text-subtle: #475569;     /* Slate-600 (> 6:1 contrast on white) */
+
+  /* Celestial Brand Accents */
+  --accent-azure: #0369a1;    /* Sky-700 (5.7:1 contrast on white) */
+  --accent-azure-hover: #075985;
+  --accent-azure-bg: #e0f2fe; /* Sky-100 */
+  --accent-azure-border: #7dd3fc;
+
+  --accent-gold: #b45309;     /* Amber-700 (4.7:1 contrast on white) */
+  --accent-gold-bg: #fef3c7;  /* Amber-100 */
+  --accent-gold-border: #fcd34d;
+
+  --accent-emerald: #15803d;  /* Green-700 (5.1:1 contrast) */
+  --accent-emerald-bg: #dcfce7;
+
+  --accent-purple: #7e22ce;   /* Purple-700 (5.6:1 contrast) */
+  --accent-purple-bg: #f3e8ff;
+
+  --accent-rose: #be123c;     /* Rose-700 (5.5:1 contrast) */
+  --accent-rose-bg: #ffe4e6;
+
+  /* Rarity Colors */
+  --rarity-5-color: #b45309;
+  --rarity-4-color: #7e22ce;
+  --rarity-3-color: #0369a1;
+  --rarity-2-color: #15803d;
+  --rarity-1-color: #475569;
+
+  /* Button Radii ONLY (Everything else is 0) */
+  --btn-radius-sm: 4px;
+  --btn-radius-md: 6px;
+  --btn-radius-pill: 9999px;
+
+  /* Elevation (Subtle & purposeful for interactive items) */
+  --shadow-xs: 0 1px 2px rgba(15, 23, 42, 0.04);
+  --shadow-sm: 0 2px 4px rgba(15, 23, 42, 0.05);
+  --shadow-md: 0 4px 12px rgba(15, 23, 42, 0.07);
+
+  --font-sans: system-ui, -apple-system, 'SF Pro Text', 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+  --transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  border-radius: 0; /* Default: NO border-radius across the board */
+}
+
+html {
+  scroll-behavior: smooth;
+  scroll-padding-top: 80px;
+}
+
+body {
+  font-family: var(--font-sans);
+  background-color: var(--bg-page);
+  color: var(--text-main);
+  line-height: 1.6;
+  min-height: 100vh;
+  position: relative;
+  overflow-x: hidden;
+  background-image: 
+    radial-gradient(circle at 15% 10%, rgba(3, 105, 161, 0.025) 0%, transparent 45%),
+    radial-gradient(circle at 85% 20%, rgba(180, 83, 9, 0.02) 0%, transparent 40%),
+    linear-gradient(180deg, #f8fafc 0%, #f1f5f9 100%);
+  background-attachment: fixed;
+}
+
+/* Cosmic Ambient Particles */
+.cosmic-stars {
+  position: fixed;
+  inset: 0;
+  background-image: 
+    radial-gradient(1.5px 1.5px at 10% 25%, rgba(3, 105, 161, 0.1) 0%, transparent 100%),
+    radial-gradient(1.5px 1.5px at 30% 75%, rgba(180, 83, 9, 0.1) 0%, transparent 100%),
+    radial-gradient(1.5px 1.5px at 70% 15%, rgba(3, 105, 161, 0.08) 0%, transparent 100%),
+    radial-gradient(1.5px 1.5px at 90% 65%, rgba(180, 83, 9, 0.08) 0%, transparent 100%);
+  background-size: 600px 600px;
+  opacity: 0.7;
+  pointer-events: none;
+  z-index: 0;
+}
+
+.container {
+  max-width: 1320px;
+  margin: 0 auto;
+  padding: 0 24px;
+  position: relative;
+  z-index: 1;
+}
+
+/* Images strictly NO border-radius */
+img,
+.weapon-img-box,
+.weapon-bg-img,
+.weapon-icon-img,
+.screen-visual-frame,
+.screen-visual-bg,
+.screen-visual-icon,
+.material-icon-wrap,
+.material-icon-wrap img,
+.mat-weapon-card img {
+  border-radius: 0 !important;
+}
+
+/* ===================================================================
+   TOP NAVIGATION BAR
+   =================================================================== */
+.navbar {
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  background: rgba(255, 255, 255, 0.96);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border-bottom: 1px solid var(--border-subtle);
+}
+
+.nav-container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: 68px;
+}
+
+.brand-logo {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  text-decoration: none;
+}
+
+/* Brand icon is a square emblem (no border-radius) */
+.brand-icon {
+  width: 36px;
+  height: 36px;
+  border-radius: 0;
+  background: #0369a1;
+  color: #ffffff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 18px;
+  font-weight: 700;
+}
+
+/* Brand title: Clean, no cluttered subtitle */
+.brand-info h1 {
+  font-size: 1.25rem;
+  font-weight: 800;
+  letter-spacing: 0.5px;
+  color: #0f172a;
+  line-height: 1;
+}
+
+.nav-links {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+/* Buttons have border-radius */
+.nav-item {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 8px 18px;
+  border-radius: var(--btn-radius-pill);
+  background: transparent;
+  border: 1px solid transparent;
+  color: var(--text-muted);
+  font-size: 1.02rem;
+  font-weight: 700;
+  cursor: pointer;
+  text-decoration: none;
+  transition: var(--transition);
+}
+
+.nav-item:hover {
+  color: var(--text-main);
+  background: var(--bg-page-alt);
+}
+
+.nav-item.active {
+  background: #0369a1;
+  color: #ffffff;
+  border-color: #0369a1;
+}
+
+.nav-socials {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.social-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 7px 16px;
+  border-radius: var(--btn-radius-pill);
+  font-size: 0.82rem;
+  font-weight: 700;
+  text-decoration: none;
+  transition: var(--transition);
+  border: 1px solid var(--border-subtle);
+}
+
+.social-btn.fb-page {
+  background: #e0f2fe;
+  color: #0369a1;
+  border-color: #bae6fd;
+}
+
+.social-btn.fb-page:hover {
+  background: #0369a1;
+  color: #ffffff;
+  border-color: #0369a1;
+}
+
+.social-btn.fb-group {
+  background: var(--bg-page-alt);
+  color: #334155;
+}
+
+.social-btn.fb-group:hover {
+  background: #334155;
+  color: #ffffff;
+  border-color: #334155;
+}
+
+/* ===================================================================
+   HOMEPAGE HERO & PORTAL SECTIONS (SEAMLESS INTEGRATION)
+   =================================================================== */
+.hero-banner {
+  text-align: center;
+  padding: 56px 16px 32px;
+  max-width: 860px;
+  margin: 0 auto;
+}
+
+.hero-title {
+  font-size: 3.2rem;
+  font-weight: 900;
+  color: #0f172a;
+  letter-spacing: -0.5px;
+  line-height: 1.25;
+}
+
+/* Community Strip: Seamless border line integration, no bulky card */
+.community-strip {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 20px;
+  padding: 24px 0;
+  margin-bottom: 48px;
+  border-top: 1px solid var(--border-subtle);
+  border-bottom: 1px solid var(--border-subtle);
+  background: transparent;
+  border-radius: 0;
+}
+
+.community-text h3 {
+  font-size: 1.25rem;
+  font-weight: 700;
+  color: #0f172a;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.community-actions {
+  display: flex;
+  gap: 12px;
+}
+
+.hero-community-btn {
+  display: inline-flex;
+  align-items: center;
+  padding: 10px 22px;
+  border-radius: var(--btn-radius-pill);
+  font-size: 0.95rem;
+  font-weight: 700;
+  text-decoration: none;
+  transition: var(--transition);
+}
+
+.hero-community-btn.fb {
+  background: #1d4ed8;
+  color: #ffffff;
+}
+
+.hero-community-btn.fb:hover {
+  background: #1e40af;
+}
+
+.hero-community-btn.group {
+  background: #0369a1;
+  color: #ffffff;
+}
+
+.hero-community-btn.group:hover {
+  background: #075985;
+}
+
+/* Feature Portals: Seamless layout, NO rounded box, NO badges */
+.portal-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 48px;
+  margin-bottom: 60px;
+}
+
+.portal-card {
+  position: relative;
+  background: transparent;
+  border: none;
+  border-top: 1px solid var(--border-subtle);
+  border-bottom: 1px solid var(--border-subtle);
+  border-radius: 0;
+  padding: 32px 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  cursor: pointer;
+  text-decoration: none;
+  transition: var(--transition);
+}
+
+.portal-card:hover {
+  border-color: #0369a1;
+  background: transparent;
+}
+
+.portal-card h2 {
+  font-size: 2.1rem;
+  font-weight: 800;
+  color: #0f172a;
+  margin-bottom: 12px;
+}
+
+.portal-action {
+  font-size: 1.1rem;
+  font-weight: 700;
+  color: #0369a1;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  transition: transform 0.2s ease;
+}
+
+.portal-card:hover .portal-action {
+  color: #075985;
+  transform: translateX(4px);
+}
+
+/* ===================================================================
+   CATALOG PAGES (WEAPONS & MATERIALS)
+   =================================================================== */
+.section-title-wrap {
+  text-align: center;
+  padding: 40px 16px 24px;
+}
+
+.section-title {
+  font-size: 2.4rem;
+  font-weight: 900;
+  color: #0f172a;
+}
+
+/* Filter Panel: Seamless integration, NO bulky container box */
+.filter-panel {
+  background: transparent;
+  border: none;
+  border-radius: 0;
+  padding: 0 0 32px 0;
+  margin-bottom: 32px;
+  border-bottom: 1px solid var(--border-subtle);
+}
+
+.search-box {
+  position: relative;
+  margin-bottom: 20px;
+}
+
+/* Search input: Crisp straight edges (border-radius: 0) and NO placeholder clutter */
+.search-input {
+  width: 100%;
+  padding: 12px 18px 12px 44px;
+  background: #ffffff;
+  border: 1px solid var(--border-medium);
+  border-radius: 0;
+  color: var(--text-main);
+  font-size: 0.95rem;
+  outline: none;
+  transition: var(--transition);
+}
+
+.search-input:focus {
+  border-color: #0369a1;
+}
+
+.search-icon {
+  position: absolute;
+  left: 16px;
+  top: 50%;
+  transform: translateY(-50%);
+  color: var(--text-dim);
+  font-size: 1.1rem;
+}
+
+.filter-row {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+.filter-group {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.filter-label {
+  font-size: 0.85rem;
+  font-weight: 700;
+  color: var(--text-dim);
+  min-width: 82px;
+}
+
+/* Filter buttons have border-radius */
+.filter-pill {
+  padding: 6px 14px;
+  border-radius: var(--btn-radius-pill);
+  background: #ffffff;
+  border: 1px solid var(--border-subtle);
+  color: var(--text-muted);
+  font-size: 0.82rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: var(--transition);
+  text-decoration: none;
+}
+
+.filter-pill:hover {
+  background: var(--bg-page-alt);
+  color: var(--text-main);
+}
+
+.filter-pill.active {
+  background: #0369a1;
+  border-color: #0369a1;
+  color: #ffffff;
+}
+
+/* ===================================================================
+   BILIBILI-STYLE FILTER MATRIX & COLLAPSIBLE SET SKILLS
+   =================================================================== */
+.bwiki-filter-table {
+  width: 100%;
+  border-collapse: collapse;
+  background: transparent;
+  margin-bottom: 24px;
+  border-top: 1px solid var(--border-subtle);
+  border-bottom: 1px solid var(--border-subtle);
+}
+
+.bwiki-filter-table tr {
+  border-bottom: 1px solid var(--border-subtle);
+}
+
+.bwiki-filter-table tr:last-child {
+  border-bottom: none;
+}
+
+.bwiki-filter-table th {
+  width: 130px;
+  min-width: 110px;
+  padding: 12px 16px;
+  font-size: 0.85rem;
+  font-weight: 700;
+  color: var(--text-dim);
+  text-align: left;
+  vertical-align: middle;
+  background: transparent;
+}
+
+.bwiki-filter-table td {
+  padding: 10px 14px;
+  vertical-align: middle;
+}
+
+.bwiki-filter-options {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  align-items: center;
+}
+
+/* Collapsible Set Skills Component */
+.bwiki-collapse-wrap {
+  margin-bottom: 32px;
+  border: 1px solid var(--border-subtle);
+  background: transparent;
+}
+
+.bwiki-collapse-header {
+  padding: 12px 18px;
+  background: #f1f5f9;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  user-select: none;
+  font-weight: 700;
+  font-size: 0.9rem;
+  color: #0f172a;
+  transition: var(--transition);
+}
+
+.bwiki-collapse-header:hover {
+  background: #e2e8f0;
+}
+
+.bwiki-collapse-content {
+  display: none;
+  padding: 16px;
+  background: #ffffff;
+  overflow-x: auto;
+}
+
+.bwiki-collapse-content.open {
+  display: block;
+}
+
+.set-skills-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 0.88rem;
+}
+
+.set-skills-table th {
+  background: #f8fafc;
+  padding: 10px 14px;
+  text-align: left;
+  border-bottom: 1px solid var(--border-subtle);
+  color: #0f172a;
+  font-weight: 700;
+  width: 180px;
+}
+
+.set-skills-table td {
+  padding: 10px 14px;
+  border-bottom: 1px solid var(--border-subtle);
+  color: #334155;
+  line-height: 1.55;
+}
+
+.set-skills-table tr:last-child th,
+.set-skills-table tr:last-child td {
+  border-bottom: none;
+}
+
+/* ===================================================================
+   AUTHENTIC BILIBILI-STYLE FRAMED ITEM CARDS (BWIKI ASSETS)
+   =================================================================== */
+.bwiki-items-grid {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 18px;
+  margin-bottom: 60px;
+}
+
+.bwiki-item-card {
+  display: inline-flex;
+  flex-direction: column;
+  position: relative;
+  width: 140px;
+  height: 157px; /* 182 : 204 ratio */
+  border-radius: 0;
+  background-repeat: no-repeat;
+  background-position: center calc(100% / 204 * 154), center;
+  background-size: 100% auto, 100% 100%;
+  text-decoration: none;
+  overflow: visible; /* Cho phép thanh tên mở rộng chiều ngang mà không bị cắt */
+  cursor: pointer;
+  transition: transform 0.22s cubic-bezier(0.16, 1, 0.3, 1), filter 0.22s ease;
+  user-select: none;
+  z-index: 1;
+}
+
+.bwiki-item-card:hover {
+  z-index: 20;
+  transform: translateY(-4px) scale(1.03);
+  filter: drop-shadow(0 8px 18px rgba(15, 23, 42, 0.16));
+}
+
+.bwiki-item-card::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background-size: auto calc(100% / 204 * 26);
+  background-position: center calc(100% / 204 * 148);
+  background-repeat: no-repeat;
+  z-index: 2;
+  pointer-events: none;
+}
+
+/* Frame Rarities & Matching Composed Gray Bar Backgrounds */
+.r5-frame, .bwiki-item-card.r5 {
+  --card-bar-bg: #4c5050;
+  background-color: transparent;
+  background-image: url('assets/frames/r5_bg1.png'), url('assets/frames/r5_bg2.png');
+}
+.r5-frame::before, .bwiki-item-card.r5::before {
+  background-image: url('assets/frames/r5_stars.png');
+}
+
+.r4-frame, .bwiki-item-card.r4 {
+  --card-bar-bg: #4a4e56;
+  background-color: transparent;
+  background-image: url('assets/frames/r4_bg1.png'), url('assets/frames/r4_bg2.png');
+}
+.r4-frame::before, .bwiki-item-card.r4::before {
+  background-image: url('assets/frames/r4_stars.png');
+}
+
+.r3-frame, .bwiki-item-card.r3 {
+  --card-bar-bg: #464f56;
+  background-color: transparent;
+  background-image: url('assets/frames/r3_bg1.png'), url('assets/frames/r3_bg2.png');
+}
+.r3-frame::before, .bwiki-item-card.r3::before {
+  background-image: url('assets/frames/r3_stars.png');
+}
+
+.r2-frame, .bwiki-item-card.r2 {
+  --card-bar-bg: #465153;
+  background-color: transparent;
+  background-image: url('assets/frames/r2_bg1.png'), url('assets/frames/r2_bg2.png');
+}
+.r2-frame::before, .bwiki-item-card.r2::before {
+  background-image: url('assets/frames/r2_stars.png');
+}
+
+.r1-frame, .bwiki-item-card.r1 {
+  --card-bar-bg: #495056;
+  background-color: transparent;
+  background-image: url('assets/frames/r1_bg1.png'), url('assets/frames/r1_bg2.png');
+}
+.r1-frame::before, .bwiki-item-card.r1::before {
+  background-image: url('assets/frames/r1_stars.png');
+}
+
+/* Vùng chứa icon trang bị */
+.bwiki-item-visual {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: calc(100% / 204 * 50);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1;
+}
+
+/* Biểu tượng vật phẩm căn giữa */
+.bwiki-item-img {
+  position: absolute;
+  width: calc(100% / 182 * 132);
+  height: calc(100% / 182 * 132);
+  object-fit: contain;
+  top: 40%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 1;
+  border-radius: 0 !important;
+}
+
+/* Thanh chứa tên trang bị: NẰM CHÍNH XÁC TRONG VÙNG XÁM CỦA FRAME (y: 155-190 / 204) */
+.bwiki-item-name-box {
+  position: absolute;
+  top: calc(100% / 204 * 155);    /* ~75.98% */
+  height: calc(100% / 204 * 36);  /* ~17.65% */
+  left: 50%;
+  transform: translateX(-50%);    /* Luôn căn giữa đối xứng hoàn hảo trên trục thẻ */
+  width: calc(100% - calc(100% / 182 * 18)); /* ~90.1% vừa khít vùng xám */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  z-index: 5;
+  background-color: var(--card-bar-bg, #4c5050); /* Trùng khớp y hệt với vùng xám trong frame */
+  padding: 0 4px;
+  box-sizing: border-box;
+  text-decoration: none;
+  cursor: pointer;
+  pointer-events: auto;
+  border-radius: 0;
+  transition: width 0.22s cubic-bezier(0.16, 1, 0.3, 1),
+              padding 0.2s ease,
+              box-shadow 0.2s ease;
+}
+
+/* Văn bản tên trang bị */
+.bwiki-item-name-text {
+  color: #ffffff;
+  font-size: 0.74rem;
+  font-weight: 700;
+  letter-spacing: 0.2px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: inline-block;
+  max-width: 100%;
+  line-height: 1;
+  text-align: center;
+  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.6);
+  user-select: none;
+}
+
+/* KHI HOVER: MỞ RỘNG CHIỀU NGANG TỰ NHIÊN ĐỐI XỨNG TỪ TÂM (KHÔNG BỊ LỆCH SANG TRÁI/PHẢI) */
+.bwiki-item-card:hover .bwiki-item-name-box {
+  width: max-content;
+  min-width: calc(100% - calc(100% / 182 * 18));
+  max-width: 260px;
+  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.45);
+  z-index: 30;
+  padding: 0 10px;
+}
+
+.bwiki-item-card:hover .bwiki-item-name-text {
+  max-width: none;
+  text-overflow: clip;
+}
+
+/* ===================================================================
+   FINCANTIERI-STYLE SCREEN NAVIGATION & DETAIL PAGES
+   =================================================================== */
+.detail-page-wrapper {
+  padding-top: 24px;
+  padding-bottom: 80px;
+}
+
+/* ===================================================================
+   DETAIL PAGE CONTAINER (FULL-WIDTH FOR NEAR-EDGE LEFT RAIL)
+   =================================================================== */
+.detail-container {
+  max-width: 100%;
+  width: 100%;
+  padding: 24px 32px 80px 24px;
+  margin: 0;
+}
+
+.fremm-layout {
+  display: flex;
+  position: relative;
+  width: 100%;
+}
+
+/* Left Sidebar: Fixed permanently on screen, shortened height so it never touches footer */
+.fremm-sidebar {
+  width: 320px;
+  flex-shrink: 0;
+  position: fixed;
+  left: 32px;
+  top: 84px;
+  height: auto;
+  max-height: calc(100vh - 100px);
+  display: flex;
+  flex-direction: column;
+  z-index: 40;
+  background: transparent;
+  border: none;
+  box-shadow: none;
+  user-select: none;
+  pointer-events: auto;
+  transition: transform 0.2s ease-out;
+}
+
+/* 1. Stacked Breadcrumb (Fincantieri Hierarchical Uppercase Style - Refined Standard) */
+.fremm-breadcrumb-stack {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  margin-bottom: 12px; /* Balanced spacing to seamlessly lead into the gauge track */
+  font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  flex-shrink: 0;
+}
+
+.fremm-bc-item {
+  display: block;
+  text-decoration: none;
+  font-size: 1.02rem; /* Refined size: legible, bold, comfortably fits long names */
+  font-weight: 700;
+  letter-spacing: 1px;
+  transition: color 0.2s ease, transform 0.2s ease;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+/* Level 1: TRANG CHỦ - Muted gray */
+.fremm-bc-l1 {
+  color: #64748b;
+  padding-left: 0;
+}
+
+.fremm-bc-l1:hover {
+  color: #0284c7;
+  transform: translateX(2px);
+}
+
+/* Level 2: TRANG BỊ / NGUYÊN LIỆU - Muted gray */
+.fremm-bc-l2 {
+  color: #64748b;
+  padding-left: 14px;
+}
+
+.fremm-bc-l2:hover {
+  color: #0284c7;
+  transform: translateX(2px);
+}
+
+/* Level 3: Tên trang bị / nguyên liệu - Distinct Black */
+.fremm-bc-l3 {
+  color: #0f172a;
+  font-weight: 800;
+  padding-left: 28px;
+  cursor: default;
+}
+
+.fremm-bc-l3:hover {
+  color: #0f172a;
+  transform: none;
+}
+
+/* 2. Vertical Scale Gauge / Ruler: 15 ticks * 28px = 420px total height */
+.fremm-gauge-container {
+  position: relative;
+  width: 100%;
+  height: 420px;
+  margin-top: 0; /* No artificial gap above first tick */
+  flex-shrink: 0;
+}
+
+/* Background ruler dashes: short, thick, solid, precisely 28px vertical slot */
+.fremm-gauge-ruler {
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 14px;
+  height: 420px;
+  pointer-events: none;
+  z-index: 1;
+}
+
+.fremm-ruler-tick {
+  position: absolute;
+  left: 0;
+  width: 14px;
+  height: 28px; /* Standard 28px slot height */
+  max-height: 28px;
+  display: flex;
+  align-items: center; /* Dash is centered at exactly y = slot * 28 + 14px */
+  pointer-events: none;
+  background: transparent;
+  transition: opacity 0.2s ease;
+}
+
+.fremm-ruler-tick::before {
+  content: "";
+  display: block;
+  width: 14px;
+  height: 2.5px; /* Short dash is THICK */
+  background: #64748b;
+}
+
+/* The interactive gauge track containing the section tabs */
+.fremm-gauge-track {
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 420px;
+  z-index: 2;
+}
+
+.fremm-gauge-item {
+  position: absolute;
+  left: 0;
+  height: 28px; /* Standard 28px slot height */
+  max-height: 28px;
+  display: inline-flex;
+  align-items: center; /* Dash is centered at exactly y = slot * 28 + 14px */
+  gap: 14px;
+  text-decoration: none;
+  cursor: pointer;
+  font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  transition: top 0.4s cubic-bezier(0.16, 1, 0.3, 1),
+              color 0.2s ease;
+  white-space: nowrap;
+}
+
+/* The tab's dash: replacing the default '-' based on its current position */
+.fremm-item-dash {
+  display: inline-block;
+  width: 14px;
+  height: 2.5px; /* Short dash is THICK */
+  background: #64748b;
+  flex-shrink: 0;
+  transition: width 0.35s cubic-bezier(0.16, 1, 0.3, 1),
+              height 0.2s ease,
+              background-color 0.2s ease;
+}
+
+.fremm-item-label {
+  font-size: 0.92rem;
+  font-weight: 700;
+  color: #64748b;
+  line-height: 1;
+  transition: color 0.2s ease, font-size 0.2s ease, font-weight 0.2s ease;
+}
+
+/* Hover on past/future item */
+.fremm-gauge-item:hover .fremm-item-dash {
+  width: 22px;
+  background: #0284c7;
+}
+
+.fremm-gauge-item:hover .fremm-item-label {
+  color: #0284c7;
+}
+
+/* State: Active (at center slot) - Long dash is THIN */
+.fremm-gauge-item.is-active .fremm-item-dash {
+  width: 44px;
+  height: 1.5px; /* Long dash is THIN */
+  background: #0284c7;
+}
+
+.fremm-gauge-item.is-active .fremm-item-label {
+  color: #0f172a;
+  font-size: 1.02rem; /* Prominent active label */
+  font-weight: 800;
+  letter-spacing: 1.2px;
+}
+
+/* Right Content: Screens offset to right of fixed sidebar */
+.fremm-content {
+  margin-left: 360px;
+  flex: 1;
+  min-width: 0;
+  max-width: 1060px;
+  display: flex;
+  flex-direction: column;
+  gap: 72px;
+}
+
+/* Detail Screen: Seamless integration */
+.detail-screen {
+  background: transparent;
+  border: none;
+  border-radius: 0;
+  padding: 0;
+  box-shadow: none;
+  position: relative;
+  border-bottom: 1px solid var(--border-subtle);
+  padding-bottom: 56px;
+}
+
+.detail-screen:last-child {
+  border-bottom: none;
+}
+
+.screen-header {
+  margin-bottom: 24px;
+  padding-bottom: 12px;
+  border-bottom: 1px solid var(--border-subtle);
+}
+
+.screen-header h2 {
+  font-size: 1.5rem;
+  font-weight: 800;
+  color: #0f172a;
+}
+
+/* Screen 1: Hero Overview Layout */
+.screen-overview-layout {
+  display: grid;
+  grid-template-columns: 300px 1fr;
+  gap: 36px;
+  align-items: center;
+}
+
+.screen-visual-frame {
+  position: relative;
+  width: 260px;
+  height: 291px; /* 182 : 204 ratio */
+  border-radius: 0 !important;
+  overflow: hidden;
+  background-repeat: no-repeat;
+  background-position: center calc(100% / 204 * 154), center;
+  background-size: 100% auto, cover;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: none;
+  margin: 0 auto;
+}
+
+.screen-visual-frame::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background-size: auto calc(100% / 204 * 26);
+  background-position: center calc(100% / 204 * 148);
+  background-repeat: no-repeat;
+  z-index: 2;
+  pointer-events: none;
+}
+
+.screen-visual-icon {
+  position: absolute;
+  width: calc(100% / 182 * 136);
+  height: calc(100% / 182 * 136);
+  object-fit: contain;
+  top: 40%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 1;
+  border-radius: 0 !important;
+}
+
+.screen-overview-info h1 {
+  font-size: 2.1rem;
+  font-weight: 800;
+  color: #0f172a;
+  line-height: 1.2;
+  margin-bottom: 4px;
+}
+
+.screen-overview-original-name {
+  font-size: 0.95rem;
+  color: var(--text-dim);
+  font-weight: 600;
+  margin-bottom: 20px;
+}
+
+.screen-meta-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 12px;
+  margin-bottom: 24px;
+}
+
+.screen-meta-box {
+  background: transparent;
+  border: none;
+  border-left: 2px solid var(--border-medium);
+  border-radius: 0;
+  padding: 8px 14px;
+}
+
+.screen-meta-box .meta-k {
+  font-size: 0.75rem;
+  color: var(--text-dim);
+  font-weight: 700;
+  text-transform: uppercase;
+  margin-bottom: 2px;
+}
+
+.screen-meta-box .meta-v {
+  font-size: 0.95rem;
+  font-weight: 800;
+  color: #0f172a;
+}
+
+.screen-lore-card {
+  background: transparent;
+  border: none;
+  border-left: 3px solid #0369a1;
+  border-radius: 0;
+  padding: 12px 18px;
+  font-style: italic;
+  color: #334155;
+  font-size: 0.95rem;
+  line-height: 1.65;
+}
+
+.screen-lore-card .lore-cn {
+  font-style: normal;
+  font-size: 0.8rem;
+  color: var(--text-dim);
+  margin-top: 8px;
+}
+
+/* Screen 2: Quality Attributes Table */
+.quality-tabs-bar {
+  display: flex;
+  gap: 8px;
+  flex-wrap: wrap;
+  margin-bottom: 20px;
+}
+
+/* Quality buttons have border-radius */
+.q-tab-btn {
+  padding: 8px 16px;
+  border-radius: var(--btn-radius-pill);
+  background: #ffffff;
+  border: 1px solid var(--border-subtle);
+  color: var(--text-muted);
+  font-size: 0.85rem;
+  font-weight: 700;
+  cursor: pointer;
+  transition: var(--transition);
+}
+
+.q-tab-btn:hover {
+  background: var(--bg-page-alt);
+}
+
+.q-tab-btn.active {
+  background: #0369a1;
+  border-color: #0369a1;
+  color: #ffffff;
+}
+
+.attr-table {
+  width: 100%;
+  border-collapse: separate;
+  border-spacing: 0;
+  border-radius: 0;
+  border: 1px solid var(--border-subtle);
+  background: #ffffff;
+}
+
+.attr-table th {
+  background: #f1f5f9;
+  padding: 14px 18px;
+  text-align: left;
+  font-size: 0.82rem;
+  font-weight: 700;
+  color: #475569;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  border-bottom: 1px solid var(--border-subtle);
+}
+
+.attr-table td {
+  padding: 14px 18px;
+  font-size: 0.92rem;
+  border-bottom: 1px solid var(--border-subtle);
+  color: #334155;
+}
+
+.attr-table tr:last-child td {
+  border-bottom: none;
+}
+
+.attr-table tr:nth-child(even) td {
+  background: #f8fafc;
+}
+
+.growth-badge {
+  display: inline-block;
+  padding: 3px 8px;
+  border-radius: 0;
+  background: #dcfce7;
+  color: #15803d;
+  font-size: 0.78rem;
+  font-weight: 700;
+}
+
+/* Screen 3: Star Ascension Tree */
+.ascension-list {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.ascension-node {
+  background: transparent;
+  border: none;
+  border-bottom: 1px solid var(--border-subtle);
+  border-radius: 0;
+  padding: 20px 0;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.asc-node-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.asc-node-star {
+  font-size: 1rem;
+  font-weight: 800;
+  color: #b45309;
+}
+
+.asc-node-title {
+  font-size: 1rem;
+  font-weight: 800;
+  color: #0f172a;
+}
+
+.asc-desc {
+  font-size: 0.9rem;
+  color: #334155;
+  line-height: 1.6;
+}
+
+.asc-costs {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  align-items: center;
+  padding-top: 10px;
+  border-top: 1px dashed var(--border-subtle);
+}
+
+.cost-chip {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 4px 12px;
+  border-radius: 0;
+  background: transparent;
+  border: 1px solid var(--border-subtle);
+  font-size: 0.8rem;
+  font-weight: 600;
+  color: #334155;
+}
+
+.cost-chip img {
+  width: 20px;
+  height: 20px;
+  object-fit: contain;
+}
+
+/* Screen 4: Enhancement Materials & Interactive Slider */
+.enhance-container {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  background: transparent;
+  border: none;
+  border-radius: 0;
+}
+
+.enhance-controls-bar {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  flex-wrap: wrap;
+  padding: 6px 0 16px 0;
+  border-bottom: 1px solid var(--border-subtle);
+}
+
+.enhance-quick-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 8px 18px;
+  background: #ffffff;
+  border: 1px solid var(--border-subtle);
+  border-radius: var(--btn-radius-pill);
+  color: #334155;
+  font-size: 0.95rem;
+  font-weight: 700;
+  cursor: pointer;
+  transition: var(--transition);
+  font-family: inherit;
+  line-height: 1;
+  min-width: 52px;
+}
+
+.enhance-quick-btn:hover {
+  background: #e0f2fe;
+  border-color: #bae6fd;
+  color: #0369a1;
+}
+
+.enhance-quick-btn.active {
+  background: #0284c7;
+  border-color: #0284c7;
+  color: #ffffff;
+}
+
+.enhance-slider-wrap {
+  flex: 1;
+  min-width: 200px;
+  max-width: 460px;
+  display: flex;
+  align-items: center;
+}
+
+.enhance-slider {
+  width: 100%;
+  -webkit-appearance: none;
+  appearance: none;
+  height: 6px;
+  background: #e2e8f0;
+  outline: none;
+  border-radius: 3px;
+  cursor: pointer;
+  transition: background 0.2s ease;
+}
+
+.enhance-slider::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 18px;
+  height: 18px;
+  border-radius: 50%;
+  background: #0284c7;
+  cursor: pointer;
+  border: 2px solid #ffffff;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.25);
+  transition: transform 0.15s ease, background-color 0.15s ease;
+}
+
+.enhance-slider::-webkit-slider-thumb:hover {
+  transform: scale(1.15);
+  background: #0369a1;
+}
+
+.enhance-slider::-moz-range-thumb {
+  width: 18px;
+  height: 18px;
+  border-radius: 50%;
+  background: #0284c7;
+  cursor: pointer;
+  border: 2px solid #ffffff;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.25);
+}
+
+.enhance-level-indicator {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 0.92rem;
+  font-weight: 700;
+  color: #475569;
+  min-width: 80px;
+}
+
+.enhance-level-indicator .level-label {
+  color: #64748b;
+  font-weight: 600;
+}
+
+.enhance-level-indicator .level-val {
+  color: #0284c7;
+  font-size: 1.12rem;
+  font-weight: 800;
+}
+
+.enhance-stage-card {
+  background: transparent;
+  border: none;
+  border-radius: 0;
+  padding: 6px 0;
+}
+
+.enhance-stage-header {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 14px;
+}
+
+.enhance-stage-badge {
+  font-size: 0.95rem;
+  font-weight: 800;
+  padding: 6px 16px;
+  border-radius: 0;
+  background: #e0f2fe;
+  color: #0369a1;
+  display: inline-block;
+  letter-spacing: 0.3px;
+}
+
+.enhance-mats-grid {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 16px;
+  align-items: flex-start;
+  padding: 8px 0;
+}
+
+.enhance-mats-grid .bwiki-item-card {
+  width: 124px;
+  height: 139px;
+  margin: 0;
+}
+
+.enhance-mats-grid .bwiki-item-img {
+  width: calc(100% / 182 * 156);
+  height: calc(100% / 182 * 156);
+  top: 44%;
+}
+
+.enhance-mats-grid .bwiki-item-name-text {
+  font-size: 0.82rem;
+  font-weight: 700;
+  letter-spacing: 0.3px;
+}
+
+/* Material cards in catalog */
+.bwiki-items-grid .bwiki-item-card[data-category] .bwiki-item-img {
+  width: calc(100% / 182 * 152);
+  height: calc(100% / 182 * 152);
+  top: 44%;
+}
+
+.enhance-max-msg {
+  padding: 24px 0;
+  font-size: 0.95rem;
+  font-weight: 600;
+  color: #64748b;
+  font-style: italic;
+}
+
+/* Fallback grid if needed */
+.enhancement-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: 20px;
+}
+
+.enhancement-stage-card {
+  background: transparent;
+  border: none;
+  border-top: 1px solid var(--border-subtle);
+  border-radius: 0;
+  padding: 16px 0;
+}
+
+.stage-badge {
+  font-size: 0.78rem;
+  font-weight: 800;
+  padding: 3px 8px;
+  border-radius: 0;
+  background: #e0f2fe;
+  color: #0369a1;
+  display: inline-block;
+  margin-bottom: 10px;
+}
+
+.stage-mats-wrap {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+/* Material interactive chip button */
+.mat-item-pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 6px 14px;
+  border-radius: var(--btn-radius-pill);
+  background: #ffffff;
+  border: 1px solid var(--border-subtle);
+  font-size: 0.82rem;
+  font-weight: 600;
+  color: #0f172a;
+  text-decoration: none;
+  transition: var(--transition);
+}
+
+.mat-item-pill:hover {
+  background: #e0f2fe;
+  border-color: #bae6fd;
+  color: #0369a1;
+}
+
+.mat-item-pill img {
+  width: 22px;
+  height: 22px;
+  object-fit: contain;
+}
+
+/* Screen 5: Sources Box */
+.source-badges {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+.source-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 8px 16px;
+  border-radius: 0;
+  background: transparent;
+  border: 1px solid var(--border-subtle);
+  color: #0f172a;
+  font-size: 0.88rem;
+  font-weight: 600;
+}
+
+/* ===================================================================
+   MATERIALS CATALOG & MATERIAL DETAIL SCREEN LAYOUT
+   =================================================================== */
+.materials-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+  gap: 20px;
+  margin-bottom: 60px;
+}
+
+.material-card {
+  background: #ffffff;
+  border: 1px solid var(--border-subtle);
+  border-radius: 0;
+  padding: 22px 18px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  cursor: pointer;
+  text-decoration: none;
+  color: inherit;
+  transition: var(--transition);
+}
+
+.material-card:hover {
+  border-color: #0369a1;
+}
+
+.material-icon-wrap {
+  width: 90px;
+  height: 90px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 14px;
+  background: #ffffff;
+  border: 1px solid var(--border-subtle);
+  padding: 8px;
+}
+
+.material-icon-wrap img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+}
+
+.material-name-vi {
+  font-size: 1.05rem;
+  font-weight: 800;
+  color: #0f172a;
+  margin-bottom: 4px;
+}
+
+.material-name-cn {
+  font-size: 0.8rem;
+  color: var(--text-dim);
+}
+
+/* Material Detail Weapons Grid */
+.mat-used-weapons-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+  gap: 16px;
+}
+
+.mat-weapon-card {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  padding: 14px;
+  background: #ffffff;
+  border: 1px solid var(--border-subtle);
+  border-radius: 0;
+  text-decoration: none;
+  color: inherit;
+  transition: var(--transition);
+}
+
+.mat-weapon-card:hover {
+  border-color: #0369a1;
+}
+
+.mat-weapon-card img {
+  width: 48px;
+  height: 48px;
+  object-fit: contain;
+  background: #f1f5f9;
+  border: 1px solid var(--border-subtle);
+  padding: 2px;
+}
+
+.mat-weapon-info .name {
+  font-size: 0.95rem;
+  font-weight: 800;
+  color: #0f172a;
+}
+
+.mat-weapon-info .type {
+  font-size: 0.78rem;
+  color: var(--text-dim);
+}
+
+/* ===================================================================
+   FOOTER
+   =================================================================== */
+.footer {
+  background: #ffffff;
+  border-top: 1px solid var(--border-subtle);
+  padding: 40px 0;
+  margin-top: 80px;
+  text-align: center;
+  font-size: 0.88rem;
+  color: var(--text-dim);
+}
+
+.footer-links {
+  display: flex;
+  justify-content: center;
+  gap: 24px;
+  margin-bottom: 12px;
+}
+
+.footer-links a {
+  color: #0369a1;
+  text-decoration: none;
+  font-weight: 700;
+}
+
+.footer-links a:hover {
+  text-decoration: underline;
+}
+
+/* ===================================================================
+   RESPONSIVE QUERIES
+   =================================================================== */
+@media (max-width: 1024px) {
+  .detail-container {
+    padding: 16px 16px 60px;
+  }
+  .fremm-layout {
+    flex-direction: column;
+    gap: 28px;
+  }
+  .fremm-sidebar {
+    width: 100%;
+    position: sticky;
+    top: 64px;
+    height: auto;
+    min-height: auto;
+    z-index: 80;
+    padding: 10px 0;
+    background: rgba(248, 250, 252, 0.96);
+    backdrop-filter: blur(8px);
+    border-bottom: 1px solid var(--border-subtle);
+  }
+  .fremm-breadcrumb-stack {
+    flex-direction: row;
+    flex-wrap: wrap;
+    gap: 6px;
+    margin-bottom: 8px;
+    font-size: 0.75rem;
+  }
+  .fremm-bc-l2, .fremm-bc-l3 {
+    padding-left: 0;
+  }
+  .fremm-bc-l2::before, .fremm-bc-l3::before {
+    content: "/";
+    margin-right: 6px;
+    color: var(--text-dim);
+  }
+  .fremm-gauge-ruler {
+    display: none;
+  }
+  .fremm-gauge-container {
+    min-height: auto;
+    height: auto;
+  }
+  .fremm-gauge-track {
+    display: flex;
+    overflow-x: auto;
+    gap: 8px;
+    padding-bottom: 4px;
+  }
+  .fremm-gauge-item {
+    position: static;
+    transform: none !important;
+    padding: 6px 12px;
+    border-radius: var(--btn-radius-pill);
+    border: 1px solid var(--border-subtle);
+    background: #ffffff;
+  }
+  .fremm-gauge-item .fremm-item-dash {
+    display: none;
+  }
+  .fremm-gauge-item.is-active {
+    background: #e0f2fe;
+    border-color: #bae6fd;
+  }
+  .fremm-gauge-item.is-active .fremm-item-label {
+    color: #0369a1;
+  }
+  .fremm-content {
+    margin-left: 0;
+  }
+  .screen-overview-layout {
+    grid-template-columns: 1fr;
+    text-align: center;
+  }
+  .screen-visual-frame {
+    max-width: 260px;
+    margin: 0 auto;
+  }
+  .portal-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 640px) {
+  .hero-title {
+    font-size: 1.85rem;
+  }
+  .nav-socials {
+    display: none;
+  }
+  .enhance-mats-grid {
+    gap: 12px;
+  }
+  .enhance-mats-grid .bwiki-item-card {
+    width: 104px;
+    height: 117px;
+  }
+  .enhance-mats-grid .bwiki-item-name-text {
+    font-size: 0.74rem;
+  }
+}

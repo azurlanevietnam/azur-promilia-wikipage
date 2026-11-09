@@ -1,0 +1,585 @@
+{
+  "id": "comocchidu",
+  "name": "Cổ Mộc Chi Dụ",
+  "original_name": "古木之谕",
+  "item_type": "Vũ khí (Sách phép)",
+  "base_rarity": 4,
+  "max_stars": "Có thể thăng 6 sao",
+  "max_star_count": 6,
+  "image": "../../../assets/equipment/comocchidu.png",
+  "rarity_bg_image": "../../../assets/equipment/comocchidu_bg.png",
+  "suit": "Không có bộ trang bị",
+  "description": "Một cuốn sách cổ xưa, bìa màu nâu sẫm, đóng tập mộc mạc cổ kính, các trang sách cũng không giống bình thường mà xen lẫn rất nhiều lá cây cùng những mảnh đá khắc mang văn tự chưa rõ, tương truyền bên trong ẩn chứa những câu thần chú xa xưa có thể đánh thức sức mạnh của muôn loài cây cỏ.",
+  "original_description": "一本年代久远的书，封皮深褐，装帧古朴，书页也不似寻常，夹杂着许多记有未知文字的树叶与小片石刻，据说其间藏有可唤醒万木之力的旧时咒语。",
+  "acquisition_sources": [
+    "Gia viên - Tiệm rèn",
+    "Ủy thác - Hộ Vệ Sấm Xanh V",
+    "Ủy thác - Bảo Hộ Thường Xanh V",
+    "Ủy thác - Che Chở Nhật Nguyệt V",
+    "Ủy thác - Hộ Vệ Sấm Xanh IV",
+    "Ủy thác - Bảo Hộ Thường Xanh IV",
+    "Ủy thác - Che Chở Nhật Nguyệt IV"
+  ],
+  "main_attributes_by_quality": [
+    {
+      "quality_level": 1,
+      "quality_name": "Tân thủ",
+      "original_quality_name": "新手",
+      "attributes": [
+        {
+          "attribute": "Sinh lực%",
+          "original_attribute": "生命%",
+          "enhancement_0": "+8.3%",
+          "enhancement_15": "+33.6%",
+          "range": "+8.3% / +33.6%"
+        },
+        {
+          "attribute": "Sát thương thuộc tính Mộc",
+          "original_attribute": "木属性伤害",
+          "enhancement_0": "+7.2%",
+          "enhancement_15": "+28.8%",
+          "range": "+7.2% / +28.8%"
+        }
+      ]
+    },
+    {
+      "quality_level": 2,
+      "quality_name": "Tiến giai",
+      "original_quality_name": "进阶",
+      "attributes": [
+        {
+          "attribute": "Sinh lực%",
+          "original_attribute": "生命%",
+          "enhancement_0": "+8.8%",
+          "enhancement_15": "+35.7%",
+          "range": "+8.8% / +35.7%"
+        },
+        {
+          "attribute": "Sát thương thuộc tính Mộc",
+          "original_attribute": "木属性伤害",
+          "enhancement_0": "+7.6%",
+          "enhancement_15": "+30.6%",
+          "range": "+7.6% / +30.6%"
+        }
+      ]
+    },
+    {
+      "quality_level": 3,
+      "quality_name": "Tinh lương",
+      "original_quality_name": "精良",
+      "attributes": [
+        {
+          "attribute": "Sinh lực%",
+          "original_attribute": "生命%",
+          "enhancement_0": "+9.3%",
+          "enhancement_15": "+37.8%",
+          "range": "+9.3% / +37.8%"
+        },
+        {
+          "attribute": "Sát thương thuộc tính Mộc",
+          "original_attribute": "木属性伤害",
+          "enhancement_0": "+8.1%",
+          "enhancement_15": "+32.4%",
+          "range": "+8.1% / +32.4%"
+        }
+      ]
+    },
+    {
+      "quality_level": 4,
+      "quality_name": "Sử thi",
+      "original_quality_name": "史诗",
+      "attributes": [
+        {
+          "attribute": "Sinh lực%",
+          "original_attribute": "生命%",
+          "enhancement_0": "+9.9%",
+          "enhancement_15": "+39.9%",
+          "range": "+9.9% / +39.9%"
+        },
+        {
+          "attribute": "Sát thương thuộc tính Mộc",
+          "original_attribute": "木属性伤害",
+          "enhancement_0": "+8.5%",
+          "enhancement_15": "+34.2%",
+          "range": "+8.5% / +34.2%"
+        }
+      ]
+    },
+    {
+      "quality_level": 5,
+      "quality_name": "Truyền kỳ",
+      "original_quality_name": "传奇",
+      "attributes": [
+        {
+          "attribute": "Sinh lực%",
+          "original_attribute": "生命%",
+          "enhancement_0": "+10.4%",
+          "enhancement_15": "+42.0%",
+          "range": "+10.4% / +42.0%"
+        },
+        {
+          "attribute": "Sát thương thuộc tính Mộc",
+          "original_attribute": "木属性伤害",
+          "enhancement_0": "+9.0%",
+          "enhancement_15": "+36.0%",
+          "range": "+9.0% / +36.0%"
+        }
+      ]
+    }
+  ],
+  "star_ascensions": [
+    {
+      "star_level": "Khởi đầu",
+      "original_star_level": "初始",
+      "affix_name": "Phong Thể",
+      "original_affix_name": "丰体",
+      "affix_level": "Cấp 2",
+      "description": "Tăng 4.5% máu.",
+      "original_description": "生命值提高4.5%",
+      "upgrade_cost": null
+    },
+    {
+      "star_level": "1 sao",
+      "original_star_level": "1星",
+      "affix_name": "Phong Thể",
+      "original_affix_name": "丰体",
+      "affix_level": "Cấp 3",
+      "description": "Tăng 6% máu.",
+      "original_description": "生命值提高6%",
+      "upgrade_cost": [
+        {
+          "material_id": "comocchidu",
+          "name": "Trang bị cùng tên",
+          "quantity": 1
+        },
+        {
+          "material_id": "uni",
+          "name": "Uni",
+          "quantity": 14000
+        }
+      ]
+    },
+    {
+      "star_level": "2 sao",
+      "original_star_level": "2星",
+      "affix_name": "Sinh Tức",
+      "original_affix_name": "生息",
+      "affix_level": "Cấp 1",
+      "description": "Máu tăng 300 điểm.",
+      "original_description": "生命值增加300点",
+      "upgrade_cost": [
+        {
+          "material_id": "comocchidu",
+          "name": "Trang bị cùng tên",
+          "quantity": 2
+        },
+        {
+          "material_id": "uni",
+          "name": "Uni",
+          "quantity": 15000
+        }
+      ]
+    },
+    {
+      "star_level": "3 sao",
+      "original_star_level": "3星",
+      "affix_name": "Phong Thể",
+      "original_affix_name": "丰体",
+      "affix_level": "Cấp 4",
+      "description": "Tăng 8.5% máu.",
+      "original_description": "生命值提高8.5%",
+      "upgrade_cost": [
+        {
+          "material_id": "comocchidu",
+          "name": "Trang bị cùng tên",
+          "quantity": 2
+        },
+        {
+          "material_id": "uni",
+          "name": "Uni",
+          "quantity": 16000
+        }
+      ]
+    },
+    {
+      "star_level": "4 sao",
+      "original_star_level": "4星",
+      "affix_name": "Tật Chuyển",
+      "original_affix_name": "疾转",
+      "affix_level": "Cấp 1",
+      "description": "Thời gian hồi chiêu Tinh Minh Kỹ giảm 2%.",
+      "original_description": "星鸣技冷却减少2%",
+      "upgrade_cost": [
+        {
+          "material_id": "comocchidu",
+          "name": "Trang bị cùng tên",
+          "quantity": 3
+        },
+        {
+          "material_id": "uni",
+          "name": "Uni",
+          "quantity": 17000
+        }
+      ]
+    },
+    {
+      "star_level": "5 sao",
+      "original_star_level": "5星",
+      "affix_name": "Sinh Tức",
+      "original_affix_name": "生息",
+      "affix_level": "Cấp 3",
+      "description": "Máu tăng 550 điểm.",
+      "original_description": "生命值增加550点",
+      "upgrade_cost": [
+        {
+          "material_id": "comocchidu",
+          "name": "Trang bị cùng tên",
+          "quantity": 3
+        },
+        {
+          "material_id": "uni",
+          "name": "Uni",
+          "quantity": 18000
+        }
+      ]
+    },
+    {
+      "star_level": "6 sao",
+      "original_star_level": "6星",
+      "affix_name": "Tật Chuyển",
+      "original_affix_name": "疾转",
+      "affix_level": "Cấp 3",
+      "description": "Thời gian hồi chiêu Tinh Minh Kỹ giảm 4%.",
+      "original_description": "星鸣技冷却减少4%",
+      "upgrade_cost": [
+        {
+          "material_id": "comocchidu",
+          "name": "Trang bị cùng tên",
+          "quantity": 4
+        },
+        {
+          "material_id": "uni",
+          "name": "Uni",
+          "quantity": 19000
+        }
+      ]
+    }
+  ],
+  "enhancement_materials": [
+    {
+      "stage": "+0 → +1",
+      "materials": [
+        {
+          "material_id": "linhtuyphothong",
+          "quantity": 2
+        },
+        {
+          "material_id": "ngungchatnguyento",
+          "quantity": 24
+        },
+        {
+          "material_id": "vihatnguyentomoc",
+          "quantity": 100
+        },
+        {
+          "material_id": "uni",
+          "quantity": 500
+        }
+      ]
+    },
+    {
+      "stage": "+1 → +2",
+      "materials": [
+        {
+          "material_id": "linhtuyphothong",
+          "quantity": 4
+        },
+        {
+          "material_id": "ngungchatnguyento",
+          "quantity": 24
+        },
+        {
+          "material_id": "vihatnguyentomoc",
+          "quantity": 100
+        },
+        {
+          "material_id": "uni",
+          "quantity": 1000
+        }
+      ]
+    },
+    {
+      "stage": "+2 → +3",
+      "materials": [
+        {
+          "material_id": "linhtuyphothong",
+          "quantity": 8
+        },
+        {
+          "material_id": "ngungchatnguyento",
+          "quantity": 24
+        },
+        {
+          "material_id": "vihatnguyentomoc",
+          "quantity": 100
+        },
+        {
+          "material_id": "uni",
+          "quantity": 1500
+        }
+      ]
+    },
+    {
+      "stage": "+3 → +4",
+      "materials": [
+        {
+          "material_id": "linhtuyngungtu",
+          "quantity": 6
+        },
+        {
+          "material_id": "thotrenhoidat",
+          "quantity": 24
+        },
+        {
+          "material_id": "vihatnguyentomoc",
+          "quantity": 200
+        },
+        {
+          "material_id": "uni",
+          "quantity": 2000
+        }
+      ]
+    },
+    {
+      "stage": "+4 → +5",
+      "materials": [
+        {
+          "material_id": "linhtuyngungtu",
+          "quantity": 8
+        },
+        {
+          "material_id": "thotrenhoidat",
+          "quantity": 24
+        },
+        {
+          "material_id": "vihatnguyentomoc",
+          "quantity": 200
+        },
+        {
+          "material_id": "uni",
+          "quantity": 3000
+        }
+      ]
+    },
+    {
+      "stage": "+5 → +6",
+      "materials": [
+        {
+          "material_id": "linhtuyngungtu",
+          "quantity": 10
+        },
+        {
+          "material_id": "thotrenhoidat",
+          "quantity": 24
+        },
+        {
+          "material_id": "vihatnguyentomoc",
+          "quantity": 200
+        },
+        {
+          "material_id": "uni",
+          "quantity": 4000
+        }
+      ]
+    },
+    {
+      "stage": "+6 → +7",
+      "materials": [
+        {
+          "material_id": "linhtuycuontrao",
+          "quantity": 2
+        },
+        {
+          "material_id": "longvubansac",
+          "quantity": 24
+        },
+        {
+          "material_id": "vihatnguyentomoc",
+          "quantity": 400
+        },
+        {
+          "material_id": "uni",
+          "quantity": 5000
+        }
+      ]
+    },
+    {
+      "stage": "+7 → +8",
+      "materials": [
+        {
+          "material_id": "linhtuycuontrao",
+          "quantity": 4
+        },
+        {
+          "material_id": "longvubansac",
+          "quantity": 24
+        },
+        {
+          "material_id": "vihatnguyentomoc",
+          "quantity": 400
+        },
+        {
+          "material_id": "uni",
+          "quantity": 6000
+        }
+      ]
+    },
+    {
+      "stage": "+8 → +9",
+      "materials": [
+        {
+          "material_id": "linhtuycuontrao",
+          "quantity": 8
+        },
+        {
+          "material_id": "longvubansac",
+          "quantity": 24
+        },
+        {
+          "material_id": "vihatnguyentomoc",
+          "quantity": 400
+        },
+        {
+          "material_id": "uni",
+          "quantity": 7000
+        }
+      ]
+    },
+    {
+      "stage": "+9 → +10",
+      "materials": [
+        {
+          "material_id": "linhtuyanhsang",
+          "quantity": 2
+        },
+        {
+          "material_id": "catbanthan",
+          "quantity": 24
+        },
+        {
+          "material_id": "vihatnguyentomoc",
+          "quantity": 600
+        },
+        {
+          "material_id": "uni",
+          "quantity": 8000
+        }
+      ]
+    },
+    {
+      "stage": "+10 → +11",
+      "materials": [
+        {
+          "material_id": "linhtuyanhsang",
+          "quantity": 4
+        },
+        {
+          "material_id": "laphongmach",
+          "quantity": 24
+        },
+        {
+          "material_id": "vihatnguyentomoc",
+          "quantity": 600
+        },
+        {
+          "material_id": "uni",
+          "quantity": 9000
+        }
+      ]
+    },
+    {
+      "stage": "+11 → +12",
+      "materials": [
+        {
+          "material_id": "linhtuyanhsang",
+          "quantity": 8
+        },
+        {
+          "material_id": "moysacnhon",
+          "quantity": 24
+        },
+        {
+          "material_id": "vihatnguyentomoc",
+          "quantity": 600
+        },
+        {
+          "material_id": "uni",
+          "quantity": 10000
+        }
+      ]
+    },
+    {
+      "stage": "+12 → +13",
+      "materials": [
+        {
+          "material_id": "linhtuyhuyensac",
+          "quantity": 1
+        },
+        {
+          "material_id": "catbanthan",
+          "quantity": 24
+        },
+        {
+          "material_id": "vihatnguyentomoc",
+          "quantity": 800
+        },
+        {
+          "material_id": "uni",
+          "quantity": 11000
+        }
+      ]
+    },
+    {
+      "stage": "+13 → +14",
+      "materials": [
+        {
+          "material_id": "linhtuyhuyensac",
+          "quantity": 2
+        },
+        {
+          "material_id": "laphongmach",
+          "quantity": 24
+        },
+        {
+          "material_id": "vihatnguyentomoc",
+          "quantity": 1100
+        },
+        {
+          "material_id": "uni",
+          "quantity": 12000
+        }
+      ]
+    },
+    {
+      "stage": "+14 → +15",
+      "materials": [
+        {
+          "material_id": "linhtuyhuyensac",
+          "quantity": 4
+        },
+        {
+          "material_id": "moysacnhon",
+          "quantity": 24
+        },
+        {
+          "material_id": "vihatnguyentomoc",
+          "quantity": 1500
+        },
+        {
+          "material_id": "uni",
+          "quantity": 13000
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,429 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Kho Nguyên Liệu - Azur Promilia Wiki</title>
+  <link rel="stylesheet" href="style.css">
+  <script src="templates/layout.js" defer></script>
+</head>
+<body data-active-tab="mat" data-depth="0">
+  
+  <div class="cosmic-stars"></div>
+
+  <!-- Top Navigation Bar: Injected from master template templates/layout.js -->
+  <header id="site-navbar" class="navbar"></header>
+
+  <main class="container">
+    <div class="page-header">
+      <h1 class="page-title">Kho Nguyên Liệu</h1>
+    </div>
+
+    <!-- Search Input: Zero Placeholder -->
+    <div class="search-box">
+      <span class="search-icon">🔍</span>
+      <input type="text" id="material-search" class="search-input" aria-label="Tìm kiếm nguyên liệu">
+    </div>
+
+    <!-- Filter Matrix Table (BWIKI Standard) -->
+    <table class="bwiki-filter-table">
+      <tbody>
+        <tr>
+          <th>Tất cả</th>
+          <td>
+            <button class="filter-pill active" id="btn-reset-filters">Xem tất cả</button>
+          </td>
+        </tr>
+        <tr>
+          <th>Phân nhóm</th>
+          <td>
+            <div class="bwiki-filter-options" id="category-filters">
+              <button class="filter-pill active" data-category="all">Tất cả</button>
+              <button class="filter-pill" data-category="essence">Linh Túy</button>
+              <button class="filter-pill" data-category="particle">Vi Hạt Nguyên Tố</button>
+              <button class="filter-pill" data-category="monster">Sản Vật & Quái Vật</button>
+              <button class="filter-pill" data-category="currency">Tiền Tệ</button>
+            </div>
+          </td>
+        </tr>
+        <tr>
+          <th>Độ hiếm</th>
+          <td>
+            <div class="bwiki-filter-options" id="rarity-filters">
+              <button class="filter-pill active" data-rarity="all">Tất cả</button>
+              <button class="filter-pill" data-rarity="5">5★</button>
+              <button class="filter-pill" data-rarity="4">4★</button>
+              <button class="filter-pill" data-rarity="3">3★</button>
+              <button class="filter-pill" data-rarity="2">2★</button>
+              <button class="filter-pill" data-rarity="1">1★</button>
+            </div>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+
+    <!-- BWIKI Framed Items Grid -->
+    <div id="materials-grid" class="bwiki-items-grid">
+      
+      <a href="materials/linhtuyphothong.html" class="bwiki-item-card r1" data-category="essence" data-rarity="1" data-name="linh túy phổ thông 普通的灵粹 linh túy">
+        <div class="bwiki-item-visual">
+          <img src="assets/materials/linhtuyphothong.png" class="bwiki-item-img" alt="Linh Túy Phổ Thông" loading="lazy">
+        </div>
+        <div class="bwiki-item-name-box">
+          <span class="bwiki-item-name-text">Linh Túy Phổ Thông</span>
+        </div>
+      </a>
+      <a href="materials/linhtuyngungtu.html" class="bwiki-item-card r2" data-category="essence" data-rarity="2" data-name="linh túy ngưng tụ 凝聚的灵粹 linh túy">
+        <div class="bwiki-item-visual">
+          <img src="assets/materials/linhtuyngungtu.png" class="bwiki-item-img" alt="Linh Túy Ngưng Tụ" loading="lazy">
+        </div>
+        <div class="bwiki-item-name-box">
+          <span class="bwiki-item-name-text">Linh Túy Ngưng Tụ</span>
+        </div>
+      </a>
+      <a href="materials/linhtuycuontrao.html" class="bwiki-item-card r3" data-category="essence" data-rarity="3" data-name="linh túy cuộn trào 涌动的灵粹 linh túy">
+        <div class="bwiki-item-visual">
+          <img src="assets/materials/linhtuycuontrao.png" class="bwiki-item-img" alt="Linh Túy Cuộn Trào" loading="lazy">
+        </div>
+        <div class="bwiki-item-name-box">
+          <span class="bwiki-item-name-text">Linh Túy Cuộn Trào</span>
+        </div>
+      </a>
+      <a href="materials/linhtuyanhsang.html" class="bwiki-item-card r4" data-category="essence" data-rarity="4" data-name="linh túy ánh sáng 萦光的灵粹 linh túy">
+        <div class="bwiki-item-visual">
+          <img src="assets/materials/linhtuyanhsang.png" class="bwiki-item-img" alt="Linh Túy Ánh Sáng" loading="lazy">
+        </div>
+        <div class="bwiki-item-name-box">
+          <span class="bwiki-item-name-text">Linh Túy Ánh Sáng</span>
+        </div>
+      </a>
+      <a href="materials/linhtuyhuyensac.html" class="bwiki-item-card r5" data-category="essence" data-rarity="5" data-name="linh túy huyễn sắc 幻彩的灵粹 linh túy">
+        <div class="bwiki-item-visual">
+          <img src="assets/materials/linhtuyhuyensac.png" class="bwiki-item-img" alt="Linh Túy Huyễn Sắc" loading="lazy">
+        </div>
+        <div class="bwiki-item-name-box">
+          <span class="bwiki-item-name-text">Linh Túy Huyễn Sắc</span>
+        </div>
+      </a>
+      <a href="materials/vayuquang.html" class="bwiki-item-card r4" data-category="monster" data-rarity="4" data-name="vảy u quang 幽光鳞片 sản vật & quái vật">
+        <div class="bwiki-item-visual">
+          <img src="assets/materials/vayuquang.png" class="bwiki-item-img" alt="Vảy U Quang" loading="lazy">
+        </div>
+        <div class="bwiki-item-name-box">
+          <span class="bwiki-item-name-text">Vảy U Quang</span>
+        </div>
+      </a>
+      <a href="materials/banhxematvan.html" class="bwiki-item-card r4" data-category="monster" data-rarity="4" data-name="bánh xe mật văn 密文轮盘 sản vật & quái vật">
+        <div class="bwiki-item-visual">
+          <img src="assets/materials/banhxematvan.png" class="bwiki-item-img" alt="Bánh Xe Mật Văn" loading="lazy">
+        </div>
+        <div class="bwiki-item-name-box">
+          <span class="bwiki-item-name-text">Bánh Xe Mật Văn</span>
+        </div>
+      </a>
+      <a href="materials/dungdichtinhchat.html" class="bwiki-item-card r4" data-category="monster" data-rarity="4" data-name="dung dịch tinh chất 星质原液 sản vật & quái vật">
+        <div class="bwiki-item-visual">
+          <img src="assets/materials/dungdichtinhchat.png" class="bwiki-item-img" alt="Dung Dịch Tinh Chất" loading="lazy">
+        </div>
+        <div class="bwiki-item-name-box">
+          <span class="bwiki-item-name-text">Dung Dịch Tinh Chất</span>
+        </div>
+      </a>
+      <a href="materials/mangmonglanquang.html" class="bwiki-item-card r2" data-category="monster" data-rarity="2" data-name="màng mỏng lân quang 鳞光薄膜 sản vật & quái vật">
+        <div class="bwiki-item-visual">
+          <img src="assets/materials/mangmonglanquang.png" class="bwiki-item-img" alt="Màng Mỏng Lân Quang" loading="lazy">
+        </div>
+        <div class="bwiki-item-name-box">
+          <span class="bwiki-item-name-text">Màng Mỏng Lân Quang</span>
+        </div>
+      </a>
+      <a href="materials/tinhhachngunghinh.html" class="bwiki-item-card r3" data-category="monster" data-rarity="3" data-name="tinh hạch ngưng hình 凝形晶核 sản vật & quái vật">
+        <div class="bwiki-item-visual">
+          <img src="assets/materials/tinhhachngunghinh.png" class="bwiki-item-img" alt="Tinh Hạch Ngưng Hình" loading="lazy">
+        </div>
+        <div class="bwiki-item-name-box">
+          <span class="bwiki-item-name-text">Tinh Hạch Ngưng Hình</span>
+        </div>
+      </a>
+      <a href="materials/modongminmang.html" class="bwiki-item-card r2" data-category="monster" data-rarity="2" data-name="mỡ đông mịn màng 顺滑凝脂 sản vật & quái vật">
+        <div class="bwiki-item-visual">
+          <img src="assets/materials/modongminmang.png" class="bwiki-item-img" alt="Mỡ Đông Mịn Màng" loading="lazy">
+        </div>
+        <div class="bwiki-item-name-box">
+          <span class="bwiki-item-name-text">Mỡ Đông Mịn Màng</span>
+        </div>
+      </a>
+      <a href="materials/vihatnguyentoquang.html" class="bwiki-item-card r2" data-category="particle" data-rarity="2" data-name="vi hạt nguyên tố quang 光元素微粒 vi hạt nguyên tố">
+        <div class="bwiki-item-visual">
+          <img src="assets/materials/vihatnguyentoquang.png" class="bwiki-item-img" alt="Vi Hạt Nguyên Tố Quang" loading="lazy">
+        </div>
+        <div class="bwiki-item-name-box">
+          <span class="bwiki-item-name-text">Vi Hạt Nguyên Tố Quang</span>
+        </div>
+      </a>
+      <a href="materials/uni.html" class="bwiki-item-card r3" data-category="currency" data-rarity="3" data-name="uni 尤尼 tiền tệ">
+        <div class="bwiki-item-visual">
+          <img src="assets/materials/uni.png" class="bwiki-item-img" alt="Uni" loading="lazy">
+        </div>
+        <div class="bwiki-item-name-box">
+          <span class="bwiki-item-name-text">Uni</span>
+        </div>
+      </a>
+      <a href="materials/vomemdichchuyen.html" class="bwiki-item-card r2" data-category="monster" data-rarity="2" data-name="vỏ mềm biến hình 移形软壳 sản vật & quái vật">
+        <div class="bwiki-item-visual">
+          <img src="assets/materials/vomemdichchuyen.png" class="bwiki-item-img" alt="Vỏ Mềm Biến Hình" loading="lazy">
+        </div>
+        <div class="bwiki-item-name-box">
+          <span class="bwiki-item-name-text">Vỏ Mềm Biến Hình</span>
+        </div>
+      </a>
+      <a href="materials/vihatnguyentoam.html" class="bwiki-item-card r2" data-category="particle" data-rarity="2" data-name="vi hạt nguyên tố ám 暗元素微粒 vi hạt nguyên tố">
+        <div class="bwiki-item-visual">
+          <img src="assets/materials/vihatnguyentoam.png" class="bwiki-item-img" alt="Vi Hạt Nguyên Tố Ám" loading="lazy">
+        </div>
+        <div class="bwiki-item-name-box">
+          <span class="bwiki-item-name-text">Vi Hạt Nguyên Tố Ám</span>
+        </div>
+      </a>
+      <a href="materials/linhkienhaomon.html" class="bwiki-item-card r2" data-category="monster" data-rarity="2" data-name="linh kiện hao mòn 磨损部件 sản vật & quái vật">
+        <div class="bwiki-item-visual">
+          <img src="assets/materials/linhkienhaomon.png" class="bwiki-item-img" alt="Linh Kiện Hao Mòn" loading="lazy">
+        </div>
+        <div class="bwiki-item-name-box">
+          <span class="bwiki-item-name-text">Linh Kiện Hao Mòn</span>
+        </div>
+      </a>
+      <a href="materials/longtominmang.html" class="bwiki-item-card r2" data-category="monster" data-rarity="2" data-name="lông tơ mịn màng 细密软绒 sản vật & quái vật">
+        <div class="bwiki-item-visual">
+          <img src="assets/materials/longtominmang.png" class="bwiki-item-img" alt="Lông Tơ Mịn Màng" loading="lazy">
+        </div>
+        <div class="bwiki-item-name-box">
+          <span class="bwiki-item-name-text">Lông Tơ Mịn Màng</span>
+        </div>
+      </a>
+      <a href="materials/voxacroirung.html" class="bwiki-item-card r2" data-category="monster" data-rarity="2" data-name="vỏ xác rơi rụng 遗落旧蜕 sản vật & quái vật">
+        <div class="bwiki-item-visual">
+          <img src="assets/materials/voxacroirung.png" class="bwiki-item-img" alt="Vỏ Xác Rơi Rụng" loading="lazy">
+        </div>
+        <div class="bwiki-item-name-box">
+          <span class="bwiki-item-name-text">Vỏ Xác Rơi Rụng</span>
+        </div>
+      </a>
+      <a href="materials/loihangdinh.html" class="bwiki-item-card r2" data-category="monster" data-rarity="2" data-name="lõi hằng định 恒定核心 sản vật & quái vật">
+        <div class="bwiki-item-visual">
+          <img src="assets/materials/loihangdinh.png" class="bwiki-item-img" alt="Lõi Hằng Định" loading="lazy">
+        </div>
+        <div class="bwiki-item-name-box">
+          <span class="bwiki-item-name-text">Lõi Hằng Định</span>
+        </div>
+      </a>
+      <a href="materials/sunglinhthu.html" class="bwiki-item-card r2" data-category="monster" data-rarity="2" data-name="sừng linh thú 兽灵之角 sản vật & quái vật">
+        <div class="bwiki-item-visual">
+          <img src="assets/materials/sunglinhthu.png" class="bwiki-item-img" alt="Sừng Linh Thú" loading="lazy">
+        </div>
+        <div class="bwiki-item-name-box">
+          <span class="bwiki-item-name-text">Sừng Linh Thú</span>
+        </div>
+      </a>
+      <a href="materials/ngungchatnguyento.html" class="bwiki-item-card r2" data-category="monster" data-rarity="2" data-name="ngưng chất nguyên tố 元素凝质 sản vật & quái vật">
+        <div class="bwiki-item-visual">
+          <img src="assets/materials/ngungchatnguyento.png" class="bwiki-item-img" alt="Ngưng Chất Nguyên Tố" loading="lazy">
+        </div>
+        <div class="bwiki-item-name-box">
+          <span class="bwiki-item-name-text">Ngưng Chất Nguyên Tố</span>
+        </div>
+      </a>
+      <a href="materials/vihatnguyenthoa.html" class="bwiki-item-card r2" data-category="particle" data-rarity="2" data-name="vi hạt nguyên tố hỏa 火元素微粒 vi hạt nguyên tố">
+        <div class="bwiki-item-visual">
+          <img src="assets/materials/vihatnguyenthoa.png" class="bwiki-item-img" alt="Vi Hạt Nguyên Tố Hỏa" loading="lazy">
+        </div>
+        <div class="bwiki-item-name-box">
+          <span class="bwiki-item-name-text">Vi Hạt Nguyên Tố Hỏa</span>
+        </div>
+      </a>
+      <a href="materials/thotrenhoidat.html" class="bwiki-item-card r2" data-category="monster" data-rarity="2" data-name="đất phủ rêu 苔覆土壤 sản vật & quái vật">
+        <div class="bwiki-item-visual">
+          <img src="assets/materials/thotrenhoidat.png" class="bwiki-item-img" alt="Đất Phủ Rêu" loading="lazy">
+        </div>
+        <div class="bwiki-item-name-box">
+          <span class="bwiki-item-name-text">Đất Phủ Rêu</span>
+        </div>
+      </a>
+      <a href="materials/longvubansac.html" class="bwiki-item-card r2" data-category="monster" data-rarity="2" data-name="lông vũ rực rỡ 斑斓飞羽 sản vật & quái vật">
+        <div class="bwiki-item-visual">
+          <img src="assets/materials/longvubansac.png" class="bwiki-item-img" alt="Lông Vũ Rực Rỡ" loading="lazy">
+        </div>
+        <div class="bwiki-item-name-box">
+          <span class="bwiki-item-name-text">Lông Vũ Rực Rỡ</span>
+        </div>
+      </a>
+      <a href="materials/catbanthan.html" class="bwiki-item-card r3" data-category="monster" data-rarity="3" data-name="cát bản thể 本质之砂 sản vật & quái vật">
+        <div class="bwiki-item-visual">
+          <img src="assets/materials/catbanthan.png" class="bwiki-item-img" alt="Cát Bản Thể" loading="lazy">
+        </div>
+        <div class="bwiki-item-name-box">
+          <span class="bwiki-item-name-text">Cát Bản Thể</span>
+        </div>
+      </a>
+      <a href="materials/laphongmach.html" class="bwiki-item-card r3" data-category="monster" data-rarity="3" data-name="phiến lá khổng mạch 空脉叶片 sản vật & quái vật">
+        <div class="bwiki-item-visual">
+          <img src="assets/materials/laphongmach.png" class="bwiki-item-img" alt="Phiến Lá Khổng Mạch" loading="lazy">
+        </div>
+        <div class="bwiki-item-name-box">
+          <span class="bwiki-item-name-text">Phiến Lá Khổng Mạch</span>
+        </div>
+      </a>
+      <a href="materials/moysacnhon.html" class="bwiki-item-card r3" data-category="monster" data-rarity="3" data-name="mỏ nhọn sắc bén 锋锐利喙 sản vật & quái vật">
+        <div class="bwiki-item-visual">
+          <img src="assets/materials/moysacnhon.png" class="bwiki-item-img" alt="Mỏ Nhọn Sắc Bén" loading="lazy">
+        </div>
+        <div class="bwiki-item-name-box">
+          <span class="bwiki-item-name-text">Mỏ Nhọn Sắc Bén</span>
+        </div>
+      </a>
+      <a href="materials/vihatnguyentodia.html" class="bwiki-item-card r2" data-category="particle" data-rarity="2" data-name="vi hạt nguyên tố địa 地元素微粒 vi hạt nguyên tố">
+        <div class="bwiki-item-visual">
+          <img src="assets/materials/vihatnguyentodia.png" class="bwiki-item-img" alt="Vi Hạt Nguyên Tố Địa" loading="lazy">
+        </div>
+        <div class="bwiki-item-name-box">
+          <span class="bwiki-item-name-text">Vi Hạt Nguyên Tố Địa</span>
+        </div>
+      </a>
+      <a href="materials/vihatnguyentothuy.html" class="bwiki-item-card r2" data-category="particle" data-rarity="2" data-name="vi hạt nguyên tố thủy 水元素微粒 vi hạt nguyên tố">
+        <div class="bwiki-item-visual">
+          <img src="assets/materials/vihatnguyentothuy.png" class="bwiki-item-img" alt="Vi Hạt Nguyên Tố Thủy" loading="lazy">
+        </div>
+        <div class="bwiki-item-name-box">
+          <span class="bwiki-item-name-text">Vi Hạt Nguyên Tố Thủy</span>
+        </div>
+      </a>
+      <a href="materials/vihatnguyentoloi.html" class="bwiki-item-card r2" data-category="particle" data-rarity="2" data-name="vi hạt nguyên tố lôi 雷元素微粒 vi hạt nguyên tố">
+        <div class="bwiki-item-visual">
+          <img src="assets/materials/vihatnguyentoloi.png" class="bwiki-item-img" alt="Vi Hạt Nguyên Tố Lôi" loading="lazy">
+        </div>
+        <div class="bwiki-item-name-box">
+          <span class="bwiki-item-name-text">Vi Hạt Nguyên Tố Lôi</span>
+        </div>
+      </a>
+      <a href="materials/vihatnguyentophong.html" class="bwiki-item-card r2" data-category="particle" data-rarity="2" data-name="vi hạt nguyên tố phong 风元素微粒 vi hạt nguyên tố">
+        <div class="bwiki-item-visual">
+          <img src="assets/materials/vihatnguyentophong.png" class="bwiki-item-img" alt="Vi Hạt Nguyên Tố Phong" loading="lazy">
+        </div>
+        <div class="bwiki-item-name-box">
+          <span class="bwiki-item-name-text">Vi Hạt Nguyên Tố Phong</span>
+        </div>
+      </a>
+      <a href="materials/vihatnguyentobang.html" class="bwiki-item-card r2" data-category="particle" data-rarity="2" data-name="vi hạt nguyên tố băng 冰元素微粒 vi hạt nguyên tố">
+        <div class="bwiki-item-visual">
+          <img src="assets/materials/vihatnguyentobang.png" class="bwiki-item-img" alt="Vi Hạt Nguyên Tố Băng" loading="lazy">
+        </div>
+        <div class="bwiki-item-name-box">
+          <span class="bwiki-item-name-text">Vi Hạt Nguyên Tố Băng</span>
+        </div>
+      </a>
+      <a href="materials/vihatnguyentomoc.html" class="bwiki-item-card r2" data-category="particle" data-rarity="2" data-name="vi hạt nguyên tố mộc 木元素微粒 vi hạt nguyên tố">
+        <div class="bwiki-item-visual">
+          <img src="assets/materials/vihatnguyentomoc.png" class="bwiki-item-img" alt="Vi Hạt Nguyên Tố Mộc" loading="lazy">
+        </div>
+        <div class="bwiki-item-name-box">
+          <span class="bwiki-item-name-text">Vi Hạt Nguyên Tố Mộc</span>
+        </div>
+      </a>
+    </div>
+
+    <div id="materials-empty" class="empty-state" style="display: none;">
+      <p>Không tìm thấy nguyên liệu phù hợp với điều kiện lọc.</p>
+    </div>
+  </main>
+
+  <!-- Footer: Injected from master template templates/layout.js -->
+  <footer id="site-footer" class="footer"></footer>
+  
+<script>
+  if (window.location.protocol !== 'file:') {
+    const clean = window.location.pathname.replace(/\.html$/, '').replace(/\/index$/, '');
+    if (clean !== window.location.pathname) {
+      window.history.replaceState(null, '', clean + window.location.search + window.location.hash);
+    }
+  }
+</script>
+
+  <script>
+    (function() {
+      const searchInput = document.getElementById('material-search');
+      const cards = Array.from(document.querySelectorAll('.bwiki-item-card'));
+      const emptyState = document.getElementById('materials-empty');
+      const resetBtn = document.getElementById('btn-reset-filters');
+      const catBtns = document.querySelectorAll('#category-filters .filter-pill');
+      const rarityBtns = document.querySelectorAll('#rarity-filters .filter-pill');
+
+      let currentCategory = 'all';
+      let currentRarity = 'all';
+      let currentSearch = '';
+
+      function applyFilters() {
+        let visibleCount = 0;
+        cards.forEach(card => {
+          const cardCat = card.dataset.category;
+          const cardRarity = card.dataset.rarity;
+          const cardName = card.dataset.name;
+
+          const matchCat = currentCategory === 'all' || cardCat === currentCategory;
+          const matchRarity = currentRarity === 'all' || cardRarity === currentRarity;
+          const matchSearch = !currentSearch || cardName.includes(currentSearch);
+
+          if (matchCat && matchRarity && matchSearch) {
+            card.style.display = 'inline-flex';
+            visibleCount++;
+          } else {
+            card.style.display = 'none';
+          }
+        });
+
+        if (emptyState) {
+          emptyState.style.display = visibleCount === 0 ? 'block' : 'none';
+        }
+      }
+
+      if (searchInput) {
+        searchInput.addEventListener('input', (e) => {
+          currentSearch = e.target.value.trim().toLowerCase();
+          applyFilters();
+        });
+      }
+
+      catBtns.forEach(btn => {
+        btn.addEventListener('click', () => {
+          catBtns.forEach(b => b.classList.remove('active'));
+          btn.classList.add('active');
+          currentCategory = btn.dataset.category;
+          applyFilters();
+        });
+      });
+
+      rarityBtns.forEach(btn => {
+        btn.addEventListener('click', () => {
+          rarityBtns.forEach(b => b.classList.remove('active'));
+          btn.classList.add('active');
+          currentRarity = btn.dataset.rarity;
+          applyFilters();
+        });
+      });
+
+      if (resetBtn) {
+        resetBtn.addEventListener('click', () => {
+          currentCategory = 'all';
+          currentRarity = 'all';
+          currentSearch = '';
+          if (searchInput) searchInput.value = '';
+          catBtns.forEach(b => b.classList.toggle('active', b.dataset.category === 'all'));
+          rarityBtns.forEach(b => b.classList.toggle('active', b.dataset.rarity === 'all'));
+          applyFilters();
+        });
+      }
+
+
+    })();
+  </script>
+</body>
+</html>

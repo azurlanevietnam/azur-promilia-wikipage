@@ -1,0 +1,269 @@
+{
+  "id": "trachantinphongchichuy",
+  "name": "Trác Hành Tiên Phong Chi Chủy",
+  "original_name": "卓行先锋之匕",
+  "item_type": "Vũ khí (Dao găm)",
+  "base_rarity": 2,
+  "max_stars": "Có thể thăng 2 sao",
+  "max_star_count": 2,
+  "image": "../../../assets/equipment/trachantinphongchichuy.png",
+  "rarity_bg_image": "../../../assets/equipment/trachantinphongchichuy_bg.png",
+  "suit": "Không có bộ trang bị",
+  "description": "Một thanh dao găm gọn gàng nhanh nhẹn, lưỡi dao ngắn nhưng tinh tế sắc bén, rất thích hợp để khống chế và hạ gục kẻ địch nhanh chóng trong những pha cận chiến áp sát.",
+  "original_description": "一把利落轻捷的匕首，锋刃短而精悍，适合在贴身交锋中迅速制敌。",
+  "acquisition_sources": [
+    "Gia viên - Tiệm rèn",
+    "Ủy thác - Phù Hộ Lửa Đỏ I"
+  ],
+  "main_attributes_by_quality": [
+    {
+      "quality_level": 1,
+      "quality_name": "Tân thủ",
+      "original_quality_name": "新手",
+      "attributes": [
+        {
+          "attribute": "Tấn công",
+          "original_attribute": "攻击",
+          "enhancement_0": "+32",
+          "enhancement_15": "+115",
+          "range": "+32 / +115"
+        }
+      ]
+    },
+    {
+      "quality_level": 2,
+      "quality_name": "Tiến giai",
+      "original_quality_name": "进阶",
+      "attributes": [
+        {
+          "attribute": "Tấn công",
+          "original_attribute": "攻击",
+          "enhancement_0": "+34",
+          "enhancement_15": "+122",
+          "range": "+34 / +122"
+        }
+      ]
+    },
+    {
+      "quality_level": 3,
+      "quality_name": "Tinh lương",
+      "original_quality_name": "精良",
+      "attributes": [
+        {
+          "attribute": "Tấn công",
+          "original_attribute": "攻击",
+          "enhancement_0": "+36",
+          "enhancement_15": "+129",
+          "range": "+36 / +129"
+        }
+      ]
+    },
+    {
+      "quality_level": 4,
+      "quality_name": "Sử thi",
+      "original_quality_name": "史诗",
+      "attributes": [
+        {
+          "attribute": "Tấn công",
+          "original_attribute": "攻击",
+          "enhancement_0": "+38",
+          "enhancement_15": "+136",
+          "range": "+38 / +136"
+        }
+      ]
+    }
+  ],
+  "star_ascensions": [
+    {
+      "star_level": "1 sao",
+      "original_star_level": "1星",
+      "affix_name": "Bích Lập",
+      "original_affix_name": "壁立",
+      "affix_level": "Cấp 1",
+      "description": "Phòng ngự tăng 30 điểm.",
+      "original_description": "防御力增加30点",
+      "upgrade_cost": [
+        {
+          "material_id": "trachantinphongchichuy",
+          "name": "Trang bị cùng tên",
+          "quantity": 1
+        },
+        {
+          "material_id": "uni",
+          "name": "Uni",
+          "quantity": 5000
+        }
+      ]
+    },
+    {
+      "star_level": "2 sao",
+      "original_star_level": "2星",
+      "affix_name": "Bích Lập",
+      "original_affix_name": "壁立",
+      "affix_level": "Cấp 2",
+      "description": "Phòng ngự tăng 40 điểm.",
+      "original_description": "防御力增加40点",
+      "upgrade_cost": [
+        {
+          "material_id": "trachantinphongchichuy",
+          "name": "Trang bị cùng tên",
+          "quantity": 2
+        },
+        {
+          "material_id": "uni",
+          "name": "Uni",
+          "quantity": 6000
+        }
+      ]
+    }
+  ],
+  "enhancement_materials": [
+    {
+      "stage": "+0 → +1",
+      "materials": [
+        {
+          "material_id": "linhtuyphothong",
+          "quantity": 2
+        },
+        {
+          "material_id": "linhkienhaomon",
+          "quantity": 24
+        },
+        {
+          "material_id": "vihatnguyenthoa",
+          "quantity": 100
+        },
+        {
+          "material_id": "uni",
+          "quantity": 500
+        }
+      ]
+    },
+    {
+      "stage": "+1 → +2",
+      "materials": [
+        {
+          "material_id": "linhtuyphothong",
+          "quantity": 4
+        },
+        {
+          "material_id": "linhkienhaomon",
+          "quantity": 24
+        },
+        {
+          "material_id": "vihatnguyenthoa",
+          "quantity": 100
+        },
+        {
+          "material_id": "uni",
+          "quantity": 1000
+        }
+      ]
+    },
+    {
+      "stage": "+2 → +3",
+      "materials": [
+        {
+          "material_id": "linhtuyphothong",
+          "quantity": 8
+        },
+        {
+          "material_id": "linhkienhaomon",
+          "quantity": 24
+        },
+        {
+          "material_id": "vihatnguyenthoa",
+          "quantity": 100
+        },
+        {
+          "material_id": "uni",
+          "quantity": 1500
+        }
+      ]
+    },
+    {
+      "stage": "+3 → +4",
+      "materials": [
+        {
+          "material_id": "linhtuyngungtu",
+          "quantity": 2
+        },
+        {
+          "material_id": "longtominmang",
+          "quantity": 24
+        },
+        {
+          "material_id": "vihatnguyenthoa",
+          "quantity": 200
+        },
+        {
+          "material_id": "uni",
+          "quantity": 2000
+        }
+      ]
+    },
+    {
+      "stage": "+4 → +5",
+      "materials": [
+        {
+          "material_id": "linhtuyngungtu",
+          "quantity": 4
+        },
+        {
+          "material_id": "longtominmang",
+          "quantity": 24
+        },
+        {
+          "material_id": "vihatnguyenthoa",
+          "quantity": 200
+        },
+        {
+          "material_id": "uni",
+          "quantity": 3000
+        }
+      ]
+    },
+    {
+      "stage": "+5 → +6",
+      "materials": [
+        {
+          "material_id": "linhtuyngungtu",
+          "quantity": 6
+        },
+        {
+          "material_id": "longtominmang",
+          "quantity": 24
+        },
+        {
+          "material_id": "vihatnguyenthoa",
+          "quantity": 200
+        },
+        {
+          "material_id": "uni",
+          "quantity": 4000
+        }
+      ]
+    },
+    {
+      "stage": "+6 → +7",
+      "materials": [
+        {
+          "material_id": "linhtuycuontrao",
+          "quantity": 2
+        },
+        {
+          "material_id": "vomemdichchuyen",
+          "quantity": 24
+        },
+        {
+          "material_id": "vihatnguyenthoa",
+          "quantity": 400
+        },
+        {
+          "material_id": "uni",
+          "quantity": 5000
+        }
+      ]
+    }
+  ]
+}

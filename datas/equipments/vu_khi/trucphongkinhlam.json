@@ -1,0 +1,424 @@
+{
+  "id": "trucphongkinhlam",
+  "name": "Trục Phong Kinh Lam",
+  "original_name": "逐风惊岚",
+  "item_type": "Vũ khí (Hoành đao)",
+  "base_rarity": 3,
+  "max_stars": "Có thể thăng 3 sao",
+  "max_star_count": 3,
+  "image": "../../../assets/equipment/trucphongkinhlam.png",
+  "rarity_bg_image": "../../../assets/equipment/trucphongkinhlam_bg.png",
+  "suit": "Không có bộ trang bị",
+  "description": "Một thanh hoành đao, khi đặt yên tĩnh dưới ánh trăng, có thể thấy thân đao ẩn hiện những đường vân xanh khói trôi lững lờ, như có sương mù núi non ẩn giấu bên trong. Khi vung đao chém xuống, các đường vân liền dạt lùi theo lưỡi đao, bởi vậy mới có tên là Trục Phong Kinh Lam.",
+  "original_description": "一把横刀，静置于月光之下时，可见刀身隐隐浮现烟青流纹，似有山岚藏于其中。持之劈砍，流纹则沿刃退散，故名逐风惊岚。",
+  "acquisition_sources": [
+    "Gia viên - Tiệm rèn",
+    "Ủy thác - Hộ Vệ Sấm Xanh III",
+    "Ủy thác - Hộ Vệ Sấm Xanh II"
+  ],
+  "main_attributes_by_quality": [
+    {
+      "quality_level": 1,
+      "quality_name": "Tân thủ",
+      "original_quality_name": "新手",
+      "attributes": [
+        {
+          "attribute": "Tấn công",
+          "original_attribute": "攻击",
+          "enhancement_0": "+38",
+          "enhancement_15": "+153",
+          "range": "+38 / +153"
+        },
+        {
+          "attribute": "Cường độ Siêu Hạn",
+          "original_attribute": "超限强度",
+          "enhancement_0": "+40",
+          "enhancement_15": "+168",
+          "range": "+40 / +168"
+        }
+      ]
+    },
+    {
+      "quality_level": 2,
+      "quality_name": "Tiến giai",
+      "original_quality_name": "进阶",
+      "attributes": [
+        {
+          "attribute": "Tấn công",
+          "original_attribute": "攻击",
+          "enhancement_0": "+40",
+          "enhancement_15": "+163",
+          "range": "+40 / +163"
+        },
+        {
+          "attribute": "Cường độ Siêu Hạn",
+          "original_attribute": "超限强度",
+          "enhancement_0": "+42",
+          "enhancement_15": "+178",
+          "range": "+42 / +178"
+        }
+      ]
+    },
+    {
+      "quality_level": 3,
+      "quality_name": "Tinh lương",
+      "original_quality_name": "精良",
+      "attributes": [
+        {
+          "attribute": "Tấn công",
+          "original_attribute": "攻击",
+          "enhancement_0": "+43",
+          "enhancement_15": "+172",
+          "range": "+43 / +172"
+        },
+        {
+          "attribute": "Cường độ Siêu Hạn",
+          "original_attribute": "超限强度",
+          "enhancement_0": "+45",
+          "enhancement_15": "+189",
+          "range": "+45 / +189"
+        }
+      ]
+    },
+    {
+      "quality_level": 4,
+      "quality_name": "Sử thi",
+      "original_quality_name": "史诗",
+      "attributes": [
+        {
+          "attribute": "Tấn công",
+          "original_attribute": "攻击",
+          "enhancement_0": "+45",
+          "enhancement_15": "+182",
+          "range": "+45 / +182"
+        },
+        {
+          "attribute": "Cường độ Siêu Hạn",
+          "original_attribute": "超限强度",
+          "enhancement_0": "+47",
+          "enhancement_15": "+199",
+          "range": "+47 / +199"
+        }
+      ]
+    }
+  ],
+  "star_ascensions": [
+    {
+      "star_level": "1 sao",
+      "original_star_level": "1星",
+      "affix_name": "Tích Thế",
+      "original_affix_name": "累势",
+      "affix_level": "Cấp 1",
+      "description": "Tấn công tăng 40 điểm.",
+      "original_description": "攻击力增加40点",
+      "upgrade_cost": [
+        {
+          "material_id": "trucphongkinhlam",
+          "name": "Trang bị cùng tên",
+          "quantity": 1
+        },
+        {
+          "material_id": "uni",
+          "name": "Uni",
+          "quantity": 9000
+        }
+      ]
+    },
+    {
+      "star_level": "2 sao",
+      "original_star_level": "2星",
+      "affix_name": "Cường độ Siêu Hạn",
+      "original_affix_name": "超限强度",
+      "affix_level": "Cấp 1",
+      "description": "Cường độ Siêu Hạn tăng 30 điểm.",
+      "original_description": "超限强度增加30点",
+      "upgrade_cost": [
+        {
+          "material_id": "trucphongkinhlam",
+          "name": "Trang bị cùng tên",
+          "quantity": 2
+        },
+        {
+          "material_id": "uni",
+          "name": "Uni",
+          "quantity": 10000
+        }
+      ]
+    },
+    {
+      "star_level": "3 sao",
+      "original_star_level": "3星",
+      "affix_name": "Tích Thế",
+      "original_affix_name": "累势",
+      "affix_level": "Cấp 2",
+      "description": "Tấn công tăng 50 điểm.",
+      "original_description": "攻击力增加50点",
+      "upgrade_cost": [
+        {
+          "material_id": "trucphongkinhlam",
+          "name": "Trang bị cùng tên",
+          "quantity": 2
+        },
+        {
+          "material_id": "uni",
+          "name": "Uni",
+          "quantity": 11000
+        }
+      ]
+    }
+  ],
+  "enhancement_materials": [
+    {
+      "stage": "+0 → +1",
+      "materials": [
+        {
+          "material_id": "linhtuyphothong",
+          "quantity": 2
+        },
+        {
+          "material_id": "vayuquang",
+          "quantity": 24
+        },
+        {
+          "material_id": "vihatnguyentophong",
+          "quantity": 100
+        },
+        {
+          "material_id": "uni",
+          "quantity": 500
+        }
+      ]
+    },
+    {
+      "stage": "+1 → +2",
+      "materials": [
+        {
+          "material_id": "linhtuyphothong",
+          "quantity": 4
+        },
+        {
+          "material_id": "vayuquang",
+          "quantity": 24
+        },
+        {
+          "material_id": "vihatnguyentophong",
+          "quantity": 100
+        },
+        {
+          "material_id": "uni",
+          "quantity": 1000
+        }
+      ]
+    },
+    {
+      "stage": "+2 → +3",
+      "materials": [
+        {
+          "material_id": "linhtuyphothong",
+          "quantity": 8
+        },
+        {
+          "material_id": "vayuquang",
+          "quantity": 24
+        },
+        {
+          "material_id": "vihatnguyentophong",
+          "quantity": 100
+        },
+        {
+          "material_id": "uni",
+          "quantity": 1500
+        }
+      ]
+    },
+    {
+      "stage": "+3 → +4",
+      "materials": [
+        {
+          "material_id": "linhtuyngungtu",
+          "quantity": 2
+        },
+        {
+          "material_id": "banhxematvan",
+          "quantity": 24
+        },
+        {
+          "material_id": "vihatnguyentophong",
+          "quantity": 200
+        },
+        {
+          "material_id": "uni",
+          "quantity": 2000
+        }
+      ]
+    },
+    {
+      "stage": "+4 → +5",
+      "materials": [
+        {
+          "material_id": "linhtuyngungtu",
+          "quantity": 4
+        },
+        {
+          "material_id": "banhxematvan",
+          "quantity": 24
+        },
+        {
+          "material_id": "vihatnguyentophong",
+          "quantity": 200
+        },
+        {
+          "material_id": "uni",
+          "quantity": 3000
+        }
+      ]
+    },
+    {
+      "stage": "+5 → +6",
+      "materials": [
+        {
+          "material_id": "linhtuyngungtu",
+          "quantity": 8
+        },
+        {
+          "material_id": "banhxematvan",
+          "quantity": 24
+        },
+        {
+          "material_id": "vihatnguyentophong",
+          "quantity": 200
+        },
+        {
+          "material_id": "uni",
+          "quantity": 4000
+        }
+      ]
+    },
+    {
+      "stage": "+6 → +7",
+      "materials": [
+        {
+          "material_id": "linhtuycuontrao",
+          "quantity": 2
+        },
+        {
+          "material_id": "dungdichtinhchat",
+          "quantity": 24
+        },
+        {
+          "material_id": "vihatnguyentophong",
+          "quantity": 400
+        },
+        {
+          "material_id": "uni",
+          "quantity": 5000
+        }
+      ]
+    },
+    {
+      "stage": "+7 → +8",
+      "materials": [
+        {
+          "material_id": "linhtuycuontrao",
+          "quantity": 4
+        },
+        {
+          "material_id": "dungdichtinhchat",
+          "quantity": 24
+        },
+        {
+          "material_id": "vihatnguyentophong",
+          "quantity": 400
+        },
+        {
+          "material_id": "uni",
+          "quantity": 6000
+        }
+      ]
+    },
+    {
+      "stage": "+8 → +9",
+      "materials": [
+        {
+          "material_id": "linhtuycuontrao",
+          "quantity": 8
+        },
+        {
+          "material_id": "dungdichtinhchat",
+          "quantity": 24
+        },
+        {
+          "material_id": "vihatnguyentophong",
+          "quantity": 400
+        },
+        {
+          "material_id": "uni",
+          "quantity": 7000
+        }
+      ]
+    },
+    {
+      "stage": "+9 → +10",
+      "materials": [
+        {
+          "material_id": "linhtuyanhsang",
+          "quantity": 2
+        },
+        {
+          "material_id": "mangmonglanquang",
+          "quantity": 24
+        },
+        {
+          "material_id": "vihatnguyentophong",
+          "quantity": 600
+        },
+        {
+          "material_id": "uni",
+          "quantity": 8000
+        }
+      ]
+    },
+    {
+      "stage": "+10 → +11",
+      "materials": [
+        {
+          "material_id": "linhtuyanhsang",
+          "quantity": 4
+        },
+        {
+          "material_id": "tinhhachngunghinh",
+          "quantity": 24
+        },
+        {
+          "material_id": "vihatnguyentophong",
+          "quantity": 600
+        },
+        {
+          "material_id": "uni",
+          "quantity": 9000
+        }
+      ]
+    },
+    {
+      "stage": "+11 → +12",
+      "materials": [
+        {
+          "material_id": "linhtuyanhsang",
+          "quantity": 8
+        },
+        {
+          "material_id": "modongminmang",
+          "quantity": 24
+        },
+        {
+          "material_id": "vihatnguyentophong",
+          "quantity": 600
+        },
+        {
+          "material_id": "uni",
+          "quantity": 10000
+        }
+      ]
+    }
+  ]
+}

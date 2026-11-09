@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Bất Tức Đích Viêm Quang - Azur Promilia Wiki</title>
+  <link rel="stylesheet" href="../style.css">
+  <script src="../templates/layout.js" defer></script>
+  <script src="../templates/equipment-template.js" defer></script>
+</head>
+<body data-page="equipment-detail" data-item-id="battucdichviemquang" data-depth="1" data-active-tab="equip">
+  
+  <div class="cosmic-stars"></div>
+
+  <!-- Top Navigation Bar: Injected from master template templates/layout.js -->
+  <header id="site-navbar" class="navbar"></header>
+
+  <!-- Main Content: Injected from master template templates/equipment-template.js using datas/equipments/vu_khi/battucdichviemquang.json -->
+  <main id="equipment-detail-root" class="container detail-container"></main>
+
+  <!-- Footer: Injected from master template templates/layout.js -->
+  <footer id="site-footer" class="footer"></footer>
+
+  
+<script>
+  if (window.location.protocol !== 'file:') {
+    const clean = window.location.pathname.replace(/\.html$/, '').replace(/\/index$/, '');
+    if (clean !== window.location.pathname) {
+      window.history.replaceState(null, '', clean + window.location.search + window.location.hash);
+    }
+  }
+</script>
+</body>
+</html>
