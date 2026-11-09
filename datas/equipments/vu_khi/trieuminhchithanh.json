@@ -10,7 +10,6 @@
   "rarity_bg_image": "../../../assets/equipment/trieuminhchithanh_bg.png",
   "suit": "Không có bộ trang bị",
   "description": "Một cây gậy phép có thân kỳ dị gồ ghề, toàn thân làm bằng đá núi, lác đác khảm những viên pha lê mang sắc biển cả, tương truyền được lấy từ nơi sóng biển ngày đêm cuộn trào sục sôi. Nghiêng tai lắng nghe, có thể nghe thấy rõ ràng tiếng thủy triều rền vang.",
-  "original_description": "一柄法杖，杖身奇特崎岖，通体为岩石，零星嵌有海色晶石，据传取自海浪朝夕澎湃之地。倾耳听之，可闻清晰潮鸣之声。",
   "acquisition_sources": [
     "Gia viên - Tiệm rèn",
     "Ủy thác - Phù Hộ Lửa Đỏ V",
@@ -20,18 +19,15 @@
     {
       "quality_level": 1,
       "quality_name": "Tân thủ",
-      "original_quality_name": "新手",
       "attributes": [
         {
           "attribute": "Tỉ lệ bạo kích",
-          "original_attribute": "暴击率",
           "enhancement_0": "+3.8%",
           "enhancement_15": "+15.3%",
           "range": "+3.8% / +15.3%"
         },
         {
           "attribute": "Sát thương thuộc tính Thủy",
-          "original_attribute": "水属性伤害",
           "enhancement_0": "+7.2%",
           "enhancement_15": "+28.8%",
           "range": "+7.2% / +28.8%"
@@ -41,18 +37,15 @@
     {
       "quality_level": 2,
       "quality_name": "Tiến giai",
-      "original_quality_name": "进阶",
       "attributes": [
         {
           "attribute": "Tỉ lệ bạo kích",
-          "original_attribute": "暴击率",
           "enhancement_0": "+4.0%",
           "enhancement_15": "+16.3%",
           "range": "+4.0% / +16.3%"
         },
         {
           "attribute": "Sát thương thuộc tính Thủy",
-          "original_attribute": "水属性伤害",
           "enhancement_0": "+7.6%",
           "enhancement_15": "+30.6%",
           "range": "+7.6% / +30.6%"
@@ -62,18 +55,15 @@
     {
       "quality_level": 3,
       "quality_name": "Tinh lương",
-      "original_quality_name": "精良",
       "attributes": [
         {
           "attribute": "Tỉ lệ bạo kích",
-          "original_attribute": "暴击率",
           "enhancement_0": "+4.3%",
           "enhancement_15": "+17.2%",
           "range": "+4.3% / +17.2%"
         },
         {
           "attribute": "Sát thương thuộc tính Thủy",
-          "original_attribute": "水属性伤害",
           "enhancement_0": "+8.1%",
           "enhancement_15": "+32.4%",
           "range": "+8.1% / +32.4%"
@@ -83,18 +73,15 @@
     {
       "quality_level": 4,
       "quality_name": "Sử thi",
-      "original_quality_name": "史诗",
       "attributes": [
         {
           "attribute": "Tỉ lệ bạo kích",
-          "original_attribute": "暴击率",
           "enhancement_0": "+4.5%",
           "enhancement_15": "+18.2%",
           "range": "+4.5% / +18.2%"
         },
         {
           "attribute": "Sát thương thuộc tính Thủy",
-          "original_attribute": "水属性伤害",
           "enhancement_0": "+8.5%",
           "enhancement_15": "+34.2%",
           "range": "+8.5% / +34.2%"
@@ -104,18 +91,15 @@
     {
       "quality_level": 5,
       "quality_name": "Truyền kỳ",
-      "original_quality_name": "传奇",
       "attributes": [
         {
           "attribute": "Tỉ lệ bạo kích",
-          "original_attribute": "暴击率",
           "enhancement_0": "+4.8%",
           "enhancement_15": "+19.2%",
           "range": "+4.8% / +19.2%"
         },
         {
           "attribute": "Sát thương thuộc tính Thủy",
-          "original_attribute": "水属性伤害",
           "enhancement_0": "+9.0%",
           "enhancement_15": "+36.0%",
           "range": "+9.0% / +36.0%"
@@ -126,22 +110,16 @@
   "star_ascensions": [
     {
       "star_level": "Khởi đầu",
-      "original_star_level": "初始",
       "affix_name": "Sinh Tức",
-      "original_affix_name": "生息",
       "affix_level": "Cấp 2",
       "description": "Máu tăng 400 điểm.",
-      "original_description": "生命值增加400点",
       "upgrade_cost": null
     },
     {
       "star_level": "1 sao",
-      "original_star_level": "1星",
       "affix_name": "Thù Tử",
-      "original_affix_name": "殊死",
       "affix_level": "Cấp 1",
       "description": "Phòng ngự giảm 1%, tỉ lệ bạo kích tăng 2.5%.",
-      "original_description": "防御力减少1%，暴击率提高2.5%",
       "upgrade_cost": [
         {
           "material_id": "trieuminhchithanh",
@@ -157,12 +135,9 @@
     },
     {
       "star_level": "2 sao",
-      "original_star_level": "2星",
       "affix_name": "Tuyệt Địa",
-      "original_affix_name": "绝地",
       "affix_level": "Cấp 1",
       "description": "Khi né tránh hoàn hảo, giúp bản thân tăng 2% tấn công, có thể cộng dồn tối đa 3 tầng, duy trì 15 giây.",
-      "original_description": "完美闪避时，使自身攻击力提高2%，至多可叠加3层，持续15秒。",
       "upgrade_cost": [
         {
           "material_id": "trieuminhchithanh",
@@ -178,12 +153,9 @@
     },
     {
       "star_level": "3 sao",
-      "original_star_level": "3星",
       "affix_name": "Sinh Tức",
-      "original_affix_name": "生息",
       "affix_level": "Cấp 3",
       "description": "Máu tăng 550 điểm.",
-      "original_description": "生命值增加550点",
       "upgrade_cost": [
         {
           "material_id": "trieuminhchithanh",
@@ -199,12 +171,9 @@
     },
     {
       "star_level": "4 sao",
-      "original_star_level": "4星",
       "affix_name": "Tuyệt Địa",
-      "original_affix_name": "绝地",
       "affix_level": "Cấp 3",
       "description": "Khi né tránh hoàn hảo, giúp bản thân tăng 4% tấn công, có thể cộng dồn tối đa 3 tầng, duy trì 15 giây.",
-      "original_description": "完美闪避时，使自身攻击力提高4%，至多可叠加3层，持续15秒。",
       "upgrade_cost": [
         {
           "material_id": "trieuminhchithanh",
@@ -220,12 +189,9 @@
     },
     {
       "star_level": "5 sao",
-      "original_star_level": "5星",
       "affix_name": "Sinh Tức",
-      "original_affix_name": "生息",
       "affix_level": "Cấp 4",
       "description": "Máu tăng 750 điểm.",
-      "original_description": "生命值增加750点",
       "upgrade_cost": [
         {
           "material_id": "trieuminhchithanh",
@@ -241,12 +207,9 @@
     },
     {
       "star_level": "6 sao",
-      "original_star_level": "6星",
       "affix_name": "Thù Tử",
-      "original_affix_name": "殊死",
       "affix_level": "Cấp 3",
       "description": "Phòng ngự giảm 2%, tỉ lệ bạo kích tăng 4%.",
-      "original_description": "防御力减少2%，暴击率提高4%",
       "upgrade_cost": [
         {
           "material_id": "trieuminhchithanh",

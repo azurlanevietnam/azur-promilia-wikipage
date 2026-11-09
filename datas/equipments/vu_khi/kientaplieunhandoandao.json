@@ -10,7 +10,6 @@
   "rarity_bg_image": "../../../assets/equipment/kientaplieunhandoandao_bg.png",
   "suit": "Không có bộ trang bị",
   "description": "Một thanh đoản đao được gọt đẽo từ gỗ, tuy về cơ bản không có khả năng sát thương nhưng hình dáng đã tương đối đầy đủ, là công cụ luyện tập rất tốt cho các thợ săn tập sự.",
-  "original_description": "一把以木材削制的短刀，虽然基本没有什么杀伤能力，但形貌已全，对于见习猎人来说是很好的练习工具。",
   "acquisition_sources": [
     "Chế tạo tiện lợi"
   ],
@@ -18,11 +17,9 @@
     {
       "quality_level": 1,
       "quality_name": "Tân thủ",
-      "original_quality_name": "新手",
       "attributes": [
         {
           "attribute": "Tấn công",
-          "original_attribute": "攻击",
           "enhancement_0": "+11",
           "enhancement_15": "+51",
           "range": "+11 / +51"
@@ -32,11 +29,9 @@
     {
       "quality_level": 2,
       "quality_name": "Tiến giai",
-      "original_quality_name": "进阶",
       "attributes": [
         {
           "attribute": "Tấn công",
-          "original_attribute": "攻击",
           "enhancement_0": "+11",
           "enhancement_15": "+54",
           "range": "+11 / +54"
@@ -46,11 +41,9 @@
     {
       "quality_level": 3,
       "quality_name": "Tinh lương",
-      "original_quality_name": "精良",
       "attributes": [
         {
           "attribute": "Tấn công",
-          "original_attribute": "攻击",
           "enhancement_0": "+12",
           "enhancement_15": "+57",
           "range": "+12 / +57"
@@ -60,11 +53,9 @@
     {
       "quality_level": 4,
       "quality_name": "Sử thi",
-      "original_quality_name": "史诗",
       "attributes": [
         {
           "attribute": "Tấn công",
-          "original_attribute": "攻击",
           "enhancement_0": "+13",
           "enhancement_15": "+60",
           "range": "+13 / +60"
@@ -75,12 +66,9 @@
   "star_ascensions": [
     {
       "star_level": "1 sao",
-      "original_star_level": "1星",
       "affix_name": "Bích Lập",
-      "original_affix_name": "壁立",
       "affix_level": "Cấp 1",
       "description": "Phòng ngự tăng 30 điểm.",
-      "original_description": "防御力增加30点",
       "upgrade_cost": [
         {
           "material_id": "kientaplieunhandoandao",

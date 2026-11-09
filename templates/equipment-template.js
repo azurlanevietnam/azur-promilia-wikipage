@@ -90,10 +90,71 @@
   }
 
   function getWeaponRarityNumber(w) {
+    if (w.base_rarity !== undefined) return w.base_rarity + 1;
     if (w.max_stars && w.max_stars.includes('6')) return 5;
     if (w.max_stars && w.max_stars.includes('5')) return 4;
-    if (w.base_rarity) return w.base_rarity;
     return 3;
+  }
+
+  function getMaxStarsCount(w) {
+    if (w.max_stars) {
+      const m = w.max_stars.match(/(\d+)\s*sao/i);
+      if (m) return parseInt(m[1], 10);
+    }
+    if (w.star_ascensions && w.star_ascensions.length > 0) {
+      let max = 0;
+      w.star_ascensions.forEach(a => {
+        const m = (a.star_level || '').match(/(\d+)/);
+        if (m) max = Math.max(max, parseInt(m[1], 10));
+      });
+      if (max > 0) return max;
+    }
+    const r = getWeaponRarityNumber(w);
+    if (r === 5) return 6;
+    if (r === 4) return 3;
+    if (r === 3) return 3;
+    if (r === 2) return 2;
+    return 1;
+  }
+
+  function getWeaponRarityInfo(w) {
+    const rNum = getWeaponRarityNumber(w);
+    switch (rNum) {
+      case 5: return { name: 'Vàng', cls: 'rarity-val-gold' };
+      case 4: return { name: 'Tím', cls: 'rarity-val-purple' };
+      case 3: return { name: 'Lam', cls: 'rarity-val-blue' };
+      case 2: return { name: 'Lục', cls: 'rarity-val-green' };
+      case 1:
+      default: return { name: 'Trắng', cls: 'rarity-val-white' };
+    }
+  }
+
+  function renderCardStarsHtml(count, rel) {
+    if (!count || count <= 0) return '';
+    const stars = Array.from({ length: count }, () => `<img src="${rel}assets/star.png" class="bwiki-star-unit" alt="★">`).join('');
+    return `<div class="bwiki-card-stars">${stars}</div>`;
+  }
+
+  function formatSkillTitle(affixName, affixLevel) {
+    if (!affixName) return '';
+    if (!affixLevel) return affixName;
+    const numMatch = affixLevel.match(/\d+/);
+    if (numMatch) {
+      return `${affixName} Lv${numMatch[0]}`;
+    }
+    return `${affixName} ${affixLevel}`;
+  }
+
+  function getStarLabel(starLevel) {
+    if (!starLevel) return '0 sao';
+    if (starLevel === 'Khởi đầu' || starLevel === '初始' || starLevel === '0 sao') return '0 sao';
+    return starLevel;
+  }
+
+  function formatMaxStars(maxStarsStr) {
+    if (!maxStarsStr) return 'Chưa mở';
+    const m = maxStarsStr.match(/(\d+)\s*sao/i);
+    return m ? `${m[1]} sao` : maxStarsStr;
   }
 
   function getCleanWeaponType(rawType) {
@@ -150,54 +211,81 @@
 
   function renderEquipmentMain(w, rel) {
     const rNum = getWeaponRarityNumber(w);
+    const starCount = getMaxStarsCount(w);
+    const rarityInfo = getWeaponRarityInfo(w);
     const cleanType = getCleanWeaponType(w.item_type);
     const suitVal = (!w.suit || w.suit === 'Không có bộ trang bị') ? 'Không có bộ trang bị' : w.suit;
-    const stars = '★'.repeat(rNum);
     const loreText = w.description ? w.description.replace(/\n/g, '<br>') : 'Chưa có thông tin cốt truyện.';
 
     // Screen 2: Quality attributes
     const qualities = w.main_attributes_by_quality || [];
-    const maxQ = qualities.length ? qualities[qualities.length - 1].quality_level : 1;
+    const defaultQ = 1;
 
     const qualityTabsHtml = qualities.map(q => `
-      <button class="q-tab-btn ${q.quality_level === maxQ ? 'active' : ''}" data-qlevel="${q.quality_level}">
+      <button class="q-tab-btn ${q.quality_level === defaultQ ? 'active' : ''}" data-qlevel="${q.quality_level}">
         ${q.quality_name}
       </button>
     `).join('');
 
-    // Screen 3: Star Ascension nodes
+    // Screen 3: Star Ascension (Interactive Tabs & 2-Column Split: Skill left, Materials right)
     const ascensions = w.star_ascensions || [];
-    const ascensionNodesHtml = ascensions.map(a => {
-      let costChips = '';
-      if (a.upgrade_cost && a.upgrade_cost.length > 0) {
-        costChips = a.upgrade_cost.map(c => {
+    const defaultAscIndex = 0;
+
+    const ascButtonsHtml = ascensions.map((a, idx) => `
+      <button type="button" class="asc-tab-btn ${idx === defaultAscIndex ? 'active' : ''}" data-asc-idx="${idx}">
+        ${getStarLabel(a.star_level)}
+      </button>
+    `).join('');
+
+    let initialAscContentHtml = '';
+    if (ascensions.length > 0) {
+      const activeAsc = ascensions[defaultAscIndex];
+      const skillTitle = formatSkillTitle(activeAsc.affix_name, activeAsc.affix_level);
+
+      let costCardsHtml = '';
+      if (activeAsc.upgrade_cost && activeAsc.upgrade_cost.length > 0) {
+        costCardsHtml = activeAsc.upgrade_cost.map(c => {
           const isWeapon = c.material_id === w.id;
           const costUrl = isWeapon ? '#' : `${rel}materials/${c.material_id}.html`;
           const iconSrc = isWeapon ? `${rel}assets/equipment/${w.id}.png` : `${rel}assets/materials/${c.material_id}.png`;
           const qtyStr = Number(c.quantity).toLocaleString('vi-VN');
           const matName = isWeapon ? w.name : (c.name || getMaterialName(c.material_id));
+          const cardFrameClass = isWeapon ? `r${rNum}` : 'r3';
+          const cardStarsCount = isWeapon ? starCount : getMaterialRarity(c.material_id);
           return `
-            <a href="${costUrl}" class="cost-chip" title="${matName}">
-              <img src="${iconSrc}" alt="${matName}">
-              <span>${matName} × <strong>${qtyStr}</strong></span>
+            <a href="${costUrl}" class="bwiki-item-card ${cardFrameClass}" title="${matName} (x${qtyStr})">
+              <div class="bwiki-item-visual">
+                <img src="${iconSrc}" class="bwiki-item-img" alt="${matName}" loading="lazy">
+              </div>
+              ${renderCardStarsHtml(cardStarsCount, rel)}
+              <div class="bwiki-item-name-box">
+                <span class="bwiki-item-name-text">x${qtyStr}</span>
+              </div>
             </a>`;
         }).join('');
       } else {
-        costChips = `<span style="font-size: 0.82rem; color: #64748b; font-style: italic;">Không yêu cầu tiêu hao</span>`;
+        costCardsHtml = `<span class="asc-no-cost">Không yêu cầu tiêu hao nguyên liệu</span>`;
       }
 
-      return `
-        <div class="ascension-node">
-          <div class="asc-node-header">
-            <div class="asc-node-title">${a.affix_name || ''}</div>
-            <span class="asc-node-star">${a.star_level || ''} • ${a.affix_level || ''}</span>
+      initialAscContentHtml = `
+        <div class="asc-display-layout">
+          <div class="asc-skill-pane">
+            <div class="asc-section-label">Kỹ năng</div>
+            <div class="asc-skill-name">${skillTitle}</div>
+            <div class="asc-skill-desc">${activeAsc.description || ''}</div>
           </div>
-          <div class="asc-desc">${a.description || ''}</div>
-          <div class="asc-costs">
-            ${costChips}
+          <div class="asc-divider"></div>
+          <div class="asc-cost-pane">
+            <div class="asc-section-label">Nguyên liệu nâng cấp</div>
+            <div class="enhance-mats-grid asc-mats-grid">
+              ${costCardsHtml}
+            </div>
           </div>
-        </div>`;
-    }).join('');
+        </div>
+      `;
+    } else {
+      initialAscContentHtml = `<p style="color:var(--text-dim);">Chưa có dữ liệu thăng sao.</p>`;
+    }
 
     // Screen 4: Enhancement stages (Interactive Slider + Quick Buttons)
     const enhancements = w.enhancement_materials || [];
@@ -210,13 +298,16 @@
         const matName = getMaterialName(m.material_id);
         const iconSrc = `${rel}assets/materials/${m.material_id}.png`;
         const linkHref = `${rel}materials/${m.material_id}.html`;
+        const qtyStr = Number(m.quantity).toLocaleString('vi-VN');
+        const starsCount = getMaterialRarity(m.material_id);
         return `
-          <a href="${linkHref}" class="bwiki-item-card r3" title="${matName} (x${m.quantity})">
+          <a href="${linkHref}" class="bwiki-item-card r3" title="${matName} (x${qtyStr})">
             <div class="bwiki-item-visual">
               <img src="${iconSrc}" class="bwiki-item-img" alt="${matName}" loading="lazy">
             </div>
+            ${renderCardStarsHtml(starsCount, rel)}
             <div class="bwiki-item-name-box">
-              <span class="bwiki-item-name-text">x${m.quantity}</span>
+              <span class="bwiki-item-name-text">x${qtyStr}</span>
             </div>
           </a>`;
       }).join('');
@@ -265,15 +356,15 @@
             </a>
             <a href="#screen-attributes" class="fremm-gauge-item is-future" data-index="1" data-target="screen-attributes">
               <span class="fremm-item-dash"></span>
-              <span class="fremm-item-label">THUỘC TÍNH PHẨM CẤP</span>
+              <span class="fremm-item-label">CHỈ SỐ THUỘC TÍNH</span>
             </a>
             <a href="#screen-ascension" class="fremm-gauge-item is-future" data-index="2" data-target="screen-ascension">
               <span class="fremm-item-dash"></span>
-              <span class="fremm-item-label">CÂY THĂNG SAO</span>
+              <span class="fremm-item-label">THĂNG CẤP SAO</span>
             </a>
             <a href="#screen-enhancement" class="fremm-gauge-item is-future" data-index="3" data-target="screen-enhancement">
               <span class="fremm-item-dash"></span>
-              <span class="fremm-item-label">BẢNG CƯỜNG HÓA</span>
+              <span class="fremm-item-label">NGUYÊN LIỆU CƯỜNG HÓA</span>
             </a>
             <a href="#screen-sources" class="fremm-gauge-item is-future" data-index="4" data-target="screen-sources">
               <span class="fremm-item-dash"></span>
@@ -289,12 +380,15 @@
         <!-- SCREEN 1: TỔNG QUAN VŨ KHÍ (Wrapped in authentic rarity frame) -->
         <section id="screen-overview" class="detail-screen" data-step="1">
           <div class="screen-header">
-            <h2>Tổng Quan & Cốt Truyện</h2>
+            <h2>Tổng Quan Vũ Khí</h2>
           </div>
 
           <div class="screen-overview-layout">
             <div class="screen-visual-frame r${rNum}-frame">
               <img class="screen-visual-icon" src="${rel}assets/equipment/${w.id}.png" alt="${w.name}">
+              <div class="screen-stars-row" title="Có thể thăng ${starCount} sao">
+                ${Array.from({ length: starCount }, () => `<img src="${rel}assets/star.png" class="screen-star-unit" alt="★">`).join('')}
+              </div>
             </div>
 
             <div class="screen-overview-info">
@@ -308,11 +402,11 @@
                 </div>
                 <div class="screen-meta-box">
                   <div class="meta-k">Độ hiếm</div>
-                  <div class="meta-v" style="color: #b45309;">${stars}</div>
+                  <div class="meta-v ${rarityInfo.cls}">${rarityInfo.name}</div>
                 </div>
                 <div class="screen-meta-box">
                   <div class="meta-k">Giới hạn thăng sao</div>
-                  <div class="meta-v">${w.max_stars || 'Chưa mở'}</div>
+                  <div class="meta-v">${formatMaxStars(w.max_stars)}</div>
                 </div>
                 <div class="screen-meta-box">
                   <div class="meta-k">Bộ trang bị</div>
@@ -327,23 +421,41 @@
           </div>
         </section>
 
-        <!-- SCREEN 2: THUỘC TÍNH PHẨM CẤP -->
+        <!-- SCREEN 2: CHỈ SỐ THUỘC TÍNH -->
         <section id="screen-attributes" class="detail-screen" data-step="2">
           <div class="screen-header">
-            <h2>Thuộc Tính Theo Phẩm Cấp</h2>
+            <h2>Chỉ Số Thuộc Tính</h2>
           </div>
 
-          <div class="quality-tabs-bar">
-            ${qualityTabsHtml}
+          <div class="attr-filters-bar">
+            <div class="attr-filter-row">
+              <span class="attr-filter-label">Theo phẩm chất</span>
+              <div class="quality-tabs-bar">
+                ${qualityTabsHtml}
+              </div>
+            </div>
+
+            <div class="attr-filter-row">
+              <span class="attr-filter-label">Theo cường hóa</span>
+              <div class="enhance-controls-bar attr-enhance-controls">
+                <button type="button" class="enhance-quick-btn attr-quick-btn active" data-val="0"><span class="btn-sign">+</span>0</button>
+                <div class="enhance-slider-wrap">
+                  <input type="range" class="enhance-slider" id="attr-enhance-slider" min="0" max="15" value="0" step="1" aria-label="Cường hóa thuộc tính">
+                </div>
+                <button type="button" class="enhance-quick-btn attr-quick-btn" data-val="15"><span class="btn-sign">+</span>15</button>
+                <div class="enhance-level-indicator">
+                  <span class="level-label">Cấp:</span>
+                  <span class="level-val" id="attr-enhance-level-val">0</span>
+                </div>
+              </div>
+            </div>
           </div>
 
           <table class="attr-table">
             <thead>
               <tr>
-                <th style="width: 35%;">Thuộc tính</th>
-                <th style="width: 20%;">Cường hóa 0</th>
-                <th style="width: 20%;">Cường hóa 15</th>
-                <th style="width: 25%;">Phạm vi tăng</th>
+                <th style="width: 50%;">Thuộc tính</th>
+                <th style="width: 50%;">Chỉ số</th>
               </tr>
             </thead>
             <tbody id="attr-table-body">
@@ -352,14 +464,18 @@
           </table>
         </section>
 
-        <!-- SCREEN 3: CÂY THĂNG SAO -->
+        <!-- SCREEN 3: THĂNG CẤP SAO -->
         <section id="screen-ascension" class="detail-screen" data-step="3">
           <div class="screen-header">
-            <h2>Cây Thăng Sao</h2>
+            <h2>Thăng Cấp Sao</h2>
           </div>
 
-          <div class="ascension-list">
-            ${ascensionNodesHtml}
+          <div class="asc-tabs-bar">
+            ${ascButtonsHtml}
+          </div>
+
+          <div id="asc-content-root" class="asc-content-root">
+            ${initialAscContentHtml}
           </div>
         </section>
 
@@ -371,14 +487,15 @@
 
           <div class="enhance-container">
             <div class="enhance-controls-bar">
-              <button type="button" class="enhance-quick-btn active" data-val="0">+0</button>
+              <button type="button" class="enhance-all-btn" id="enhance-all-btn">Tất cả nguyên liệu</button>
+              <button type="button" class="enhance-quick-btn active" data-val="1"><span class="btn-sign">+</span>1</button>
               <div class="enhance-slider-wrap">
-                <input type="range" class="enhance-slider" id="enhance-slider" min="0" max="${maxEnhanceLevel}" value="0" step="1" aria-label="Mức cường hóa">
+                <input type="range" class="enhance-slider" id="enhance-slider" min="1" max="${maxEnhanceLevel}" value="1" step="1" aria-label="Mức cường hóa">
               </div>
-              <button type="button" class="enhance-quick-btn" data-val="${maxEnhanceLevel}">+${maxEnhanceLevel}</button>
+              <button type="button" class="enhance-quick-btn" data-val="${maxEnhanceLevel}"><span class="btn-sign">+</span>${maxEnhanceLevel}</button>
               <div class="enhance-level-indicator">
                 <span class="level-label">Cấp:</span>
-                <span class="level-val" id="enhance-level-val">0</span>
+                <span class="level-val" id="enhance-level-val">1</span>
               </div>
             </div>
 
@@ -405,66 +522,194 @@
 
   function initEquipmentInteractivity(w, rel) {
     const qualities = w.main_attributes_by_quality || [];
-    const tabButtons = document.querySelectorAll('.q-tab-btn');
+    const ascensions = w.star_ascensions || [];
+    const rNum = getWeaponRarityNumber(w);
+    const qualityTabButtons = document.querySelectorAll('.q-tab-btn');
     const tableBody = document.getElementById('attr-table-body');
+    const attrEnhanceSlider = document.getElementById('attr-enhance-slider');
+    const attrEnhanceLevelVal = document.getElementById('attr-enhance-level-val');
+    const attrQuickBtns = document.querySelectorAll('.attr-quick-btn');
+    const attrThCurrent = document.getElementById('attr-th-current');
 
-    function renderQualityTable(qLevel) {
+    let currentQualityLevel = 1;
+    let currentAttrEnhance = 0;
+
+    function calculateAttributeValue(val0Str, val15Str, level) {
+      if (!val0Str || !val15Str) return val0Str || val15Str || '';
+      const lvl = Math.max(0, Math.min(15, parseInt(level, 10) || 0));
+      if (lvl === 0) return val0Str;
+      if (lvl === 15) return val15Str;
+
+      const isPercent = val0Str.includes('%') || val15Str.includes('%');
+      const hasPlus = val0Str.startsWith('+') || val15Str.startsWith('+');
+
+      const num0 = parseFloat(val0Str.replace(/[^\d.-]/g, ''));
+      const num15 = parseFloat(val15Str.replace(/[^\d.-]/g, ''));
+
+      if (isNaN(num0) || isNaN(num15)) return val0Str;
+
+      const currentNum = num0 + (num15 - num0) * (lvl / 15);
+
+      let formatted = '';
+      if (isPercent) {
+        formatted = currentNum.toFixed(1) + '%';
+      } else {
+        formatted = Math.round(currentNum).toString();
+      }
+
+      return (hasPlus ? '+' : '') + formatted;
+    }
+
+    function renderQualityTable(qLevel, eLevel) {
+      currentQualityLevel = qLevel;
+      currentAttrEnhance = parseInt(eLevel, 10) || 0;
+
       const q = qualities.find(item => item.quality_level == qLevel);
       if (!q || !q.attributes || !tableBody) return;
 
-      tableBody.innerHTML = q.attributes.map(a => `
-        <tr>
-          <td><strong>${a.attribute}</strong></td>
-          <td>${a.enhancement_0}</td>
-          <td><strong style="color:var(--accent-azure);">${a.enhancement_15}</strong></td>
-          <td><span class="growth-badge">${a.range}</span></td>
-        </tr>
-      `).join('');
+      if (attrThCurrent) {
+        attrThCurrent.textContent = `Cường hóa +${currentAttrEnhance}`;
+      }
+      if (attrEnhanceLevelVal) {
+        attrEnhanceLevelVal.textContent = currentAttrEnhance;
+      }
+      if (attrEnhanceSlider && parseInt(attrEnhanceSlider.value, 10) !== currentAttrEnhance) {
+        attrEnhanceSlider.value = currentAttrEnhance;
+      }
+      attrQuickBtns.forEach(btn => {
+        btn.classList.toggle('active', parseInt(btn.dataset.val, 10) === currentAttrEnhance);
+      });
+
+      tableBody.innerHTML = q.attributes.map(a => {
+        const currentVal = calculateAttributeValue(a.enhancement_0, a.enhancement_15, currentAttrEnhance);
+        const attrLabel = (a.attribute || '').replace(/%/g, '').trim();
+        return `
+          <tr>
+            <td><strong>${attrLabel}</strong></td>
+            <td><strong style="color:var(--accent-azure);">${currentVal}</strong></td>
+          </tr>
+        `;
+      }).join('');
     }
 
-    tabButtons.forEach(btn => {
+    qualityTabButtons.forEach(btn => {
       btn.addEventListener('click', () => {
-        tabButtons.forEach(b => b.classList.remove('active'));
+        qualityTabButtons.forEach(b => b.classList.remove('active'));
         btn.classList.add('active');
-        renderQualityTable(btn.dataset.qlevel);
+        renderQualityTable(btn.dataset.qlevel, currentAttrEnhance);
       });
     });
 
-    const maxQ = qualities.length ? qualities[qualities.length - 1].quality_level : 1;
-    renderQualityTable(maxQ);
+    if (attrEnhanceSlider) {
+      attrEnhanceSlider.addEventListener('input', (e) => {
+        renderQualityTable(currentQualityLevel, e.target.value);
+      });
+      attrEnhanceSlider.addEventListener('change', (e) => {
+        renderQualityTable(currentQualityLevel, e.target.value);
+      });
+    }
+
+    attrQuickBtns.forEach(btn => {
+      btn.addEventListener('click', () => {
+        const val = parseInt(btn.dataset.val, 10) || 0;
+        renderQualityTable(currentQualityLevel, val);
+      });
+    });
+
+    // Initial render for quality table (default Tân thủ)
+    renderQualityTable(1, 0);
+
+    // Screen 3: Star Ascension Tab Interactivity
+    const ascTabBtns = document.querySelectorAll('.asc-tab-btn');
+    const ascContentRoot = document.getElementById('asc-content-root');
+
+    function renderAscensionDetail(idx) {
+      const a = ascensions[idx];
+      if (!a || !ascContentRoot) return;
+
+      const skillTitle = formatSkillTitle(a.affix_name, a.affix_level);
+
+      let costCardsHtml = '';
+      if (a.upgrade_cost && a.upgrade_cost.length > 0) {
+        costCardsHtml = a.upgrade_cost.map(c => {
+          const isWeapon = c.material_id === w.id;
+          const costUrl = isWeapon ? '#' : `${rel}materials/${c.material_id}.html`;
+          const iconSrc = isWeapon ? `${rel}assets/equipment/${w.id}.png` : `${rel}assets/materials/${c.material_id}.png`;
+          const qtyStr = Number(c.quantity).toLocaleString('vi-VN');
+          const matName = isWeapon ? w.name : (c.name || getMaterialName(c.material_id));
+          const cardFrameClass = isWeapon ? `r${rNum}` : 'r3';
+          const cardStarsCount = isWeapon ? getMaxStarsCount(w) : getMaterialRarity(c.material_id);
+          return `
+            <a href="${costUrl}" class="bwiki-item-card ${cardFrameClass}" title="${matName} (x${qtyStr})">
+              <div class="bwiki-item-visual">
+                <img src="${iconSrc}" class="bwiki-item-img" alt="${matName}" loading="lazy">
+              </div>
+              ${renderCardStarsHtml(cardStarsCount, rel)}
+              <div class="bwiki-item-name-box">
+                <span class="bwiki-item-name-text">x${qtyStr}</span>
+              </div>
+            </a>`;
+        }).join('');
+      } else {
+        costCardsHtml = `<span class="asc-no-cost">Không yêu cầu tiêu hao nguyên liệu</span>`;
+      }
+
+      ascContentRoot.innerHTML = `
+        <div class="asc-display-layout">
+          <div class="asc-skill-pane">
+            <div class="asc-section-label">Kỹ năng</div>
+            <div class="asc-skill-name">${skillTitle}</div>
+            <div class="asc-skill-desc">${a.description || ''}</div>
+          </div>
+          <div class="asc-divider"></div>
+          <div class="asc-cost-pane">
+            <div class="asc-section-label">Nguyên liệu nâng cấp</div>
+            <div class="enhance-mats-grid asc-mats-grid">
+              ${costCardsHtml}
+            </div>
+          </div>
+        </div>
+      `;
+    }
+
+    ascTabBtns.forEach(btn => {
+      btn.addEventListener('click', () => {
+        ascTabBtns.forEach(b => b.classList.remove('active'));
+        btn.classList.add('active');
+        const idx = parseInt(btn.dataset.ascIdx, 10);
+        renderAscensionDetail(idx);
+      });
+    });
 
     // Screen 4: Enhancement Slider & Materials Interactivity
     const enhanceSlider = document.getElementById('enhance-slider');
     const enhanceLevelVal = document.getElementById('enhance-level-val');
     const enhanceStageContent = document.getElementById('enhance-stage-content');
-    const enhanceQuickBtns = document.querySelectorAll('.enhance-quick-btn');
+    const enhanceQuickBtns = document.querySelectorAll('#screen-enhancement .enhance-quick-btn');
+    const enhanceAllBtn = document.getElementById('enhance-all-btn');
     const enhancements = w.enhancement_materials || [];
     const maxEnhance = enhancements.length > 0 ? enhancements.length : 15;
 
     function renderEnhanceStage(level) {
-      const lvl = parseInt(level, 10);
+      const lvl = Math.max(1, Math.min(parseInt(level, 10) || 1, maxEnhance));
       if (enhanceLevelVal) {
         enhanceLevelVal.textContent = lvl;
       }
       if (enhanceSlider && parseInt(enhanceSlider.value, 10) !== lvl) {
         enhanceSlider.value = lvl;
       }
+      if (enhanceAllBtn) {
+        enhanceAllBtn.classList.remove('active');
+      }
       enhanceQuickBtns.forEach(btn => {
-        btn.classList.toggle('active', parseInt(btn.dataset.val, 10) === lvl);
+        const btnVal = parseInt(btn.dataset.val, 10);
+        btn.classList.toggle('active', btnVal === lvl);
       });
 
       if (!enhanceStageContent) return;
 
-      if (lvl >= maxEnhance) {
-        enhanceStageContent.innerHTML = `
-          <div class="enhance-max-msg">
-            Trang bị đã đạt mức cường hóa tối đa.
-          </div>
-        `;
-        return;
-      }
-
-      const stageData = enhancements[lvl];
+      const stageIdx = lvl - 1;
+      const stageData = enhancements[stageIdx];
       if (!stageData || !stageData.materials || stageData.materials.length === 0) {
         enhanceStageContent.innerHTML = `
           <div class="enhance-max-msg">
@@ -478,13 +723,16 @@
         const matName = getMaterialName(m.material_id);
         const iconSrc = `${rel}assets/materials/${m.material_id}.png`;
         const linkHref = `${rel}materials/${m.material_id}.html`;
+        const qtyStr = Number(m.quantity).toLocaleString('vi-VN');
+        const starsCount = getMaterialRarity(m.material_id);
         return `
-          <a href="${linkHref}" class="bwiki-item-card r3" title="${matName} (x${m.quantity})">
+          <a href="${linkHref}" class="bwiki-item-card r3" title="${matName} (x${qtyStr})">
             <div class="bwiki-item-visual">
               <img src="${iconSrc}" class="bwiki-item-img" alt="${matName}" loading="lazy">
             </div>
+            ${renderCardStarsHtml(starsCount, rel)}
             <div class="bwiki-item-name-box">
-              <span class="bwiki-item-name-text">x${m.quantity}</span>
+              <span class="bwiki-item-name-text">x${qtyStr}</span>
             </div>
           </a>
         `;
@@ -493,13 +741,83 @@
       enhanceStageContent.innerHTML = `
         <div class="enhance-stage-card">
           <div class="enhance-stage-header">
-            <span class="enhance-stage-badge">Cấp: ${lvl} → ${lvl + 1}</span>
+            <span class="enhance-stage-badge">Cấp: ${stageIdx} → ${lvl}</span>
           </div>
           <div class="enhance-mats-grid">
             ${matCards}
           </div>
         </div>
       `;
+    }
+
+    function renderAllMaterials() {
+      if (!enhanceStageContent) return;
+
+      if (enhanceAllBtn) {
+        enhanceAllBtn.classList.add('active');
+      }
+      enhanceQuickBtns.forEach(btn => btn.classList.remove('active'));
+      if (enhanceLevelVal) {
+        enhanceLevelVal.textContent = `0 → ${maxEnhance}`;
+      }
+
+      if (!enhancements || enhancements.length === 0) {
+        enhanceStageContent.innerHTML = `
+          <div class="enhance-max-msg">Không có dữ liệu cường hóa.</div>
+        `;
+        return;
+      }
+
+      // Calculate aggregated totals
+      const totalMatsMap = {};
+      enhancements.forEach(st => {
+        (st.materials || []).forEach(m => {
+          if (!totalMatsMap[m.material_id]) {
+            totalMatsMap[m.material_id] = {
+              material_id: m.material_id,
+              quantity: 0
+            };
+          }
+          totalMatsMap[m.material_id].quantity += (Number(m.quantity) || 0);
+        });
+      });
+      const totalMats = Object.values(totalMatsMap);
+
+      const totalCards = totalMats.map(m => {
+        const matName = getMaterialName(m.material_id);
+        const iconSrc = `${rel}assets/materials/${m.material_id}.png`;
+        const linkHref = `${rel}materials/${m.material_id}.html`;
+        const qtyStr = Number(m.quantity).toLocaleString('vi-VN');
+        const starsCount = getMaterialRarity(m.material_id);
+        return `
+          <a href="${linkHref}" class="bwiki-item-card r3" title="${matName} (x${qtyStr})">
+            <div class="bwiki-item-visual">
+              <img src="${iconSrc}" class="bwiki-item-img" alt="${matName}" loading="lazy">
+            </div>
+            ${renderCardStarsHtml(starsCount, rel)}
+            <div class="bwiki-item-name-box">
+              <span class="bwiki-item-name-text">x${qtyStr}</span>
+            </div>
+          </a>
+        `;
+      }).join('');
+
+      enhanceStageContent.innerHTML = `
+        <div class="enhance-stage-card">
+          <div class="enhance-stage-header">
+            <span class="enhance-stage-badge">Cấp: 0 → ${maxEnhance}</span>
+          </div>
+          <div class="enhance-mats-grid">
+            ${totalCards}
+          </div>
+        </div>
+      `;
+    }
+
+    if (enhanceAllBtn) {
+      enhanceAllBtn.addEventListener('click', () => {
+        renderAllMaterials();
+      });
     }
 
     if (enhanceSlider) {
@@ -518,8 +836,8 @@
       });
     });
 
-    // Initialize enhancement stage to current slider value
-    renderEnhanceStage(enhanceSlider ? parseInt(enhanceSlider.value, 10) : 0);
+    // Initialize enhancement stage to level 1
+    renderEnhanceStage(enhanceSlider ? parseInt(enhanceSlider.value, 10) : 1);
 
     // Fincantieri FREMM EVO Navigation & Gauge Transition Logic
     const track = document.getElementById('fremm-gauge-track');

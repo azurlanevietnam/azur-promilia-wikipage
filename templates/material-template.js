@@ -25,10 +25,37 @@
   }
 
   function getWeaponRarityNumber(w) {
+    if (w.base_rarity !== undefined) return w.base_rarity + 1;
     if (w.max_stars && w.max_stars.includes('6')) return 5;
     if (w.max_stars && w.max_stars.includes('5')) return 4;
-    if (w.base_rarity) return w.base_rarity;
     return 3;
+  }
+
+  function getMaxStarsCount(w) {
+    if (w.max_stars) {
+      const m = w.max_stars.match(/(\d+)\s*sao/i);
+      if (m) return parseInt(m[1], 10);
+    }
+    if (w.star_ascensions && w.star_ascensions.length > 0) {
+      let max = 0;
+      w.star_ascensions.forEach(a => {
+        const m = (a.star_level || '').match(/(\d+)/);
+        if (m) max = Math.max(max, parseInt(m[1], 10));
+      });
+      if (max > 0) return max;
+    }
+    const r = getWeaponRarityNumber(w);
+    if (r === 5) return 6;
+    if (r === 4) return 3;
+    if (r === 3) return 3;
+    if (r === 2) return 2;
+    return 1;
+  }
+
+  function renderCardStarsHtml(count, rel) {
+    if (!count || count <= 0) return '';
+    const stars = Array.from({ length: count }, () => `<img src="${rel}assets/star.png" class="bwiki-star-unit" alt="★">`).join('');
+    return `<div class="bwiki-card-stars">${stars}</div>`;
   }
 
   function loadScript(src) {
@@ -106,12 +133,16 @@
 
     const usedWeaponsCardsHtml = usedWeapons.map(w => {
       const wRarity = getWeaponRarityNumber(w);
+      const starCount = getMaxStarsCount(w);
       return `
         <a href="${rel}equipments/${w.id}.html" class="bwiki-item-card r${wRarity}">
-          <div class="bwiki-item-icon-box">
-            <img class="bwiki-item-icon" src="${rel}assets/equipment/${w.id}.png" alt="${w.name}" loading="lazy">
+          <div class="bwiki-item-visual">
+            <img class="bwiki-item-img" src="${rel}assets/equipment/${w.id}.png" alt="${w.name}" loading="lazy">
           </div>
-          <div class="bwiki-item-name" title="${w.name}">${w.name}</div>
+          ${renderCardStarsHtml(starCount, rel)}
+          <div class="bwiki-item-name-box">
+            <span class="bwiki-item-name-text">${w.name}</span>
+          </div>
         </a>`;
     }).join('');
 

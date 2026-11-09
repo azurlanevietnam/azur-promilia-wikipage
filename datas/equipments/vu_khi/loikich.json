@@ -10,7 +10,6 @@
   "rarity_bg_image": "../../../assets/equipment/loikich_bg.png",
   "suit": "Không có bộ trang bị",
   "description": "Một thanh kiếm dài thẳng và thanh mảnh, mũi kiếm cực kỳ sắc nhọn, khi rút kiếm ánh sáng chớp lóe dữ dội, tựa như uy lực của sấm sét xé toạc bầu trời trong chớp mắt.",
-  "original_description": "一柄修长细直之剑，剑尖极锐，出鞘时光色骤闪，可如霆威一瞬贯空。",
   "acquisition_sources": [
     "Gia viên - Tiệm rèn",
     "Ủy thác - Thủ Hộ Dòng Chảy V",
@@ -20,18 +19,15 @@
     {
       "quality_level": 1,
       "quality_name": "Tân thủ",
-      "original_quality_name": "新手",
       "attributes": [
         {
           "attribute": "Cường độ Siêu Hạn",
-          "original_attribute": "超限强度",
           "enhancement_0": "+76",
           "enhancement_15": "+307",
           "range": "+76 / +307"
         },
         {
           "attribute": "Sát thương thuộc tính Lôi",
-          "original_attribute": "雷属性伤害",
           "enhancement_0": "+7.2%",
           "enhancement_15": "+28.8%",
           "range": "+7.2% / +28.8%"
@@ -41,18 +37,15 @@
     {
       "quality_level": 2,
       "quality_name": "Tiến giai",
-      "original_quality_name": "进阶",
       "attributes": [
         {
           "attribute": "Cường độ Siêu Hạn",
-          "original_attribute": "超限强度",
           "enhancement_0": "+81",
           "enhancement_15": "+326",
           "range": "+81 / +326"
         },
         {
           "attribute": "Sát thương thuộc tính Lôi",
-          "original_attribute": "雷属性伤害",
           "enhancement_0": "+7.6%",
           "enhancement_15": "+30.6%",
           "range": "+7.6% / +30.6%"
@@ -62,18 +55,15 @@
     {
       "quality_level": 3,
       "quality_name": "Tinh lương",
-      "original_quality_name": "精良",
       "attributes": [
         {
           "attribute": "Cường độ Siêu Hạn",
-          "original_attribute": "超限强度",
           "enhancement_0": "+86",
           "enhancement_15": "+345",
           "range": "+86 / +345"
         },
         {
           "attribute": "Sát thương thuộc tính Lôi",
-          "original_attribute": "雷属性伤害",
           "enhancement_0": "+8.1%",
           "enhancement_15": "+32.4%",
           "range": "+8.1% / +32.4%"
@@ -83,18 +73,15 @@
     {
       "quality_level": 4,
       "quality_name": "Sử thi",
-      "original_quality_name": "史诗",
       "attributes": [
         {
           "attribute": "Cường độ Siêu Hạn",
-          "original_attribute": "超限强度",
           "enhancement_0": "+91",
           "enhancement_15": "+364",
           "range": "+91 / +364"
         },
         {
           "attribute": "Sát thương thuộc tính Lôi",
-          "original_attribute": "雷属性伤害",
           "enhancement_0": "+8.5%",
           "enhancement_15": "+34.2%",
           "range": "+8.5% / +34.2%"
@@ -104,18 +91,15 @@
     {
       "quality_level": 5,
       "quality_name": "Truyền kỳ",
-      "original_quality_name": "传奇",
       "attributes": [
         {
           "attribute": "Cường độ Siêu Hạn",
-          "original_attribute": "超限强度",
           "enhancement_0": "+96",
           "enhancement_15": "+384",
           "range": "+96 / +384"
         },
         {
           "attribute": "Sát thương thuộc tính Lôi",
-          "original_attribute": "雷属性伤害",
           "enhancement_0": "+9.0%",
           "enhancement_15": "+36.0%",
           "range": "+9.0% / +36.0%"
@@ -126,22 +110,16 @@
   "star_ascensions": [
     {
       "star_level": "Khởi đầu",
-      "original_star_level": "初始",
       "affix_name": "Cường độ Siêu Hạn",
-      "original_affix_name": "超限强度",
       "affix_level": "Cấp 2",
       "description": "Cường độ Siêu Hạn tăng 35 điểm.",
-      "original_description": "超限强度增加35点",
       "upgrade_cost": null
     },
     {
       "star_level": "1 sao",
-      "original_star_level": "1星",
       "affix_name": "Tích Thế",
-      "original_affix_name": "累势",
       "affix_level": "Cấp 1",
       "description": "Tấn công tăng 40 điểm.",
-      "original_description": "攻击力增加40点",
       "upgrade_cost": [
         {
           "material_id": "loikich",
@@ -157,12 +135,9 @@
     },
     {
       "star_level": "2 sao",
-      "original_star_level": "2星",
       "affix_name": "Cường độ Siêu Hạn",
-      "original_affix_name": "超限强度",
       "affix_level": "Cấp 3",
       "description": "Cường độ Siêu Hạn tăng 50 điểm.",
-      "original_description": "超限强度增加50点",
       "upgrade_cost": [
         {
           "material_id": "loikich",
@@ -178,12 +153,9 @@
     },
     {
       "star_level": "3 sao",
-      "original_star_level": "3星",
       "affix_name": "Tích Thế",
-      "original_affix_name": "累势",
       "affix_level": "Cấp 2",
       "description": "Tấn công tăng 50 điểm.",
-      "original_description": "攻击力增加50点",
       "upgrade_cost": [
         {
           "material_id": "loikich",
@@ -199,12 +171,9 @@
     },
     {
       "star_level": "4 sao",
-      "original_star_level": "4星",
       "affix_name": "Cường Kích - Tăng Sát Thương",
-      "original_affix_name": "强袭·增伤",
       "affix_level": "Cấp 2",
       "description": "Sát thương do Tinh Minh Kỹ và Tinh Quyết Kỹ gây ra tăng 4.5%.",
-      "original_description": "星鸣技和星决技造成的伤害提高4.5%",
       "upgrade_cost": [
         {
           "material_id": "loikich",
@@ -220,12 +189,9 @@
     },
     {
       "star_level": "5 sao",
-      "original_star_level": "5星",
       "affix_name": "Tích Thế",
-      "original_affix_name": "累势",
       "affix_level": "Cấp 3",
       "description": "Tấn công tăng 70 điểm.",
-      "original_description": "攻击力增加70点",
       "upgrade_cost": [
         {
           "material_id": "loikich",
@@ -241,12 +207,9 @@
     },
     {
       "star_level": "6 sao",
-      "original_star_level": "6星",
       "affix_name": "Cường Kích - Tăng Sát Thương",
-      "original_affix_name": "强袭·增伤",
       "affix_level": "Cấp 4",
       "description": "Sát thương do Tinh Minh Kỹ và Tinh Quyết Kỹ gây ra tăng 8%.",
-      "original_description": "星鸣技和星决技造成的伤害提高8%",
       "upgrade_cost": [
         {
           "material_id": "loikich",

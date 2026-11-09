@@ -10,7 +10,6 @@
   "rarity_bg_image": "../../../assets/equipment/dulichgiachikiem_bg.png",
   "suit": "Không có bộ trang bị",
   "description": "Một thanh trường kiếm, ngoài việc dùng để tự vệ, nó còn có thể phát huy nhiều công dụng khác trong suốt chuyến hành trình.",
-  "original_description": "一把长剑，除了防身，在旅途中也能派上其他用场。",
   "acquisition_sources": [
     "Chế tạo tiện lợi"
   ],
@@ -18,11 +17,9 @@
     {
       "quality_level": 1,
       "quality_name": "Tân thủ",
-      "original_quality_name": "新手",
       "attributes": [
         {
           "attribute": "Tấn công",
-          "original_attribute": "攻击",
           "enhancement_0": "+24",
           "enhancement_15": "+72",
           "range": "+24 / +72"
@@ -32,11 +29,9 @@
     {
       "quality_level": 2,
       "quality_name": "Tiến giai",
-      "original_quality_name": "进阶",
       "attributes": [
         {
           "attribute": "Tấn công",
-          "original_attribute": "攻击",
           "enhancement_0": "+25",
           "enhancement_15": "+76",
           "range": "+25 / +76"
@@ -46,11 +41,9 @@
     {
       "quality_level": 3,
       "quality_name": "Tinh lương",
-      "original_quality_name": "精良",
       "attributes": [
         {
           "attribute": "Tấn công",
-          "original_attribute": "攻击",
           "enhancement_0": "+27",
           "enhancement_15": "+81",
           "range": "+27 / +81"
@@ -60,11 +53,9 @@
     {
       "quality_level": 4,
       "quality_name": "Sử thi",
-      "original_quality_name": "史诗",
       "attributes": [
         {
           "attribute": "Tấn công",
-          "original_attribute": "攻击",
           "enhancement_0": "+28",
           "enhancement_15": "+85",
           "range": "+28 / +85"
@@ -75,12 +66,9 @@
   "star_ascensions": [
     {
       "star_level": "1 sao",
-      "original_star_level": "1星",
       "affix_name": "Bích Lập",
-      "original_affix_name": "壁立",
       "affix_level": "Cấp 1",
       "description": "Phòng ngự tăng 30 điểm.",
-      "original_description": "防御力增加30点",
       "upgrade_cost": [
         {
           "material_id": "dulichgiachikiem",

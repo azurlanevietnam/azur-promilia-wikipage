@@ -104,6 +104,33 @@ function getWeaponRarityNumber(w) {
   return (w.base_rarity !== undefined ? w.base_rarity : 0) + 1;
 }
 
+function getMaxStarsCount(w) {
+  if (w.max_stars) {
+    const m = w.max_stars.match(/(\d+)\s*sao/i);
+    if (m) return parseInt(m[1], 10);
+  }
+  if (w.star_ascensions && w.star_ascensions.length > 0) {
+    let max = 0;
+    w.star_ascensions.forEach(a => {
+      const m = (a.star_level || '').match(/(\d+)/);
+      if (m) max = Math.max(max, parseInt(m[1], 10));
+    });
+    if (max > 0) return max;
+  }
+  const r = getWeaponRarityNumber(w);
+  if (r === 5) return 6;
+  if (r === 4) return 3;
+  if (r === 3) return 3;
+  if (r === 2) return 2;
+  return 1;
+}
+
+function renderCardStarsHtml(count, rel) {
+  if (!count || count <= 0) return '';
+  const stars = Array.from({ length: count }, () => `<img src="${rel}assets/star.png" class="bwiki-star-unit" alt="★">`).join('');
+  return `<div class="bwiki-card-stars">${stars}</div>`;
+}
+
 function getStarsString(rarityNumber) {
   return '★'.repeat(rarityNumber);
 }
@@ -206,6 +233,7 @@ function generateEquipmentsCatalog(depth) {
 
   const cardsHtml = weapons.map(w => {
     const rNum = getWeaponRarityNumber(w);
+    const starCount = getMaxStarsCount(w);
     const cleanType = getCleanWeaponType(w.item_type);
     const suitVal = (!w.suit || w.suit === 'Không có bộ trang bị') ? 'none' : w.suit;
     const searchTokens = `${w.name} ${w.original_name || ''} ${cleanType}`.toLowerCase();
@@ -216,6 +244,7 @@ function generateEquipmentsCatalog(depth) {
         <div class="bwiki-item-visual">
           <img src="${rel}assets/equipment/${w.id}.png" class="bwiki-item-img" alt="${w.name}" loading="lazy">
         </div>
+        ${renderCardStarsHtml(starCount, rel)}
         <div class="bwiki-item-name-box">
           <span class="bwiki-item-name-text">${w.name}</span>
         </div>
@@ -465,6 +494,7 @@ function generateMaterialsCatalog(depth) {
         <div class="bwiki-item-visual">
           <img src="${rel}assets/materials/${m.id}.png" class="bwiki-item-img" alt="${m.name}" loading="lazy">
         </div>
+        ${renderCardStarsHtml(rNum, rel)}
         <div class="bwiki-item-name-box">
           <span class="bwiki-item-name-text">${m.name}</span>
         </div>

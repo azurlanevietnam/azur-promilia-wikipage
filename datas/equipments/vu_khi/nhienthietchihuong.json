@@ -10,7 +10,6 @@
   "rarity_bg_image": "../../../assets/equipment/nhienthietchihuong_bg.png",
   "suit": "Không có bộ trang bị",
   "description": "Một thanh dao găm được rèn từ sắt và vàng đỏ, thân lưỡi ngắn, trên bề mặt ẩn hiện những đường vân màu đỏ sẫm như vệt lửa vừa quét qua. Cầm trong lòng bàn tay dường như vẫn còn mang hơi ấm của lò rèn, khi xoay chuyển, lưỡi dao mỏng manh mà hung bạo, hệt như tiếng vang rền giòn giã phát ra khi ngọn lửa rực cháy va chạm vào đe sắt.",
-  "original_description": "一把匕首，以铁与赤金锻成，刃身短，表面隐见如火痕流过后的暗红纹路。握于掌中，似仍带锻炉余温，翻转之时，锋芒薄而凶狠，正如烈火与铁砧相击时迸出的那一声炽响。",
   "acquisition_sources": [
     "Gia viên - Tiệm rèn",
     "Ủy thác - Bảo Hộ Thường Xanh III",
@@ -20,18 +19,15 @@
     {
       "quality_level": 1,
       "quality_name": "Tân thủ",
-      "original_quality_name": "新手",
       "attributes": [
         {
           "attribute": "Tấn công",
-          "original_attribute": "攻击",
           "enhancement_0": "+38",
           "enhancement_15": "+153",
           "range": "+38 / +153"
         },
         {
           "attribute": "Sát thương bạo kích",
-          "original_attribute": "暴击伤害",
           "enhancement_0": "+3.8%",
           "enhancement_15": "+15.5%",
           "range": "+3.8% / +15.5%"
@@ -41,18 +37,15 @@
     {
       "quality_level": 2,
       "quality_name": "Tiến giai",
-      "original_quality_name": "进阶",
       "attributes": [
         {
           "attribute": "Tấn công",
-          "original_attribute": "攻击",
           "enhancement_0": "+40",
           "enhancement_15": "+163",
           "range": "+40 / +163"
         },
         {
           "attribute": "Sát thương bạo kích",
-          "original_attribute": "暴击伤害",
           "enhancement_0": "+4.1%",
           "enhancement_15": "+16.5%",
           "range": "+4.1% / +16.5%"
@@ -62,18 +55,15 @@
     {
       "quality_level": 3,
       "quality_name": "Tinh lương",
-      "original_quality_name": "精良",
       "attributes": [
         {
           "attribute": "Tấn công",
-          "original_attribute": "攻击",
           "enhancement_0": "+43",
           "enhancement_15": "+172",
           "range": "+43 / +172"
         },
         {
           "attribute": "Sát thương bạo kích",
-          "original_attribute": "暴击伤害",
           "enhancement_0": "+4.3%",
           "enhancement_15": "+17.4%",
           "range": "+4.3% / +17.4%"
@@ -83,18 +73,15 @@
     {
       "quality_level": 4,
       "quality_name": "Sử thi",
-      "original_quality_name": "史诗",
       "attributes": [
         {
           "attribute": "Tấn công",
-          "original_attribute": "攻击",
           "enhancement_0": "+45",
           "enhancement_15": "+182",
           "range": "+45 / +182"
         },
         {
           "attribute": "Sát thương bạo kích",
-          "original_attribute": "暴击伤害",
           "enhancement_0": "+4.6%",
           "enhancement_15": "+18.4%",
           "range": "+4.6% / +18.4%"
@@ -105,12 +92,9 @@
   "star_ascensions": [
     {
       "star_level": "1 sao",
-      "original_star_level": "1星",
       "affix_name": "Kình Quán",
-      "original_affix_name": "劲贯",
       "affix_level": "Cấp 1",
       "description": "Tăng 2% tỉ lệ bạo kích.",
-      "original_description": "暴击率提高2%",
       "upgrade_cost": [
         {
           "material_id": "nhienthietchihuong",
@@ -126,12 +110,9 @@
     },
     {
       "star_level": "2 sao",
-      "original_star_level": "2星",
       "affix_name": "Quán Kích - Tăng Sát Thương",
-      "original_affix_name": "贯击·增伤",
       "affix_level": "Cấp 1",
       "description": "Sát thương do Đòn đánh thường và Đòn đánh mạnh gây ra tăng 3.5%.",
-      "original_description": "普攻和重击造成的伤害提高3.5%",
       "upgrade_cost": [
         {
           "material_id": "nhienthietchihuong",
@@ -147,12 +128,9 @@
     },
     {
       "star_level": "3 sao",
-      "original_star_level": "3星",
       "affix_name": "Kình Quán",
-      "original_affix_name": "劲贯",
       "affix_level": "Cấp 2",
       "description": "Tăng 2.5% tỉ lệ bạo kích.",
-      "original_description": "暴击率提高2.5%",
       "upgrade_cost": [
         {
           "material_id": "nhienthietchihuong",

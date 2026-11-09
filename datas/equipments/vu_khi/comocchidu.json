@@ -10,7 +10,6 @@
   "rarity_bg_image": "../../../assets/equipment/comocchidu_bg.png",
   "suit": "Không có bộ trang bị",
   "description": "Một cuốn sách cổ xưa, bìa màu nâu sẫm, đóng tập mộc mạc cổ kính, các trang sách cũng không giống bình thường mà xen lẫn rất nhiều lá cây cùng những mảnh đá khắc mang văn tự chưa rõ, tương truyền bên trong ẩn chứa những câu thần chú xa xưa có thể đánh thức sức mạnh của muôn loài cây cỏ.",
-  "original_description": "一本年代久远的书，封皮深褐，装帧古朴，书页也不似寻常，夹杂着许多记有未知文字的树叶与小片石刻，据说其间藏有可唤醒万木之力的旧时咒语。",
   "acquisition_sources": [
     "Gia viên - Tiệm rèn",
     "Ủy thác - Hộ Vệ Sấm Xanh V",
@@ -24,18 +23,15 @@
     {
       "quality_level": 1,
       "quality_name": "Tân thủ",
-      "original_quality_name": "新手",
       "attributes": [
         {
           "attribute": "Sinh lực%",
-          "original_attribute": "生命%",
           "enhancement_0": "+8.3%",
           "enhancement_15": "+33.6%",
           "range": "+8.3% / +33.6%"
         },
         {
           "attribute": "Sát thương thuộc tính Mộc",
-          "original_attribute": "木属性伤害",
           "enhancement_0": "+7.2%",
           "enhancement_15": "+28.8%",
           "range": "+7.2% / +28.8%"
@@ -45,18 +41,15 @@
     {
       "quality_level": 2,
       "quality_name": "Tiến giai",
-      "original_quality_name": "进阶",
       "attributes": [
         {
           "attribute": "Sinh lực%",
-          "original_attribute": "生命%",
           "enhancement_0": "+8.8%",
           "enhancement_15": "+35.7%",
           "range": "+8.8% / +35.7%"
         },
         {
           "attribute": "Sát thương thuộc tính Mộc",
-          "original_attribute": "木属性伤害",
           "enhancement_0": "+7.6%",
           "enhancement_15": "+30.6%",
           "range": "+7.6% / +30.6%"
@@ -66,18 +59,15 @@
     {
       "quality_level": 3,
       "quality_name": "Tinh lương",
-      "original_quality_name": "精良",
       "attributes": [
         {
           "attribute": "Sinh lực%",
-          "original_attribute": "生命%",
           "enhancement_0": "+9.3%",
           "enhancement_15": "+37.8%",
           "range": "+9.3% / +37.8%"
         },
         {
           "attribute": "Sát thương thuộc tính Mộc",
-          "original_attribute": "木属性伤害",
           "enhancement_0": "+8.1%",
           "enhancement_15": "+32.4%",
           "range": "+8.1% / +32.4%"
@@ -87,18 +77,15 @@
     {
       "quality_level": 4,
       "quality_name": "Sử thi",
-      "original_quality_name": "史诗",
       "attributes": [
         {
           "attribute": "Sinh lực%",
-          "original_attribute": "生命%",
           "enhancement_0": "+9.9%",
           "enhancement_15": "+39.9%",
           "range": "+9.9% / +39.9%"
         },
         {
           "attribute": "Sát thương thuộc tính Mộc",
-          "original_attribute": "木属性伤害",
           "enhancement_0": "+8.5%",
           "enhancement_15": "+34.2%",
           "range": "+8.5% / +34.2%"
@@ -108,18 +95,15 @@
     {
       "quality_level": 5,
       "quality_name": "Truyền kỳ",
-      "original_quality_name": "传奇",
       "attributes": [
         {
           "attribute": "Sinh lực%",
-          "original_attribute": "生命%",
           "enhancement_0": "+10.4%",
           "enhancement_15": "+42.0%",
           "range": "+10.4% / +42.0%"
         },
         {
           "attribute": "Sát thương thuộc tính Mộc",
-          "original_attribute": "木属性伤害",
           "enhancement_0": "+9.0%",
           "enhancement_15": "+36.0%",
           "range": "+9.0% / +36.0%"
@@ -130,22 +114,16 @@
   "star_ascensions": [
     {
       "star_level": "Khởi đầu",
-      "original_star_level": "初始",
       "affix_name": "Phong Thể",
-      "original_affix_name": "丰体",
       "affix_level": "Cấp 2",
       "description": "Tăng 4.5% máu.",
-      "original_description": "生命值提高4.5%",
       "upgrade_cost": null
     },
     {
       "star_level": "1 sao",
-      "original_star_level": "1星",
       "affix_name": "Phong Thể",
-      "original_affix_name": "丰体",
       "affix_level": "Cấp 3",
       "description": "Tăng 6% máu.",
-      "original_description": "生命值提高6%",
       "upgrade_cost": [
         {
           "material_id": "comocchidu",
@@ -161,12 +139,9 @@
     },
     {
       "star_level": "2 sao",
-      "original_star_level": "2星",
       "affix_name": "Sinh Tức",
-      "original_affix_name": "生息",
       "affix_level": "Cấp 1",
       "description": "Máu tăng 300 điểm.",
-      "original_description": "生命值增加300点",
       "upgrade_cost": [
         {
           "material_id": "comocchidu",
@@ -182,12 +157,9 @@
     },
     {
       "star_level": "3 sao",
-      "original_star_level": "3星",
       "affix_name": "Phong Thể",
-      "original_affix_name": "丰体",
       "affix_level": "Cấp 4",
       "description": "Tăng 8.5% máu.",
-      "original_description": "生命值提高8.5%",
       "upgrade_cost": [
         {
           "material_id": "comocchidu",
@@ -203,12 +175,9 @@
     },
     {
       "star_level": "4 sao",
-      "original_star_level": "4星",
       "affix_name": "Tật Chuyển",
-      "original_affix_name": "疾转",
       "affix_level": "Cấp 1",
       "description": "Thời gian hồi chiêu Tinh Minh Kỹ giảm 2%.",
-      "original_description": "星鸣技冷却减少2%",
       "upgrade_cost": [
         {
           "material_id": "comocchidu",
@@ -224,12 +193,9 @@
     },
     {
       "star_level": "5 sao",
-      "original_star_level": "5星",
       "affix_name": "Sinh Tức",
-      "original_affix_name": "生息",
       "affix_level": "Cấp 3",
       "description": "Máu tăng 550 điểm.",
-      "original_description": "生命值增加550点",
       "upgrade_cost": [
         {
           "material_id": "comocchidu",
@@ -245,12 +211,9 @@
     },
     {
       "star_level": "6 sao",
-      "original_star_level": "6星",
       "affix_name": "Tật Chuyển",
-      "original_affix_name": "疾转",
       "affix_level": "Cấp 3",
       "description": "Thời gian hồi chiêu Tinh Minh Kỹ giảm 4%.",
-      "original_description": "星鸣技冷却减少4%",
       "upgrade_cost": [
         {
           "material_id": "comocchidu",

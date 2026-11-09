@@ -626,15 +626,11 @@ img,
   filter: drop-shadow(0 8px 18px rgba(15, 23, 42, 0.16));
 }
 
-.bwiki-item-card::before {
-  content: '';
-  position: absolute;
-  inset: 0;
-  background-size: auto calc(100% / 204 * 26);
-  background-position: center calc(100% / 204 * 148);
-  background-repeat: no-repeat;
-  z-index: 2;
-  pointer-events: none;
+/* Card & Frame base: no pseudo-element star cluster needed */
+.bwiki-item-card::before,
+.r5-frame::before, .r4-frame::before, .r3-frame::before, .r2-frame::before, .r1-frame::before,
+.screen-visual-frame::before {
+  display: none !important;
 }
 
 /* Frame Rarities & Matching Composed Gray Bar Backgrounds */
@@ -643,17 +639,11 @@ img,
   background-color: transparent;
   background-image: url('assets/frames/r5_bg1.png'), url('assets/frames/r5_bg2.png');
 }
-.r5-frame::before, .bwiki-item-card.r5::before {
-  background-image: url('assets/frames/r5_stars.png');
-}
 
 .r4-frame, .bwiki-item-card.r4 {
   --card-bar-bg: #4a4e56;
   background-color: transparent;
   background-image: url('assets/frames/r4_bg1.png'), url('assets/frames/r4_bg2.png');
-}
-.r4-frame::before, .bwiki-item-card.r4::before {
-  background-image: url('assets/frames/r4_stars.png');
 }
 
 .r3-frame, .bwiki-item-card.r3 {
@@ -661,17 +651,11 @@ img,
   background-color: transparent;
   background-image: url('assets/frames/r3_bg1.png'), url('assets/frames/r3_bg2.png');
 }
-.r3-frame::before, .bwiki-item-card.r3::before {
-  background-image: url('assets/frames/r3_stars.png');
-}
 
 .r2-frame, .bwiki-item-card.r2 {
   --card-bar-bg: #465153;
   background-color: transparent;
   background-image: url('assets/frames/r2_bg1.png'), url('assets/frames/r2_bg2.png');
-}
-.r2-frame::before, .bwiki-item-card.r2::before {
-  background-image: url('assets/frames/r2_stars.png');
 }
 
 .r1-frame, .bwiki-item-card.r1 {
@@ -679,9 +663,79 @@ img,
   background-color: transparent;
   background-image: url('assets/frames/r1_bg1.png'), url('assets/frames/r1_bg2.png');
 }
-.r1-frame::before, .bwiki-item-card.r1::before {
-  background-image: url('assets/frames/r1_stars.png');
+
+/* Authentic individual star rows replacing static star clusters */
+.bwiki-card-stars {
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: calc(100% / 204 * 44);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 3;
+  pointer-events: none;
 }
+
+.bwiki-card-stars .bwiki-star-unit {
+  height: 18px;
+  width: auto;
+  object-fit: contain;
+  margin: 0;
+  filter: drop-shadow(0 1px 2px rgba(0, 0, 0, 0.45));
+}
+
+.bwiki-card-stars .bwiki-star-unit + .bwiki-star-unit {
+  margin-left: -7px; /* Sít vào nhau chặt hơn */
+}
+
+/* Smaller grids (ascension cost, enhance mats) */
+.asc-mats-grid .bwiki-card-stars,
+.enhance-mats-grid .bwiki-card-stars {
+  bottom: calc(100% / 204 * 44);
+}
+
+.asc-mats-grid .bwiki-card-stars .bwiki-star-unit,
+.enhance-mats-grid .bwiki-card-stars .bwiki-star-unit {
+  height: 16px;
+}
+
+.asc-mats-grid .bwiki-card-stars .bwiki-star-unit + .bwiki-star-unit,
+.enhance-mats-grid .bwiki-card-stars .bwiki-star-unit + .bwiki-star-unit {
+  margin-left: -5px;
+}
+
+/* Screen 1 Visual Frame stars (hero size) */
+.screen-visual-frame .screen-stars-row {
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: calc(100% / 204 * 44);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 3;
+  pointer-events: none;
+}
+
+.screen-visual-frame .screen-star-unit {
+  height: 30px;
+  width: auto;
+  object-fit: contain;
+  margin: 0;
+  filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.5));
+}
+
+.screen-visual-frame .screen-star-unit + .screen-star-unit {
+  margin-left: -13px; /* Kéo hẹp sít vào nhau chặt chẽ */
+}
+
+/* Rarity Color Classes for Screen 1 Meta Grid */
+.rarity-val-gold { color: #d97706 !important; font-weight: 700; }
+.rarity-val-purple { color: #9333ea !important; font-weight: 700; }
+.rarity-val-blue { color: #0284c7 !important; font-weight: 700; }
+.rarity-val-green { color: #16a34a !important; font-weight: 700; }
+.rarity-val-white { color: #64748b !important; font-weight: 700; }
 
 /* Vùng chứa icon trang bị */
 .bwiki-item-visual {
@@ -728,7 +782,7 @@ img,
   text-decoration: none;
   cursor: pointer;
   pointer-events: auto;
-  border-radius: 0;
+  border-radius: 0 0 10px 10px;
   transition: width 0.22s cubic-bezier(0.16, 1, 0.3, 1),
               padding 0.2s ease,
               box-shadow 0.2s ease;
@@ -759,6 +813,7 @@ img,
   box-shadow: 0 4px 14px rgba(0, 0, 0, 0.45);
   z-index: 30;
   padding: 0 10px;
+  border-radius: 0 0 10px 10px;
 }
 
 .bwiki-item-card:hover .bwiki-item-name-text {
@@ -968,10 +1023,10 @@ img,
   color: #0284c7;
 }
 
-/* State: Active (at center slot) - Long dash is THIN */
+/* State: Active (at center slot) - Dash matches standard thickness */
 .fremm-gauge-item.is-active .fremm-item-dash {
   width: 44px;
-  height: 1.5px; /* Long dash is THIN */
+  height: 2.5px;
   background: #0284c7;
 }
 
@@ -1045,16 +1100,6 @@ img,
   margin: 0 auto;
 }
 
-.screen-visual-frame::before {
-  content: '';
-  position: absolute;
-  inset: 0;
-  background-size: auto calc(100% / 204 * 26);
-  background-position: center calc(100% / 204 * 148);
-  background-repeat: no-repeat;
-  z-index: 2;
-  pointer-events: none;
-}
 
 .screen-visual-icon {
   position: absolute;
@@ -1215,67 +1260,127 @@ img,
   gap: 16px;
 }
 
-.ascension-node {
+/* Screen 3: Star Ascension Interactive Tabs & 2-Column Split */
+.asc-tabs-bar {
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap;
+  margin-bottom: 24px;
+}
+
+.asc-tab-btn {
+  padding: 8px 18px;
+  border-radius: var(--btn-radius-pill);
+  background: #ffffff;
+  border: 1px solid var(--border-subtle);
+  color: #334155;
+  font-size: 0.92rem;
+  font-weight: 700;
+  cursor: pointer;
+  transition: var(--transition);
+  font-family: inherit;
+  line-height: 1;
+}
+
+.asc-tab-btn:hover {
+  background: #e0f2fe;
+  border-color: #bae6fd;
+  color: #0369a1;
+}
+
+.asc-tab-btn.active {
+  background: #0284c7;
+  border-color: #0284c7;
+  color: #ffffff;
+}
+
+.asc-content-root {
   background: transparent;
   border: none;
-  border-bottom: 1px solid var(--border-subtle);
   border-radius: 0;
-  padding: 20px 0;
+}
+
+.asc-display-layout {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  padding: 4px 0;
+}
+
+.asc-divider {
+  width: 100%;
+  height: 1px;
+  background: var(--border-subtle);
+  margin: 4px 0;
+}
+
+.asc-section-label {
+  font-size: 0.95rem;
+  font-weight: 700;
+  color: #64748b;
+  letter-spacing: 0.2px;
+}
+
+.asc-skill-pane {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.asc-skill-name {
+  font-size: 1.18rem;
+  font-weight: 800;
+  color: #0f172a;
+  letter-spacing: 0.3px;
+}
+
+.asc-skill-desc {
+  font-size: 0.96rem;
+  line-height: 1.65;
+  color: #334155;
+}
+
+.asc-cost-pane {
   display: flex;
   flex-direction: column;
   gap: 12px;
 }
 
-.asc-node-header {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-}
-
-.asc-node-star {
-  font-size: 1rem;
-  font-weight: 800;
-  color: #b45309;
-}
-
-.asc-node-title {
-  font-size: 1rem;
-  font-weight: 800;
-  color: #0f172a;
-}
-
-.asc-desc {
-  font-size: 0.9rem;
-  color: #334155;
-  line-height: 1.6;
-}
-
-.asc-costs {
+.asc-mats-grid {
   display: flex;
   flex-wrap: wrap;
-  gap: 8px;
-  align-items: center;
-  padding-top: 10px;
-  border-top: 1px dashed var(--border-subtle);
+  gap: 16px;
+  align-items: flex-start;
+  padding: 0;
 }
 
-.cost-chip {
-  display: inline-flex;
-  align-items: center;
-  gap: 6px;
-  padding: 4px 12px;
-  border-radius: 0;
-  background: transparent;
-  border: 1px solid var(--border-subtle);
-  font-size: 0.8rem;
-  font-weight: 600;
-  color: #334155;
+.asc-mats-grid .bwiki-item-card {
+  width: 124px;
+  height: 139px;
+  margin: 0;
 }
 
-.cost-chip img {
-  width: 20px;
-  height: 20px;
-  object-fit: contain;
+.asc-mats-grid .bwiki-item-img {
+  width: calc(100% / 182 * 156);
+  height: calc(100% / 182 * 156);
+  top: 44%;
+}
+
+.asc-mats-grid .bwiki-item-name-box {
+  border-radius: 0 0 8px 8px;
+}
+
+.asc-mats-grid .bwiki-item-name-text {
+  font-size: 0.82rem;
+  font-weight: 700;
+  letter-spacing: 0.3px;
+}
+
+.asc-no-cost {
+  font-size: 0.92rem;
+  color: #64748b;
+  font-style: italic;
+  padding: 8px 0;
 }
 
 /* Screen 4: Enhancement Materials & Interactive Slider */
@@ -1291,13 +1396,44 @@ img,
 .enhance-controls-bar {
   display: flex;
   align-items: center;
-  gap: 16px;
-  flex-wrap: wrap;
+  gap: 12px;
+  flex-wrap: nowrap;
   padding: 6px 0 16px 0;
   border-bottom: 1px solid var(--border-subtle);
 }
 
-.enhance-quick-btn {
+.enhance-all-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 8px 18px;
+  background: #ffffff;
+  border: 1px solid var(--border-subtle);
+  border-radius: var(--btn-radius-pill);
+  color: #334155;
+  font-size: 0.92rem;
+  font-weight: 700;
+  cursor: pointer;
+  transition: var(--transition);
+  font-family: inherit;
+  line-height: 1;
+  white-space: nowrap;
+}
+
+.enhance-all-btn:hover {
+  background: #e0f2fe;
+  border-color: #bae6fd;
+  color: #0369a1;
+}
+
+.enhance-all-btn.active {
+  background: #0284c7;
+  border-color: #0284c7;
+  color: #ffffff;
+}
+
+.enhance-quick-btn,
+.attr-quick-btn {
   display: inline-flex;
   align-items: center;
   justify-content: center;
@@ -1315,26 +1451,79 @@ img,
   min-width: 52px;
 }
 
-.enhance-quick-btn:hover {
+.enhance-quick-btn:hover,
+.attr-quick-btn:hover {
   background: #e0f2fe;
   border-color: #bae6fd;
   color: #0369a1;
 }
 
-.enhance-quick-btn.active {
+.enhance-quick-btn.active,
+.attr-quick-btn.active {
   background: #0284c7;
   border-color: #0284c7;
   color: #ffffff;
 }
 
-.enhance-slider-wrap {
+.enhance-quick-btn .btn-sign,
+.attr-quick-btn .btn-sign {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 0.92em;
+  line-height: 1;
+  transform: translateY(-1.5px);
+  margin-right: 1px;
+}
+
+.attr-filters-bar {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  margin-bottom: 24px;
+}
+
+.attr-filter-row {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  flex-wrap: nowrap;
+}
+
+.attr-filter-row .quality-tabs-bar {
+  margin-bottom: 0;
+}
+
+.attr-filter-label {
+  font-size: 0.95rem;
+  font-weight: 700;
+  color: #334155;
+  min-width: 125px;
+  flex-shrink: 0;
+  letter-spacing: 0.2px;
+}
+
+.attr-enhance-controls {
+  display: flex;
+  align-items: center;
+  border-bottom: none;
+  padding: 0;
+  flex-wrap: nowrap;
+  gap: 12px;
   flex: 1;
-  min-width: 200px;
-  max-width: 460px;
+  max-width: 520px;
+}
+
+.attr-slider-wrap,
+.enhance-slider-wrap {
+  flex: 1 1 240px;
+  min-width: 170px;
+  max-width: 320px;
   display: flex;
   align-items: center;
 }
 
+.attr-enhance-slider,
 .enhance-slider {
   width: 100%;
   -webkit-appearance: none;
@@ -1347,6 +1536,7 @@ img,
   transition: background 0.2s ease;
 }
 
+.attr-enhance-slider::-webkit-slider-thumb,
 .enhance-slider::-webkit-slider-thumb {
   -webkit-appearance: none;
   appearance: none;
@@ -1360,11 +1550,13 @@ img,
   transition: transform 0.15s ease, background-color 0.15s ease;
 }
 
+.attr-enhance-slider::-webkit-slider-thumb:hover,
 .enhance-slider::-webkit-slider-thumb:hover {
   transform: scale(1.15);
   background: #0369a1;
 }
 
+.attr-enhance-slider::-moz-range-thumb,
 .enhance-slider::-moz-range-thumb {
   width: 18px;
   height: 18px;
@@ -1375,6 +1567,7 @@ img,
   box-shadow: 0 1px 3px rgba(0, 0, 0, 0.25);
 }
 
+.attr-level-indicator,
 .enhance-level-indicator {
   display: inline-flex;
   align-items: center;
@@ -1385,11 +1578,13 @@ img,
   min-width: 80px;
 }
 
+.attr-level-indicator .level-label,
 .enhance-level-indicator .level-label {
   color: #64748b;
   font-weight: 600;
 }
 
+.attr-level-indicator .level-val,
 .enhance-level-indicator .level-val {
   color: #0284c7;
   font-size: 1.12rem;
@@ -1439,6 +1634,10 @@ img,
   width: calc(100% / 182 * 156);
   height: calc(100% / 182 * 156);
   top: 44%;
+}
+
+.enhance-mats-grid .bwiki-item-name-box {
+  border-radius: 0 0 8px 8px;
 }
 
 .enhance-mats-grid .bwiki-item-name-text {
@@ -1773,6 +1972,9 @@ img,
   .enhance-mats-grid .bwiki-item-card {
     width: 104px;
     height: 117px;
+  }
+  .enhance-mats-grid .bwiki-item-name-box {
+    border-radius: 0 0 7px 7px;
   }
   .enhance-mats-grid .bwiki-item-name-text {
     font-size: 0.74rem;

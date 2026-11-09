@@ -10,7 +10,6 @@
   "rarity_bg_image": "../../../assets/equipment/trieutichthanhdien_bg.png",
   "suit": "Không có bộ trang bị",
   "description": "Một cuốn sách cổ kỳ diệu có bìa xanh thẫm, dây buộc sách màu trắng bạc, khi đặt ngay ngắn trên bàn, gáy sách có thể hiện lên từng tầng hoa văn sóng nước cuộn trào. Khi lật giở từng trang, âm thanh giấy không giống bình thường mà tựa như tiếng thủy triều lên xuống, từng lớp sóng biển dạt dào.",
-  "original_description": "一本神奇的旧书，封皮深蓝，书绳银白，立于桌案时，书脊可浮现出层层回卷的水纹。翻阅时，纸张之声不似寻常，而是如潮汐交替，海浪层层。",
   "acquisition_sources": [
     "Gia viên - Tiệm rèn",
     "Ủy thác - Bảo Hộ Thường Xanh V",
@@ -24,18 +23,15 @@
     {
       "quality_level": 1,
       "quality_name": "Tân thủ",
-      "original_quality_name": "新手",
       "attributes": [
         {
           "attribute": "Phòng ngự%",
-          "original_attribute": "防御%",
           "enhancement_0": "+8.8%",
           "enhancement_15": "+35.5%",
           "range": "+8.8% / +35.5%"
         },
         {
           "attribute": "Sát thương thuộc tính Thủy",
-          "original_attribute": "水属性伤害",
           "enhancement_0": "+7.2%",
           "enhancement_15": "+28.8%",
           "range": "+7.2% / +28.8%"
@@ -45,18 +41,15 @@
     {
       "quality_level": 2,
       "quality_name": "Tiến giai",
-      "original_quality_name": "进阶",
       "attributes": [
         {
           "attribute": "Phòng ngự%",
-          "original_attribute": "防御%",
           "enhancement_0": "+9.3%",
           "enhancement_15": "+37.7%",
           "range": "+9.3% / +37.7%"
         },
         {
           "attribute": "Sát thương thuộc tính Thủy",
-          "original_attribute": "水属性伤害",
           "enhancement_0": "+7.6%",
           "enhancement_15": "+30.6%",
           "range": "+7.6% / +30.6%"
@@ -66,18 +59,15 @@
     {
       "quality_level": 3,
       "quality_name": "Tinh lương",
-      "original_quality_name": "精良",
       "attributes": [
         {
           "attribute": "Phòng ngự%",
-          "original_attribute": "防御%",
           "enhancement_0": "+9.9%",
           "enhancement_15": "+39.9%",
           "range": "+9.9% / +39.9%"
         },
         {
           "attribute": "Sát thương thuộc tính Thủy",
-          "original_attribute": "水属性伤害",
           "enhancement_0": "+8.1%",
           "enhancement_15": "+32.4%",
           "range": "+8.1% / +32.4%"
@@ -87,18 +77,15 @@
     {
       "quality_level": 4,
       "quality_name": "Sử thi",
-      "original_quality_name": "史诗",
       "attributes": [
         {
           "attribute": "Phòng ngự%",
-          "original_attribute": "防御%",
           "enhancement_0": "+10.4%",
           "enhancement_15": "+42.1%",
           "range": "+10.4% / +42.1%"
         },
         {
           "attribute": "Sát thương thuộc tính Thủy",
-          "original_attribute": "水属性伤害",
           "enhancement_0": "+8.5%",
           "enhancement_15": "+34.2%",
           "range": "+8.5% / +34.2%"
@@ -108,18 +95,15 @@
     {
       "quality_level": 5,
       "quality_name": "Truyền kỳ",
-      "original_quality_name": "传奇",
       "attributes": [
         {
           "attribute": "Phòng ngự%",
-          "original_attribute": "防御%",
           "enhancement_0": "+11.0%",
           "enhancement_15": "+44.4%",
           "range": "+11.0% / +44.4%"
         },
         {
           "attribute": "Sát thương thuộc tính Thủy",
-          "original_attribute": "水属性伤害",
           "enhancement_0": "+9.0%",
           "enhancement_15": "+36.0%",
           "range": "+9.0% / +36.0%"
@@ -130,22 +114,16 @@
   "star_ascensions": [
     {
       "star_level": "Khởi đầu",
-      "original_star_level": "初始",
       "affix_name": "Phong Thể",
-      "original_affix_name": "丰体",
       "affix_level": "Cấp 2",
       "description": "Tăng 4.5% máu.",
-      "original_description": "生命值提高4.5%",
       "upgrade_cost": null
     },
     {
       "star_level": "1 sao",
-      "original_star_level": "1星",
       "affix_name": "Tích Thế",
-      "original_affix_name": "累势",
       "affix_level": "Cấp 1",
       "description": "Tấn công tăng 40 điểm.",
-      "original_description": "攻击力增加40点",
       "upgrade_cost": [
         {
           "material_id": "trieutichthanhdien",
@@ -161,12 +139,9 @@
     },
     {
       "star_level": "2 sao",
-      "original_star_level": "2星",
       "affix_name": "Kiên Thủ",
-      "original_affix_name": "坚守",
       "affix_level": "Cấp 1",
       "description": "Tăng 7% phòng ngự.",
-      "original_description": "防御力提高7%",
       "upgrade_cost": [
         {
           "material_id": "trieutichthanhdien",
@@ -182,12 +157,9 @@
     },
     {
       "star_level": "3 sao",
-      "original_star_level": "3星",
       "affix_name": "Kiên Thủ",
-      "original_affix_name": "坚守",
       "affix_level": "Cấp 3",
       "description": "Tăng 12% phòng ngự.",
-      "original_description": "防御力提高12%",
       "upgrade_cost": [
         {
           "material_id": "trieutichthanhdien",
@@ -203,12 +175,9 @@
     },
     {
       "star_level": "4 sao",
-      "original_star_level": "4星",
       "affix_name": "Hùng Phát",
-      "original_affix_name": "雄发",
       "affix_level": "Cấp 2",
       "description": "Máu tăng 3%, tấn công tăng 6%.",
-      "original_description": "生命值提高3%，攻击力提高6%",
       "upgrade_cost": [
         {
           "material_id": "trieutichthanhdien",
@@ -224,12 +193,9 @@
     },
     {
       "star_level": "5 sao",
-      "original_star_level": "5星",
       "affix_name": "Tích Thế",
-      "original_affix_name": "累势",
       "affix_level": "Cấp 3",
       "description": "Tấn công tăng 70 điểm.",
-      "original_description": "攻击力增加70点",
       "upgrade_cost": [
         {
           "material_id": "trieutichthanhdien",
@@ -245,12 +211,9 @@
     },
     {
       "star_level": "6 sao",
-      "original_star_level": "6星",
       "affix_name": "Hùng Phát",
-      "original_affix_name": "雄发",
       "affix_level": "Cấp 4",
       "description": "Máu tăng 5.5%, tấn công tăng 10.5%.",
-      "original_description": "生命值提高5.5%，攻击力提高10.5%",
       "upgrade_cost": [
         {
           "material_id": "trieutichthanhdien",

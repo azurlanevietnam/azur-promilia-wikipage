@@ -10,7 +10,6 @@
   "rarity_bg_image": "../../../assets/equipment/thamdinhchamngon_bg.png",
   "suit": "Không có bộ trang bị",
   "description": "Một hạt nhân dường như là quả của một loài thực vật nào đó, hoặc dường như là một khối pha lê kỳ diệu hơn. Khi chìm trong nước và khi rọi dưới ánh sáng, bề mặt sẽ biến đổi các kiểu hoa văn khác nhau, hiện tại vẫn chưa có ai có thể giải mã được.",
-  "original_description": "一枚似乎是某种植物的果实、又似乎是更奇妙晶体的珠核。沉于水中与对光照看时，表面会变化不同的纹样，暂时无人可解读。",
   "acquisition_sources": [
     "Gia viên - Tiệm rèn",
     "Ủy thác - Phù Hộ Lửa Đỏ III",
@@ -22,18 +21,15 @@
     {
       "quality_level": 1,
       "quality_name": "Tân thủ",
-      "original_quality_name": "新手",
       "attributes": [
         {
           "attribute": "Tấn công",
-          "original_attribute": "攻击",
           "enhancement_0": "+38",
           "enhancement_15": "+153",
           "range": "+38 / +153"
         },
         {
-          "attribute": "Tấn công%",
-          "original_attribute": "攻击%",
+          "attribute": "Tấn công",
           "enhancement_0": "+4.0%",
           "enhancement_15": "+16.0%",
           "range": "+4.0% / +16.0%"
@@ -43,18 +39,15 @@
     {
       "quality_level": 2,
       "quality_name": "Tiến giai",
-      "original_quality_name": "进阶",
       "attributes": [
         {
           "attribute": "Tấn công",
-          "original_attribute": "攻击",
           "enhancement_0": "+40",
           "enhancement_15": "+163",
           "range": "+40 / +163"
         },
         {
-          "attribute": "Tấn công%",
-          "original_attribute": "攻击%",
+          "attribute": "Tấn công",
           "enhancement_0": "+4.2%",
           "enhancement_15": "+17.0%",
           "range": "+4.2% / +17.0%"
@@ -64,18 +57,15 @@
     {
       "quality_level": 3,
       "quality_name": "Tinh lương",
-      "original_quality_name": "精良",
       "attributes": [
         {
           "attribute": "Tấn công",
-          "original_attribute": "攻击",
           "enhancement_0": "+43",
           "enhancement_15": "+172",
           "range": "+43 / +172"
         },
         {
-          "attribute": "Tấn công%",
-          "original_attribute": "攻击%",
+          "attribute": "Tấn công",
           "enhancement_0": "+4.5%",
           "enhancement_15": "+18.0%",
           "range": "+4.5% / +18.0%"
@@ -85,18 +75,15 @@
     {
       "quality_level": 4,
       "quality_name": "Sử thi",
-      "original_quality_name": "史诗",
       "attributes": [
         {
           "attribute": "Tấn công",
-          "original_attribute": "攻击",
           "enhancement_0": "+45",
           "enhancement_15": "+182",
           "range": "+45 / +182"
         },
         {
-          "attribute": "Tấn công%",
-          "original_attribute": "攻击%",
+          "attribute": "Tấn công",
           "enhancement_0": "+4.7%",
           "enhancement_15": "+19.0%",
           "range": "+4.7% / +19.0%"
@@ -107,12 +94,9 @@
   "star_ascensions": [
     {
       "star_level": "1 sao",
-      "original_star_level": "1星",
       "affix_name": "Kình Quán",
-      "original_affix_name": "劲贯",
       "affix_level": "Cấp 1",
       "description": "Tăng 2% tỉ lệ bạo kích.",
-      "original_description": "暴击率提高2%",
       "upgrade_cost": [
         {
           "material_id": "thamdinhchamngon",
@@ -128,12 +112,9 @@
     },
     {
       "star_level": "2 sao",
-      "original_star_level": "2星",
       "affix_name": "Nhuệ Thủ",
-      "original_affix_name": "锐守",
       "affix_level": "Cấp 1",
       "description": "Phòng ngự tăng 5 điểm, sát thương bạo kích gây ra tăng 5%.",
-      "original_description": "防御力增加5点，造成的暴击伤害提高5%",
       "upgrade_cost": [
         {
           "material_id": "thamdinhchamngon",
@@ -149,12 +130,9 @@
     },
     {
       "star_level": "3 sao",
-      "original_star_level": "3星",
       "affix_name": "Kình Quán",
-      "original_affix_name": "劲贯",
       "affix_level": "Cấp 2",
       "description": "Tăng 2.5% tỉ lệ bạo kích.",
-      "original_description": "暴击率提高2.5%",
       "upgrade_cost": [
         {
           "material_id": "thamdinhchamngon",
