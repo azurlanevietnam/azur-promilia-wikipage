@@ -1,0 +1,254 @@
+{
+  "id": "lichchiendungsichikiem",
+  "name": "Lịch Chiến Dũng Sĩ Chi Kiếm",
+  "original_name": "历战勇士之剑",
+  "item_type": "Vũ khí (Trường kiếm)",
+  "base_rarity": 2,
+  "max_stars": "Có thể thăng 2 sao",
+  "max_star_count": 2,
+  "image": "../../../assets/equipment/lichchiendungsichikiem.png",
+  "rarity_bg_image": "../../../assets/equipment/lichchiendungsichikiem_bg.png",
+  "suit": "Không có bộ trang bị",
+  "description": "Một thanh trường kiếm đã qua thời gian dài sử dụng, thân kiếm trầm ổn dày dặn, thích hợp để phát huy uy lực trong những cuộc giao tranh trực diện.",
+  "acquisition_sources": [
+    "Gia viên - Tiệm rèn",
+    "Ủy thác - Hộ Vệ Sấm Xanh I"
+  ],
+  "main_attributes_by_quality": [
+    {
+      "quality_level": 1,
+      "quality_name": "Tân thủ",
+      "attributes": [
+        {
+          "attribute": "Tấn công",
+          "enhancement_0": "+32",
+          "enhancement_15": "+115",
+          "range": "+32 / +115"
+        }
+      ]
+    },
+    {
+      "quality_level": 2,
+      "quality_name": "Tiến giai",
+      "attributes": [
+        {
+          "attribute": "Tấn công",
+          "enhancement_0": "+34",
+          "enhancement_15": "+122",
+          "range": "+34 / +122"
+        }
+      ]
+    },
+    {
+      "quality_level": 3,
+      "quality_name": "Tinh lương",
+      "attributes": [
+        {
+          "attribute": "Tấn công",
+          "enhancement_0": "+36",
+          "enhancement_15": "+129",
+          "range": "+36 / +129"
+        }
+      ]
+    },
+    {
+      "quality_level": 4,
+      "quality_name": "Sử thi",
+      "attributes": [
+        {
+          "attribute": "Tấn công",
+          "enhancement_0": "+38",
+          "enhancement_15": "+136",
+          "range": "+38 / +136"
+        }
+      ]
+    }
+  ],
+  "star_ascensions": [
+    {
+      "star_level": "1 sao",
+      "affix_name": "Bích Lập",
+      "affix_level": "Cấp 1",
+      "description": "Phòng ngự tăng 30 điểm.",
+      "upgrade_cost": [
+        {
+          "material_id": "lichchiendungsichikiem",
+          "name": "Trang bị cùng tên",
+          "quantity": 1
+        },
+        {
+          "material_id": "uni",
+          "name": "Uni",
+          "quantity": 5000
+        }
+      ]
+    },
+    {
+      "star_level": "2 sao",
+      "affix_name": "Bích Lập",
+      "affix_level": "Cấp 2",
+      "description": "Phòng ngự tăng 40 điểm.",
+      "upgrade_cost": [
+        {
+          "material_id": "lichchiendungsichikiem",
+          "name": "Trang bị cùng tên",
+          "quantity": 2
+        },
+        {
+          "material_id": "uni",
+          "name": "Uni",
+          "quantity": 6000
+        }
+      ]
+    }
+  ],
+  "enhancement_materials": [
+    {
+      "stage": "+0 → +1",
+      "materials": [
+        {
+          "material_id": "linhtuyphothong",
+          "quantity": 2
+        },
+        {
+          "material_id": "banhxematvan",
+          "quantity": 24
+        },
+        {
+          "material_id": "vihatnguyentothuy",
+          "quantity": 100
+        },
+        {
+          "material_id": "uni",
+          "quantity": 500
+        }
+      ]
+    },
+    {
+      "stage": "+1 → +2",
+      "materials": [
+        {
+          "material_id": "linhtuyphothong",
+          "quantity": 4
+        },
+        {
+          "material_id": "banhxematvan",
+          "quantity": 24
+        },
+        {
+          "material_id": "vihatnguyentothuy",
+          "quantity": 100
+        },
+        {
+          "material_id": "uni",
+          "quantity": 1000
+        }
+      ]
+    },
+    {
+      "stage": "+2 → +3",
+      "materials": [
+        {
+          "material_id": "linhtuyphothong",
+          "quantity": 8
+        },
+        {
+          "material_id": "banhxematvan",
+          "quantity": 24
+        },
+        {
+          "material_id": "vihatnguyentothuy",
+          "quantity": 100
+        },
+        {
+          "material_id": "uni",
+          "quantity": 1500
+        }
+      ]
+    },
+    {
+      "stage": "+3 → +4",
+      "materials": [
+        {
+          "material_id": "linhtuyngungtu",
+          "quantity": 2
+        },
+        {
+          "material_id": "dungdichtinhchat",
+          "quantity": 24
+        },
+        {
+          "material_id": "vihatnguyentothuy",
+          "quantity": 200
+        },
+        {
+          "material_id": "uni",
+          "quantity": 2000
+        }
+      ]
+    },
+    {
+      "stage": "+4 → +5",
+      "materials": [
+        {
+          "material_id": "linhtuyngungtu",
+          "quantity": 4
+        },
+        {
+          "material_id": "dungdichtinhchat",
+          "quantity": 24
+        },
+        {
+          "material_id": "vihatnguyentothuy",
+          "quantity": 200
+        },
+        {
+          "material_id": "uni",
+          "quantity": 3000
+        }
+      ]
+    },
+    {
+      "stage": "+5 → +6",
+      "materials": [
+        {
+          "material_id": "linhtuyngungtu",
+          "quantity": 6
+        },
+        {
+          "material_id": "dungdichtinhchat",
+          "quantity": 24
+        },
+        {
+          "material_id": "vihatnguyentothuy",
+          "quantity": 200
+        },
+        {
+          "material_id": "uni",
+          "quantity": 4000
+        }
+      ]
+    },
+    {
+      "stage": "+6 → +7",
+      "materials": [
+        {
+          "material_id": "linhtuycuontrao",
+          "quantity": 2
+        },
+        {
+          "material_id": "vayuquang",
+          "quantity": 24
+        },
+        {
+          "material_id": "vihatnguyentothuy",
+          "quantity": 400
+        },
+        {
+          "material_id": "uni",
+          "quantity": 5000
+        }
+      ]
+    }
+  ]
+}

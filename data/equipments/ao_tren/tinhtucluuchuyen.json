@@ -1,0 +1,20 @@
+﻿{
+    "id":  "tinhtucluuchuyen",
+    "name":  "Tinh Tức Lưu Chuyển",
+    "original_name":  "星息流转",
+    "item_type":  "Áo trên",
+    "category":  "ao_tren",
+    "base_rarity":  4,
+    "star_count":  5,
+    "max_stars":  "5 sao",
+    "image":  "assets/equipment/tinhtucluuchuyen.png",
+    "suit":  "Phục Tấu Chi Chương",
+    "suit_id":  "16",
+    "suit_skills":  {
+                        "two_piece":  "Tốc độ hồi Tinh Quyết Tích Năng tăng 5%.",
+                        "four_piece":  "Sau khi người mang thi triển Tinh Minh Kỹ, tốc độ hồi Tinh Quyết Tích Năng của toàn đội tăng 20%, duy trì 12 giây. Hiệu quả giữa các trang bị cùng tên không cộng dồn."
+                    },
+    "description":  "Trang bị Áo trên thuộc bộ Phục Tấu Chi Chương, xuất hiện trong Azur Promilia (Lam Sắc Tinh Nguyên).",
+    "original_link":  "/ap/星息流转",
+    "texture_name":  "Tex icon equipment item fuzouzhizhang armor 4 1.png"
+}

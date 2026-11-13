@@ -1,0 +1,20 @@
+﻿{
+    "id":  "vongnguyetchiphuong",
+    "name":  "Vọng Nguyệt Chi Phương",
+    "original_name":  "望月之芳",
+    "item_type":  "Khuyên tai",
+    "category":  "khuyen_tai",
+    "base_rarity":  3,
+    "star_count":  4,
+    "max_stars":  "4 sao",
+    "image":  "assets/equipment/vongnguyetchiphuong.png",
+    "suit":  "Trường Không Hiệp Tấu",
+    "suit_id":  "7",
+    "suit_skills":  {
+                        "two_piece":  "Siêu Hạn Cường Độ tăng 110 điểm.",
+                        "four_piece":  "Mỗi lần tiêu hao Ấn Ký, sát thương Siêu Hạn người mang tạo ra tăng 7%, duy trì 15 giây, tối đa cộng dồn 3 tầng."
+                    },
+    "description":  "Trang bị Khuyên tai thuộc bộ Trường Không Hiệp Tấu, xuất hiện trong Azur Promilia (Lam Sắc Tinh Nguyên).",
+    "original_link":  "/ap/望月之芳",
+    "texture_name":  "Tex icon equipment item changkongxiezou earring 3 3.png"
+}

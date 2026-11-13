@@ -1,0 +1,20 @@
+﻿{
+    "id":  "trieulochihi",
+    "name":  "Triều Lộ Chi Hi",
+    "original_name":  "朝露之嬉",
+    "item_type":  "Quần dưới",
+    "category":  "quan_duoi",
+    "base_rarity":  4,
+    "star_count":  5,
+    "max_stars":  "5 sao",
+    "image":  "assets/equipment/trieulochihi.png",
+    "suit":  "Dũ Thương Đích Từ Bi",
+    "suit_id":  "15",
+    "suit_skills":  {
+                        "two_piece":  "Hiệu quả trị liệu tạo ra tăng 24.0%.",
+                        "four_piece":  "Khi người mang thực hiện trị liệu, nhân vật được trị liệu tăng 12% tấn công, duy trì 24 giây. Hiệu quả giữa các trang bị cùng tên không cộng dồn."
+                    },
+    "description":  "Trang bị Quần dưới thuộc bộ Dũ Thương Đích Từ Bi, xuất hiện trong Azur Promilia (Lam Sắc Tinh Nguyên).",
+    "original_link":  "/ap/朝露之嬉",
+    "texture_name":  "Tex icon equipment item yushangdecibei bottoms 4 1.png"
+}

@@ -1,0 +1,17 @@
+﻿{
+    "id":  "tuanlamgiachikho",
+    "name":  "Tuần Lâm Giả Chi Khố",
+    "original_name":  "巡林者之裤",
+    "item_type":  "Quần dưới",
+    "category":  "quan_duoi",
+    "base_rarity":  1,
+    "star_count":  2,
+    "max_stars":  "2 sao",
+    "image":  "assets/equipment/tuanlamgiachikho.png",
+    "suit":  "Không có bộ trang bị",
+    "suit_id":  "0",
+    "suit_skills":  null,
+    "description":  "Trang bị Quần dưới thuộc bộ Không có bộ trang bị, xuất hiện trong Azur Promilia (Lam Sắc Tinh Nguyên).",
+    "original_link":  "/ap/巡林者之裤",
+    "texture_name":  "Tex icon equipment item suit4 5.png"
+}

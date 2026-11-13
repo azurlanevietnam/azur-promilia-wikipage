@@ -1,0 +1,20 @@
+﻿{
+    "id":  "tinhlinhsamam",
+    "name":  "Tĩnh Linh Sâm Âm",
+    "original_name":  "静聆森音",
+    "item_type":  "Khuyên tai",
+    "category":  "khuyen_tai",
+    "base_rarity":  4,
+    "star_count":  5,
+    "max_stars":  "5 sao",
+    "image":  "assets/equipment/tinhlinhsamam.png",
+    "suit":  "Tinh Nguyệt Tề Âm",
+    "suit_id":  "8",
+    "suit_skills":  {
+                        "two_piece":  "Tỉ lệ Hội Tâm Siêu Hạn tăng 8%.",
+                        "four_piece":  "Khi người mang vào sân, Siêu Hạn Cường Độ bản thân tăng 175 điểm, duy trì 15 giây; khi người mang gây sát thương Siêu Hạn, hiệu quả xuyên phòng ngự bản thân tăng 8%, duy trì 15 giây, không thể cộng dồn."
+                    },
+    "description":  "Trang bị Khuyên tai thuộc bộ Tinh Nguyệt Tề Âm, xuất hiện trong Azur Promilia (Lam Sắc Tinh Nguyên).",
+    "original_link":  "/ap/静聆森音",
+    "texture_name":  "Tex icon equipment item xingyueqiyin earring 4 3.png"
+}

@@ -1,0 +1,20 @@
+﻿{
+    "id":  "chienphongdoanhthan",
+    "name":  "Chiến Phong Doanh Thân",
+    "original_name":  "战风盈身",
+    "item_type":  "Áo trên",
+    "category":  "ao_tren",
+    "base_rarity":  4,
+    "star_count":  5,
+    "max_stars":  "5 sao",
+    "image":  "assets/equipment/chienphongdoanhthan.png",
+    "suit":  "Hành Lữ Ma Phong",
+    "suit_id":  "11",
+    "suit_skills":  {
+                        "two_piece":  "Tấn công tăng 10%.",
+                        "four_piece":  "Sau khi người mang thi triển Tinh Minh Kỹ, tăng 14% sát thương toàn thuộc tính của toàn đội, duy trì 24 giây. Hiệu quả giữa các trang bị cùng tên không cộng dồn."
+                    },
+    "description":  "Trang bị Áo trên thuộc bộ Hành Lữ Ma Phong, xuất hiện trong Azur Promilia (Lam Sắc Tinh Nguyên).",
+    "original_link":  "/ap/战风盈身",
+    "texture_name":  "Tex icon equipment item xinglvmofeng armor 4 1.png"
+}

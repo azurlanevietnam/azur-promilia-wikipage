@@ -1,0 +1,20 @@
+﻿{
+    "id":  "kinhdaophachbich",
+    "name":  "Kinh Đào Phách Bích",
+    "original_name":  "惊涛拍壁",
+    "item_type":  "Khuyên tai",
+    "category":  "khuyen_tai",
+    "base_rarity":  4,
+    "star_count":  5,
+    "max_stars":  "5 sao",
+    "image":  "assets/equipment/kinhdaophachbich.png",
+    "suit":  "Hành Lữ Ma Phong",
+    "suit_id":  "11",
+    "suit_skills":  {
+                        "two_piece":  "Tấn công tăng 10%.",
+                        "four_piece":  "Sau khi người mang thi triển Tinh Minh Kỹ, tăng 14% sát thương toàn thuộc tính của toàn đội, duy trì 24 giây. Hiệu quả giữa các trang bị cùng tên không cộng dồn."
+                    },
+    "description":  "Trang bị Khuyên tai thuộc bộ Hành Lữ Ma Phong, xuất hiện trong Azur Promilia (Lam Sắc Tinh Nguyên).",
+    "original_link":  "/ap/惊涛拍壁",
+    "texture_name":  "Tex icon equipment item xinglvmofeng earring 4 1.png"
+}

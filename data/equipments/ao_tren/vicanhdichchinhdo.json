@@ -1,0 +1,20 @@
+﻿{
+    "id":  "vicanhdichchinhdo",
+    "name":  "Vị Cánh Đích Chinh Đồ",
+    "original_name":  "未竟的征途",
+    "item_type":  "Áo trên",
+    "category":  "ao_tren",
+    "base_rarity":  3,
+    "star_count":  4,
+    "max_stars":  "4 sao",
+    "image":  "assets/equipment/vicanhdichchinhdo.png",
+    "suit":  "Hành Lữ Ma Phong",
+    "suit_id":  "11",
+    "suit_skills":  {
+                        "two_piece":  "Tấn công tăng 10%.",
+                        "four_piece":  "Sau khi người mang thi triển Tinh Minh Kỹ, tăng 14% sát thương toàn thuộc tính của toàn đội, duy trì 24 giây. Hiệu quả giữa các trang bị cùng tên không cộng dồn."
+                    },
+    "description":  "Trang bị Áo trên thuộc bộ Hành Lữ Ma Phong, xuất hiện trong Azur Promilia (Lam Sắc Tinh Nguyên).",
+    "original_link":  "/ap/未竟的征途",
+    "texture_name":  "Tex icon equipment item xinglvmofeng armor 3 1.png"
+}

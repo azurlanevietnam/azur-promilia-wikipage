@@ -1,0 +1,20 @@
+﻿{
+    "id":  "phatrotruongca",
+    "name":  "Phá Trở Trường Ca",
+    "original_name":  "破阻长歌",
+    "item_type":  "Áo trên",
+    "category":  "ao_tren",
+    "base_rarity":  4,
+    "star_count":  5,
+    "max_stars":  "5 sao",
+    "image":  "assets/equipment/phatrotruongca.png",
+    "suit":  "Tồi Phong",
+    "suit_id":  "13",
+    "suit_skills":  {
+                        "two_piece":  "Hiệu suất phá vỡ thế phòng thủ (phá thế) tăng 15%.",
+                        "four_piece":  "Mọi đòn tấn công của người mang mỗi lần đánh trúng mục tiêu, giá trị phá dẻo dai (phá nhẫn) bản thân tăng 5 điểm, duy trì 5 giây, tối đa cộng dồn 10 tầng."
+                    },
+    "description":  "Trang bị Áo trên thuộc bộ Tồi Phong, xuất hiện trong Azur Promilia (Lam Sắc Tinh Nguyên).",
+    "original_link":  "/ap/破阻长歌",
+    "texture_name":  "Tex icon equipment item cuifeng armor 4 1.png"
+}

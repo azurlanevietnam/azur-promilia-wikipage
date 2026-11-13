@@ -1,0 +1,20 @@
+﻿{
+    "id":  "minhdinhduhan",
+    "name":  "Minh Đình Dư Hẫn",
+    "original_name":  "鸣霆余烬",
+    "item_type":  "Nhẫn",
+    "category":  "nhan",
+    "base_rarity":  3,
+    "star_count":  4,
+    "max_stars":  "4 sao",
+    "image":  "assets/equipment/minhdinhduhan.png",
+    "suit":  "Tồi Phong",
+    "suit_id":  "13",
+    "suit_skills":  {
+                        "two_piece":  "Hiệu suất phá vỡ thế phòng thủ (phá thế) tăng 15%.",
+                        "four_piece":  "Mọi đòn tấn công của người mang mỗi lần đánh trúng mục tiêu, giá trị phá dẻo dai (phá nhẫn) bản thân tăng 5 điểm, duy trì 5 giây, tối đa cộng dồn 10 tầng."
+                    },
+    "description":  "Trang bị Nhẫn thuộc bộ Tồi Phong, xuất hiện trong Azur Promilia (Lam Sắc Tinh Nguyên).",
+    "original_link":  "/ap/鸣霆余烬",
+    "texture_name":  "Tex icon equipment item cuifeng ring 3 1.png"
+}

@@ -1,0 +1,17 @@
+﻿{
+    "id":  "kientapliepnhanchigioi",
+    "name":  "Kiến Tập Liệp Nhân Chi Giới",
+    "original_name":  "见习猎人之戒",
+    "item_type":  "Nhẫn",
+    "category":  "nhan",
+    "base_rarity":  0,
+    "star_count":  1,
+    "max_stars":  "1 sao",
+    "image":  "assets/equipment/kientapliepnhanchigioi.png",
+    "suit":  "Không có bộ trang bị",
+    "suit_id":  "0",
+    "suit_skills":  null,
+    "description":  "Trang bị Nhẫn thuộc bộ Không có bộ trang bị, xuất hiện trong Azur Promilia (Lam Sắc Tinh Nguyên).",
+    "original_link":  "/ap/见习猎人之戒",
+    "texture_name":  "Tex icon equipment item suit1 7.png"
+}

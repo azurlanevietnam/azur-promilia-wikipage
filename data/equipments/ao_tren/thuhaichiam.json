@@ -1,0 +1,20 @@
+﻿{
+    "id":  "thuhaichiam",
+    "name":  "Thụ Hải Chi Âm",
+    "original_name":  "树海之荫",
+    "item_type":  "Áo trên",
+    "category":  "ao_tren",
+    "base_rarity":  4,
+    "star_count":  5,
+    "max_stars":  "5 sao",
+    "image":  "assets/equipment/thuhaichiam.png",
+    "suit":  "Dũ Thương Đích Từ Bi",
+    "suit_id":  "15",
+    "suit_skills":  {
+                        "two_piece":  "Hiệu quả trị liệu tạo ra tăng 24.0%.",
+                        "four_piece":  "Khi người mang thực hiện trị liệu, nhân vật được trị liệu tăng 12% tấn công, duy trì 24 giây. Hiệu quả giữa các trang bị cùng tên không cộng dồn."
+                    },
+    "description":  "Trang bị Áo trên thuộc bộ Dũ Thương Đích Từ Bi, xuất hiện trong Azur Promilia (Lam Sắc Tinh Nguyên).",
+    "original_link":  "/ap/树海之荫",
+    "texture_name":  "Tex icon equipment item yushangdecibei armor 4 1.png"
+}

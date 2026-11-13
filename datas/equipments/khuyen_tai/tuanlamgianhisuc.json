@@ -1,0 +1,17 @@
+﻿{
+    "id":  "tuanlamgianhisuc",
+    "name":  "Tuần Lâm Giả Nhĩ Sức",
+    "original_name":  "巡林者耳饰",
+    "item_type":  "Khuyên tai",
+    "category":  "khuyen_tai",
+    "base_rarity":  1,
+    "star_count":  2,
+    "max_stars":  "2 sao",
+    "image":  "assets/equipment/tuanlamgianhisuc.png",
+    "suit":  "Không có bộ trang bị",
+    "suit_id":  "0",
+    "suit_skills":  null,
+    "description":  "Trang bị Khuyên tai thuộc bộ Không có bộ trang bị, xuất hiện trong Azur Promilia (Lam Sắc Tinh Nguyên).",
+    "original_link":  "/ap/巡林者耳饰",
+    "texture_name":  "Tex icon equipment item suit4 6.png"
+}

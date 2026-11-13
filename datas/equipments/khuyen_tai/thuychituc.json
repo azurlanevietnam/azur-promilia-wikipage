@@ -1,0 +1,20 @@
+﻿{
+    "id":  "thuychituc",
+    "name":  "Thúy Chi Tức",
+    "original_name":  "翠之息",
+    "item_type":  "Khuyên tai",
+    "category":  "khuyen_tai",
+    "base_rarity":  4,
+    "star_count":  5,
+    "max_stars":  "5 sao",
+    "image":  "assets/equipment/thuychituc.png",
+    "suit":  "Phục Tấu Chi Chương",
+    "suit_id":  "16",
+    "suit_skills":  {
+                        "two_piece":  "Tốc độ hồi Tinh Quyết Tích Năng tăng 5%.",
+                        "four_piece":  "Sau khi người mang thi triển Tinh Minh Kỹ, tốc độ hồi Tinh Quyết Tích Năng của toàn đội tăng 20%, duy trì 12 giây. Hiệu quả giữa các trang bị cùng tên không cộng dồn."
+                    },
+    "description":  "Trang bị Khuyên tai thuộc bộ Phục Tấu Chi Chương, xuất hiện trong Azur Promilia (Lam Sắc Tinh Nguyên).",
+    "original_link":  "/ap/翠之息",
+    "texture_name":  "Tex icon equipment item fuzouzhizhang earring 4 1.png"
+}

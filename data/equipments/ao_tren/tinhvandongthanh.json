@@ -1,0 +1,20 @@
+﻿{
+    "id":  "tinhvandongthanh",
+    "name":  "Tinh Vân Đồng Thanh",
+    "original_name":  "星云同声",
+    "item_type":  "Áo trên",
+    "category":  "ao_tren",
+    "base_rarity":  4,
+    "star_count":  5,
+    "max_stars":  "5 sao",
+    "image":  "assets/equipment/tinhvandongthanh.png",
+    "suit":  "Trường Không Hiệp Tấu",
+    "suit_id":  "7",
+    "suit_skills":  {
+                        "two_piece":  "Siêu Hạn Cường Độ tăng 110 điểm.",
+                        "four_piece":  "Mỗi lần tiêu hao Ấn Ký, sát thương Siêu Hạn người mang tạo ra tăng 7%, duy trì 15 giây, tối đa cộng dồn 3 tầng."
+                    },
+    "description":  "Trang bị Áo trên thuộc bộ Trường Không Hiệp Tấu, xuất hiện trong Azur Promilia (Lam Sắc Tinh Nguyên).",
+    "original_link":  "/ap/星云同声",
+    "texture_name":  "Tex icon equipment item changkongxiezou armor 4 1.png"
+}

@@ -750,13 +750,15 @@ img,
   z-index: 1;
 }
 
-/* Biểu tượng vật phẩm căn giữa */
+/* Biểu tượng vật phẩm căn giữa rune circle */
 .bwiki-item-img {
   position: absolute;
-  width: calc(100% / 182 * 132);
-  height: calc(100% / 182 * 132);
+  width: calc(100% / 182 * 146);
+  height: calc(100% / 154 * 146);
+  max-width: 95%;
+  max-height: 95%;
   object-fit: contain;
-  top: 40%;
+  top: 52%;
   left: 50%;
   transform: translate(-50%, -50%);
   z-index: 1;

@@ -1,0 +1,17 @@
+﻿{
+    "id":  "dulichgiachikhai",
+    "name":  "Du Lịch Giả Chi Khải",
+    "original_name":  "游历者之铠",
+    "item_type":  "Áo trên",
+    "category":  "ao_tren",
+    "base_rarity":  1,
+    "star_count":  2,
+    "max_stars":  "2 sao",
+    "image":  "assets/equipment/dulichgiachikhai.png",
+    "suit":  "Không có bộ trang bị",
+    "suit_id":  "0",
+    "suit_skills":  null,
+    "description":  "Trang bị Áo trên thuộc bộ Không có bộ trang bị, xuất hiện trong Azur Promilia (Lam Sắc Tinh Nguyên).",
+    "original_link":  "/ap/游历者之铠",
+    "texture_name":  "Tex icon equipment item suit3 4.png"
+}

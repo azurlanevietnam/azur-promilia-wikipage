@@ -1,0 +1,20 @@
+﻿{
+    "id":  "nhatchuochoanglo",
+    "name":  "Nhật Chước Hoang Lộ",
+    "original_name":  "日灼荒路",
+    "item_type":  "Khuyên tai",
+    "category":  "khuyen_tai",
+    "base_rarity":  4,
+    "star_count":  5,
+    "max_stars":  "5 sao",
+    "image":  "assets/equipment/nhatchuochoanglo.png",
+    "suit":  "Khích Gian Nhuệ Ảnh",
+    "suit_id":  "14",
+    "suit_skills":  {
+                        "two_piece":  "Hiệu suất phá vỡ thế phòng thủ tăng 15%.",
+                        "four_piece":  "Khi Tinh Minh Kỹ và Trọng Kích của người mang đánh trúng mục tiêu, tăng 30% hiệu suất phá thế của kẻ địch, duy trì 24 giây. Hiệu quả giữa các trang bị cùng tên không cộng dồn."
+                    },
+    "description":  "Trang bị Khuyên tai thuộc bộ Khích Gian Nhuệ Ảnh, xuất hiện trong Azur Promilia (Lam Sắc Tinh Nguyên).",
+    "original_link":  "/ap/日灼荒路",
+    "texture_name":  "Tex icon equipment item xijianruiying earring 4 3.png"
+}

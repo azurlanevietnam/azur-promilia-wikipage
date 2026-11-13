@@ -1,0 +1,17 @@
+﻿{
+    "id":  "kientapliepnhannhisuc",
+    "name":  "Kiến Tập Liệp Nhân Nhĩ Sức",
+    "original_name":  "见习猎人耳饰",
+    "item_type":  "Khuyên tai",
+    "category":  "khuyen_tai",
+    "base_rarity":  0,
+    "star_count":  1,
+    "max_stars":  "1 sao",
+    "image":  "assets/equipment/kientapliepnhannhisuc.png",
+    "suit":  "Không có bộ trang bị",
+    "suit_id":  "0",
+    "suit_skills":  null,
+    "description":  "Trang bị Khuyên tai thuộc bộ Không có bộ trang bị, xuất hiện trong Azur Promilia (Lam Sắc Tinh Nguyên).",
+    "original_link":  "/ap/见习猎人耳饰",
+    "texture_name":  "Tex icon equipment item suit1 6.png"
+}

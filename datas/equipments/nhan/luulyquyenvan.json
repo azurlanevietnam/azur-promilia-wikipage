@@ -1,0 +1,20 @@
+﻿{
+    "id":  "luulyquyenvan",
+    "name":  "Lưu Ly Quyển Vân",
+    "original_name":  "琉璃卷云",
+    "item_type":  "Nhẫn",
+    "category":  "nhan",
+    "base_rarity":  4,
+    "star_count":  5,
+    "max_stars":  "5 sao",
+    "image":  "assets/equipment/luulyquyenvan.png",
+    "suit":  "Trường Không Hiệp Tấu",
+    "suit_id":  "7",
+    "suit_skills":  {
+                        "two_piece":  "Siêu Hạn Cường Độ tăng 110 điểm.",
+                        "four_piece":  "Mỗi lần tiêu hao Ấn Ký, sát thương Siêu Hạn người mang tạo ra tăng 7%, duy trì 15 giây, tối đa cộng dồn 3 tầng."
+                    },
+    "description":  "Trang bị Nhẫn thuộc bộ Trường Không Hiệp Tấu, xuất hiện trong Azur Promilia (Lam Sắc Tinh Nguyên).",
+    "original_link":  "/ap/琉璃卷云",
+    "texture_name":  "Tex icon equipment item changkongxiezou ring 4 3.png"
+}

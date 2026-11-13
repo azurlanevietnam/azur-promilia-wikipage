@@ -1,0 +1,20 @@
+﻿{
+    "id":  "lamgiankyngu",
+    "name":  "Lâm Gian Kỳ Ngữ",
+    "original_name":  "林间祈语",
+    "item_type":  "Nhẫn",
+    "category":  "nhan",
+    "base_rarity":  4,
+    "star_count":  5,
+    "max_stars":  "5 sao",
+    "image":  "assets/equipment/lamgiankyngu.png",
+    "suit":  "Hãm Trận Dũng Chí",
+    "suit_id":  "12",
+    "suit_skills":  {
+                        "two_piece":  "Siêu Hạn Cường Độ tăng 110 điểm.",
+                        "four_piece":  "Sau khi người mang thi triển Tinh Quyết Kỹ, tăng 18% sát thương Siêu Hạn của toàn đội, duy trì 24 giây. Hiệu quả giữa các trang bị cùng tên không cộng dồn."
+                    },
+    "description":  "Trang bị Nhẫn thuộc bộ Hãm Trận Dũng Chí, xuất hiện trong Azur Promilia (Lam Sắc Tinh Nguyên).",
+    "original_link":  "/ap/林间祈语",
+    "texture_name":  "Tex icon equipment item xianzhenzhiyong ring 4 4.png"
+}

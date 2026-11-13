@@ -1,0 +1,17 @@
+﻿{
+    "id":  "kientapliepnhankhinhgiap",
+    "name":  "Kiến Tập Liệp Nhân Khinh Giáp",
+    "original_name":  "见习猎人轻甲",
+    "item_type":  "Áo trên",
+    "category":  "ao_tren",
+    "base_rarity":  0,
+    "star_count":  1,
+    "max_stars":  "1 sao",
+    "image":  "assets/equipment/kientapliepnhankhinhgiap.png",
+    "suit":  "Không có bộ trang bị",
+    "suit_id":  "0",
+    "suit_skills":  null,
+    "description":  "Trang bị Áo trên thuộc bộ Không có bộ trang bị, xuất hiện trong Azur Promilia (Lam Sắc Tinh Nguyên).",
+    "original_link":  "/ap/见习猎人轻甲",
+    "texture_name":  "Tex icon equipment item suit1 4.png"
+}

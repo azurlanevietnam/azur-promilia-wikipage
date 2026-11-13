@@ -1,0 +1,17 @@
+﻿{
+    "id":  "lichchiendungsichikhai",
+    "name":  "Lịch Chiến Dũng Sĩ Chi Khải",
+    "original_name":  "历战勇士之铠",
+    "item_type":  "Áo trên",
+    "category":  "ao_tren",
+    "base_rarity":  2,
+    "star_count":  3,
+    "max_stars":  "3 sao",
+    "image":  "assets/equipment/lichchiendungsichikhai.png",
+    "suit":  "Không có bộ trang bị",
+    "suit_id":  "0",
+    "suit_skills":  null,
+    "description":  "Trang bị Áo trên thuộc bộ Không có bộ trang bị, xuất hiện trong Azur Promilia (Lam Sắc Tinh Nguyên).",
+    "original_link":  "/ap/历战勇士之铠",
+    "texture_name":  "Tex icon equipment item suit5 4.png"
+}

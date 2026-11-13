@@ -1,0 +1,20 @@
+﻿{
+    "id":  "damacchungkhuc",
+    "name":  "Dạ Mạc Chung Khúc",
+    "original_name":  "夜幕终曲",
+    "item_type":  "Quần dưới",
+    "category":  "quan_duoi",
+    "base_rarity":  3,
+    "star_count":  4,
+    "max_stars":  "4 sao",
+    "image":  "assets/equipment/damacchungkhuc.png",
+    "suit":  "Tồi Phong",
+    "suit_id":  "13",
+    "suit_skills":  {
+                        "two_piece":  "Hiệu suất phá vỡ thế phòng thủ (phá thế) tăng 15%.",
+                        "four_piece":  "Mọi đòn tấn công của người mang mỗi lần đánh trúng mục tiêu, giá trị phá dẻo dai (phá nhẫn) bản thân tăng 5 điểm, duy trì 5 giây, tối đa cộng dồn 10 tầng."
+                    },
+    "description":  "Trang bị Quần dưới thuộc bộ Tồi Phong, xuất hiện trong Azur Promilia (Lam Sắc Tinh Nguyên).",
+    "original_link":  "/ap/夜幕终曲",
+    "texture_name":  "Tex icon equipment item cuifeng bottoms 3 1.png"
+}

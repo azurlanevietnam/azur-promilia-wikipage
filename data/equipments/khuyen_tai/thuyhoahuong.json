@@ -1,0 +1,20 @@
+﻿{
+    "id":  "thuyhoahuong",
+    "name":  "Thúy Hoa Hưởng",
+    "original_name":  "翠华响",
+    "item_type":  "Khuyên tai",
+    "category":  "khuyen_tai",
+    "base_rarity":  4,
+    "star_count":  5,
+    "max_stars":  "5 sao",
+    "image":  "assets/equipment/thuyhoahuong.png",
+    "suit":  "Trường Không Hiệp Tấu",
+    "suit_id":  "7",
+    "suit_skills":  {
+                        "two_piece":  "Siêu Hạn Cường Độ tăng 110 điểm.",
+                        "four_piece":  "Mỗi lần tiêu hao Ấn Ký, sát thương Siêu Hạn người mang tạo ra tăng 7%, duy trì 15 giây, tối đa cộng dồn 3 tầng."
+                    },
+    "description":  "Trang bị Khuyên tai thuộc bộ Trường Không Hiệp Tấu, xuất hiện trong Azur Promilia (Lam Sắc Tinh Nguyên).",
+    "original_link":  "/ap/翠华响",
+    "texture_name":  "Tex icon equipment item changkongxiezou earring 4 3.png"
+}

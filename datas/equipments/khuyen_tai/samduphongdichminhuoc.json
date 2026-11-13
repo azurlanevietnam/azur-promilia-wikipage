@@ -1,0 +1,20 @@
+﻿{
+    "id":  "samduphongdichminhuoc",
+    "name":  "Sâm Dữ Phong Đích Minh Ước",
+    "original_name":  "森与风的盟约",
+    "item_type":  "Khuyên tai",
+    "category":  "khuyen_tai",
+    "base_rarity":  4,
+    "star_count":  5,
+    "max_stars":  "5 sao",
+    "image":  "assets/equipment/samduphongdichminhuoc.png",
+    "suit":  "Hãm Trận Dũng Chí",
+    "suit_id":  "12",
+    "suit_skills":  {
+                        "two_piece":  "Siêu Hạn Cường Độ tăng 110 điểm.",
+                        "four_piece":  "Sau khi người mang thi triển Tinh Quyết Kỹ, tăng 18% sát thương Siêu Hạn của toàn đội, duy trì 24 giây. Hiệu quả giữa các trang bị cùng tên không cộng dồn."
+                    },
+    "description":  "Trang bị Khuyên tai thuộc bộ Hãm Trận Dũng Chí, xuất hiện trong Azur Promilia (Lam Sắc Tinh Nguyên).",
+    "original_link":  "/ap/森与风的盟约",
+    "texture_name":  "Tex icon equipment item xianzhenzhiyong earring 4 4.png"
+}

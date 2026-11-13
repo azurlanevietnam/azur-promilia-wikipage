@@ -1,0 +1,402 @@
+{
+  "id": "lietkhongchikich",
+  "name": "Liệt Không Chi Kích",
+  "original_name": "裂空之击",
+  "item_type": "Vũ khí (Song đao)",
+  "base_rarity": 3,
+  "max_stars": "Có thể thăng 3 sao",
+  "max_star_count": 3,
+  "image": "../../../assets/equipment/lietkhongchikich.png",
+  "rarity_bg_image": "../../../assets/equipment/lietkhongchikich_bg.png",
+  "suit": "Không có bộ trang bị",
+  "description": "Một cặp song đao có thân thon dài nhẹ bén, đường cong lưỡi đao gấp gáp, trên bề mặt thoắt ẩn thoắt hiện luồng quang vân màu lạnh tựa như vết tích của tia điện, khi vung lên cực kỳ mau lẹ, giống như tia sét rạch ngang bầu trời, xé toạc không gian trong chớp mắt.",
+  "acquisition_sources": [
+    "Gia viên - Tiệm rèn",
+    "Ủy thác - Bảo Hộ Thường Xanh III",
+    "Ủy thác - Bảo Hộ Thường Xanh II"
+  ],
+  "main_attributes_by_quality": [
+    {
+      "quality_level": 1,
+      "quality_name": "Tân thủ",
+      "attributes": [
+        {
+          "attribute": "Tấn công",
+          "enhancement_0": "+38",
+          "enhancement_15": "+153",
+          "range": "+38 / +153"
+        },
+        {
+          "attribute": "Tỉ lệ hội tâm Siêu Hạn",
+          "enhancement_0": "+1.2%",
+          "enhancement_15": "+5.3%",
+          "range": "+1.2% / +5.3%"
+        }
+      ]
+    },
+    {
+      "quality_level": 2,
+      "quality_name": "Tiến giai",
+      "attributes": [
+        {
+          "attribute": "Tấn công",
+          "enhancement_0": "+40",
+          "enhancement_15": "+163",
+          "range": "+40 / +163"
+        },
+        {
+          "attribute": "Tỉ lệ hội tâm Siêu Hạn",
+          "enhancement_0": "+1.3%",
+          "enhancement_15": "+5.6%",
+          "range": "+1.3% / +5.6%"
+        }
+      ]
+    },
+    {
+      "quality_level": 3,
+      "quality_name": "Tinh lương",
+      "attributes": [
+        {
+          "attribute": "Tấn công",
+          "enhancement_0": "+43",
+          "enhancement_15": "+172",
+          "range": "+43 / +172"
+        },
+        {
+          "attribute": "Tỉ lệ hội tâm Siêu Hạn",
+          "enhancement_0": "+1.4%",
+          "enhancement_15": "+6.0%",
+          "range": "+1.4% / +6.0%"
+        }
+      ]
+    },
+    {
+      "quality_level": 4,
+      "quality_name": "Sử thi",
+      "attributes": [
+        {
+          "attribute": "Tấn công",
+          "enhancement_0": "+45",
+          "enhancement_15": "+182",
+          "range": "+45 / +182"
+        },
+        {
+          "attribute": "Tỉ lệ hội tâm Siêu Hạn",
+          "enhancement_0": "+1.5%",
+          "enhancement_15": "+6.3%",
+          "range": "+1.5% / +6.3%"
+        }
+      ]
+    }
+  ],
+  "star_ascensions": [
+    {
+      "star_level": "1 sao",
+      "affix_name": "Cường độ Siêu Hạn",
+      "affix_level": "Cấp 1",
+      "description": "Cường độ Siêu Hạn tăng 30 điểm.",
+      "upgrade_cost": [
+        {
+          "material_id": "lietkhongchikich",
+          "name": "Trang bị cùng tên",
+          "quantity": 1
+        },
+        {
+          "material_id": "uni",
+          "name": "Uni",
+          "quantity": 9000
+        }
+      ]
+    },
+    {
+      "star_level": "2 sao",
+      "affix_name": "Tích Thế",
+      "affix_level": "Cấp 1",
+      "description": "Tấn công tăng 40 điểm.",
+      "upgrade_cost": [
+        {
+          "material_id": "lietkhongchikich",
+          "name": "Trang bị cùng tên",
+          "quantity": 2
+        },
+        {
+          "material_id": "uni",
+          "name": "Uni",
+          "quantity": 10000
+        }
+      ]
+    },
+    {
+      "star_level": "3 sao",
+      "affix_name": "Cường độ Siêu Hạn",
+      "affix_level": "Cấp 2",
+      "description": "Cường độ Siêu Hạn tăng 35 điểm.",
+      "upgrade_cost": [
+        {
+          "material_id": "lietkhongchikich",
+          "name": "Trang bị cùng tên",
+          "quantity": 2
+        },
+        {
+          "material_id": "uni",
+          "name": "Uni",
+          "quantity": 11000
+        }
+      ]
+    }
+  ],
+  "enhancement_materials": [
+    {
+      "stage": "+0 → +1",
+      "materials": [
+        {
+          "material_id": "linhtuyphothong",
+          "quantity": 2
+        },
+        {
+          "material_id": "longvubansac",
+          "quantity": 24
+        },
+        {
+          "material_id": "vihatnguyentoloi",
+          "quantity": 100
+        },
+        {
+          "material_id": "uni",
+          "quantity": 500
+        }
+      ]
+    },
+    {
+      "stage": "+1 → +2",
+      "materials": [
+        {
+          "material_id": "linhtuyphothong",
+          "quantity": 4
+        },
+        {
+          "material_id": "longvubansac",
+          "quantity": 24
+        },
+        {
+          "material_id": "vihatnguyentoloi",
+          "quantity": 100
+        },
+        {
+          "material_id": "uni",
+          "quantity": 1000
+        }
+      ]
+    },
+    {
+      "stage": "+2 → +3",
+      "materials": [
+        {
+          "material_id": "linhtuyphothong",
+          "quantity": 8
+        },
+        {
+          "material_id": "longvubansac",
+          "quantity": 24
+        },
+        {
+          "material_id": "vihatnguyentoloi",
+          "quantity": 100
+        },
+        {
+          "material_id": "uni",
+          "quantity": 1500
+        }
+      ]
+    },
+    {
+      "stage": "+3 → +4",
+      "materials": [
+        {
+          "material_id": "linhtuyngungtu",
+          "quantity": 2
+        },
+        {
+          "material_id": "ngungchatnguyento",
+          "quantity": 24
+        },
+        {
+          "material_id": "vihatnguyentoloi",
+          "quantity": 200
+        },
+        {
+          "material_id": "uni",
+          "quantity": 2000
+        }
+      ]
+    },
+    {
+      "stage": "+4 → +5",
+      "materials": [
+        {
+          "material_id": "linhtuyngungtu",
+          "quantity": 4
+        },
+        {
+          "material_id": "ngungchatnguyento",
+          "quantity": 24
+        },
+        {
+          "material_id": "vihatnguyentoloi",
+          "quantity": 200
+        },
+        {
+          "material_id": "uni",
+          "quantity": 3000
+        }
+      ]
+    },
+    {
+      "stage": "+5 → +6",
+      "materials": [
+        {
+          "material_id": "linhtuyngungtu",
+          "quantity": 8
+        },
+        {
+          "material_id": "ngungchatnguyento",
+          "quantity": 24
+        },
+        {
+          "material_id": "vihatnguyentoloi",
+          "quantity": 200
+        },
+        {
+          "material_id": "uni",
+          "quantity": 4000
+        }
+      ]
+    },
+    {
+      "stage": "+6 → +7",
+      "materials": [
+        {
+          "material_id": "linhtuycuontrao",
+          "quantity": 2
+        },
+        {
+          "material_id": "thotrenhoidat",
+          "quantity": 24
+        },
+        {
+          "material_id": "vihatnguyentoloi",
+          "quantity": 400
+        },
+        {
+          "material_id": "uni",
+          "quantity": 5000
+        }
+      ]
+    },
+    {
+      "stage": "+7 → +8",
+      "materials": [
+        {
+          "material_id": "linhtuycuontrao",
+          "quantity": 4
+        },
+        {
+          "material_id": "thotrenhoidat",
+          "quantity": 24
+        },
+        {
+          "material_id": "vihatnguyentoloi",
+          "quantity": 400
+        },
+        {
+          "material_id": "uni",
+          "quantity": 6000
+        }
+      ]
+    },
+    {
+      "stage": "+8 → +9",
+      "materials": [
+        {
+          "material_id": "linhtuycuontrao",
+          "quantity": 8
+        },
+        {
+          "material_id": "thotrenhoidat",
+          "quantity": 24
+        },
+        {
+          "material_id": "vihatnguyentoloi",
+          "quantity": 400
+        },
+        {
+          "material_id": "uni",
+          "quantity": 7000
+        }
+      ]
+    },
+    {
+      "stage": "+9 → +10",
+      "materials": [
+        {
+          "material_id": "linhtuyanhsang",
+          "quantity": 2
+        },
+        {
+          "material_id": "moysacnhon",
+          "quantity": 24
+        },
+        {
+          "material_id": "vihatnguyentoloi",
+          "quantity": 600
+        },
+        {
+          "material_id": "uni",
+          "quantity": 8000
+        }
+      ]
+    },
+    {
+      "stage": "+10 → +11",
+      "materials": [
+        {
+          "material_id": "linhtuyanhsang",
+          "quantity": 4
+        },
+        {
+          "material_id": "catbanthan",
+          "quantity": 24
+        },
+        {
+          "material_id": "vihatnguyentoloi",
+          "quantity": 600
+        },
+        {
+          "material_id": "uni",
+          "quantity": 9000
+        }
+      ]
+    },
+    {
+      "stage": "+11 → +12",
+      "materials": [
+        {
+          "material_id": "linhtuyanhsang",
+          "quantity": 8
+        },
+        {
+          "material_id": "laphongmach",
+          "quantity": 24
+        },
+        {
+          "material_id": "vihatnguyentoloi",
+          "quantity": 600
+        },
+        {
+          "material_id": "uni",
+          "quantity": 10000
+        }
+      ]
+    }
+  ]
+}

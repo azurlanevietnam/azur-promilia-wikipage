@@ -1,0 +1,20 @@
+﻿{
+    "id":  "trieuvuchung",
+    "name":  "Triều Vụ Chưng",
+    "original_name":  "朝雾蒸",
+    "item_type":  "Khuyên tai",
+    "category":  "khuyen_tai",
+    "base_rarity":  3,
+    "star_count":  4,
+    "max_stars":  "4 sao",
+    "image":  "assets/equipment/trieuvuchung.png",
+    "suit":  "Hãm Trận Dũng Chí",
+    "suit_id":  "12",
+    "suit_skills":  {
+                        "two_piece":  "Siêu Hạn Cường Độ tăng 110 điểm.",
+                        "four_piece":  "Sau khi người mang thi triển Tinh Quyết Kỹ, tăng 18% sát thương Siêu Hạn của toàn đội, duy trì 24 giây. Hiệu quả giữa các trang bị cùng tên không cộng dồn."
+                    },
+    "description":  "Trang bị Khuyên tai thuộc bộ Hãm Trận Dũng Chí, xuất hiện trong Azur Promilia (Lam Sắc Tinh Nguyên).",
+    "original_link":  "/ap/朝雾蒸",
+    "texture_name":  "Tex icon equipment item xianzhenzhiyong earring 3 2.png"
+}

@@ -1,0 +1,20 @@
+﻿{
+    "id":  "thantinhtuongthang",
+    "name":  "Thần Tinh Tương Thăng",
+    "original_name":  "晨星将升",
+    "item_type":  "Nhẫn",
+    "category":  "nhan",
+    "base_rarity":  4,
+    "star_count":  5,
+    "max_stars":  "5 sao",
+    "image":  "assets/equipment/thantinhtuongthang.png",
+    "suit":  "Tàng Phong Phá Thế",
+    "suit_id":  "9",
+    "suit_skills":  {
+                        "two_piece":  "Tỉ lệ Bạo Kích tăng 8%.",
+                        "four_piece":  "Mỗi lần người mang gây sát thương bạo kích, sát thương bạo kích bản thân tăng 3.5%, duy trì 15 giây, tối đa cộng dồn 10 tầng."
+                    },
+    "description":  "Trang bị Nhẫn thuộc bộ Tàng Phong Phá Thế, xuất hiện trong Azur Promilia (Lam Sắc Tinh Nguyên).",
+    "original_link":  "/ap/晨星将升",
+    "texture_name":  "Tex icon equipment item cangfengposhi ring 4 1.png"
+}

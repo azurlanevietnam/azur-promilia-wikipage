@@ -1,0 +1,20 @@
+﻿{
+    "id":  "tinhtucchiquang",
+    "name":  "Tinh Tức Chi Quang",
+    "original_name":  "星息之光",
+    "item_type":  "Quần dưới",
+    "category":  "quan_duoi",
+    "base_rarity":  4,
+    "star_count":  5,
+    "max_stars":  "5 sao",
+    "image":  "assets/equipment/tinhtucchiquang.png",
+    "suit":  "Phục Tấu Chi Chương",
+    "suit_id":  "16",
+    "suit_skills":  {
+                        "two_piece":  "Tốc độ hồi Tinh Quyết Tích Năng tăng 5%.",
+                        "four_piece":  "Sau khi người mang thi triển Tinh Minh Kỹ, tốc độ hồi Tinh Quyết Tích Năng của toàn đội tăng 20%, duy trì 12 giây. Hiệu quả giữa các trang bị cùng tên không cộng dồn."
+                    },
+    "description":  "Trang bị Quần dưới thuộc bộ Phục Tấu Chi Chương, xuất hiện trong Azur Promilia (Lam Sắc Tinh Nguyên).",
+    "original_link":  "/ap/星息之光",
+    "texture_name":  "Tex icon equipment item fuzouzhizhang bottoms 4 1.png"
+}

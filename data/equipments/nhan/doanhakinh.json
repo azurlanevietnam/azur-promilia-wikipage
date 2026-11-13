@@ -1,0 +1,20 @@
+﻿{
+    "id":  "doanhakinh",
+    "name":  "Đoạn Hà Kính",
+    "original_name":  "断河劲",
+    "item_type":  "Nhẫn",
+    "category":  "nhan",
+    "base_rarity":  3,
+    "star_count":  4,
+    "max_stars":  "4 sao",
+    "image":  "assets/equipment/doanhakinh.png",
+    "suit":  "Ngang Dương Tuần Lễ",
+    "suit_id":  "10",
+    "suit_skills":  {
+                        "two_piece":  "Tấn công tăng 10%.",
+                        "four_piece":  "Khi người mang vào sân, tấn công bản thân tăng 12%, duy trì 15 giây; khi đánh trúng kẻ địch bị phá vỡ thế phòng thủ (phá thế), tấn công bản thân tăng thêm 8%, duy trì 15 giây."
+                    },
+    "description":  "Trang bị Nhẫn thuộc bộ Ngang Dương Tuần Lễ, xuất hiện trong Azur Promilia (Lam Sắc Tinh Nguyên).",
+    "original_link":  "/ap/断河劲",
+    "texture_name":  "Tex icon equipment item angyangxunli ring 3 1.png"
+}

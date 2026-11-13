@@ -1,0 +1,17 @@
+﻿{
+    "id":  "dulichgiachigioi",
+    "name":  "Du Lịch Giả Chi Giới",
+    "original_name":  "游历者之戒",
+    "item_type":  "Nhẫn",
+    "category":  "nhan",
+    "base_rarity":  1,
+    "star_count":  2,
+    "max_stars":  "2 sao",
+    "image":  "assets/equipment/dulichgiachigioi.png",
+    "suit":  "Không có bộ trang bị",
+    "suit_id":  "0",
+    "suit_skills":  null,
+    "description":  "Trang bị Nhẫn thuộc bộ Không có bộ trang bị, xuất hiện trong Azur Promilia (Lam Sắc Tinh Nguyên).",
+    "original_link":  "/ap/游历者之戒",
+    "texture_name":  "Tex icon equipment item suit3 7.png"
+}
