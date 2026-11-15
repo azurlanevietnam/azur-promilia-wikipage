@@ -29,6 +29,15 @@
     return rel;
   }
 
+  function getPagesRel(depth) {
+    if (depth === 0) return 'pages/';
+    if (depth === 1) return '';
+    if (depth === 2) return '../';
+    let rel = '';
+    for (let i = 1; i < depth; i++) rel += '../';
+    return rel;
+  }
+
   function getActiveTab() {
     if (document.body && document.body.dataset.activeTab) {
       return document.body.dataset.activeTab;
@@ -39,10 +48,10 @@
     return 'home';
   }
 
-  function renderNavbarHTML(rel, activeTab) {
+  function renderNavbarHTML(pagesRel, activeTab) {
     return `
     <div class="container nav-container">
-      <a href="${rel}homepage.html" class="brand-logo">
+      <a href="${pagesRel}homepage.html" class="brand-logo">
         <div class="brand-icon">✦</div>
         <div class="brand-info">
           <h1>AZUR PROMILIA</h1>
@@ -50,9 +59,9 @@
       </a>
 
       <nav class="nav-links">
-        <a href="${rel}homepage.html" class="nav-item ${activeTab === 'home' ? 'active' : ''}">Trang Chủ</a>
-        <a href="${rel}equipments.html" class="nav-item ${activeTab === 'equip' ? 'active' : ''}">Trang Bị</a>
-        <a href="${rel}materials.html" class="nav-item ${activeTab === 'mat' ? 'active' : ''}">Nguyên Liệu</a>
+        <a href="${pagesRel}homepage.html" class="nav-item ${activeTab === 'home' ? 'active' : ''}">Trang Chủ</a>
+        <a href="${pagesRel}equipments.html" class="nav-item ${activeTab === 'equip' ? 'active' : ''}">Trang Bị</a>
+        <a href="${pagesRel}materials.html" class="nav-item ${activeTab === 'mat' ? 'active' : ''}">Nguyên Liệu</a>
       </nav>
 
       <div class="nav-socials">
@@ -81,7 +90,7 @@
 
   function initLayout() {
     const depth = getDepth();
-    const rel = getRelPrefix(depth);
+    const pagesRel = getPagesRel(depth);
     const activeTab = getActiveTab();
 
     // 1. Inject or update Navbar
@@ -91,7 +100,7 @@
     }
     if (navEl) {
       navEl.className = 'navbar';
-      navEl.innerHTML = renderNavbarHTML(rel, activeTab);
+      navEl.innerHTML = renderNavbarHTML(pagesRel, activeTab);
     }
 
     // 2. Inject or update Footer

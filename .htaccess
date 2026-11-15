@@ -1,6 +1,24 @@
 RewriteEngine On
+RewriteBase /
 
-# Remove .html extension from URL
-RewriteCond %{REQUEST_FILENAME} !-d
-RewriteCond %{REQUEST_FILENAME}\.html -f
-RewriteRule ^(.*)$ $1.html [NC,L]
+# 1. Truy cập root domain -> ngầm phục vụ pages/homepage.html
+RewriteRule ^$ pages/homepage.html [L]
+
+# 2. Nếu file hoặc folder thực tế tồn tại (assets, style.css, templates, datas...) -> phục vụ trực tiếp
+RewriteCond %{REQUEST_FILENAME} -f [OR]
+RewriteCond %{REQUEST_FILENAME} -d
+RewriteRule ^ - [L]
+
+# 3. Canonical: nếu URL gõ trực tiếp /pages/ -> 301 chuyển hướng ra ngoài URL sạch
+RewriteCond %{THE_REQUEST} \s/pages/([^\s]+)\.html [NC]
+RewriteRule ^pages/(.*)\.html$ /$1 [R=301,L]
+RewriteCond %{THE_REQUEST} \s/pages/([^\s]+) [NC]
+RewriteRule ^pages/(.*)$ /$1 [R=301,L]
+
+# 4. Nếu người dùng gõ có .html (ví dụ /homepage.html hoặc /equipments/amhoalieuloan.html)
+RewriteCond %{DOCUMENT_ROOT}/pages/$1.html -f
+RewriteRule ^(.*)\.html$ pages/$1.html [L]
+
+# 5. Clean URLs: nếu người dùng gõ không có đuôi .html (/homepage hoặc /equipments/amhoalieuloan)
+RewriteCond %{DOCUMENT_ROOT}/pages/$1.html -f
+RewriteRule ^(.*)$ pages/$1.html [L]

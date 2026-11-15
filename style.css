@@ -737,28 +737,26 @@ img,
 .rarity-val-green { color: #16a34a !important; font-weight: 700; }
 .rarity-val-white { color: #64748b !important; font-weight: 700; }
 
-/* Vùng chứa icon trang bị */
+/* Vùng chứa icon trang bị: Phủ toàn bộ thẻ để dùng cùng hệ tọa độ chuẩn xác với .screen-visual-frame */
 .bwiki-item-visual {
   position: absolute;
   top: 0;
   left: 0;
-  right: 0;
-  bottom: calc(100% / 204 * 50);
-  display: flex;
-  align-items: center;
-  justify-content: center;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
   z-index: 1;
 }
 
-/* Biểu tượng vật phẩm căn giữa rune circle */
+/* Biểu tượng vật phẩm căn giữa rune circle - Đồng bộ 100% với .screen-visual-icon */
 .bwiki-item-img {
   position: absolute;
-  width: calc(100% / 182 * 146);
-  height: calc(100% / 154 * 146);
-  max-width: 95%;
-  max-height: 95%;
+  width: calc(100% / 182 * 136);
+  height: calc(100% / 182 * 136);
+  max-width: none;
+  max-height: none;
   object-fit: contain;
-  top: 52%;
+  top: 40%;
   left: 50%;
   transform: translate(-50%, -50%);
   z-index: 1;
@@ -865,14 +863,29 @@ img,
   user-select: none;
   pointer-events: auto;
   transition: transform 0.2s ease-out;
+
+  /* Default CSS Variables for Full HD */
+  --gauge-tick-spacing: 28px;
+  --gauge-dash-w: 14px;
+  --gauge-dash-h: 2.5px;
+  --gauge-dash-hover-w: 22px;
+  --gauge-active-dash-w: 44px;
+  --fremm-bc-font-size: 1.02rem;
+  --fremm-bc-gap: 8px;
+  --fremm-bc-mb: 12px;
+  --fremm-bc-l2-pad: 14px;
+  --fremm-bc-l3-pad: 28px;
+  --fremm-label-font-size: 0.92rem;
+  --fremm-active-label-font-size: 1.02rem;
+  --fremm-gauge-gap: 14px;
 }
 
 /* 1. Stacked Breadcrumb (Fincantieri Hierarchical Uppercase Style - Refined Standard) */
 .fremm-breadcrumb-stack {
   display: flex;
   flex-direction: column;
-  gap: 8px;
-  margin-bottom: 12px; /* Balanced spacing to seamlessly lead into the gauge track */
+  gap: var(--fremm-bc-gap, 8px);
+  margin-bottom: var(--fremm-bc-mb, 12px); /* Balanced spacing to seamlessly lead into the gauge track */
   font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
   text-transform: uppercase;
   letter-spacing: 1px;
@@ -882,7 +895,7 @@ img,
 .fremm-bc-item {
   display: block;
   text-decoration: none;
-  font-size: 1.02rem; /* Refined size: legible, bold, comfortably fits long names */
+  font-size: var(--fremm-bc-font-size, 1.02rem); /* Refined size: legible, bold, comfortably fits long names */
   font-weight: 700;
   letter-spacing: 1px;
   transition: color 0.2s ease, transform 0.2s ease;
@@ -905,7 +918,7 @@ img,
 /* Level 2: TRANG BỊ / NGUYÊN LIỆU - Muted gray */
 .fremm-bc-l2 {
   color: #64748b;
-  padding-left: 14px;
+  padding-left: var(--fremm-bc-l2-pad, 14px);
 }
 
 .fremm-bc-l2:hover {
@@ -917,7 +930,7 @@ img,
 .fremm-bc-l3 {
   color: #0f172a;
   font-weight: 800;
-  padding-left: 28px;
+  padding-left: var(--fremm-bc-l3-pad, 28px);
   cursor: default;
 }
 
@@ -926,22 +939,22 @@ img,
   transform: none;
 }
 
-/* 2. Vertical Scale Gauge / Ruler: 15 ticks * 28px = 420px total height */
+/* 2. Vertical Scale Gauge / Ruler: 15 ticks * spacing */
 .fremm-gauge-container {
   position: relative;
   width: 100%;
-  height: 420px;
+  height: calc(15 * var(--gauge-tick-spacing, 28px));
   margin-top: 0; /* No artificial gap above first tick */
   flex-shrink: 0;
 }
 
-/* Background ruler dashes: short, thick, solid, precisely 28px vertical slot */
+/* Background ruler dashes: short, thick, solid, precisely vertical slot */
 .fremm-gauge-ruler {
   position: absolute;
   left: 0;
   top: 0;
-  width: 14px;
-  height: 420px;
+  width: var(--gauge-dash-w, 14px);
+  height: calc(15 * var(--gauge-tick-spacing, 28px));
   pointer-events: none;
   z-index: 1;
 }
@@ -949,11 +962,11 @@ img,
 .fremm-ruler-tick {
   position: absolute;
   left: 0;
-  width: 14px;
-  height: 28px; /* Standard 28px slot height */
-  max-height: 28px;
+  width: var(--gauge-dash-w, 14px);
+  height: var(--gauge-tick-spacing, 28px);
+  max-height: var(--gauge-tick-spacing, 28px);
   display: flex;
-  align-items: center; /* Dash is centered at exactly y = slot * 28 + 14px */
+  align-items: center; /* Dash is centered at exactly y = slot * spacing + slot/2 */
   pointer-events: none;
   background: transparent;
   transition: opacity 0.2s ease;
@@ -962,8 +975,8 @@ img,
 .fremm-ruler-tick::before {
   content: "";
   display: block;
-  width: 14px;
-  height: 2.5px; /* Short dash is THICK */
+  width: var(--gauge-dash-w, 14px);
+  height: var(--gauge-dash-h, 2.5px); /* Short dash is THICK */
   background: #64748b;
 }
 
@@ -973,18 +986,18 @@ img,
   left: 0;
   top: 0;
   width: 100%;
-  height: 420px;
+  height: calc(15 * var(--gauge-tick-spacing, 28px));
   z-index: 2;
 }
 
 .fremm-gauge-item {
   position: absolute;
   left: 0;
-  height: 28px; /* Standard 28px slot height */
-  max-height: 28px;
+  height: var(--gauge-tick-spacing, 28px);
+  max-height: var(--gauge-tick-spacing, 28px);
   display: inline-flex;
-  align-items: center; /* Dash is centered at exactly y = slot * 28 + 14px */
-  gap: 14px;
+  align-items: center;
+  gap: var(--fremm-gauge-gap, 14px);
   text-decoration: none;
   cursor: pointer;
   font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
@@ -995,11 +1008,18 @@ img,
   white-space: nowrap;
 }
 
+/* Fallback default positions using responsive CSS variables */
+.fremm-gauge-item[data-index="0"] { top: calc(7 * var(--gauge-tick-spacing, 28px)); }
+.fremm-gauge-item[data-index="1"] { top: calc(11 * var(--gauge-tick-spacing, 28px)); }
+.fremm-gauge-item[data-index="2"] { top: calc(12 * var(--gauge-tick-spacing, 28px)); }
+.fremm-gauge-item[data-index="3"] { top: calc(13 * var(--gauge-tick-spacing, 28px)); }
+.fremm-gauge-item[data-index="4"] { top: calc(14 * var(--gauge-tick-spacing, 28px)); }
+
 /* The tab's dash: replacing the default '-' based on its current position */
 .fremm-item-dash {
   display: inline-block;
-  width: 14px;
-  height: 2.5px; /* Short dash is THICK */
+  width: var(--gauge-dash-w, 14px);
+  height: var(--gauge-dash-h, 2.5px); /* Short dash is THICK */
   background: #64748b;
   flex-shrink: 0;
   transition: width 0.35s cubic-bezier(0.16, 1, 0.3, 1),
@@ -1008,7 +1028,7 @@ img,
 }
 
 .fremm-item-label {
-  font-size: 0.92rem;
+  font-size: var(--fremm-label-font-size, 0.92rem);
   font-weight: 700;
   color: #64748b;
   line-height: 1;
@@ -1017,7 +1037,7 @@ img,
 
 /* Hover on past/future item */
 .fremm-gauge-item:hover .fremm-item-dash {
-  width: 22px;
+  width: var(--gauge-dash-hover-w, 22px);
   background: #0284c7;
 }
 
@@ -1027,14 +1047,14 @@ img,
 
 /* State: Active (at center slot) - Dash matches standard thickness */
 .fremm-gauge-item.is-active .fremm-item-dash {
-  width: 44px;
-  height: 2.5px;
+  width: var(--gauge-active-dash-w, 44px);
+  height: var(--gauge-dash-h, 2.5px);
   background: #0284c7;
 }
 
 .fremm-gauge-item.is-active .fremm-item-label {
   color: #0f172a;
-  font-size: 1.02rem; /* Prominent active label */
+  font-size: var(--fremm-active-label-font-size, 1.02rem); /* Prominent active label */
   font-weight: 800;
   letter-spacing: 1.2px;
 }
@@ -1048,11 +1068,21 @@ img,
   display: flex;
   flex-direction: column;
   gap: 72px;
+  padding-bottom: min(32vh, 320px);
 }
 
 /* Detail Screen: Seamless integration */
 .detail-screen {
   background: transparent;
+  border: none;
+  border-radius: 0;
+  padding: 0;
+  box-shadow: none;
+  position: relative;
+  border-bottom: 1px solid var(--border-subtle);
+  padding-bottom: 56px;
+  scroll-margin-top: 100px;
+}
   border: none;
   border-radius: 0;
   padding: 0;
@@ -1363,9 +1393,9 @@ img,
 }
 
 .asc-mats-grid .bwiki-item-img {
-  width: calc(100% / 182 * 156);
-  height: calc(100% / 182 * 156);
-  top: 44%;
+  width: calc(100% / 182 * 136);
+  height: calc(100% / 182 * 136);
+  top: 40%;
 }
 
 .asc-mats-grid .bwiki-item-name-box {
@@ -1633,9 +1663,9 @@ img,
 }
 
 .enhance-mats-grid .bwiki-item-img {
-  width: calc(100% / 182 * 156);
-  height: calc(100% / 182 * 156);
-  top: 44%;
+  width: calc(100% / 182 * 136);
+  height: calc(100% / 182 * 136);
+  top: 40%;
 }
 
 .enhance-mats-grid .bwiki-item-name-box {
@@ -1648,11 +1678,26 @@ img,
   letter-spacing: 0.3px;
 }
 
-/* Material cards in catalog */
-.bwiki-items-grid .bwiki-item-card[data-category] .bwiki-item-img {
-  width: calc(100% / 182 * 152);
-  height: calc(100% / 182 * 152);
-  top: 44%;
+/* Suit Skill Section for Armor & Accessories */
+.suit-skill-card {
+  background: transparent;
+  border: none;
+  border-radius: 0;
+  padding: 0;
+}
+
+.suit-title-row {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-size: 1.25rem;
+  font-weight: 700;
+  color: var(--text-dark, #0f172a);
+}
+
+.suit-badge-icon {
+  color: var(--accent-azure, #0284c7);
+  font-size: 1.1rem;
 }
 
 .enhance-max-msg {
@@ -1802,7 +1847,43 @@ img,
   color: var(--text-dim);
 }
 
-/* Material Detail Weapons Grid */
+/* Material Detail Weapons & Equipment Grid */
+.mat-equips-toolbar {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  margin-bottom: 24px;
+}
+
+.mat-cat-filter-tabs {
+  display: inline-flex;
+  gap: 8px;
+  flex-wrap: wrap;
+}
+
+.mat-filter-tab {
+  background: transparent;
+  border: 1px solid var(--border-subtle);
+  border-radius: var(--btn-radius-pill);
+  padding: 6px 16px;
+  font-size: 0.88rem;
+  font-weight: 700;
+  color: #64748b;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.mat-filter-tab:hover {
+  border-color: #0284c7;
+  color: #0284c7;
+}
+
+.mat-filter-tab.active {
+  background: #0284c7;
+  border-color: #0284c7;
+  color: #ffffff;
+}
+
 .mat-used-weapons-grid {
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
@@ -1980,5 +2061,149 @@ img,
   }
   .enhance-mats-grid .bwiki-item-name-text {
     font-size: 0.74rem;
+  }
+}
+
+/* ===================================================================
+   DESKTOP 4-TIER RESPONSIVE: HD, FULL HD, 2K, 4K
+   =================================================================== */
+
+/* TIER 1: HD (1280x720 / 1366x768 / short viewport height <= 820px) */
+@media (min-width: 1025px) and (max-width: 1440px), (min-width: 1025px) and (max-height: 820px) {
+  .fremm-sidebar {
+    width: 270px;
+    left: 20px;
+    top: 72px;
+    --gauge-tick-spacing: 21px;
+    --gauge-dash-w: 11px;
+    --gauge-dash-h: 2px;
+    --gauge-dash-hover-w: 18px;
+    --gauge-active-dash-w: 34px;
+    --fremm-bc-font-size: 0.85rem;
+    --fremm-bc-gap: 5px;
+    --fremm-bc-mb: 8px;
+    --fremm-bc-l2-pad: 10px;
+    --fremm-bc-l3-pad: 20px;
+    --fremm-label-font-size: 0.80rem;
+    --fremm-active-label-font-size: 0.88rem;
+    --fremm-gauge-gap: 10px;
+  }
+  .fremm-content {
+    margin-left: 300px;
+    max-width: 960px;
+    gap: 48px;
+  }
+}
+
+/* TIER 2: FULL HD (1441px - 1920px with standard height > 820px) */
+@media (min-width: 1441px) and (max-width: 1920px) and (min-height: 821px) {
+  .fremm-sidebar {
+    width: 320px;
+    left: 32px;
+    top: 84px;
+    --gauge-tick-spacing: 28px;
+    --gauge-dash-w: 14px;
+    --gauge-dash-h: 2.5px;
+    --gauge-dash-hover-w: 22px;
+    --gauge-active-dash-w: 44px;
+    --fremm-bc-font-size: 1.02rem;
+    --fremm-bc-gap: 8px;
+    --fremm-bc-mb: 12px;
+    --fremm-bc-l2-pad: 14px;
+    --fremm-bc-l3-pad: 28px;
+    --fremm-label-font-size: 0.92rem;
+    --fremm-active-label-font-size: 1.02rem;
+    --fremm-gauge-gap: 14px;
+  }
+  .fremm-content {
+    margin-left: 360px;
+    max-width: 1060px;
+    gap: 72px;
+  }
+}
+
+/* TIER 3: 2K / QHD (1921px - 2560px with height > 820px) */
+@media (min-width: 1921px) and (max-width: 2560px) and (min-height: 821px) {
+  .fremm-sidebar {
+    width: 400px;
+    left: 48px;
+    top: 96px;
+    --gauge-tick-spacing: 46px;
+    --gauge-dash-w: 20px;
+    --gauge-dash-h: 3px;
+    --gauge-dash-hover-w: 30px;
+    --gauge-active-dash-w: 62px;
+    --fremm-bc-font-size: 1.25rem;
+    --fremm-bc-gap: 12px;
+    --fremm-bc-mb: 18px;
+    --fremm-bc-l2-pad: 18px;
+    --fremm-bc-l3-pad: 36px;
+    --fremm-label-font-size: 1.15rem;
+    --fremm-active-label-font-size: 1.28rem;
+    --fremm-gauge-gap: 18px;
+  }
+  .fremm-content {
+    margin-left: 470px;
+    max-width: 1380px;
+    gap: 90px;
+  }
+  .screen-header h2 {
+    font-size: 1.85rem;
+  }
+  .attr-table th, .attr-table td {
+    padding: 16px 20px;
+    font-size: 1.1rem;
+  }
+  .suit-skill-card {
+    padding: 24px;
+  }
+}
+
+/* TIER 4: 4K / UHD (min-width: 2561px with height > 820px) */
+@media (min-width: 2561px) and (min-height: 821px) {
+  .fremm-sidebar {
+    width: 520px;
+    left: 64px;
+    top: 120px;
+    --gauge-tick-spacing: 70px;
+    --gauge-dash-w: 28px;
+    --gauge-dash-h: 4px;
+    --gauge-dash-hover-w: 42px;
+    --gauge-active-dash-w: 88px;
+    --fremm-bc-font-size: 1.65rem;
+    --fremm-bc-gap: 16px;
+    --fremm-bc-mb: 24px;
+    --fremm-bc-l2-pad: 24px;
+    --fremm-bc-l3-pad: 48px;
+    --fremm-label-font-size: 1.55rem;
+    --fremm-active-label-font-size: 1.72rem;
+    --fremm-gauge-gap: 24px;
+  }
+  .fremm-content {
+    margin-left: 620px;
+    max-width: 1800px;
+    gap: 110px;
+  }
+  .screen-header h2 {
+    font-size: 2.3rem;
+  }
+  .attr-table th, .attr-table td {
+    padding: 20px 24px;
+    font-size: 1.35rem;
+  }
+  .screen-overview-info h1 {
+    font-size: 2.8rem;
+  }
+  .screen-overview-original-name {
+    font-size: 1.5rem;
+  }
+  .meta-k {
+    font-size: 1.15rem;
+  }
+  .meta-v {
+    font-size: 1.35rem;
+  }
+  .suit-skill-card {
+    padding: 32px;
   }
 }

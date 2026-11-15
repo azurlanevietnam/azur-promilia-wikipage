@@ -79,13 +79,18 @@
   }
 
   function getMaterialRarity(id) {
+    if (!id) return 2;
+    if (window.AZUR_DATA && window.AZUR_DATA.materials && window.AZUR_DATA.materials[id] && window.AZUR_DATA.materials[id].rarity) {
+      return Number(window.AZUR_DATA.materials[id].rarity);
+    }
+    if (KNOWN_MATERIALS[id] && typeof KNOWN_MATERIALS[id] === 'object' && KNOWN_MATERIALS[id].rarity) {
+      return Number(KNOWN_MATERIALS[id].rarity);
+    }
     if (id === 'linhtuyhuyensac') return 5;
-    if (id === 'linhtuyanhsang') return 4;
-    if (id === 'linhtuycuontrao') return 3;
-    if (id === 'linhtuyngungtu') return 2;
+    if (['linhtuyanhsang', 'dungdichtinhchat', 'banhxematvan', 'vayuquang'].includes(id)) return 4;
+    if (['linhtuycuontrao', 'tinhhachngunghinh', 'moysacnhon', 'catbanthan', 'laphongmach', 'uni', 'mangmonglanquang', 'modongminmang'].includes(id)) return 3;
+    if (['linhtuyngungtu', 'vomemdichchuyen', 'linhkienhaomon', 'longtominmang', 'voxacroirung', 'loihangdinh', 'sunglinhthu', 'ngungchatnguyento', 'thotrenhoidat', 'longvubansac'].includes(id) || id.startsWith('vihatnguyen')) return 2;
     if (id === 'linhtuyphothong') return 1;
-    if (['dungdichtinhchat', 'banhxematvan', 'vayuquang'].includes(id)) return 4;
-    if (['tinhhachngunghinh', 'moysacnhon', 'catbanthan', 'laphongmach', 'uni'].includes(id)) return 3;
     return 2;
   }
 
@@ -174,15 +179,29 @@
   }
 
   async function fetchWeaponData(itemId, rel) {
+    if (window.__ITEM_DATA__ && window.__ITEM_DATA__.id === itemId) {
+      return window.__ITEM_DATA__;
+    }
+
+    const cat = document.body.dataset.category;
+    const catList = cat ? [cat, 'vu_khi', 'ao_tren', 'quan_duoi', 'khuyen_tai', 'nhan'] : ['vu_khi', 'ao_tren', 'quan_duoi', 'khuyen_tai', 'nhan'];
+
     if (window.location.protocol !== 'file:') {
-      try {
-        const res = await fetch(`${rel}datas/equipments/vu_khi/${itemId}.json`);
-        if (res.ok) {
-          return await res.json();
-        }
-      } catch (err) {
-        console.warn('Fetch JSON failed, attempting bundle fallback:', err);
+      for (const c of catList) {
+        try {
+          const res = await fetch(`${rel}datas/equipments/${c}/${itemId}.json`);
+          if (res.ok) return await res.json();
+        } catch (e) {}
       }
+      try {
+        const res = await fetch(`${rel}datas/equipments/equipments.json`);
+        if (res.ok) {
+          const all = await res.json();
+          const list = Array.isArray(all) ? all : (all.value || []);
+          const found = list.find(w => w.id === itemId);
+          if (found) return found;
+        }
+      } catch (e) {}
     }
 
     if (window.AZUR_DATA && window.AZUR_DATA.weapons) {
@@ -209,13 +228,21 @@
     return null;
   }
 
-  function renderEquipmentMain(w, rel) {
+  function renderEquipmentMain(w, rel, pagesRel) {
+    if (!pagesRel) {
+      const d = document.body.dataset.depth ? parseInt(document.body.dataset.depth, 10) : 2;
+      pagesRel = d === 2 ? '../' : d === 1 ? '' : 'pages/';
+    }
+
+    const isWeapon = (w.category === 'vu_khi') || (!w.category && w.main_attributes_by_quality && w.main_attributes_by_quality.length > 0);
+    const hasSuit = Boolean(w.suit && w.suit !== 'Không có bộ trang bị' && w.suit !== 'none' && w.suit_skills);
     const rNum = getWeaponRarityNumber(w);
-    const starCount = getMaxStarsCount(w);
+    const starCount = w.star_count || getMaxStarsCount(w);
     const rarityInfo = getWeaponRarityInfo(w);
-    const cleanType = getCleanWeaponType(w.item_type);
+    const cleanType = isWeapon ? getCleanWeaponType(w.item_type) : (w.item_type || (w.category === 'ao_tren' ? 'Áo trên' : w.category === 'quan_duoi' ? 'Quần dưới' : w.category === 'khuyen_tai' ? 'Khuyên tai' : 'Nhẫn'));
     const suitVal = (!w.suit || w.suit === 'Không có bộ trang bị') ? 'Không có bộ trang bị' : w.suit;
     const loreText = w.description ? w.description.replace(/\n/g, '<br>') : 'Chưa có thông tin cốt truyện.';
+    const typeLabel = isWeapon ? `Vũ khí (${cleanType})` : cleanType;
 
     // Screen 2: Quality attributes
     const qualities = w.main_attributes_by_quality || [];
@@ -245,19 +272,20 @@
       let costCardsHtml = '';
       if (activeAsc.upgrade_cost && activeAsc.upgrade_cost.length > 0) {
         costCardsHtml = activeAsc.upgrade_cost.map(c => {
-          const isWeapon = c.material_id === w.id;
-          const costUrl = isWeapon ? '#' : `${rel}materials/${c.material_id}.html`;
-          const iconSrc = isWeapon ? `${rel}assets/equipment/${w.id}.png` : `${rel}assets/materials/${c.material_id}.png`;
+          const isSelf = c.material_id === w.id;
+          const costUrl = isSelf ? '#' : `${pagesRel}materials/${c.material_id}.html`;
+          const iconSrc = isSelf ? `${rel}assets/equipment/${w.id}.png` : `${rel}assets/materials/${c.material_id}.png`;
           const qtyStr = Number(c.quantity).toLocaleString('vi-VN');
-          const matName = isWeapon ? w.name : (c.name || getMaterialName(c.material_id));
-          const cardFrameClass = isWeapon ? `r${rNum}` : 'r3';
-          const cardStarsCount = isWeapon ? starCount : getMaterialRarity(c.material_id);
+          const matName = isSelf ? w.name : (c.name || getMaterialName(c.material_id));
+          const matRarity = getMaterialRarity(c.material_id);
+          const cardFrameClass = isSelf ? `r${rNum}` : `r${matRarity}`;
+          const starsHtml = isSelf ? renderCardStarsHtml(starCount, rel) : '';
           return `
             <a href="${costUrl}" class="bwiki-item-card ${cardFrameClass}" title="${matName} (x${qtyStr})">
               <div class="bwiki-item-visual">
                 <img src="${iconSrc}" class="bwiki-item-img" alt="${matName}" loading="lazy">
               </div>
-              ${renderCardStarsHtml(cardStarsCount, rel)}
+              ${starsHtml}
               <div class="bwiki-item-name-box">
                 <span class="bwiki-item-name-text">x${qtyStr}</span>
               </div>
@@ -297,15 +325,14 @@
       const stage0Cards = stage0.materials.map(m => {
         const matName = getMaterialName(m.material_id);
         const iconSrc = `${rel}assets/materials/${m.material_id}.png`;
-        const linkHref = `${rel}materials/${m.material_id}.html`;
+        const linkHref = `${pagesRel}materials/${m.material_id}.html`;
         const qtyStr = Number(m.quantity).toLocaleString('vi-VN');
-        const starsCount = getMaterialRarity(m.material_id);
+        const matRarity = getMaterialRarity(m.material_id);
         return `
-          <a href="${linkHref}" class="bwiki-item-card r3" title="${matName} (x${qtyStr})">
+          <a href="${linkHref}" class="bwiki-item-card r${matRarity}" title="${matName} (x${qtyStr})">
             <div class="bwiki-item-visual">
               <img src="${iconSrc}" class="bwiki-item-img" alt="${matName}" loading="lazy">
             </div>
-            ${renderCardStarsHtml(starsCount, rel)}
             <div class="bwiki-item-name-box">
               <span class="bwiki-item-name-text">x${qtyStr}</span>
             </div>
@@ -334,97 +361,38 @@
       </div>
     `).join('');
 
-    return `
-    <div class="fremm-layout">
-      
-      <!-- LEFT RAIL: Integrated Breadcrumb Stack + Dynamic Vertical Gauge -->
-      <aside class="fremm-sidebar" id="fremm-sidebar">
-        <div class="fremm-breadcrumb-stack">
-          <a href="${rel}homepage.html" class="fremm-bc-item fremm-bc-l1">TRANG CHỦ</a>
-          <a href="${rel}equipments.html" class="fremm-bc-item fremm-bc-l2">TRANG BỊ</a>
-          <div class="fremm-bc-item fremm-bc-l3">${w.name}</div>
-        </div>
+    // Left Rail Gauge Items & Extra Screens
+    let gaugeItemsHtml = '';
+    let extraScreensHtml = '';
 
-        <div class="fremm-gauge-container" id="fremm-gauge-container">
-          <div class="fremm-gauge-ruler" id="fremm-gauge-ruler" aria-hidden="true">
-            ${Array.from({length: 15}, (_, i) => `<div class="fremm-ruler-tick" data-tick="${i}"></div>`).join('')}
-          </div>
-          <nav class="fremm-gauge-track" id="fremm-gauge-track">
-            <a href="#screen-overview" class="fremm-gauge-item is-active" data-index="0" data-target="screen-overview">
-              <span class="fremm-item-dash"></span>
-              <span class="fremm-item-label">TỔNG QUAN VŨ KHÍ</span>
-            </a>
-            <a href="#screen-attributes" class="fremm-gauge-item is-future" data-index="1" data-target="screen-attributes">
-              <span class="fremm-item-dash"></span>
-              <span class="fremm-item-label">CHỈ SỐ THUỘC TÍNH</span>
-            </a>
-            <a href="#screen-ascension" class="fremm-gauge-item is-future" data-index="2" data-target="screen-ascension">
-              <span class="fremm-item-dash"></span>
-              <span class="fremm-item-label">THĂNG CẤP SAO</span>
-            </a>
-            <a href="#screen-enhancement" class="fremm-gauge-item is-future" data-index="3" data-target="screen-enhancement">
-              <span class="fremm-item-dash"></span>
-              <span class="fremm-item-label">NGUYÊN LIỆU CƯỜNG HÓA</span>
-            </a>
-            <a href="#screen-sources" class="fremm-gauge-item is-future" data-index="4" data-target="screen-sources">
-              <span class="fremm-item-dash"></span>
-              <span class="fremm-item-label">NGUỒN GỐC THU THẬP</span>
-            </a>
-          </nav>
-        </div>
-      </aside>
+    if (isWeapon) {
+      gaugeItemsHtml = `
+        <a href="#screen-overview" class="fremm-gauge-item is-active" data-index="0" data-target="screen-overview" style="top: calc(7 * var(--gauge-tick-spacing, 28px));">
+          <span class="fremm-item-dash"></span>
+          <span class="fremm-item-label">TỔNG QUAN VŨ KHÍ</span>
+        </a>
+        <a href="#screen-attributes" class="fremm-gauge-item is-future" data-index="1" data-target="screen-attributes" style="top: calc(11 * var(--gauge-tick-spacing, 28px));">
+          <span class="fremm-item-dash"></span>
+          <span class="fremm-item-label">CHỈ SỐ THUỘC TÍNH</span>
+        </a>
+        <a href="#screen-ascension" class="fremm-gauge-item is-future" data-index="2" data-target="screen-ascension" style="top: calc(12 * var(--gauge-tick-spacing, 28px));">
+          <span class="fremm-item-dash"></span>
+          <span class="fremm-item-label">THĂNG CẤP SAO</span>
+        </a>
+        <a href="#screen-enhancement" class="fremm-gauge-item is-future" data-index="3" data-target="screen-enhancement" style="top: calc(13 * var(--gauge-tick-spacing, 28px));">
+          <span class="fremm-item-dash"></span>
+          <span class="fremm-item-label">NGUYÊN LIỆU CƯỜNG HÓA</span>
+        </a>
+        <a href="#screen-sources" class="fremm-gauge-item is-future" data-index="4" data-target="screen-sources" style="top: calc(14 * var(--gauge-tick-spacing, 28px));">
+          <span class="fremm-item-dash"></span>
+          <span class="fremm-item-label">NGUỒN GỐC THU THẬP</span>
+        </a>`;
 
-      <!-- RIGHT COLUMN: INDEPENDENT SCREEN SECTIONS -->
-      <div class="fremm-content">
-        
-        <!-- SCREEN 1: TỔNG QUAN VŨ KHÍ (Wrapped in authentic rarity frame) -->
-        <section id="screen-overview" class="detail-screen" data-step="1">
-          <div class="screen-header">
-            <h2>Tổng Quan Vũ Khí</h2>
-          </div>
-
-          <div class="screen-overview-layout">
-            <div class="screen-visual-frame r${rNum}-frame">
-              <img class="screen-visual-icon" src="${rel}assets/equipment/${w.id}.png" alt="${w.name}">
-              <div class="screen-stars-row" title="Có thể thăng ${starCount} sao">
-                ${Array.from({ length: starCount }, () => `<img src="${rel}assets/star.png" class="screen-star-unit" alt="★">`).join('')}
-              </div>
-            </div>
-
-            <div class="screen-overview-info">
-              <h1>${w.name}</h1>
-              <div class="screen-overview-original-name">${w.original_name || ''}</div>
-
-              <div class="screen-meta-grid">
-                <div class="screen-meta-box">
-                  <div class="meta-k">Phân loại</div>
-                  <div class="meta-v">Vũ khí (${cleanType})</div>
-                </div>
-                <div class="screen-meta-box">
-                  <div class="meta-k">Độ hiếm</div>
-                  <div class="meta-v ${rarityInfo.cls}">${rarityInfo.name}</div>
-                </div>
-                <div class="screen-meta-box">
-                  <div class="meta-k">Giới hạn thăng sao</div>
-                  <div class="meta-v">${formatMaxStars(w.max_stars)}</div>
-                </div>
-                <div class="screen-meta-box">
-                  <div class="meta-k">Bộ trang bị</div>
-                  <div class="meta-v">${suitVal}</div>
-                </div>
-              </div>
-
-              <div class="screen-lore-card">
-                <div>${loreText}</div>
-              </div>
-            </div>
-          </div>
-        </section>
-
+      extraScreensHtml = `
         <!-- SCREEN 2: CHỈ SỐ THUỘC TÍNH -->
         <section id="screen-attributes" class="detail-screen" data-step="2">
           <div class="screen-header">
-            <h2>Chỉ Số Thuộc Tính</h2>
+            <h2>ChỈ Số Thuộc Tính</h2>
           </div>
 
           <div class="attr-filters-bar">
@@ -504,15 +472,151 @@
             </div>
           </div>
         </section>
+      `;
+    } else {
+      const numItems = hasSuit ? 3 : 2;
+      const slot0 = 7;
+      const slot1 = hasSuit ? (15 - 3 + 1) : (15 - 2 + 1); // 13 or 14
+      const slot2 = hasSuit ? (15 - 3 + 2) : null;         // 14
 
-        <!-- SCREEN 5: NGUỒN GỐC THU THẬP -->
-        <section id="screen-sources" class="detail-screen" data-step="5">
+      let stepIdx = 0;
+      gaugeItemsHtml += `
+        <a href="#screen-overview" class="fremm-gauge-item is-active" data-index="${stepIdx++}" data-target="screen-overview" style="top: calc(${slot0} * var(--gauge-tick-spacing, 28px));">
+          <span class="fremm-item-dash"></span>
+          <span class="fremm-item-label">TỔNG QUAN TRANG BỊ</span>
+        </a>`;
+      if (hasSuit) {
+        gaugeItemsHtml += `
+          <a href="#screen-suit-skills" class="fremm-gauge-item is-future" data-index="${stepIdx++}" data-target="screen-suit-skills" style="top: calc(${slot1} * var(--gauge-tick-spacing, 28px));">
+            <span class="fremm-item-dash"></span>
+            <span class="fremm-item-label">KỸ NĂNG BỘ TRANG BỊ</span>
+          </a>`;
+      }
+      const sourcesSlot = hasSuit ? slot2 : slot1;
+      gaugeItemsHtml += `
+        <a href="#screen-sources" class="fremm-gauge-item is-future" data-index="${stepIdx++}" data-target="screen-sources" style="top: calc(${sourcesSlot} * var(--gauge-tick-spacing, 28px));">
+          <span class="fremm-item-dash"></span>
+          <span class="fremm-item-label">NGUỒN GỐC THU THẬP</span>
+        </a>`;
+
+      if (hasSuit) {
+        extraScreensHtml = `
+          <!-- SCREEN 2: KỸ NĂNG BỘ TRANG BỊ -->
+          <section id="screen-suit-skills" class="detail-screen" data-step="2">
+            <div class="screen-header">
+              <h2>Kỹ Năng Bộ Trang Bị</h2>
+            </div>
+
+            <div class="suit-skill-card">
+              <div class="suit-title-row">
+                <span class="suit-badge-icon">✦</span>
+                <span class="suit-title-name">${w.suit}</span>
+              </div>
+              <table class="set-skills-table" style="margin-top: 16px;">
+                <thead>
+                  <tr>
+                    <th style="width: 140px;">Kích hoạt</th>
+                    <th>Hiệu quả kỹ năng</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td><strong>Bộ 2 món</strong></td>
+                    <td>${(w.suit_skills && w.suit_skills.two_piece) || '—'}</td>
+                  </tr>
+                  <tr>
+                    <td><strong>Bộ 4 món</strong></td>
+                    <td>${(w.suit_skills && w.suit_skills.four_piece) || '—'}</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </section>
+        `;
+      }
+    }
+
+    const sourcesStep = isWeapon ? 5 : (hasSuit ? 3 : 2);
+    const occupiedRulerSlots = isWeapon ? [7, 11, 12, 13, 14] : (hasSuit ? [7, 13, 14] : [7, 14]);
+
+    return `
+    <div class="fremm-layout">
+      
+      <!-- LEFT RAIL: Integrated Breadcrumb Stack + Dynamic Vertical Gauge -->
+      <aside class="fremm-sidebar" id="fremm-sidebar">
+        <div class="fremm-breadcrumb-stack">
+          <a href="${pagesRel}homepage.html" class="fremm-bc-item fremm-bc-l1">TRANG CHỦ</a>
+          <a href="${pagesRel}equipments.html" class="fremm-bc-item fremm-bc-l2">TRANG BỊ</a>
+          <div class="fremm-bc-item fremm-bc-l3">${w.name}</div>
+        </div>
+
+        <div class="fremm-gauge-container" id="fremm-gauge-container">
+          <div class="fremm-gauge-ruler" id="fremm-gauge-ruler" aria-hidden="true">
+            ${Array.from({length: 15}, (_, i) => `<div class="fremm-ruler-tick" data-tick="${i}" style="top: calc(${i} * var(--gauge-tick-spacing, 28px)); opacity: ${occupiedRulerSlots.includes(i) ? '0' : '1'};"></div>`).join('')}
+          </div>
+          <nav class="fremm-gauge-track" id="fremm-gauge-track">
+            ${gaugeItemsHtml}
+          </nav>
+        </div>
+      </aside>
+
+      <!-- RIGHT COLUMN: INDEPENDENT SCREEN SECTIONS -->
+      <div class="fremm-content">
+        
+        <!-- SCREEN 1: TỔNG QUAN (Wrapped in authentic rarity frame) -->
+        <section id="screen-overview" class="detail-screen" data-step="1">
+          <div class="screen-header">
+            <h2>${isWeapon ? 'Tổng Quan Vũ Khí' : 'Tổng Quan Trang Bị'}</h2>
+          </div>
+
+          <div class="screen-overview-layout">
+            <div class="screen-visual-frame r${rNum}-frame">
+              <img class="screen-visual-icon" src="${rel}assets/equipment/${w.id}.png" alt="${w.name}">
+              <div class="screen-stars-row" title="Có thể thăng ${starCount} sao">
+                ${Array.from({ length: starCount }, () => `<img src="${rel}assets/star.png" class="screen-star-unit" alt="★">`).join('')}
+              </div>
+            </div>
+
+            <div class="screen-overview-info">
+              <h1>${w.name}</h1>
+              <div class="screen-overview-original-name">${w.original_name || ''}</div>
+
+              <div class="screen-meta-grid">
+                <div class="screen-meta-box">
+                  <div class="meta-k">Phân loại</div>
+                  <div class="meta-v">${typeLabel}</div>
+                </div>
+                <div class="screen-meta-box">
+                  <div class="meta-k">Độ hiếm</div>
+                  <div class="meta-v ${rarityInfo.cls}">${rarityInfo.name}</div>
+                </div>
+                <div class="screen-meta-box">
+                  <div class="meta-k">Giới hạn thăng sao</div>
+                  <div class="meta-v">${formatMaxStars(w.max_stars || (starCount + ' sao'))}</div>
+                </div>
+                <div class="screen-meta-box">
+                  <div class="meta-k">Bộ trang bị</div>
+                  <div class="meta-v">${suitVal}</div>
+                </div>
+              </div>
+
+              <div class="screen-lore-card">
+                <div>${loreText}</div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        ${extraScreensHtml}
+
+        <!-- SCREEN SOURCES -->
+        <section id="screen-sources" class="detail-screen" data-step="${sourcesStep}">
           <div class="screen-header">
             <h2>Nguồn Gốc Thu Thập</h2>
           </div>
 
           <div class="source-badges">
-            ${sourceBadgesHtml || '<p style="color:var(--text-dim);">Chưa rõ nguồn gốc thu thập.</p>'}
+            ${sourceBadgesHtml || '<div class="source-badge"><span>✦</span><span>Ủy thác thám hiểm & Chế tạo Tiệm Rèn</span></div>'}
           </div>
         </section>
 
@@ -520,7 +624,218 @@
     </div>`;
   }
 
-  function initEquipmentInteractivity(w, rel) {
+  function initEquipmentInteractivity(w, rel, pagesRel) {
+    if (!pagesRel) {
+      const d = document.body.dataset.depth ? parseInt(document.body.dataset.depth, 10) : 2;
+      pagesRel = d === 2 ? '../' : d === 1 ? '' : 'pages/';
+    }
+
+    // 1. Initialize Fincantieri FREMM EVO Navigation FIRST (Resilient & Fail-Safe)
+    function initFremmGaugeNavigation() {
+      const track = document.getElementById('fremm-gauge-track');
+      const ruler = document.getElementById('fremm-gauge-ruler');
+      const sidebar = document.getElementById('fremm-sidebar');
+      if (!track || !ruler) return;
+
+      const items = Array.from(track.querySelectorAll('.fremm-gauge-item'));
+      const rulerTicks = Array.from(ruler.querySelectorAll('.fremm-ruler-tick'));
+      const screens = items.map(it => document.getElementById(it.dataset.target)).filter(Boolean);
+      const numItems = items.length;
+      const TOTAL_TICKS = 15;
+      const CENTER_TICK = 7;
+      let currentIdx = 0;
+      let isUserClicking = false;
+      let clickLockTimer = null;
+
+      function getTickSpacing() {
+        if (!sidebar) return 28;
+        const customSpacing = parseFloat(getComputedStyle(sidebar).getPropertyValue('--gauge-tick-spacing'));
+        return (!isNaN(customSpacing) && customSpacing > 0) ? customSpacing : 28;
+      }
+
+      function checkFooterCollision() {
+        if (!sidebar || window.innerWidth <= 1024) {
+          if (sidebar) sidebar.style.transform = 'none';
+          return;
+        }
+        const footer = document.querySelector('footer.footer') || document.getElementById('site-footer');
+        if (!footer) return;
+        const footerRect = footer.getBoundingClientRect();
+        const sidebarRect = sidebar.getBoundingClientRect();
+
+        const navbar = document.querySelector('header.navbar') || document.getElementById('site-navbar');
+        const navbarBottom = navbar ? navbar.getBoundingClientRect().bottom : 70;
+        const minTop = navbarBottom + 12;
+
+        if (footerRect.top < sidebarRect.bottom + 24) {
+          const rawOverlap = (sidebarRect.bottom + 24) - footerRect.top;
+          const currentTranslate = parseFloat(sidebar.dataset.currentTranslateY || 0);
+          const baseTop = sidebarRect.top - currentTranslate;
+          const maxAllowedTranslate = Math.max(0, baseTop - minTop);
+          const overlap = Math.min(rawOverlap, maxAllowedTranslate);
+          sidebar.dataset.currentTranslateY = -overlap;
+          sidebar.style.transform = 'translateY(-' + overlap + 'px)';
+        } else {
+          sidebar.dataset.currentTranslateY = 0;
+          sidebar.style.transform = 'none';
+        }
+      }
+
+      function updateGaugePositions(idx) {
+        currentIdx = Math.max(0, Math.min(numItems - 1, idx));
+        const isMobile = window.innerWidth <= 1024;
+
+        if (isMobile) {
+          if (sidebar) sidebar.style.transform = 'none';
+          items.forEach((item, i) => {
+            item.style.top = '';
+            item.style.transform = '';
+            if (i === currentIdx) {
+              item.className = 'fremm-gauge-item is-active';
+              item.scrollIntoView({ behavior: 'smooth', block: 'nearest', inline: 'center' });
+            } else if (i < currentIdx) {
+              item.className = 'fremm-gauge-item is-past';
+            } else {
+              item.className = 'fremm-gauge-item is-future';
+            }
+          });
+          return;
+        }
+
+        const tickSpacing = getTickSpacing();
+
+        // Position ruler background ticks at exact tickSpacing intervals
+        rulerTicks.forEach((tick, s) => {
+          tick.style.top = (s * tickSpacing) + 'px';
+        });
+
+        const occupiedSlots = new Set();
+
+        items.forEach((item, i) => {
+          let slot;
+          if (i < currentIdx) {
+            slot = i;
+            item.className = 'fremm-gauge-item is-past';
+          } else if (i === currentIdx) {
+            slot = CENTER_TICK;
+            item.className = 'fremm-gauge-item is-active';
+          } else {
+            slot = TOTAL_TICKS - numItems + i;
+            item.className = 'fremm-gauge-item is-future';
+          }
+          item.style.top = (slot * tickSpacing) + 'px';
+          item.style.transform = 'none';
+          occupiedSlots.add(slot);
+        });
+
+        // Directly replace default "-" at occupied slots: hide background tick so ONLY the tab dash shows!
+        rulerTicks.forEach((tick, s) => {
+          tick.style.opacity = occupiedSlots.has(s) ? '0' : '1';
+        });
+      }
+
+      function getActiveScreenIndex() {
+        if (screens.length === 0) return 0;
+
+        const viewportHeight = window.innerHeight;
+        const scrollY = window.scrollY || window.pageYOffset;
+        const docHeight = document.documentElement.scrollHeight;
+        const footer = document.querySelector('footer.footer') || document.getElementById('site-footer');
+        const footerRect = footer ? footer.getBoundingClientRect() : null;
+
+        // 1. Detect if page is scrolled near bottom
+        const isAtDocBottom = (scrollY + viewportHeight >= docHeight - 45);
+        const isFooterVisible = footerRect && (footerRect.top <= viewportHeight - 15);
+
+        if (isAtDocBottom || isFooterVisible) {
+          // When bottom is reached, select the lowest visible screen in the viewport
+          for (let i = screens.length - 1; i >= 0; i--) {
+            const rect = screens[i].getBoundingClientRect();
+            if (rect.top < viewportHeight - 50 && rect.bottom > 50) {
+              return i;
+            }
+          }
+          return screens.length - 1;
+        }
+
+        // 2. Proportional focal line based on viewport height (38% of viewport)
+        const focalLine = Math.max(160, Math.min(viewportHeight * 0.38, 700));
+
+        let candidateIdx = 0;
+        for (let i = 0; i < screens.length; i++) {
+          const rect = screens[i].getBoundingClientRect();
+          if (rect.top <= focalLine) {
+            candidateIdx = i;
+          } else {
+            break;
+          }
+        }
+
+        // 3. Bottom-screen awareness for short sections
+        const lastIdx = screens.length - 1;
+        const lastRect = screens[lastIdx].getBoundingClientRect();
+        if (lastRect.top < viewportHeight * 0.70 && lastRect.bottom > 80) {
+          if (candidateIdx >= lastIdx - 1) {
+            candidateIdx = lastIdx;
+          }
+        }
+
+        return candidateIdx;
+      }
+
+      function onScroll() {
+        checkFooterCollision();
+        if (isUserClicking) return;
+
+        const activeIdx = getActiveScreenIndex();
+        if (activeIdx !== currentIdx) {
+          updateGaugePositions(activeIdx);
+        }
+      }
+
+      items.forEach(item => {
+        item.addEventListener('click', (e) => {
+          e.preventDefault();
+          const targetId = item.dataset.target;
+          const targetEl = document.getElementById(targetId);
+          if (targetEl) {
+            const targetIdx = parseInt(item.dataset.index, 10);
+            isUserClicking = true;
+            if (clickLockTimer) clearTimeout(clickLockTimer);
+            clickLockTimer = setTimeout(() => {
+              isUserClicking = false;
+            }, 850);
+
+            updateGaugePositions(targetIdx);
+
+            const navbar = document.querySelector('header.navbar') || document.getElementById('site-navbar');
+            const navH = navbar ? navbar.offsetHeight : 70;
+            const targetTop = targetEl.getBoundingClientRect().top + window.pageYOffset - navH - 24;
+
+            window.scrollTo({ top: Math.max(0, targetTop), behavior: 'smooth' });
+          }
+        });
+      });
+
+      window.addEventListener('scroll', onScroll, { passive: true });
+      window.addEventListener('resize', () => {
+        updateGaugePositions(currentIdx);
+        checkFooterCollision();
+      });
+
+      updateGaugePositions(0);
+      setTimeout(() => {
+        updateGaugePositions(0);
+        checkFooterCollision();
+      }, 50);
+    }
+
+    try {
+      initFremmGaugeNavigation();
+    } catch (err) {
+      console.error('FREMM Gauge Init error:', err);
+    }
+
     const qualities = w.main_attributes_by_quality || [];
     const ascensions = w.star_ascensions || [];
     const rNum = getWeaponRarityNumber(w);
@@ -633,18 +948,19 @@
       if (a.upgrade_cost && a.upgrade_cost.length > 0) {
         costCardsHtml = a.upgrade_cost.map(c => {
           const isWeapon = c.material_id === w.id;
-          const costUrl = isWeapon ? '#' : `${rel}materials/${c.material_id}.html`;
+          const costUrl = isWeapon ? '#' : `${pagesRel}materials/${c.material_id}.html`;
           const iconSrc = isWeapon ? `${rel}assets/equipment/${w.id}.png` : `${rel}assets/materials/${c.material_id}.png`;
           const qtyStr = Number(c.quantity).toLocaleString('vi-VN');
           const matName = isWeapon ? w.name : (c.name || getMaterialName(c.material_id));
-          const cardFrameClass = isWeapon ? `r${rNum}` : 'r3';
-          const cardStarsCount = isWeapon ? getMaxStarsCount(w) : getMaterialRarity(c.material_id);
+          const matRarity = getMaterialRarity(c.material_id);
+          const cardFrameClass = isWeapon ? `r${rNum}` : `r${matRarity}`;
+          const starsHtml = isWeapon ? renderCardStarsHtml(getMaxStarsCount(w), rel) : '';
           return `
             <a href="${costUrl}" class="bwiki-item-card ${cardFrameClass}" title="${matName} (x${qtyStr})">
               <div class="bwiki-item-visual">
                 <img src="${iconSrc}" class="bwiki-item-img" alt="${matName}" loading="lazy">
               </div>
-              ${renderCardStarsHtml(cardStarsCount, rel)}
+              ${starsHtml}
               <div class="bwiki-item-name-box">
                 <span class="bwiki-item-name-text">x${qtyStr}</span>
               </div>
@@ -722,15 +1038,14 @@
       const matCards = stageData.materials.map(m => {
         const matName = getMaterialName(m.material_id);
         const iconSrc = `${rel}assets/materials/${m.material_id}.png`;
-        const linkHref = `${rel}materials/${m.material_id}.html`;
+        const linkHref = `${pagesRel}materials/${m.material_id}.html`;
         const qtyStr = Number(m.quantity).toLocaleString('vi-VN');
-        const starsCount = getMaterialRarity(m.material_id);
+        const matRarity = getMaterialRarity(m.material_id);
         return `
-          <a href="${linkHref}" class="bwiki-item-card r3" title="${matName} (x${qtyStr})">
+          <a href="${linkHref}" class="bwiki-item-card r${matRarity}" title="${matName} (x${qtyStr})">
             <div class="bwiki-item-visual">
               <img src="${iconSrc}" class="bwiki-item-img" alt="${matName}" loading="lazy">
             </div>
-            ${renderCardStarsHtml(starsCount, rel)}
             <div class="bwiki-item-name-box">
               <span class="bwiki-item-name-text">x${qtyStr}</span>
             </div>
@@ -786,15 +1101,14 @@
       const totalCards = totalMats.map(m => {
         const matName = getMaterialName(m.material_id);
         const iconSrc = `${rel}assets/materials/${m.material_id}.png`;
-        const linkHref = `${rel}materials/${m.material_id}.html`;
+        const linkHref = `${pagesRel}materials/${m.material_id}.html`;
         const qtyStr = Number(m.quantity).toLocaleString('vi-VN');
-        const starsCount = getMaterialRarity(m.material_id);
+        const matRarity = getMaterialRarity(m.material_id);
         return `
-          <a href="${linkHref}" class="bwiki-item-card r3" title="${matName} (x${qtyStr})">
+          <a href="${linkHref}" class="bwiki-item-card r${matRarity}" title="${matName} (x${qtyStr})">
             <div class="bwiki-item-visual">
               <img src="${iconSrc}" class="bwiki-item-img" alt="${matName}" loading="lazy">
             </div>
-            ${renderCardStarsHtml(starsCount, rel)}
             <div class="bwiki-item-name-box">
               <span class="bwiki-item-name-text">x${qtyStr}</span>
             </div>
@@ -838,128 +1152,6 @@
 
     // Initialize enhancement stage to level 1
     renderEnhanceStage(enhanceSlider ? parseInt(enhanceSlider.value, 10) : 1);
-
-    // Fincantieri FREMM EVO Navigation & Gauge Transition Logic
-    const track = document.getElementById('fremm-gauge-track');
-    const ruler = document.getElementById('fremm-gauge-ruler');
-    const sidebar = document.getElementById('fremm-sidebar');
-    if (!track || !ruler) return;
-
-    const items = Array.from(track.querySelectorAll('.fremm-gauge-item'));
-    const rulerTicks = Array.from(ruler.querySelectorAll('.fremm-ruler-tick'));
-    const screens = items.map(it => document.getElementById(it.dataset.target)).filter(Boolean);
-    const numItems = items.length;
-    const TOTAL_TICKS = 15;
-    const CENTER_TICK = 7;
-    const TICK_SPACING = 28;
-    let currentIdx = 0;
-
-    function checkFooterCollision() {
-      if (!sidebar || window.innerWidth <= 1024) {
-        if (sidebar) sidebar.style.transform = 'none';
-        return;
-      }
-      const footer = document.querySelector('footer.footer');
-      if (!footer) return;
-      const footerRect = footer.getBoundingClientRect();
-      const sidebarRect = sidebar.getBoundingClientRect();
-      if (footerRect.top < sidebarRect.bottom + 24) {
-        const overlap = (sidebarRect.bottom + 24) - footerRect.top;
-        sidebar.style.transform = 'translateY(-' + overlap + 'px)';
-      } else {
-        sidebar.style.transform = 'none';
-      }
-    }
-
-    function updateGaugePositions(idx) {
-      currentIdx = Math.max(0, Math.min(numItems - 1, idx));
-      const isMobile = window.innerWidth <= 1024;
-
-      if (isMobile) {
-        if (sidebar) sidebar.style.transform = 'none';
-        items.forEach((item, i) => {
-          item.style.top = '';
-          item.style.transform = '';
-          if (i === currentIdx) {
-            item.className = 'fremm-gauge-item is-active';
-            item.scrollIntoView({ behavior: 'smooth', block: 'nearest', inline: 'center' });
-          } else if (i < currentIdx) {
-            item.className = 'fremm-gauge-item is-past';
-          } else {
-            item.className = 'fremm-gauge-item is-future';
-          }
-        });
-        return;
-      }
-
-      // Position ruler background ticks at exact 28px intervals
-      rulerTicks.forEach((tick, s) => {
-        tick.style.top = (s * TICK_SPACING) + 'px';
-      });
-
-      const occupiedSlots = new Set();
-
-      items.forEach((item, i) => {
-        let slot;
-        if (i < currentIdx) {
-          slot = i;
-          item.className = 'fremm-gauge-item is-past';
-        } else if (i === currentIdx) {
-          slot = CENTER_TICK;
-          item.className = 'fremm-gauge-item is-active';
-        } else {
-          slot = TOTAL_TICKS - numItems + i;
-          item.className = 'fremm-gauge-item is-future';
-        }
-        item.style.top = (slot * TICK_SPACING) + 'px';
-        item.style.transform = 'none';
-        occupiedSlots.add(slot);
-      });
-
-      // Directly replace default "-" at occupied slots: hide background tick so ONLY the tab dash shows!
-      rulerTicks.forEach((tick, s) => {
-        tick.style.opacity = occupiedSlots.has(s) ? '0' : '1';
-      });
-    }
-
-    items.forEach(item => {
-      item.addEventListener('click', (e) => {
-        e.preventDefault();
-        const targetId = item.dataset.target;
-        const targetEl = document.getElementById(targetId);
-        if (targetEl) {
-          const targetTop = targetEl.getBoundingClientRect().top + window.pageYOffset - 90;
-          window.scrollTo({ top: targetTop, behavior: 'smooth' });
-          updateGaugePositions(parseInt(item.dataset.index, 10));
-        }
-      });
-    });
-
-    function onScroll() {
-      checkFooterCollision();
-      const scrollPos = window.scrollY + 220;
-      let activeIdx = 0;
-      screens.forEach((screen, idx) => {
-        if (scrollPos >= screen.offsetTop) {
-          activeIdx = idx;
-        }
-      });
-      if (activeIdx !== currentIdx) {
-        updateGaugePositions(activeIdx);
-      }
-    }
-
-    window.addEventListener('scroll', onScroll, { passive: true });
-    window.addEventListener('resize', () => {
-      updateGaugePositions(currentIdx);
-      checkFooterCollision();
-    });
-    
-    updateGaugePositions(0);
-    setTimeout(() => {
-      updateGaugePositions(0);
-      checkFooterCollision();
-    }, 50);
   }
 
   async function initEquipmentPage() {
@@ -975,8 +1167,9 @@
       return;
     }
 
-    const depth = document.body.dataset.depth ? parseInt(document.body.dataset.depth, 10) : 1;
+    const depth = document.body.dataset.depth ? parseInt(document.body.dataset.depth, 10) : 2;
     const rel = depth === 1 ? '../' : depth === 2 ? '../../' : '';
+    const pagesRel = depth === 2 ? '../' : depth === 1 ? '' : 'pages/';
 
     rootEl.innerHTML = `<div style="text-align:center; padding: 100px 0; color: #64748b;">Đang tải dữ liệu trang bị...</div>`;
 
@@ -986,15 +1179,15 @@
         <div class="empty-state">
           <h2>Không tìm thấy dữ liệu</h2>
           <p>Không thể tải dữ liệu trang bị từ cơ sở dữ liệu: <code>${itemId}.json</code></p>
-          <a href="${rel}equipments.html" style="color:var(--accent-azure); font-weight:700;">Quay lại danh sách trang bị</a>
+          <a href="${pagesRel}equipments.html" style="color:var(--accent-azure); font-weight:700;">Quay lại danh sách trang bị</a>
         </div>`;
       return;
     }
 
     document.title = `${weapon.name} - Azur Promilia Wiki`;
     await fetchMaterialsData(rel);
-    rootEl.innerHTML = renderEquipmentMain(weapon, rel);
-    initEquipmentInteractivity(weapon, rel);
+    rootEl.innerHTML = renderEquipmentMain(weapon, rel, pagesRel);
+    initEquipmentInteractivity(weapon, rel, pagesRel);
   }
 
   if (document.readyState === 'loading') {

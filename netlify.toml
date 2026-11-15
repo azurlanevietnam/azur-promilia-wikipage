@@ -6,3 +6,33 @@
 
 [build.processing.html]
   pretty_urls = true
+
+[[redirects]]
+  from = "/"
+  to = "/pages/homepage.html"
+  status = 200
+
+[[redirects]]
+  from = "/homepage"
+  to = "/pages/homepage.html"
+  status = 200
+
+[[redirects]]
+  from = "/equipments"
+  to = "/pages/equipments.html"
+  status = 200
+
+[[redirects]]
+  from = "/materials"
+  to = "/pages/materials.html"
+  status = 200
+
+[[redirects]]
+  from = "/equipments/:id"
+  to = "/pages/equipments/:id.html"
+  status = 200
+
+[[redirects]]
+  from = "/materials/:id"
+  to = "/pages/materials/:id.html"
+  status = 200

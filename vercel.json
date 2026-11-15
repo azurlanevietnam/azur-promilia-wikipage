@@ -1,4 +1,12 @@
 {
   "cleanUrls": true,
-  "trailingSlash": false
+  "trailingSlash": false,
+  "rewrites": [
+    { "source": "/", "destination": "/pages/homepage.html" },
+    { "source": "/homepage", "destination": "/pages/homepage.html" },
+    { "source": "/equipments", "destination": "/pages/equipments.html" },
+    { "source": "/materials", "destination": "/pages/materials.html" },
+    { "source": "/equipments/:id", "destination": "/pages/equipments/:id.html" },
+    { "source": "/materials/:id", "destination": "/pages/materials/:id.html" }
+  ]
 }
