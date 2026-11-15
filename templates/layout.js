@@ -49,9 +49,14 @@
   }
 
   function renderNavbarHTML(pagesRel, activeTab) {
+    const isServer = window.location.protocol !== 'file:';
+    const homeHref = isServer ? '/homepage' : `${pagesRel}homepage.html`;
+    const equipHref = isServer ? '/equipments' : `${pagesRel}equipments.html`;
+    const matHref = isServer ? '/materials' : `${pagesRel}materials.html`;
+
     return `
     <div class="container nav-container">
-      <a href="${pagesRel}homepage.html" class="brand-logo">
+      <a href="${homeHref}" class="brand-logo">
         <div class="brand-icon">✦</div>
         <div class="brand-info">
           <h1>AZUR PROMILIA</h1>
@@ -59,9 +64,9 @@
       </a>
 
       <nav class="nav-links">
-        <a href="${pagesRel}homepage.html" class="nav-item ${activeTab === 'home' ? 'active' : ''}">Trang Chủ</a>
-        <a href="${pagesRel}equipments.html" class="nav-item ${activeTab === 'equip' ? 'active' : ''}">Trang Bị</a>
-        <a href="${pagesRel}materials.html" class="nav-item ${activeTab === 'mat' ? 'active' : ''}">Nguyên Liệu</a>
+        <a href="${homeHref}" class="nav-item ${activeTab === 'home' ? 'active' : ''}">Trang Chủ</a>
+        <a href="${equipHref}" class="nav-item ${activeTab === 'equip' ? 'active' : ''}">Trang Bị</a>
+        <a href="${matHref}" class="nav-item ${activeTab === 'mat' ? 'active' : ''}">Nguyên Liệu</a>
       </nav>
 
       <div class="nav-socials">
@@ -111,6 +116,18 @@
     if (footerEl) {
       footerEl.className = 'footer';
       footerEl.innerHTML = renderFooterHTML();
+    }
+
+    // 3. Clean URL on live web server: strip /pages/ and .html
+    if (window.location.protocol !== 'file:') {
+      const orig = window.location.pathname;
+      let clean = orig.replace(/\.html$/, '').replace(/\/index$/, '');
+      if (clean.startsWith('/pages/')) {
+        clean = clean.replace(/^\/pages\//, '/');
+      }
+      if (clean !== orig) {
+        window.history.replaceState(null, '', clean + window.location.search + window.location.hash);
+      }
     }
   }
 
