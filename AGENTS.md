@@ -90,9 +90,10 @@ Tuyệt đối không đưa các chú thích, thẻ nhãn hoặc số đếm man
    - Loại bỏ các thẻ pill trôi nổi kiểu `KHO VŨ KHÍ`, `KHO NGUYÊN LIỆU`, `SCREEN 01`, `✦ Lam Sắc Tinh Nguyên ✦`.
    - Tiêu đề và vị trí bố cục tự thể hiện ý nghĩa mà không cần dán nhãn phân loại.
 3. **Không chú thích mở ngoặc hoặc đếm số trong nhãn**:
-   - Menu điều hướng: Dùng `Trang Bị`, `Nguyên Liệu` (KHÔNG dùng `Trang Bị (25)`, `Nguyên Liệu (33)`).
+   - Menu điều hướng: Dùng `Trang Bị`, `Nguyên Liệu`, `Linh Tử` (KHÔNG dùng `Trang Bị (25)`, `Nguyên Liệu (33)`).
    - Bộ lọc danh mục: Dùng `Tất cả`, `Linh Túy`, `Vi Hạt`, `Sản Vật`, `Tiền Tệ` (KHÔNG kèm `(33)`, `(5)`, `(8)`...).
    - Tab thuộc tính: Dùng tên phẩm chất thuần túy `Tân thủ`, `Tiến giai` (KHÔNG mở ngoặc `(Khởi đầu)`).
+   - **Độ hiếm chỉ ghi tên Màu thuần túy**: Dùng `Vàng`, `Tím`, `Lam`, `Lục`, `Trắng` (tuyệt đối KHÔNG kèm mở ngoặc số sao như `(5 sao)`, `(4 sao)` hay bất kỳ hậu tố giải thích nào).
 4. **Không chú thích dạng placeholder**:
    - Các ô nhập tìm kiếm (`<input type="text">`) không sử dụng thuộc tính `placeholder` mang tính hướng dẫn thừa thãi. Ô tìm kiếm chỉ cần icon kính lúp hoặc nhãn ngữ nghĩa ẩn.
 5. **Không chú thích đếm số lượng bản ghi hoặc chỉ mục**:
@@ -101,6 +102,10 @@ Tuyệt đối không đưa các chú thích, thẻ nhãn hoặc số đếm man
    - Loại bỏ các dòng chú thích thống kê phụ kiểu `25 vũ khí sử dụng`, `33 loại nguyên liệu` nếu không phục vụ chức năng cốt lõi.
 6. **Không chú thích / mô tả dưới ảnh (No Captions Under Images)**:
    - Đồng bộ hoàn toàn với House Rule 1 của Taste Skill: Tuyệt đối không gắn caption hay mô tả dưới hình ảnh hoặc visual elements. Thông tin tác quyền / license được ghi tinh gọn ở footer.
+7. **Tuyệt đối không hiển thị Mã Định Danh trên giao diện (No Technical Identifiers)**:
+   - Mã định danh kỹ thuật (ID / slug như `linhtuyhuyensac`, `amhoalieuloan`) chỉ được dùng nội bộ trong URL và cơ sở dữ liệu mã nguồn, tuyệt đối không đưa vào màn hình tổng quan hay tạo các ô nhãn `MÃ ĐỊNH DANH` gây rác thị giác người dùng.
+8. **Ưu tiên thứ tự danh mục**:
+   - Danh mục **Linh Tử** có độ ưu tiên cao hơn Trang Bị và Nguyên Liệu, luôn được xếp trước Trang Bị và Nguyên Liệu trên thanh điều hướng (Navbar) và hệ thống Portal trên Trang Chủ: `Trang Chủ` → `Linh Tử` → `Trang Bị` → `Nguyên Liệu`.
 
 ---
 

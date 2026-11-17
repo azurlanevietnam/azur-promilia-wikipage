@@ -6,10 +6,12 @@ $ErrorActionPreference = "Stop"
 
 Write-Host "Creating target directories..."
 $pagesDir = "pages"
+$lingDir  = Join-Path $pagesDir "lingzi"
 $equipDir = Join-Path $pagesDir "equipments"
 $matDir   = Join-Path $pagesDir "materials"
 
 if (-not (Test-Path $pagesDir)) { New-Item -ItemType Directory -Path $pagesDir -Force | Out-Null }
+if (-not (Test-Path $lingDir))  { New-Item -ItemType Directory -Path $lingDir -Force | Out-Null }
 if (-not (Test-Path $equipDir)) { New-Item -ItemType Directory -Path $equipDir -Force | Out-Null }
 if (-not (Test-Path $matDir))   { New-Item -ItemType Directory -Path $matDir -Force | Out-Null }
 
@@ -116,7 +118,17 @@ $homepageHtml = @"
 
     <!-- Feature Portals: Seamless & Zero Badges -->
     <div class="portal-grid">
-      <!-- Portal 1: Equipments -->
+      <!-- Portal 1: Linh Tử -->
+      <a href="lingzi.html" class="portal-card">
+        <div>
+          <h2>Danh Sách Linh Tử</h2>
+        </div>
+        <div class="portal-action">
+          Khám Phá Linh Tử →
+        </div>
+      </a>
+
+      <!-- Portal 2: Equipments -->
       <a href="equipments.html" class="portal-card">
         <div>
           <h2>Danh Sách Trang Bị</h2>
@@ -126,7 +138,7 @@ $homepageHtml = @"
         </div>
       </a>
 
-      <!-- Portal 2: Materials -->
+      <!-- Portal 3: Materials -->
       <a href="materials.html" class="portal-card">
         <div>
           <h2>Danh Sách Nguyên Liệu</h2>
@@ -294,7 +306,7 @@ $equipmentsCatalogHtml = @"
           <td>
             <div class="bwiki-filter-options" id="rarity-filters">
               <button class="filter-pill active" data-rarity="all">Tất cả</button>
-              <button class="filter-pill" data-rarity="5">Cam</button>
+              <button class="filter-pill" data-rarity="5">Vàng</button>
               <button class="filter-pill" data-rarity="4">Tím</button>
               <button class="filter-pill" data-rarity="3">Lam</button>
               <button class="filter-pill" data-rarity="2">Lục</button>
@@ -617,7 +629,7 @@ $materialsCatalogHtml = @"
           <td>
             <div class="bwiki-filter-options" id="rarity-filters">
               <button class="filter-pill active" data-rarity="all">Tất cả</button>
-              <button class="filter-pill" data-rarity="5">Cam</button>
+              <button class="filter-pill" data-rarity="5">Vàng</button>
               <button class="filter-pill" data-rarity="4">Tím</button>
               <button class="filter-pill" data-rarity="3">Lam</button>
               <button class="filter-pill" data-rarity="2">Lục</button>
@@ -831,13 +843,23 @@ $rootIndexHtml = @"
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Azur Promilia Wiki</title>
   <script>
-    window.location.replace("pages/homepage.html");
+    if (window.location.protocol === 'file:') {
+      window.location.replace("pages/homepage.html");
+    } else {
+      window.location.replace("/homepage");
+    }
   </script>
 </head>
 <body style="font-family:system-ui, sans-serif; display:flex; align-items:center; justify-content:center; height:100vh; margin:0; background:#f8fafc; color:#0f172a;">
   <div style="text-align:center;">
-    <p>Đang chuyển hướng đến <a href="pages/homepage.html" style="color:#0369a1; font-weight:700;">Trang Chủ Azur Promilia</a>...</p>
+    <p>Đang chuyển hướng đến <a id="home-link" href="pages/homepage.html" style="color:#0369a1; font-weight:700;">Trang Chủ Azur Promilia</a>...</p>
   </div>
+  <script>
+    if (window.location.protocol !== 'file:') {
+      const link = document.getElementById('home-link');
+      if (link) link.setAttribute('href', '/homepage');
+    }
+  </script>
 </body>
 </html>
 "@

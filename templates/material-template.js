@@ -122,13 +122,18 @@
           }
         } catch (e) {}
       }
+      if (allEquips.length === 0 && window.AZUR_DATA && window.AZUR_DATA.equipments) {
+        allEquips = Array.isArray(window.AZUR_DATA.equipments) ? window.AZUR_DATA.equipments : Object.values(window.AZUR_DATA.equipments);
+      }
       if (allEquips.length === 0 && window.AZUR_DATA && window.AZUR_DATA.weapons) {
         allEquips = Array.isArray(window.AZUR_DATA.weapons) ? window.AZUR_DATA.weapons : Object.values(window.AZUR_DATA.weapons);
       }
       if (allEquips.length === 0) {
         try {
           await loadScript(`${rel}datas/bundle.js`);
-          if (window.AZUR_DATA && window.AZUR_DATA.weapons) {
+          if (window.AZUR_DATA && window.AZUR_DATA.equipments) {
+            allEquips = Array.isArray(window.AZUR_DATA.equipments) ? window.AZUR_DATA.equipments : Object.values(window.AZUR_DATA.equipments);
+          } else if (window.AZUR_DATA && window.AZUR_DATA.weapons) {
             allEquips = Array.isArray(window.AZUR_DATA.weapons) ? window.AZUR_DATA.weapons : Object.values(window.AZUR_DATA.weapons);
           }
         } catch (e) {}
@@ -279,15 +284,11 @@
                 </div>
                 <div class="screen-meta-box">
                   <div class="meta-k">Độ hiếm</div>
-                  <div class="meta-v ${rarityInfo.cls}">${rarityInfo.name} (${rNum} sao)</div>
+                  <div class="meta-v ${rarityInfo.cls}">${rarityInfo.name}</div>
                 </div>
-                <div class="screen-meta-box">
+                <div class="screen-meta-box" style="grid-column: span 2;">
                   <div class="meta-k">Giới thiệu</div>
                   <div class="meta-v" title="${introText}">${introText}</div>
-                </div>
-                <div class="screen-meta-box">
-                  <div class="meta-k">Mã định danh</div>
-                  <div class="meta-v" style="font-family:monospace; color:var(--accent-azure);">${m.id}</div>
                 </div>
               </div>
 

@@ -1,0 +1,794 @@
+﻿<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Danh Sách Linh Tử - Azur Promilia Wiki</title>
+  <link rel="stylesheet" href="../style.css">
+  <script src="../templates/layout.js" defer></script>
+</head>
+<body data-active-tab="lingzi" data-depth="1">
+  
+  <div class="cosmic-stars"></div>
+
+  <!-- Top Navigation Bar: Injected from master template templates/layout.js -->
+  <header id="site-navbar" class="navbar"></header>
+
+  <main class="container">
+    <div class="page-header">
+      <h1 class="page-title">Danh Sách Linh Tử</h1>
+    </div>
+
+    <!-- Search Input: Zero Placeholder per AGENTS.md -->
+    <div class="search-box">
+      <span class="search-icon">🔍</span>
+      <input type="text" id="lingzi-search" class="search-input" aria-label="Tìm kiếm linh tử">
+    </div>
+
+    <!-- Filter Matrix Table (BWIKI Standard) -->
+    <table class="bwiki-filter-table">
+      <tbody>
+        <tr>
+          <th>Tất cả</th>
+          <td>
+            <button class="filter-pill active" id="btn-reset-filters">Xem tất cả</button>
+          </td>
+        </tr>
+        <tr>
+          <th>Độ hiếm</th>
+          <td>
+            <div class="bwiki-filter-options" id="rarity-filters">
+              <button class="filter-pill active" data-rarity="all">Tất cả</button>
+              <button class="filter-pill" data-rarity="5">Vàng</button>
+              <button class="filter-pill" data-rarity="4">Tím</button>
+              <button class="filter-pill" data-rarity="3">Lam</button>
+            </div>
+          </td>
+        </tr>
+        <tr>
+          <th>Phân loại</th>
+          <td>
+            <div class="bwiki-filter-options" id="category-filters">
+              <button class="filter-pill active" data-category="all">Tất cả</button>
+              <button class="filter-pill" data-category="burst">Bạo Phát</button>
+              <button class="filter-pill" data-category="destruction">Phá Hoại</button>
+              <button class="filter-pill" data-category="assault">Mãnh Công</button>
+              <button class="filter-pill" data-category="amplification">Tăng Phúc</button>
+              <button class="filter-pill" data-category="bestow">Phó Dữ</button>
+              <button class="filter-pill" data-category="general">Chung</button>
+            </div>
+          </td>
+        </tr>
+        <tr>
+          <th>Thuộc tính</th>
+          <td>
+            <div class="bwiki-filter-options" id="stat-filters">
+              <button class="filter-pill active" data-stat="all">Tất cả</button>
+              <button class="filter-pill" data-stat="atk">Tấn Công</button>
+              <button class="filter-pill" data-stat="def">Phòng Ngự</button>
+              <button class="filter-pill" data-stat="hp">Sinh Mệnh</button>
+              <button class="filter-pill" data-stat="crit_rate">Tỉ Lệ Bạo Kích</button>
+              <button class="filter-pill" data-stat="crit_dmg">Sát Thương Bạo Kích</button>
+              <button class="filter-pill" data-stat="toughness_break">Trị Phá Nhẫn</button>
+              <button class="filter-pill" data-stat="overlimit_intensity">Cường Độ Siêu Hạn</button>
+              <button class="filter-pill" data-stat="overlimit_crit">Hội Tâm Siêu Hạn</button>
+              <button class="filter-pill" data-stat="healing_bonus">Tăng Trị Liệu</button>
+            </div>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+
+    <!-- BWIKI Framed Items Grid -->
+    <div id="lingzi-grid" class="bwiki-items-grid">
+      <a href="lingzi/tuhanhtrung.html" class="bwiki-item-card r5" data-category="burst" data-rarity="5" data-stat="crit_rate" data-name="tu hành trung 修行中 bạo phát tỉ lệ bạo kích">
+        <div class="bwiki-item-visual">
+          <img src="../assets/lingzi/tuhanhtrung.png" class="bwiki-item-img" alt="Tu Hành Trung" loading="lazy">
+          <div class="bwiki-card-stars"><img src="../assets/star.png" class="bwiki-star-unit" alt="★"><img src="../assets/star.png" class="bwiki-star-unit" alt="★"><img src="../assets/star.png" class="bwiki-star-unit" alt="★"><img src="../assets/star.png" class="bwiki-star-unit" alt="★"><img src="../assets/star.png" class="bwiki-star-unit" alt="★"></div>
+        </div>
+        <div class="bwiki-item-name-box">
+          <span class="bwiki-item-name-text">Tu Hành Trung</span>
+        </div>
+      </a>      <a href="lingzi/hoanlinh.html" class="bwiki-item-card r5" data-category="bestow" data-rarity="5" data-stat="atk" data-name="hoán linh 唤灵 phó dữ tấn công">
+        <div class="bwiki-item-visual">
+          <img src="../assets/lingzi/hoanlinh.png" class="bwiki-item-img" alt="Hoán Linh" loading="lazy">
+          <div class="bwiki-card-stars"><img src="../assets/star.png" class="bwiki-star-unit" alt="★"><img src="../assets/star.png" class="bwiki-star-unit" alt="★"><img src="../assets/star.png" class="bwiki-star-unit" alt="★"><img src="../assets/star.png" class="bwiki-star-unit" alt="★"><img src="../assets/star.png" class="bwiki-star-unit" alt="★"></div>
+        </div>
+        <div class="bwiki-item-name-box">
+          <span class="bwiki-item-name-text">Hoán Linh</span>
+        </div>
+      </a>      <a href="lingzi/bimatnhabep.html" class="bwiki-item-card r5" data-category="assault" data-rarity="5" data-stat="overlimit_intensity" data-name="bí mật nhà bếp 厨房的秘密 mãnh công cường độ siêu hạn">
+        <div class="bwiki-item-visual">
+          <img src="../assets/lingzi/bimatnhabep.png" class="bwiki-item-img" alt="Bí Mật Nhà Bếp" loading="lazy">
+          <div class="bwiki-card-stars"><img src="../assets/star.png" class="bwiki-star-unit" alt="★"><img src="../assets/star.png" class="bwiki-star-unit" alt="★"><img src="../assets/star.png" class="bwiki-star-unit" alt="★"><img src="../assets/star.png" class="bwiki-star-unit" alt="★"><img src="../assets/star.png" class="bwiki-star-unit" alt="★"></div>
+        </div>
+        <div class="bwiki-item-name-box">
+          <span class="bwiki-item-name-text">Bí Mật Nhà Bếp</span>
+        </div>
+      </a>      <a href="lingzi/noinhovuda.html" class="bwiki-item-card r5" data-category="burst" data-rarity="5" data-stat="crit_rate" data-name="nỗi nhớ vũ dạ 羽夜的思念 bạo phát tỉ lệ bạo kích">
+        <div class="bwiki-item-visual">
+          <img src="../assets/lingzi/noinhovuda.png" class="bwiki-item-img" alt="Nỗi Nhớ Vũ Dạ" loading="lazy">
+          <div class="bwiki-card-stars"><img src="../assets/star.png" class="bwiki-star-unit" alt="★"><img src="../assets/star.png" class="bwiki-star-unit" alt="★"><img src="../assets/star.png" class="bwiki-star-unit" alt="★"><img src="../assets/star.png" class="bwiki-star-unit" alt="★"><img src="../assets/star.png" class="bwiki-star-unit" alt="★"></div>
+        </div>
+        <div class="bwiki-item-name-box">
+          <span class="bwiki-item-name-text">Nỗi Nhớ Vũ Dạ</span>
+        </div>
+      </a>      <a href="lingzi/duoibautroixanh.html" class="bwiki-item-card r5" data-category="destruction" data-rarity="5" data-stat="toughness_break" data-name="dưới bầu trời xanh 碧空之下 phá hoại trị phá nhẫn">
+        <div class="bwiki-item-visual">
+          <img src="../assets/lingzi/duoibautroixanh.png" class="bwiki-item-img" alt="Dưới Bầu Trời Xanh" loading="lazy">
+          <div class="bwiki-card-stars"><img src="../assets/star.png" class="bwiki-star-unit" alt="★"><img src="../assets/star.png" class="bwiki-star-unit" alt="★"><img src="../assets/star.png" class="bwiki-star-unit" alt="★"><img src="../assets/star.png" class="bwiki-star-unit" alt="★"><img src="../assets/star.png" class="bwiki-star-unit" alt="★"></div>
+        </div>
+        <div class="bwiki-item-name-box">
+          <span class="bwiki-item-name-text">Dưới Bầu Trời Xanh</span>
+        </div>
+      </a>      <a href="lingzi/nhatmongthienuoc.html" class="bwiki-item-card r5" data-category="amplification" data-rarity="5" data-stat="atk" data-name="nhất mộng thiên ước 一梦千约 tăng phúc tấn công">
+        <div class="bwiki-item-visual">
+          <img src="../assets/lingzi/nhatmongthienuoc.png" class="bwiki-item-img" alt="Nhất Mộng Thiên Ước" loading="lazy">
+          <div class="bwiki-card-stars"><img src="../assets/star.png" class="bwiki-star-unit" alt="★"><img src="../assets/star.png" class="bwiki-star-unit" alt="★"><img src="../assets/star.png" class="bwiki-star-unit" alt="★"><img src="../assets/star.png" class="bwiki-star-unit" alt="★"><img src="../assets/star.png" class="bwiki-star-unit" alt="★"></div>
+        </div>
+        <div class="bwiki-item-name-box">
+          <span class="bwiki-item-name-text">Nhất Mộng Thiên Ước</span>
+        </div>
+      </a>      <a href="lingzi/dieumuacuahoa.html" class="bwiki-item-card r5" data-category="assault" data-rarity="5" data-stat="overlimit_intensity" data-name="điệu múa của hoa 花之舞 mãnh công cường độ siêu hạn">
+        <div class="bwiki-item-visual">
+          <img src="../assets/lingzi/dieumuacuahoa.png" class="bwiki-item-img" alt="Điệu Múa Của Hoa" loading="lazy">
+          <div class="bwiki-card-stars"><img src="../assets/star.png" class="bwiki-star-unit" alt="★"><img src="../assets/star.png" class="bwiki-star-unit" alt="★"><img src="../assets/star.png" class="bwiki-star-unit" alt="★"><img src="../assets/star.png" class="bwiki-star-unit" alt="★"><img src="../assets/star.png" class="bwiki-star-unit" alt="★"></div>
+        </div>
+        <div class="bwiki-item-name-box">
+          <span class="bwiki-item-name-text">Điệu Múa Của Hoa</span>
+        </div>
+      </a>      <a href="lingzi/tansinh.html" class="bwiki-item-card r5" data-category="bestow" data-rarity="5" data-stat="hp" data-name="tân sinh 新生 phó dữ sinh mệnh">
+        <div class="bwiki-item-visual">
+          <img src="../assets/lingzi/tansinh.png" class="bwiki-item-img" alt="Tân Sinh" loading="lazy">
+          <div class="bwiki-card-stars"><img src="../assets/star.png" class="bwiki-star-unit" alt="★"><img src="../assets/star.png" class="bwiki-star-unit" alt="★"><img src="../assets/star.png" class="bwiki-star-unit" alt="★"><img src="../assets/star.png" class="bwiki-star-unit" alt="★"><img src="../assets/star.png" class="bwiki-star-unit" alt="★"></div>
+        </div>
+        <div class="bwiki-item-name-box">
+          <span class="bwiki-item-name-text">Tân Sinh</span>
+        </div>
+      </a>      <a href="lingzi/thoigiannapnang.html" class="bwiki-item-card r5" data-category="destruction" data-rarity="5" data-stat="toughness_break" data-name="thời gian nạp năng 充能时间 phá hoại trị phá nhẫn">
+        <div class="bwiki-item-visual">
+          <img src="../assets/lingzi/thoigiannapnang.png" class="bwiki-item-img" alt="Thời Gian Nạp Năng" loading="lazy">
+          <div class="bwiki-card-stars"><img src="../assets/star.png" class="bwiki-star-unit" alt="★"><img src="../assets/star.png" class="bwiki-star-unit" alt="★"><img src="../assets/star.png" class="bwiki-star-unit" alt="★"><img src="../assets/star.png" class="bwiki-star-unit" alt="★"><img src="../assets/star.png" class="bwiki-star-unit" alt="★"></div>
+        </div>
+        <div class="bwiki-item-name-box">
+          <span class="bwiki-item-name-text">Thời Gian Nạp Năng</span>
+        </div>
+      </a>      <a href="lingzi/binghiduoitrang.html" class="bwiki-item-card r5" data-category="assault" data-rarity="5" data-stat="crit_dmg" data-name="bí nghi dưới trăng 月下秘仪 mãnh công sát thương bạo kích">
+        <div class="bwiki-item-visual">
+          <img src="../assets/lingzi/binghiduoitrang.png" class="bwiki-item-img" alt="Bí Nghi Dưới Trăng" loading="lazy">
+          <div class="bwiki-card-stars"><img src="../assets/star.png" class="bwiki-star-unit" alt="★"><img src="../assets/star.png" class="bwiki-star-unit" alt="★"><img src="../assets/star.png" class="bwiki-star-unit" alt="★"><img src="../assets/star.png" class="bwiki-star-unit" alt="★"><img src="../assets/star.png" class="bwiki-star-unit" alt="★"></div>
+        </div>
+        <div class="bwiki-item-name-box">
+          <span class="bwiki-item-name-text">Bí Nghi Dưới Trăng</span>
+        </div>
+      </a>      <a href="lingzi/hunghuckhithe.html" class="bwiki-item-card r5" data-category="general" data-rarity="5" data-stat="atk" data-name="hừng hực khí thế 热火朝天 chung tấn công">
+        <div class="bwiki-item-visual">
+          <img src="../assets/lingzi/hunghuckhithe.png" class="bwiki-item-img" alt="Hừng Hực Khí Thế" loading="lazy">
+          <div class="bwiki-card-stars"><img src="../assets/star.png" class="bwiki-star-unit" alt="★"><img src="../assets/star.png" class="bwiki-star-unit" alt="★"><img src="../assets/star.png" class="bwiki-star-unit" alt="★"><img src="../assets/star.png" class="bwiki-star-unit" alt="★"><img src="../assets/star.png" class="bwiki-star-unit" alt="★"></div>
+        </div>
+        <div class="bwiki-item-name-box">
+          <span class="bwiki-item-name-text">Hừng Hực Khí Thế</span>
+        </div>
+      </a>      <a href="lingzi/tichluytungchut.html" class="bwiki-item-card r5" data-category="general" data-rarity="5" data-stat="atk" data-name="tích lũy từng chút 点滴积累 chung tấn công">
+        <div class="bwiki-item-visual">
+          <img src="../assets/lingzi/tichluytungchut.png" class="bwiki-item-img" alt="Tích Lũy Từng Chút" loading="lazy">
+          <div class="bwiki-card-stars"><img src="../assets/star.png" class="bwiki-star-unit" alt="★"><img src="../assets/star.png" class="bwiki-star-unit" alt="★"><img src="../assets/star.png" class="bwiki-star-unit" alt="★"><img src="../assets/star.png" class="bwiki-star-unit" alt="★"><img src="../assets/star.png" class="bwiki-star-unit" alt="★"></div>
+        </div>
+        <div class="bwiki-item-name-box">
+          <span class="bwiki-item-name-text">Tích Lũy Từng Chút</span>
+        </div>
+      </a>      <a href="lingzi/nonglongkhonhin.html" class="bwiki-item-card r5" data-category="general" data-rarity="5" data-stat="atk" data-name="nóng lòng khó nhịn 迫不及待 chung tấn công">
+        <div class="bwiki-item-visual">
+          <img src="../assets/lingzi/nonglongkhonhin.png" class="bwiki-item-img" alt="Nóng Lòng Khó Nhịn" loading="lazy">
+          <div class="bwiki-card-stars"><img src="../assets/star.png" class="bwiki-star-unit" alt="★"><img src="../assets/star.png" class="bwiki-star-unit" alt="★"><img src="../assets/star.png" class="bwiki-star-unit" alt="★"><img src="../assets/star.png" class="bwiki-star-unit" alt="★"><img src="../assets/star.png" class="bwiki-star-unit" alt="★"></div>
+        </div>
+        <div class="bwiki-item-name-box">
+          <span class="bwiki-item-name-text">Nóng Lòng Khó Nhịn</span>
+        </div>
+      </a>      <a href="lingzi/batlaylaplanh.html" class="bwiki-item-card r5" data-category="general" data-rarity="5" data-stat="atk" data-name="bắt lấy lấp lánh 捕捉「闪亮」 chung tấn công">
+        <div class="bwiki-item-visual">
+          <img src="../assets/lingzi/batlaylaplanh.png" class="bwiki-item-img" alt="Bắt Lấy Lấp Lánh" loading="lazy">
+          <div class="bwiki-card-stars"><img src="../assets/star.png" class="bwiki-star-unit" alt="★"><img src="../assets/star.png" class="bwiki-star-unit" alt="★"><img src="../assets/star.png" class="bwiki-star-unit" alt="★"><img src="../assets/star.png" class="bwiki-star-unit" alt="★"><img src="../assets/star.png" class="bwiki-star-unit" alt="★"></div>
+        </div>
+        <div class="bwiki-item-name-box">
+          <span class="bwiki-item-name-text">Bắt Lấy Lấp Lánh</span>
+        </div>
+      </a>      <a href="lingzi/muitensacben.html" class="bwiki-item-card r5" data-category="general" data-rarity="5" data-stat="atk" data-name="mũi tên sắc bén 利箭锋芒 chung tấn công">
+        <div class="bwiki-item-visual">
+          <img src="../assets/lingzi/muitensacben.png" class="bwiki-item-img" alt="Mũi Tên Sắc Bén" loading="lazy">
+          <div class="bwiki-card-stars"><img src="../assets/star.png" class="bwiki-star-unit" alt="★"><img src="../assets/star.png" class="bwiki-star-unit" alt="★"><img src="../assets/star.png" class="bwiki-star-unit" alt="★"><img src="../assets/star.png" class="bwiki-star-unit" alt="★"><img src="../assets/star.png" class="bwiki-star-unit" alt="★"></div>
+        </div>
+        <div class="bwiki-item-name-box">
+          <span class="bwiki-item-name-text">Mũi Tên Sắc Bén</span>
+        </div>
+      </a>      <a href="lingzi/nuocbiecsongtrao.html" class="bwiki-item-card r5" data-category="burst" data-rarity="5" data-stat="crit_rate" data-name="nước biếc sóng trào 碧水激浪 bạo phát tỉ lệ bạo kích">
+        <div class="bwiki-item-visual">
+          <img src="../assets/lingzi/nuocbiecsongtrao.png" class="bwiki-item-img" alt="Nước Biếc Sóng Trào" loading="lazy">
+          <div class="bwiki-card-stars"><img src="../assets/star.png" class="bwiki-star-unit" alt="★"><img src="../assets/star.png" class="bwiki-star-unit" alt="★"><img src="../assets/star.png" class="bwiki-star-unit" alt="★"><img src="../assets/star.png" class="bwiki-star-unit" alt="★"><img src="../assets/star.png" class="bwiki-star-unit" alt="★"></div>
+        </div>
+        <div class="bwiki-item-name-box">
+          <span class="bwiki-item-name-text">Nước Biếc Sóng Trào</span>
+        </div>
+      </a>      <a href="lingzi/daivuongphahoai.html" class="bwiki-item-card r5" data-category="destruction" data-rarity="5" data-stat="toughness_break" data-name="đại vương phá hoại 破坏大王 phá hoại trị phá nhẫn">
+        <div class="bwiki-item-visual">
+          <img src="../assets/lingzi/daivuongphahoai.png" class="bwiki-item-img" alt="Đại Vương Phá Hoại" loading="lazy">
+          <div class="bwiki-card-stars"><img src="../assets/star.png" class="bwiki-star-unit" alt="★"><img src="../assets/star.png" class="bwiki-star-unit" alt="★"><img src="../assets/star.png" class="bwiki-star-unit" alt="★"><img src="../assets/star.png" class="bwiki-star-unit" alt="★"><img src="../assets/star.png" class="bwiki-star-unit" alt="★"></div>
+        </div>
+        <div class="bwiki-item-name-box">
+          <span class="bwiki-item-name-text">Đại Vương Phá Hoại</span>
+        </div>
+      </a>      <a href="lingzi/quyetdaumanhcong.html" class="bwiki-item-card r5" data-category="assault" data-rarity="5" data-stat="overlimit_intensity" data-name="quyết đấu mãnh công 猛攻对决 mãnh công cường độ siêu hạn">
+        <div class="bwiki-item-visual">
+          <img src="../assets/lingzi/quyetdaumanhcong.png" class="bwiki-item-img" alt="Quyết Đấu Mãnh Công" loading="lazy">
+          <div class="bwiki-card-stars"><img src="../assets/star.png" class="bwiki-star-unit" alt="★"><img src="../assets/star.png" class="bwiki-star-unit" alt="★"><img src="../assets/star.png" class="bwiki-star-unit" alt="★"><img src="../assets/star.png" class="bwiki-star-unit" alt="★"><img src="../assets/star.png" class="bwiki-star-unit" alt="★"></div>
+        </div>
+        <div class="bwiki-item-name-box">
+          <span class="bwiki-item-name-text">Quyết Đấu Mãnh Công</span>
+        </div>
+      </a>      <a href="lingzi/vuhoirungsau.html" class="bwiki-item-card r5" data-category="bestow" data-rarity="5" data-stat="hp" data-name="vũ hội rừng sâu 林间舞会 phó dữ sinh mệnh">
+        <div class="bwiki-item-visual">
+          <img src="../assets/lingzi/vuhoirungsau.png" class="bwiki-item-img" alt="Vũ Hội Rừng Sâu" loading="lazy">
+          <div class="bwiki-card-stars"><img src="../assets/star.png" class="bwiki-star-unit" alt="★"><img src="../assets/star.png" class="bwiki-star-unit" alt="★"><img src="../assets/star.png" class="bwiki-star-unit" alt="★"><img src="../assets/star.png" class="bwiki-star-unit" alt="★"><img src="../assets/star.png" class="bwiki-star-unit" alt="★"></div>
+        </div>
+        <div class="bwiki-item-name-box">
+          <span class="bwiki-item-name-text">Vũ Hội Rừng Sâu</span>
+        </div>
+      </a>      <a href="lingzi/loicudemtrungu.html" class="bwiki-item-card r5" data-category="amplification" data-rarity="5" data-stat="atk" data-name="lời cú đêm trú ngụ 夜栖鸮语 tăng phúc tấn công">
+        <div class="bwiki-item-visual">
+          <img src="../assets/lingzi/loicudemtrungu.png" class="bwiki-item-img" alt="Lời Cú Đêm Trú Ngụ" loading="lazy">
+          <div class="bwiki-card-stars"><img src="../assets/star.png" class="bwiki-star-unit" alt="★"><img src="../assets/star.png" class="bwiki-star-unit" alt="★"><img src="../assets/star.png" class="bwiki-star-unit" alt="★"><img src="../assets/star.png" class="bwiki-star-unit" alt="★"><img src="../assets/star.png" class="bwiki-star-unit" alt="★"></div>
+        </div>
+        <div class="bwiki-item-name-box">
+          <span class="bwiki-item-name-text">Lời Cú Đêm Trú Ngụ</span>
+        </div>
+      </a>      <a href="lingzi/dondeptrietde.html" class="bwiki-item-card r5" data-category="destruction" data-rarity="5" data-stat="toughness_break" data-name="dọn dẹp triệt để! 彻底清理！ phá hoại trị phá nhẫn">
+        <div class="bwiki-item-visual">
+          <img src="../assets/lingzi/dondeptrietde.png" class="bwiki-item-img" alt="Dọn Dẹp Triệt Để!" loading="lazy">
+          <div class="bwiki-card-stars"><img src="../assets/star.png" class="bwiki-star-unit" alt="★"><img src="../assets/star.png" class="bwiki-star-unit" alt="★"><img src="../assets/star.png" class="bwiki-star-unit" alt="★"><img src="../assets/star.png" class="bwiki-star-unit" alt="★"><img src="../assets/star.png" class="bwiki-star-unit" alt="★"></div>
+        </div>
+        <div class="bwiki-item-name-box">
+          <span class="bwiki-item-name-text">Dọn Dẹp Triệt Để!</span>
+        </div>
+      </a>      <a href="lingzi/thachnuoclasucmanh.html" class="bwiki-item-card r4" data-category="destruction" data-rarity="4" data-stat="toughness_break" data-name="thạch nước là sức mạnh 汁石就是力量 phá hoại trị phá nhẫn">
+        <div class="bwiki-item-visual">
+          <img src="../assets/lingzi/thachnuoclasucmanh.png" class="bwiki-item-img" alt="Thạch Nước Là Sức Mạnh" loading="lazy">
+          <div class="bwiki-card-stars"><img src="../assets/star.png" class="bwiki-star-unit" alt="★"><img src="../assets/star.png" class="bwiki-star-unit" alt="★"><img src="../assets/star.png" class="bwiki-star-unit" alt="★"><img src="../assets/star.png" class="bwiki-star-unit" alt="★"></div>
+        </div>
+        <div class="bwiki-item-name-box">
+          <span class="bwiki-item-name-text">Thạch Nước Là Sức Mạnh</span>
+        </div>
+      </a>      <a href="lingzi/coanduockhong.html" class="bwiki-item-card r4" data-category="destruction" data-rarity="4" data-stat="toughness_break" data-name="có ăn được không 可以吃吗 phá hoại trị phá nhẫn">
+        <div class="bwiki-item-visual">
+          <img src="../assets/lingzi/coanduockhong.png" class="bwiki-item-img" alt="Có Ăn Được Không" loading="lazy">
+          <div class="bwiki-card-stars"><img src="../assets/star.png" class="bwiki-star-unit" alt="★"><img src="../assets/star.png" class="bwiki-star-unit" alt="★"><img src="../assets/star.png" class="bwiki-star-unit" alt="★"><img src="../assets/star.png" class="bwiki-star-unit" alt="★"></div>
+        </div>
+        <div class="bwiki-item-name-box">
+          <span class="bwiki-item-name-text">Có Ăn Được Không</span>
+        </div>
+      </a>      <a href="lingzi/kungfulathenay.html" class="bwiki-item-card r4" data-category="amplification" data-rarity="4" data-stat="overlimit_intensity" data-name="kungfu là thế này! 功夫是这样的！ tăng phúc cường độ siêu hạn">
+        <div class="bwiki-item-visual">
+          <img src="../assets/lingzi/kungfulathenay.png" class="bwiki-item-img" alt="Kungfu Là Thế Này!" loading="lazy">
+          <div class="bwiki-card-stars"><img src="../assets/star.png" class="bwiki-star-unit" alt="★"><img src="../assets/star.png" class="bwiki-star-unit" alt="★"><img src="../assets/star.png" class="bwiki-star-unit" alt="★"><img src="../assets/star.png" class="bwiki-star-unit" alt="★"></div>
+        </div>
+        <div class="bwiki-item-name-box">
+          <span class="bwiki-item-name-text">Kungfu Là Thế Này!</span>
+        </div>
+      </a>      <a href="lingzi/thunghiembay.html" class="bwiki-item-card r4" data-category="amplification" data-rarity="4" data-stat="overlimit_intensity" data-name="thử nghiệm bay 飞行试验 tăng phúc cường độ siêu hạn">
+        <div class="bwiki-item-visual">
+          <img src="../assets/lingzi/thunghiembay.png" class="bwiki-item-img" alt="Thử Nghiệm Bay" loading="lazy">
+          <div class="bwiki-card-stars"><img src="../assets/star.png" class="bwiki-star-unit" alt="★"><img src="../assets/star.png" class="bwiki-star-unit" alt="★"><img src="../assets/star.png" class="bwiki-star-unit" alt="★"><img src="../assets/star.png" class="bwiki-star-unit" alt="★"></div>
+        </div>
+        <div class="bwiki-item-name-box">
+          <span class="bwiki-item-name-text">Thử Nghiệm Bay</span>
+        </div>
+      </a>      <a href="lingzi/tuthesanban.html" class="bwiki-item-card r4" data-category="assault" data-rarity="4" data-stat="overlimit_crit" data-name="tư thế săn bắn 狩猎姿态 mãnh công hội tâm siêu hạn">
+        <div class="bwiki-item-visual">
+          <img src="../assets/lingzi/tuthesanban.png" class="bwiki-item-img" alt="Tư Thế Săn Bắn" loading="lazy">
+          <div class="bwiki-card-stars"><img src="../assets/star.png" class="bwiki-star-unit" alt="★"><img src="../assets/star.png" class="bwiki-star-unit" alt="★"><img src="../assets/star.png" class="bwiki-star-unit" alt="★"><img src="../assets/star.png" class="bwiki-star-unit" alt="★"></div>
+        </div>
+        <div class="bwiki-item-name-box">
+          <span class="bwiki-item-name-text">Tư Thế Săn Bắn</span>
+        </div>
+      </a>      <a href="lingzi/kyuccuatinhvan.html" class="bwiki-item-card r4" data-category="assault" data-rarity="4" data-stat="overlimit_intensity" data-name="ký ức của tinh vãn 星晚的追忆 mãnh công cường độ siêu hạn">
+        <div class="bwiki-item-visual">
+          <img src="../assets/lingzi/kyuccuatinhvan.png" class="bwiki-item-img" alt="Ký Ức Của Tinh Vãn" loading="lazy">
+          <div class="bwiki-card-stars"><img src="../assets/star.png" class="bwiki-star-unit" alt="★"><img src="../assets/star.png" class="bwiki-star-unit" alt="★"><img src="../assets/star.png" class="bwiki-star-unit" alt="★"><img src="../assets/star.png" class="bwiki-star-unit" alt="★"></div>
+        </div>
+        <div class="bwiki-item-name-box">
+          <span class="bwiki-item-name-text">Ký Ức Của Tinh Vãn</span>
+        </div>
+      </a>      <a href="lingzi/nguyenuocloigio.html" class="bwiki-item-card r4" data-category="assault" data-rarity="4" data-stat="crit_dmg" data-name="nguyện ước lời gió 风语之愿 mãnh công sát thương bạo kích">
+        <div class="bwiki-item-visual">
+          <img src="../assets/lingzi/nguyenuocloigio.png" class="bwiki-item-img" alt="Nguyện Ước Lời Gió" loading="lazy">
+          <div class="bwiki-card-stars"><img src="../assets/star.png" class="bwiki-star-unit" alt="★"><img src="../assets/star.png" class="bwiki-star-unit" alt="★"><img src="../assets/star.png" class="bwiki-star-unit" alt="★"><img src="../assets/star.png" class="bwiki-star-unit" alt="★"></div>
+        </div>
+        <div class="bwiki-item-name-box">
+          <span class="bwiki-item-name-text">Nguyện Ước Lời Gió</span>
+        </div>
+      </a>      <a href="lingzi/donghanh.html" class="bwiki-item-card r4" data-category="burst" data-rarity="4" data-stat="crit_dmg" data-name="đồng hành 陪伴 bạo phát sát thương bạo kích">
+        <div class="bwiki-item-visual">
+          <img src="../assets/lingzi/donghanh.png" class="bwiki-item-img" alt="Đồng Hành" loading="lazy">
+          <div class="bwiki-card-stars"><img src="../assets/star.png" class="bwiki-star-unit" alt="★"><img src="../assets/star.png" class="bwiki-star-unit" alt="★"><img src="../assets/star.png" class="bwiki-star-unit" alt="★"><img src="../assets/star.png" class="bwiki-star-unit" alt="★"></div>
+        </div>
+        <div class="bwiki-item-name-box">
+          <span class="bwiki-item-name-text">Đồng Hành</span>
+        </div>
+      </a>      <a href="lingzi/thoigianmonngot.html" class="bwiki-item-card r4" data-category="amplification" data-rarity="4" data-stat="overlimit_intensity" data-name="thời gian món ngọt 甜点时光 tăng phúc cường độ siêu hạn">
+        <div class="bwiki-item-visual">
+          <img src="../assets/lingzi/thoigianmonngot.png" class="bwiki-item-img" alt="Thời Gian Món Ngọt" loading="lazy">
+          <div class="bwiki-card-stars"><img src="../assets/star.png" class="bwiki-star-unit" alt="★"><img src="../assets/star.png" class="bwiki-star-unit" alt="★"><img src="../assets/star.png" class="bwiki-star-unit" alt="★"><img src="../assets/star.png" class="bwiki-star-unit" alt="★"></div>
+        </div>
+        <div class="bwiki-item-name-box">
+          <span class="bwiki-item-name-text">Thời Gian Món Ngọt</span>
+        </div>
+      </a>      <a href="lingzi/trove.html" class="bwiki-item-card r4" data-category="destruction" data-rarity="4" data-stat="toughness_break" data-name="trở về 归来 phá hoại trị phá nhẫn">
+        <div class="bwiki-item-visual">
+          <img src="../assets/lingzi/trove.png" class="bwiki-item-img" alt="Trở Về" loading="lazy">
+          <div class="bwiki-card-stars"><img src="../assets/star.png" class="bwiki-star-unit" alt="★"><img src="../assets/star.png" class="bwiki-star-unit" alt="★"><img src="../assets/star.png" class="bwiki-star-unit" alt="★"><img src="../assets/star.png" class="bwiki-star-unit" alt="★"></div>
+        </div>
+        <div class="bwiki-item-name-box">
+          <span class="bwiki-item-name-text">Trở Về</span>
+        </div>
+      </a>      <a href="lingzi/boithuthaoduoc.html" class="bwiki-item-card r4" data-category="bestow" data-rarity="4" data-stat="healing_bonus" data-name="bội thu thảo dược 药草大丰收 phó dữ tăng trị liệu">
+        <div class="bwiki-item-visual">
+          <img src="../assets/lingzi/boithuthaoduoc.png" class="bwiki-item-img" alt="Bội Thu Thảo Dược" loading="lazy">
+          <div class="bwiki-card-stars"><img src="../assets/star.png" class="bwiki-star-unit" alt="★"><img src="../assets/star.png" class="bwiki-star-unit" alt="★"><img src="../assets/star.png" class="bwiki-star-unit" alt="★"><img src="../assets/star.png" class="bwiki-star-unit" alt="★"></div>
+        </div>
+        <div class="bwiki-item-name-box">
+          <span class="bwiki-item-name-text">Bội Thu Thảo Dược</span>
+        </div>
+      </a>      <a href="lingzi/nguoidenlaai.html" class="bwiki-item-card r4" data-category="amplification" data-rarity="4" data-stat="overlimit_intensity" data-name="người đến là ai 来者何人 tăng phúc cường độ siêu hạn">
+        <div class="bwiki-item-visual">
+          <img src="../assets/lingzi/nguoidenlaai.png" class="bwiki-item-img" alt="Người Đến Là Ai" loading="lazy">
+          <div class="bwiki-card-stars"><img src="../assets/star.png" class="bwiki-star-unit" alt="★"><img src="../assets/star.png" class="bwiki-star-unit" alt="★"><img src="../assets/star.png" class="bwiki-star-unit" alt="★"><img src="../assets/star.png" class="bwiki-star-unit" alt="★"></div>
+        </div>
+        <div class="bwiki-item-name-box">
+          <span class="bwiki-item-name-text">Người Đến Là Ai</span>
+        </div>
+      </a>      <a href="lingzi/gapgiayguitinh.html" class="bwiki-item-card r4" data-category="assault" data-rarity="4" data-stat="overlimit_intensity" data-name="gấp giấy gửi tình 折纸寄情 mãnh công cường độ siêu hạn">
+        <div class="bwiki-item-visual">
+          <img src="../assets/lingzi/gapgiayguitinh.png" class="bwiki-item-img" alt="Gấp Giấy Gửi Tình" loading="lazy">
+          <div class="bwiki-card-stars"><img src="../assets/star.png" class="bwiki-star-unit" alt="★"><img src="../assets/star.png" class="bwiki-star-unit" alt="★"><img src="../assets/star.png" class="bwiki-star-unit" alt="★"><img src="../assets/star.png" class="bwiki-star-unit" alt="★"></div>
+        </div>
+        <div class="bwiki-item-name-box">
+          <span class="bwiki-item-name-text">Gấp Giấy Gửi Tình</span>
+        </div>
+      </a>      <a href="lingzi/ngaynghiduongcuahaugai.html" class="bwiki-item-card r4" data-category="destruction" data-rarity="4" data-stat="toughness_break" data-name="ngày nghỉ dưỡng của hầu gái 女仆的疗养日 phá hoại trị phá nhẫn">
+        <div class="bwiki-item-visual">
+          <img src="../assets/lingzi/ngaynghiduongcuahaugai.png" class="bwiki-item-img" alt="Ngày Nghỉ Dưỡng Của Hầu Gái" loading="lazy">
+          <div class="bwiki-card-stars"><img src="../assets/star.png" class="bwiki-star-unit" alt="★"><img src="../assets/star.png" class="bwiki-star-unit" alt="★"><img src="../assets/star.png" class="bwiki-star-unit" alt="★"><img src="../assets/star.png" class="bwiki-star-unit" alt="★"></div>
+        </div>
+        <div class="bwiki-item-name-box">
+          <span class="bwiki-item-name-text">Ngày Nghỉ Dưỡng Của Hầu Gái</span>
+        </div>
+      </a>      <a href="lingzi/quansattrongtoi.html" class="bwiki-item-card r4" data-category="bestow" data-rarity="4" data-stat="hp" data-name="quan sát trong tối 暗中观察 phó dữ sinh mệnh">
+        <div class="bwiki-item-visual">
+          <img src="../assets/lingzi/quansattrongtoi.png" class="bwiki-item-img" alt="Quan Sát Trong Tối" loading="lazy">
+          <div class="bwiki-card-stars"><img src="../assets/star.png" class="bwiki-star-unit" alt="★"><img src="../assets/star.png" class="bwiki-star-unit" alt="★"><img src="../assets/star.png" class="bwiki-star-unit" alt="★"><img src="../assets/star.png" class="bwiki-star-unit" alt="★"></div>
+        </div>
+        <div class="bwiki-item-name-box">
+          <span class="bwiki-item-name-text">Quan Sát Trong Tối</span>
+        </div>
+      </a>      <a href="lingzi/baymatkiemsoat.html" class="bwiki-item-card r4" data-category="amplification" data-rarity="4" data-stat="overlimit_intensity" data-name="bay mất kiểm soát 失控飞行 tăng phúc cường độ siêu hạn">
+        <div class="bwiki-item-visual">
+          <img src="../assets/lingzi/baymatkiemsoat.png" class="bwiki-item-img" alt="Bay Mất Kiểm Soát" loading="lazy">
+          <div class="bwiki-card-stars"><img src="../assets/star.png" class="bwiki-star-unit" alt="★"><img src="../assets/star.png" class="bwiki-star-unit" alt="★"><img src="../assets/star.png" class="bwiki-star-unit" alt="★"><img src="../assets/star.png" class="bwiki-star-unit" alt="★"></div>
+        </div>
+        <div class="bwiki-item-name-box">
+          <span class="bwiki-item-name-text">Bay Mất Kiểm Soát</span>
+        </div>
+      </a>      <a href="lingzi/khucdaodautreuchoc.html" class="bwiki-item-card r4" data-category="assault" data-rarity="4" data-stat="crit_dmg" data-name="khúc dạo đầu trêu chọc 恶作剧前奏 mãnh công sát thương bạo kích">
+        <div class="bwiki-item-visual">
+          <img src="../assets/lingzi/khucdaodautreuchoc.png" class="bwiki-item-img" alt="Khúc Dạo Đầu Trêu Chọc" loading="lazy">
+          <div class="bwiki-card-stars"><img src="../assets/star.png" class="bwiki-star-unit" alt="★"><img src="../assets/star.png" class="bwiki-star-unit" alt="★"><img src="../assets/star.png" class="bwiki-star-unit" alt="★"><img src="../assets/star.png" class="bwiki-star-unit" alt="★"></div>
+        </div>
+        <div class="bwiki-item-name-box">
+          <span class="bwiki-item-name-text">Khúc Dạo Đầu Trêu Chọc</span>
+        </div>
+      </a>      <a href="lingzi/thunonleocao.html" class="bwiki-item-card r4" data-category="bestow" data-rarity="4" data-stat="def" data-name="thú non leo cao 攀高的幼崽 phó dữ phòng ngự">
+        <div class="bwiki-item-visual">
+          <img src="../assets/lingzi/thunonleocao.png" class="bwiki-item-img" alt="Thú Non Leo Cao" loading="lazy">
+          <div class="bwiki-card-stars"><img src="../assets/star.png" class="bwiki-star-unit" alt="★"><img src="../assets/star.png" class="bwiki-star-unit" alt="★"><img src="../assets/star.png" class="bwiki-star-unit" alt="★"><img src="../assets/star.png" class="bwiki-star-unit" alt="★"></div>
+        </div>
+        <div class="bwiki-item-name-box">
+          <span class="bwiki-item-name-text">Thú Non Leo Cao</span>
+        </div>
+      </a>      <a href="lingzi/khongdauchutnao.html" class="bwiki-item-card r4" data-category="bestow" data-rarity="4" data-stat="hp" data-name="không đau chút nào 一点都不痛 phó dữ sinh mệnh">
+        <div class="bwiki-item-visual">
+          <img src="../assets/lingzi/khongdauchutnao.png" class="bwiki-item-img" alt="Không Đau Chút Nào" loading="lazy">
+          <div class="bwiki-card-stars"><img src="../assets/star.png" class="bwiki-star-unit" alt="★"><img src="../assets/star.png" class="bwiki-star-unit" alt="★"><img src="../assets/star.png" class="bwiki-star-unit" alt="★"><img src="../assets/star.png" class="bwiki-star-unit" alt="★"></div>
+        </div>
+        <div class="bwiki-item-name-box">
+          <span class="bwiki-item-name-text">Không Đau Chút Nào</span>
+        </div>
+      </a>      <a href="lingzi/ngungoannhebeyeu.html" class="bwiki-item-card r4" data-category="general" data-rarity="4" data-stat="atk" data-name="ngủ ngoan nhé bé yêu 安睡吧，宝贝 chung tấn công">
+        <div class="bwiki-item-visual">
+          <img src="../assets/lingzi/ngungoannhebeyeu.png" class="bwiki-item-img" alt="Ngủ Ngoan Nhé Bé Yêu" loading="lazy">
+          <div class="bwiki-card-stars"><img src="../assets/star.png" class="bwiki-star-unit" alt="★"><img src="../assets/star.png" class="bwiki-star-unit" alt="★"><img src="../assets/star.png" class="bwiki-star-unit" alt="★"><img src="../assets/star.png" class="bwiki-star-unit" alt="★"></div>
+        </div>
+        <div class="bwiki-item-name-box">
+          <span class="bwiki-item-name-text">Ngủ Ngoan Nhé Bé Yêu</span>
+        </div>
+      </a>      <a href="lingzi/hatgiongngoisao.html" class="bwiki-item-card r4" data-category="general" data-rarity="4" data-stat="hp" data-name="hạt giống ngôi sao 星之种 chung sinh mệnh">
+        <div class="bwiki-item-visual">
+          <img src="../assets/lingzi/hatgiongngoisao.png" class="bwiki-item-img" alt="Hạt Giống Ngôi Sao" loading="lazy">
+          <div class="bwiki-card-stars"><img src="../assets/star.png" class="bwiki-star-unit" alt="★"><img src="../assets/star.png" class="bwiki-star-unit" alt="★"><img src="../assets/star.png" class="bwiki-star-unit" alt="★"><img src="../assets/star.png" class="bwiki-star-unit" alt="★"></div>
+        </div>
+        <div class="bwiki-item-name-box">
+          <span class="bwiki-item-name-text">Hạt Giống Ngôi Sao</span>
+        </div>
+      </a>      <a href="lingzi/ngoisaotuonglai.html" class="bwiki-item-card r4" data-category="amplification" data-rarity="4" data-stat="overlimit_intensity" data-name="ngôi sao tương lai 未来之星 tăng phúc cường độ siêu hạn">
+        <div class="bwiki-item-visual">
+          <img src="../assets/lingzi/ngoisaotuonglai.png" class="bwiki-item-img" alt="Ngôi Sao Tương Lai" loading="lazy">
+          <div class="bwiki-card-stars"><img src="../assets/star.png" class="bwiki-star-unit" alt="★"><img src="../assets/star.png" class="bwiki-star-unit" alt="★"><img src="../assets/star.png" class="bwiki-star-unit" alt="★"><img src="../assets/star.png" class="bwiki-star-unit" alt="★"></div>
+        </div>
+        <div class="bwiki-item-name-box">
+          <span class="bwiki-item-name-text">Ngôi Sao Tương Lai</span>
+        </div>
+      </a>      <a href="lingzi/thoidiemgieotrong.html" class="bwiki-item-card r4" data-category="general" data-rarity="4" data-stat="hp" data-name="thời điểm gieo trồng 耕种之时 chung sinh mệnh">
+        <div class="bwiki-item-visual">
+          <img src="../assets/lingzi/thoidiemgieotrong.png" class="bwiki-item-img" alt="Thời Điểm Gieo Trồng" loading="lazy">
+          <div class="bwiki-card-stars"><img src="../assets/star.png" class="bwiki-star-unit" alt="★"><img src="../assets/star.png" class="bwiki-star-unit" alt="★"><img src="../assets/star.png" class="bwiki-star-unit" alt="★"><img src="../assets/star.png" class="bwiki-star-unit" alt="★"></div>
+        </div>
+        <div class="bwiki-item-name-box">
+          <span class="bwiki-item-name-text">Thời Điểm Gieo Trồng</span>
+        </div>
+      </a>      <a href="lingzi/detnenamap.html" class="bwiki-item-card r4" data-category="general" data-rarity="4" data-stat="def" data-name="dệt nên ấm áp 编织温暖 chung phòng ngự">
+        <div class="bwiki-item-visual">
+          <img src="../assets/lingzi/detnenamap.png" class="bwiki-item-img" alt="Dệt Nên Ấm Áp" loading="lazy">
+          <div class="bwiki-card-stars"><img src="../assets/star.png" class="bwiki-star-unit" alt="★"><img src="../assets/star.png" class="bwiki-star-unit" alt="★"><img src="../assets/star.png" class="bwiki-star-unit" alt="★"><img src="../assets/star.png" class="bwiki-star-unit" alt="★"></div>
+        </div>
+        <div class="bwiki-item-name-box">
+          <span class="bwiki-item-name-text">Dệt Nên Ấm Áp</span>
+        </div>
+      </a>      <a href="lingzi/keocuachien.html" class="bwiki-item-card r4" data-category="general" data-rarity="4" data-stat="atk" data-name="kéo cưa! chiến! 拉锯！战！ chung tấn công">
+        <div class="bwiki-item-visual">
+          <img src="../assets/lingzi/keocuachien.png" class="bwiki-item-img" alt="Kéo Cưa! Chiến!" loading="lazy">
+          <div class="bwiki-card-stars"><img src="../assets/star.png" class="bwiki-star-unit" alt="★"><img src="../assets/star.png" class="bwiki-star-unit" alt="★"><img src="../assets/star.png" class="bwiki-star-unit" alt="★"><img src="../assets/star.png" class="bwiki-star-unit" alt="★"></div>
+        </div>
+        <div class="bwiki-item-name-box">
+          <span class="bwiki-item-name-text">Kéo Cưa! Chiến!</span>
+        </div>
+      </a>      <a href="lingzi/sutuduongcuadolo.html" class="bwiki-item-card r4" data-category="general" data-rarity="4" data-stat="atk" data-name="sự tu dưỡng của đô lỗ 嘟噜的自我修养 chung tấn công">
+        <div class="bwiki-item-visual">
+          <img src="../assets/lingzi/sutuduongcuadolo.png" class="bwiki-item-img" alt="Sự Tu Dưỡng Của Đô Lỗ" loading="lazy">
+          <div class="bwiki-card-stars"><img src="../assets/star.png" class="bwiki-star-unit" alt="★"><img src="../assets/star.png" class="bwiki-star-unit" alt="★"><img src="../assets/star.png" class="bwiki-star-unit" alt="★"><img src="../assets/star.png" class="bwiki-star-unit" alt="★"></div>
+        </div>
+        <div class="bwiki-item-name-box">
+          <span class="bwiki-item-name-text">Sự Tu Dưỡng Của Đô Lỗ</span>
+        </div>
+      </a>      <a href="lingzi/tangcuonghoaluc.html" class="bwiki-item-card r4" data-category="general" data-rarity="4" data-stat="toughness_break" data-name="tăng cường hỏa lực 加大火力 chung trị phá nhẫn">
+        <div class="bwiki-item-visual">
+          <img src="../assets/lingzi/tangcuonghoaluc.png" class="bwiki-item-img" alt="Tăng Cường Hỏa Lực" loading="lazy">
+          <div class="bwiki-card-stars"><img src="../assets/star.png" class="bwiki-star-unit" alt="★"><img src="../assets/star.png" class="bwiki-star-unit" alt="★"><img src="../assets/star.png" class="bwiki-star-unit" alt="★"><img src="../assets/star.png" class="bwiki-star-unit" alt="★"></div>
+        </div>
+        <div class="bwiki-item-name-box">
+          <span class="bwiki-item-name-text">Tăng Cường Hỏa Lực</span>
+        </div>
+      </a>      <a href="lingzi/monngonchochutlat.html" class="bwiki-item-card r4" data-category="general" data-rarity="4" data-stat="hp" data-name="món ngon chờ chút lát 美味稍等片刻 chung sinh mệnh">
+        <div class="bwiki-item-visual">
+          <img src="../assets/lingzi/monngonchochutlat.png" class="bwiki-item-img" alt="Món Ngon Chờ Chút Lát" loading="lazy">
+          <div class="bwiki-card-stars"><img src="../assets/star.png" class="bwiki-star-unit" alt="★"><img src="../assets/star.png" class="bwiki-star-unit" alt="★"><img src="../assets/star.png" class="bwiki-star-unit" alt="★"><img src="../assets/star.png" class="bwiki-star-unit" alt="★"></div>
+        </div>
+        <div class="bwiki-item-name-box">
+          <span class="bwiki-item-name-text">Món Ngon Chờ Chút Lát</span>
+        </div>
+      </a>      <a href="lingzi/tinhtoanchily.html" class="bwiki-item-card r4" data-category="burst" data-rarity="4" data-stat="atk" data-name="tính toán chi ly 精打细算 bạo phát tấn công">
+        <div class="bwiki-item-visual">
+          <img src="../assets/lingzi/tinhtoanchily.png" class="bwiki-item-img" alt="Tính Toán Chi Ly" loading="lazy">
+          <div class="bwiki-card-stars"><img src="../assets/star.png" class="bwiki-star-unit" alt="★"><img src="../assets/star.png" class="bwiki-star-unit" alt="★"><img src="../assets/star.png" class="bwiki-star-unit" alt="★"><img src="../assets/star.png" class="bwiki-star-unit" alt="★"></div>
+        </div>
+        <div class="bwiki-item-name-box">
+          <span class="bwiki-item-name-text">Tính Toán Chi Ly</span>
+        </div>
+      </a>      <a href="lingzi/homnaysongyenbienlang.html" class="bwiki-item-card r4" data-category="general" data-rarity="4" data-stat="atk" data-name="hôm nay sóng yên biển lặng 今日风平浪静 chung tấn công">
+        <div class="bwiki-item-visual">
+          <img src="../assets/lingzi/homnaysongyenbienlang.png" class="bwiki-item-img" alt="Hôm Nay Sóng Yên Biển Lặng" loading="lazy">
+          <div class="bwiki-card-stars"><img src="../assets/star.png" class="bwiki-star-unit" alt="★"><img src="../assets/star.png" class="bwiki-star-unit" alt="★"><img src="../assets/star.png" class="bwiki-star-unit" alt="★"><img src="../assets/star.png" class="bwiki-star-unit" alt="★"></div>
+        </div>
+        <div class="bwiki-item-name-box">
+          <span class="bwiki-item-name-text">Hôm Nay Sóng Yên Biển Lặng</span>
+        </div>
+      </a>      <a href="lingzi/ychicuasao.html" class="bwiki-item-card r4" data-category="amplification" data-rarity="4" data-stat="atk" data-name="ý chí của sao 星之意志 tăng phúc tấn công">
+        <div class="bwiki-item-visual">
+          <img src="../assets/lingzi/ychicuasao.png" class="bwiki-item-img" alt="Ý Chí Của Sao" loading="lazy">
+          <div class="bwiki-card-stars"><img src="../assets/star.png" class="bwiki-star-unit" alt="★"><img src="../assets/star.png" class="bwiki-star-unit" alt="★"><img src="../assets/star.png" class="bwiki-star-unit" alt="★"><img src="../assets/star.png" class="bwiki-star-unit" alt="★"></div>
+        </div>
+        <div class="bwiki-item-name-box">
+          <span class="bwiki-item-name-text">Ý Chí Của Sao</span>
+        </div>
+      </a>      <a href="lingzi/nghingo.html" class="bwiki-item-card r3" data-category="general" data-rarity="3" data-stat="atk" data-name="nghi ngờ 怀疑 chung tấn công">
+        <div class="bwiki-item-visual">
+          <img src="../assets/lingzi/nghingo.png" class="bwiki-item-img" alt="Nghi Ngờ" loading="lazy">
+          <div class="bwiki-card-stars"><img src="../assets/star.png" class="bwiki-star-unit" alt="★"><img src="../assets/star.png" class="bwiki-star-unit" alt="★"><img src="../assets/star.png" class="bwiki-star-unit" alt="★"></div>
+        </div>
+        <div class="bwiki-item-name-box">
+          <span class="bwiki-item-name-text">Nghi Ngờ</span>
+        </div>
+      </a>      <a href="lingzi/hoasaotoi.html" class="bwiki-item-card r3" data-category="general" data-rarity="3" data-stat="def" data-name="hoa sao tối 黯星花 chung phòng ngự">
+        <div class="bwiki-item-visual">
+          <img src="../assets/lingzi/hoasaotoi.png" class="bwiki-item-img" alt="Hoa Sao Tối" loading="lazy">
+          <div class="bwiki-card-stars"><img src="../assets/star.png" class="bwiki-star-unit" alt="★"><img src="../assets/star.png" class="bwiki-star-unit" alt="★"><img src="../assets/star.png" class="bwiki-star-unit" alt="★"></div>
+        </div>
+        <div class="bwiki-item-name-box">
+          <span class="bwiki-item-name-text">Hoa Sao Tối</span>
+        </div>
+      </a>      <a href="lingzi/ngucocthuhoach.html" class="bwiki-item-card r3" data-category="general" data-rarity="3" data-stat="atk" data-name="ngũ cốc thu hoạch 五谷丰登 chung tấn công">
+        <div class="bwiki-item-visual">
+          <img src="../assets/lingzi/ngucocthuhoach.png" class="bwiki-item-img" alt="Ngũ Cốc Thu Hoạch" loading="lazy">
+          <div class="bwiki-card-stars"><img src="../assets/star.png" class="bwiki-star-unit" alt="★"><img src="../assets/star.png" class="bwiki-star-unit" alt="★"><img src="../assets/star.png" class="bwiki-star-unit" alt="★"></div>
+        </div>
+        <div class="bwiki-item-name-box">
+          <span class="bwiki-item-name-text">Ngũ Cốc Thu Hoạch</span>
+        </div>
+      </a>      <a href="lingzi/truyenthua.html" class="bwiki-item-card r3" data-category="general" data-rarity="3" data-stat="def" data-name="truyền thừa 传承 chung phòng ngự">
+        <div class="bwiki-item-visual">
+          <img src="../assets/lingzi/truyenthua.png" class="bwiki-item-img" alt="Truyền Thừa" loading="lazy">
+          <div class="bwiki-card-stars"><img src="../assets/star.png" class="bwiki-star-unit" alt="★"><img src="../assets/star.png" class="bwiki-star-unit" alt="★"><img src="../assets/star.png" class="bwiki-star-unit" alt="★"></div>
+        </div>
+        <div class="bwiki-item-name-box">
+          <span class="bwiki-item-name-text">Truyền Thừa</span>
+        </div>
+      </a>      <a href="lingzi/tuyenxu.html" class="bwiki-item-card r3" data-category="general" data-rarity="3" data-stat="hp" data-name="tuyền xu 璇枢 chung sinh mệnh">
+        <div class="bwiki-item-visual">
+          <img src="../assets/lingzi/tuyenxu.png" class="bwiki-item-img" alt="Tuyền Xu" loading="lazy">
+          <div class="bwiki-card-stars"><img src="../assets/star.png" class="bwiki-star-unit" alt="★"><img src="../assets/star.png" class="bwiki-star-unit" alt="★"><img src="../assets/star.png" class="bwiki-star-unit" alt="★"></div>
+        </div>
+        <div class="bwiki-item-name-box">
+          <span class="bwiki-item-name-text">Tuyền Xu</span>
+        </div>
+      </a>      <a href="lingzi/hondan.html" class="bwiki-item-card r3" data-category="general" data-rarity="3" data-stat="atk" data-name="hồn dẫn 魂引 chung tấn công">
+        <div class="bwiki-item-visual">
+          <img src="../assets/lingzi/hondan.png" class="bwiki-item-img" alt="Hồn Dẫn" loading="lazy">
+          <div class="bwiki-card-stars"><img src="../assets/star.png" class="bwiki-star-unit" alt="★"><img src="../assets/star.png" class="bwiki-star-unit" alt="★"><img src="../assets/star.png" class="bwiki-star-unit" alt="★"></div>
+        </div>
+        <div class="bwiki-item-name-box">
+          <span class="bwiki-item-name-text">Hồn Dẫn</span>
+        </div>
+      </a>      <a href="lingzi/tuonggonho.html" class="bwiki-item-card r3" data-category="general" data-rarity="3" data-stat="def" data-name="tượng gỗ nhỏ 小小木雕 chung phòng ngự">
+        <div class="bwiki-item-visual">
+          <img src="../assets/lingzi/tuonggonho.png" class="bwiki-item-img" alt="Tượng Gỗ Nhỏ" loading="lazy">
+          <div class="bwiki-card-stars"><img src="../assets/star.png" class="bwiki-star-unit" alt="★"><img src="../assets/star.png" class="bwiki-star-unit" alt="★"><img src="../assets/star.png" class="bwiki-star-unit" alt="★"></div>
+        </div>
+        <div class="bwiki-item-name-box">
+          <span class="bwiki-item-name-text">Tượng Gỗ Nhỏ</span>
+        </div>
+      </a>      <a href="lingzi/chiakhoacodai.html" class="bwiki-item-card r3" data-category="general" data-rarity="3" data-stat="def" data-name="chìa khóa cổ đại 远古秘钥 chung phòng ngự">
+        <div class="bwiki-item-visual">
+          <img src="../assets/lingzi/chiakhoacodai.png" class="bwiki-item-img" alt="Chìa Khóa Cổ Đại" loading="lazy">
+          <div class="bwiki-card-stars"><img src="../assets/star.png" class="bwiki-star-unit" alt="★"><img src="../assets/star.png" class="bwiki-star-unit" alt="★"><img src="../assets/star.png" class="bwiki-star-unit" alt="★"></div>
+        </div>
+        <div class="bwiki-item-name-box">
+          <span class="bwiki-item-name-text">Chìa Khóa Cổ Đại</span>
+        </div>
+      </a>      <a href="lingzi/amthanhmocmac.html" class="bwiki-item-card r3" data-category="general" data-rarity="3" data-stat="hp" data-name="âm thanh mộc mạc 淳朴之音 chung sinh mệnh">
+        <div class="bwiki-item-visual">
+          <img src="../assets/lingzi/amthanhmocmac.png" class="bwiki-item-img" alt="Âm Thanh Mộc Mạc" loading="lazy">
+          <div class="bwiki-card-stars"><img src="../assets/star.png" class="bwiki-star-unit" alt="★"><img src="../assets/star.png" class="bwiki-star-unit" alt="★"><img src="../assets/star.png" class="bwiki-star-unit" alt="★"></div>
+        </div>
+        <div class="bwiki-item-name-box">
+          <span class="bwiki-item-name-text">Âm Thanh Mộc Mạc</span>
+        </div>
+      </a>      <a href="lingzi/menhtho.html" class="bwiki-item-card r3" data-category="general" data-rarity="3" data-stat="atk" data-name="mệnh thổ 命土 chung tấn công">
+        <div class="bwiki-item-visual">
+          <img src="../assets/lingzi/menhtho.png" class="bwiki-item-img" alt="Mệnh Thổ" loading="lazy">
+          <div class="bwiki-card-stars"><img src="../assets/star.png" class="bwiki-star-unit" alt="★"><img src="../assets/star.png" class="bwiki-star-unit" alt="★"><img src="../assets/star.png" class="bwiki-star-unit" alt="★"></div>
+        </div>
+        <div class="bwiki-item-name-box">
+          <span class="bwiki-item-name-text">Mệnh Thổ</span>
+        </div>
+      </a>      <a href="lingzi/chuyencu.html" class="bwiki-item-card r3" data-category="general" data-rarity="3" data-stat="def" data-name="chuyện cũ 往事 chung phòng ngự">
+        <div class="bwiki-item-visual">
+          <img src="../assets/lingzi/chuyencu.png" class="bwiki-item-img" alt="Chuyện Cũ" loading="lazy">
+          <div class="bwiki-card-stars"><img src="../assets/star.png" class="bwiki-star-unit" alt="★"><img src="../assets/star.png" class="bwiki-star-unit" alt="★"><img src="../assets/star.png" class="bwiki-star-unit" alt="★"></div>
+        </div>
+        <div class="bwiki-item-name-box">
+          <span class="bwiki-item-name-text">Chuyện Cũ</span>
+        </div>
+      </a>      <a href="lingzi/camchu.html" class="bwiki-item-card r3" data-category="general" data-rarity="3" data-stat="def" data-name="cấm chú 禁呪 chung phòng ngự">
+        <div class="bwiki-item-visual">
+          <img src="../assets/lingzi/camchu.png" class="bwiki-item-img" alt="Cấm Chú" loading="lazy">
+          <div class="bwiki-card-stars"><img src="../assets/star.png" class="bwiki-star-unit" alt="★"><img src="../assets/star.png" class="bwiki-star-unit" alt="★"><img src="../assets/star.png" class="bwiki-star-unit" alt="★"></div>
+        </div>
+        <div class="bwiki-item-name-box">
+          <span class="bwiki-item-name-text">Cấm Chú</span>
+        </div>
+      </a>      <a href="lingzi/tieuchuc.html" class="bwiki-item-card r3" data-category="general" data-rarity="3" data-stat="hp" data-name="tiêu chúc 宵祝 chung sinh mệnh">
+        <div class="bwiki-item-visual">
+          <img src="../assets/lingzi/tieuchuc.png" class="bwiki-item-img" alt="Tiêu Chúc" loading="lazy">
+          <div class="bwiki-card-stars"><img src="../assets/star.png" class="bwiki-star-unit" alt="★"><img src="../assets/star.png" class="bwiki-star-unit" alt="★"><img src="../assets/star.png" class="bwiki-star-unit" alt="★"></div>
+        </div>
+        <div class="bwiki-item-name-box">
+          <span class="bwiki-item-name-text">Tiêu Chúc</span>
+        </div>
+      </a>      <a href="lingzi/tancuoc.html" class="bwiki-item-card r3" data-category="general" data-rarity="3" data-stat="atk" data-name="tàn cuộc 残局 chung tấn công">
+        <div class="bwiki-item-visual">
+          <img src="../assets/lingzi/tancuoc.png" class="bwiki-item-img" alt="Tàn Cuộc" loading="lazy">
+          <div class="bwiki-card-stars"><img src="../assets/star.png" class="bwiki-star-unit" alt="★"><img src="../assets/star.png" class="bwiki-star-unit" alt="★"><img src="../assets/star.png" class="bwiki-star-unit" alt="★"></div>
+        </div>
+        <div class="bwiki-item-name-box">
+          <span class="bwiki-item-name-text">Tàn Cuộc</span>
+        </div>
+      </a>      <a href="lingzi/duongainaydi.html" class="bwiki-item-card r3" data-category="general" data-rarity="3" data-stat="def" data-name="đường ai nấy đi 分道扬镳 chung phòng ngự">
+        <div class="bwiki-item-visual">
+          <img src="../assets/lingzi/duongainaydi.png" class="bwiki-item-img" alt="Đường Ai Nấy Đi" loading="lazy">
+          <div class="bwiki-card-stars"><img src="../assets/star.png" class="bwiki-star-unit" alt="★"><img src="../assets/star.png" class="bwiki-star-unit" alt="★"><img src="../assets/star.png" class="bwiki-star-unit" alt="★"></div>
+        </div>
+        <div class="bwiki-item-name-box">
+          <span class="bwiki-item-name-text">Đường Ai Nấy Đi</span>
+        </div>
+      </a>      <a href="lingzi/bupbeocdo.html" class="bwiki-item-card r3" data-category="general" data-rarity="3" data-stat="def" data-name="búp bê ốc đô 屋嘟娃娃 chung phòng ngự">
+        <div class="bwiki-item-visual">
+          <img src="../assets/lingzi/bupbeocdo.png" class="bwiki-item-img" alt="Búp Bê Ốc Đô" loading="lazy">
+          <div class="bwiki-card-stars"><img src="../assets/star.png" class="bwiki-star-unit" alt="★"><img src="../assets/star.png" class="bwiki-star-unit" alt="★"><img src="../assets/star.png" class="bwiki-star-unit" alt="★"></div>
+        </div>
+        <div class="bwiki-item-name-box">
+          <span class="bwiki-item-name-text">Búp Bê Ốc Đô</span>
+        </div>
+      </a>      <a href="lingzi/linhhoncanhrung.html" class="bwiki-item-card r3" data-category="general" data-rarity="3" data-stat="hp" data-name="linh hồn cảnh rừng 森境之灵 chung sinh mệnh">
+        <div class="bwiki-item-visual">
+          <img src="../assets/lingzi/linhhoncanhrung.png" class="bwiki-item-img" alt="Linh Hồn Cảnh Rừng" loading="lazy">
+          <div class="bwiki-card-stars"><img src="../assets/star.png" class="bwiki-star-unit" alt="★"><img src="../assets/star.png" class="bwiki-star-unit" alt="★"><img src="../assets/star.png" class="bwiki-star-unit" alt="★"></div>
+        </div>
+        <div class="bwiki-item-name-box">
+          <span class="bwiki-item-name-text">Linh Hồn Cảnh Rừng</span>
+        </div>
+      </a>      <a href="lingzi/linhhoncanhnuoc.html" class="bwiki-item-card r3" data-category="general" data-rarity="3" data-stat="atk" data-name="linh hồn cảnh nước 水境之灵 chung tấn công">
+        <div class="bwiki-item-visual">
+          <img src="../assets/lingzi/linhhoncanhnuoc.png" class="bwiki-item-img" alt="Linh Hồn Cảnh Nước" loading="lazy">
+          <div class="bwiki-card-stars"><img src="../assets/star.png" class="bwiki-star-unit" alt="★"><img src="../assets/star.png" class="bwiki-star-unit" alt="★"><img src="../assets/star.png" class="bwiki-star-unit" alt="★"></div>
+        </div>
+        <div class="bwiki-item-name-box">
+          <span class="bwiki-item-name-text">Linh Hồn Cảnh Nước</span>
+        </div>
+      </a>      <a href="lingzi/vattochimung.html" class="bwiki-item-card r3" data-category="general" data-rarity="3" data-stat="def" data-name="vật tổ chim ưng 苍鹰图腾 chung phòng ngự">
+        <div class="bwiki-item-visual">
+          <img src="../assets/lingzi/vattochimung.png" class="bwiki-item-img" alt="Vật Tổ Chim Ưng" loading="lazy">
+          <div class="bwiki-card-stars"><img src="../assets/star.png" class="bwiki-star-unit" alt="★"><img src="../assets/star.png" class="bwiki-star-unit" alt="★"><img src="../assets/star.png" class="bwiki-star-unit" alt="★"></div>
+        </div>
+        <div class="bwiki-item-name-box">
+          <span class="bwiki-item-name-text">Vật Tổ Chim Ưng</span>
+        </div>
+      </a>      <a href="lingzi/vattosoihon.html" class="bwiki-item-card r3" data-category="general" data-rarity="3" data-stat="def" data-name="vật tổ sói hồn 狼魂图腾 chung phòng ngự">
+        <div class="bwiki-item-visual">
+          <img src="../assets/lingzi/vattosoihon.png" class="bwiki-item-img" alt="Vật Tổ Sói Hồn" loading="lazy">
+          <div class="bwiki-card-stars"><img src="../assets/star.png" class="bwiki-star-unit" alt="★"><img src="../assets/star.png" class="bwiki-star-unit" alt="★"><img src="../assets/star.png" class="bwiki-star-unit" alt="★"></div>
+        </div>
+        <div class="bwiki-item-name-box">
+          <span class="bwiki-item-name-text">Vật Tổ Sói Hồn</span>
+        </div>
+      </a>      <a href="lingzi/vattocudem.html" class="bwiki-item-card r3" data-category="general" data-rarity="3" data-stat="hp" data-name="vật tổ cú đêm 夜鸮图腾 chung sinh mệnh">
+        <div class="bwiki-item-visual">
+          <img src="../assets/lingzi/vattocudem.png" class="bwiki-item-img" alt="Vật Tổ Cú Đêm" loading="lazy">
+          <div class="bwiki-card-stars"><img src="../assets/star.png" class="bwiki-star-unit" alt="★"><img src="../assets/star.png" class="bwiki-star-unit" alt="★"><img src="../assets/star.png" class="bwiki-star-unit" alt="★"></div>
+        </div>
+        <div class="bwiki-item-name-box">
+          <span class="bwiki-item-name-text">Vật Tổ Cú Đêm</span>
+        </div>
+      </a>      <a href="lingzi/linhhoncanhlam.html" class="bwiki-item-card r3" data-category="general" data-rarity="3" data-stat="atk" data-name="linh hồn cảnh lam 岚境之灵 chung tấn công">
+        <div class="bwiki-item-visual">
+          <img src="../assets/lingzi/linhhoncanhlam.png" class="bwiki-item-img" alt="Linh Hồn Cảnh Lam" loading="lazy">
+          <div class="bwiki-card-stars"><img src="../assets/star.png" class="bwiki-star-unit" alt="★"><img src="../assets/star.png" class="bwiki-star-unit" alt="★"><img src="../assets/star.png" class="bwiki-star-unit" alt="★"></div>
+        </div>
+        <div class="bwiki-item-name-box">
+          <span class="bwiki-item-name-text">Linh Hồn Cảnh Lam</span>
+        </div>
+      </a>      <a href="lingzi/linhhoncanhdiem.html" class="bwiki-item-card r3" data-category="general" data-rarity="3" data-stat="atk" data-name="linh hồn cảnh diễm 焰境之灵 chung tấn công">
+        <div class="bwiki-item-visual">
+          <img src="../assets/lingzi/linhhoncanhdiem.png" class="bwiki-item-img" alt="Linh Hồn Cảnh Diễm" loading="lazy">
+          <div class="bwiki-card-stars"><img src="../assets/star.png" class="bwiki-star-unit" alt="★"><img src="../assets/star.png" class="bwiki-star-unit" alt="★"><img src="../assets/star.png" class="bwiki-star-unit" alt="★"></div>
+        </div>
+        <div class="bwiki-item-name-box">
+          <span class="bwiki-item-name-text">Linh Hồn Cảnh Diễm</span>
+        </div>
+      </a>
+    </div>
+
+    <!-- Empty State -->
+    <div id="empty-state" class="empty-state" style="display: none; text-align: center; padding: 60px 0;">
+      <p style="color: var(--text-dim); font-size: 1.1rem;">Không tìm thấy linh tử phù hợp.</p>
+    </div>
+  </main>
+
+  <!-- Footer: Injected from master template templates/layout.js -->
+  <footer id="site-footer" class="footer"></footer>
+
+  <script>
+    if (window.location.protocol !== 'file:') {
+      const clean = window.location.pathname.replace(/\.html$/, '').replace(/\/index$/, '');
+      if (clean !== window.location.pathname) {
+        window.history.replaceState(null, '', clean + window.location.search + window.location.hash);
+      }
+    }
+
+    (function() {
+      const searchInput = document.getElementById('lingzi-search');
+      const resetBtn = document.getElementById('btn-reset-filters');
+      const catBtns = document.querySelectorAll('#category-filters .filter-pill');
+      const rarityBtns = document.querySelectorAll('#rarity-filters .filter-pill');
+      const statBtns = document.querySelectorAll('#stat-filters .filter-pill');
+      const cards = document.querySelectorAll('#lingzi-grid .bwiki-item-card');
+      const emptyState = document.getElementById('empty-state');
+
+      let currentCategory = 'all';
+      let currentRarity = 'all';
+      let currentStat = 'all';
+      let currentSearch = '';
+
+      function applyFilters() {
+        let visibleCount = 0;
+        cards.forEach(card => {
+          const cardCat = card.dataset.category;
+          const cardRarity = card.dataset.rarity;
+          const cardStat = card.dataset.stat;
+          const cardName = card.dataset.name;
+
+          const matchCat = currentCategory === 'all' || cardCat === currentCategory;
+          const matchRarity = currentRarity === 'all' || cardRarity === currentRarity;
+          const matchStat = currentStat === 'all' || cardStat === currentStat;
+          const matchSearch = !currentSearch || cardName.includes(currentSearch);
+
+          if (matchCat && matchRarity && matchStat && matchSearch) {
+            card.style.display = 'inline-flex';
+            visibleCount++;
+          } else {
+            card.style.display = 'none';
+          }
+        });
+
+        if (emptyState) {
+          emptyState.style.display = visibleCount === 0 ? 'block' : 'none';
+        }
+      }
+
+      if (searchInput) {
+        searchInput.addEventListener('input', (e) => {
+          currentSearch = e.target.value.trim().toLowerCase();
+          applyFilters();
+        });
+      }
+
+      catBtns.forEach(btn => {
+        btn.addEventListener('click', () => {
+          catBtns.forEach(b => b.classList.remove('active'));
+          btn.classList.add('active');
+          currentCategory = btn.dataset.category;
+          applyFilters();
+        });
+      });
+
+      rarityBtns.forEach(btn => {
+        btn.addEventListener('click', () => {
+          rarityBtns.forEach(b => b.classList.remove('active'));
+          btn.classList.add('active');
+          currentRarity = btn.dataset.rarity;
+          applyFilters();
+        });
+      });
+
+      statBtns.forEach(btn => {
+        btn.addEventListener('click', () => {
+          statBtns.forEach(b => b.classList.remove('active'));
+          btn.classList.add('active');
+          currentStat = btn.dataset.stat;
+          applyFilters();
+        });
+      });
+
+      if (resetBtn) {
+        resetBtn.addEventListener('click', () => {
+          currentCategory = 'all';
+          currentRarity = 'all';
+          currentStat = 'all';
+          currentSearch = '';
+          if (searchInput) searchInput.value = '';
+          catBtns.forEach(b => b.classList.toggle('active', b.dataset.category === 'all'));
+          rarityBtns.forEach(b => b.classList.toggle('active', b.dataset.rarity === 'all'));
+          statBtns.forEach(b => b.classList.toggle('active', b.dataset.stat === 'all'));
+          applyFilters();
+        });
+      }
+    })();
+  </script>
+</body>
+</html>

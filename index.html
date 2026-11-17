@@ -2,16 +2,26 @@
 <html lang="vi">
 <head>
   <meta charset="UTF-8">
-  <meta http-equiv="refresh" content="0; url=/homepage">
+  <meta http-equiv="refresh" content="0; url=pages/homepage.html">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Azur Promilia Wiki</title>
   <script>
-    window.location.replace("/homepage");
+    if (window.location.protocol === 'file:') {
+      window.location.replace("pages/homepage.html");
+    } else {
+      window.location.replace("/homepage");
+    }
   </script>
 </head>
 <body style="font-family:system-ui, sans-serif; display:flex; align-items:center; justify-content:center; height:100vh; margin:0; background:#f8fafc; color:#0f172a;">
   <div style="text-align:center;">
-    <p>Đang chuyển hướng đến <a href="/homepage" style="color:#0369a1; font-weight:700;">Trang Chủ Azur Promilia</a>...</p>
+    <p>Đang chuyển hướng đến <a id="home-link" href="pages/homepage.html" style="color:#0369a1; font-weight:700;">Trang Chủ Azur Promilia</a>...</p>
   </div>
+  <script>
+    if (window.location.protocol !== 'file:') {
+      const link = document.getElementById('home-link');
+      if (link) link.setAttribute('href', '/homepage');
+    }
+  </script>
 </body>
 </html>

@@ -18,6 +18,11 @@
   status = 200
 
 [[redirects]]
+  from = "/lingzi"
+  to = "/pages/lingzi.html"
+  status = 200
+
+[[redirects]]
   from = "/equipments"
   to = "/pages/equipments.html"
   status = 200
@@ -25,6 +30,11 @@
 [[redirects]]
   from = "/materials"
   to = "/pages/materials.html"
+  status = 200
+
+[[redirects]]
+  from = "/lingzi/:id"
+  to = "/pages/lingzi/:id.html"
   status = 200
 
 [[redirects]]

@@ -335,8 +335,8 @@ img,
 /* Feature Portals: Seamless layout, NO rounded box, NO badges */
 .portal-grid {
   display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  gap: 48px;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 32px;
   margin-bottom: 60px;
 }
 

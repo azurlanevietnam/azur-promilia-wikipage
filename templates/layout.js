@@ -43,6 +43,7 @@
       return document.body.dataset.activeTab;
     }
     const path = (window.location.pathname || '').toLowerCase();
+    if (path.includes('lingzi') || path.includes('linhtu') || path.includes('linh_tu')) return 'lingzi';
     if (path.includes('equip') || path.includes('vu_khi')) return 'equip';
     if (path.includes('material') || path.includes('nguyen_lieu')) return 'mat';
     return 'home';
@@ -51,6 +52,7 @@
   function renderNavbarHTML(pagesRel, activeTab) {
     const isServer = window.location.protocol !== 'file:';
     const homeHref = isServer ? '/homepage' : `${pagesRel}homepage.html`;
+    const lingziHref = isServer ? '/lingzi' : `${pagesRel}lingzi.html`;
     const equipHref = isServer ? '/equipments' : `${pagesRel}equipments.html`;
     const matHref = isServer ? '/materials' : `${pagesRel}materials.html`;
 
@@ -65,6 +67,7 @@
 
       <nav class="nav-links">
         <a href="${homeHref}" class="nav-item ${activeTab === 'home' ? 'active' : ''}">Trang Chủ</a>
+        <a href="${lingziHref}" class="nav-item ${activeTab === 'lingzi' ? 'active' : ''}">Linh Tử</a>
         <a href="${equipHref}" class="nav-item ${activeTab === 'equip' ? 'active' : ''}">Trang Bị</a>
         <a href="${matHref}" class="nav-item ${activeTab === 'mat' ? 'active' : ''}">Nguyên Liệu</a>
       </nav>
@@ -89,7 +92,7 @@
         <a href="https://www.facebook.com/azurlanevietnam/" target="_blank" rel="noopener noreferrer">Facebook Fanpage</a>
         <a href="https://www.facebook.com/groups/678799927597047/" target="_blank" rel="noopener noreferrer">Facebook Group</a>
       </div>
-      <p>Azur Promilia Wiki Companion • Bách khoa toàn thư trang bị & nguyên liệu tiếng Việt.</p>
+      <p>Azur Promilia Wiki Companion • Bách khoa toàn thư linh tử, trang bị & nguyên liệu tiếng Việt.</p>
     </div>`;
   }
 
