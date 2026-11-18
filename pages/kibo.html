@@ -1,0 +1,2075 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Danh Sách Kibo - Azur Promilia Wiki</title>
+  <link rel="stylesheet" href="../style.css">
+  <script src="../templates/layout.js" defer></script>
+</head>
+<body data-active-tab="kibo" data-depth="1">
+  
+  <div class="cosmic-stars"></div>
+
+  <!-- Top Navigation Bar: Injected from master template templates/layout.js -->
+  <header id="site-navbar" class="navbar"></header>
+
+  <main class="container">
+    <div class="section-title-wrap">
+      <h1 class="section-title">Danh Sách Kibo</h1>
+    </div>
+
+    <!-- Search Input: Zero Placeholder per AGENTS.md -->
+    <div class="search-box">
+      <span class="search-icon" aria-hidden="true">🔍</span>
+      <input type="text" id="kibo-search" class="search-input" aria-label="Tìm kiếm Kibo">
+    </div>
+
+    <!-- Filter Matrix Table (BWIKI Standard) -->
+    <table class="bwiki-filter-table">
+      <tbody>
+        <tr>
+          <th>Tất cả</th>
+          <td>
+            <button class="filter-pill active" id="btn-reset-filters">Xem tất cả</button>
+          </td>
+        </tr>
+        <tr>
+          <th>Nguyên tố</th>
+          <td>
+            <div class="bwiki-filter-options" id="element-filters">
+              <button class="filter-pill active" data-element="all">Tất cả</button>
+              <button class="filter-pill filter-pill-with-icon" data-element="fire"><img src="../assets/elements/fire.png" class="filter-pill-icon" alt="">Hỏa</button>
+              <button class="filter-pill filter-pill-with-icon" data-element="wind"><img src="../assets/elements/wind.png" class="filter-pill-icon" alt="">Phong</button>
+              <button class="filter-pill filter-pill-with-icon" data-element="earth"><img src="../assets/elements/earth.png" class="filter-pill-icon" alt="">Địa</button>
+              <button class="filter-pill filter-pill-with-icon" data-element="wood"><img src="../assets/elements/wood.png" class="filter-pill-icon" alt="">Mộc</button>
+              <button class="filter-pill filter-pill-with-icon" data-element="ice"><img src="../assets/elements/ice.png" class="filter-pill-icon" alt="">Băng</button>
+              <button class="filter-pill filter-pill-with-icon" data-element="water"><img src="../assets/elements/water.png" class="filter-pill-icon" alt="">Thủy</button>
+              <button class="filter-pill filter-pill-with-icon" data-element="thunder"><img src="../assets/elements/thunder.png" class="filter-pill-icon" alt="">Lôi</button>
+              <button class="filter-pill filter-pill-with-icon" data-element="light"><img src="../assets/elements/light.png" class="filter-pill-icon" alt="">Quang</button>
+              <button class="filter-pill filter-pill-with-icon" data-element="dark"><img src="../assets/elements/dark.png" class="filter-pill-icon" alt="">Ám</button>
+            </div>
+          </td>
+        </tr>
+        <tr>
+          <th>Chủng tộc</th>
+          <td>
+            <div class="bwiki-filter-options" id="race-filters">
+              <button class="filter-pill active" data-race="all">Tất cả</button>
+              <button class="filter-pill" data-race="common">Phổ Sinh Loại</button>
+              <button class="filter-pill" data-race="special">Đặc Thù Loại</button>
+              <button class="filter-pill" data-race="beast">Dị Sinh · Thú Hình</button>
+              <button class="filter-pill" data-race="bird">Dị Sinh · Vũ Hình</button>
+              <button class="filter-pill" data-race="scale">Dị Sinh · Lân Hình</button>
+              <button class="filter-pill" data-race="molt">Dị Sinh · Thoái Hình</button>
+              <button class="filter-pill" data-race="elemental">Huyễn Sinh · Nguyên Tố</button>
+              <button class="filter-pill" data-race="spirit">Huyễn Sinh · Tinh Quái</button>
+              <button class="filter-pill" data-race="mecha">Huyễn Sinh · Cơ Ngẫu</button>
+              <button class="filter-pill" data-race="plant">Huyễn Sinh · Thảo Mộc</button>
+            </div>
+          </td>
+        </tr>
+        <tr>
+          <th>Giai đoạn</th>
+          <td>
+            <div class="bwiki-filter-options" id="stage-filters">
+              <button class="filter-pill active" data-stage="all">Tất cả</button>
+              <button class="filter-pill" data-stage="infant">Ấu Niên</button>
+              <button class="filter-pill" data-stage="growth">Trưởng Thành</button>
+              <button class="filter-pill" data-stage="mature">Thành Thục</button>
+              <button class="filter-pill" data-stage="ultimate">Hoàn Toàn Thể</button>
+            </div>
+          </td>
+        </tr>
+        <tr>
+          <th>Kích thước</th>
+          <td>
+            <div class="bwiki-filter-options" id="size-filters">
+              <button class="filter-pill active" data-size="all">Tất cả</button>
+              <button class="filter-pill" data-size="small">Nhỏ</button>
+              <button class="filter-pill" data-size="medium">Vừa</button>
+              <button class="filter-pill" data-size="large">Lớn</button>
+              <button class="filter-pill" data-size="huge">Cực Lớn</button>
+            </div>
+          </td>
+        </tr>
+        <tr>
+          <th>Vai trò</th>
+          <td>
+            <div class="bwiki-filter-options" id="role-filters">
+              <button class="filter-pill active" data-role="all">Tất cả</button>
+              <button class="filter-pill" data-role="dps">Tấn Công</button>
+              <button class="filter-pill" data-role="break">Phá Nhẫn</button>
+              <button class="filter-pill" data-role="support">Hỗ Trợ</button>
+              <button class="filter-pill" data-role="heal">Hồi Phục</button>
+            </div>
+          </td>
+        </tr>
+        <tr>
+          <th>Biến thể</th>
+          <td>
+            <div class="bwiki-filter-options" id="variant-filters">
+              <button class="filter-pill active" data-variant="all">Tất cả</button>
+              <button class="filter-pill" data-variant="shiny">Dị Sắc</button>
+              <button class="filter-pill" data-variant="starcolor">Tinh Thải</button>
+              <button class="filter-pill" data-variant="special">Đặc Biệt</button>
+            </div>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+
+    <!-- Kibo Catalog Grid -->
+    <div id="kibo-grid" class="kibo-catalog-grid">
+      <a href="kibo/tieunhaho.html" class="kibo-card" data-elements="wood" data-race="beast" data-stage="infant" data-size="small" data-role="dps" data-variants="starcolor" data-name="tiểu nha hồ 小芽狐 mộc dị sinh · thú hình tộc ấu niên tấn công canh tác">
+        <div class="kibo-card-visual">
+          <div class="kibo-card-elems"><img src="../assets/elements/wood.png" class="kibo-card-elem-icon" alt="Mộc" loading="lazy"></div>
+          <img src="../assets/kibo/tieunhaho.png" class="kibo-card-img" alt="Tiểu Nha Hồ" loading="lazy">
+        </div>
+        <div class="kibo-card-name-box">
+          <span class="kibo-card-name">Tiểu Nha Hồ</span>
+        </div>
+      </a>
+      <a href="kibo/bongviho.html" class="kibo-card" data-elements="wood" data-race="beast" data-stage="growth" data-size="small" data-role="dps" data-variants="starcolor" data-name="bồng vĩ hồ 蓬尾狐 mộc dị sinh · thú hình tộc trưởng thành tấn công canh tác">
+        <div class="kibo-card-visual">
+          <div class="kibo-card-elems"><img src="../assets/elements/wood.png" class="kibo-card-elem-icon" alt="Mộc" loading="lazy"></div>
+          <img src="../assets/kibo/bongviho.png" class="kibo-card-img" alt="Bồng Vĩ Hồ" loading="lazy">
+        </div>
+        <div class="kibo-card-name-box">
+          <span class="kibo-card-name">Bồng Vĩ Hồ</span>
+        </div>
+      </a>
+      <a href="kibo/laquanlinhho.html" class="kibo-card" data-elements="wood" data-race="beast" data-stage="mature" data-size="medium" data-role="dps" data-variants="starcolor" data-name="la quán linh hồ 萝冠灵狐 mộc dị sinh · thú hình tộc thành thục tấn công canh tác">
+        <div class="kibo-card-visual">
+          <div class="kibo-card-elems"><img src="../assets/elements/wood.png" class="kibo-card-elem-icon" alt="Mộc" loading="lazy"></div>
+          <img src="../assets/kibo/laquanlinhho.png" class="kibo-card-img" alt="La Quán Linh Hồ" loading="lazy">
+        </div>
+        <div class="kibo-card-name-box">
+          <span class="kibo-card-name">La Quán Linh Hồ</span>
+        </div>
+      </a>
+      <a href="kibo/diemmuumuu.html" class="kibo-card" data-elements="fire" data-race="beast" data-stage="infant" data-size="small" data-role="dps" data-variants="starcolor" data-name="diễm muu muu 焰哞哞 hỏa dị sinh · thú hình tộc ấu niên tấn công nhóm lửa">
+        <div class="kibo-card-visual">
+          <div class="kibo-card-elems"><img src="../assets/elements/fire.png" class="kibo-card-elem-icon" alt="Hỏa" loading="lazy"></div>
+          <img src="../assets/kibo/diemmuumuu.png" class="kibo-card-img" alt="Diễm Muu Muu" loading="lazy">
+        </div>
+        <div class="kibo-card-name-box">
+          <span class="kibo-card-name">Diễm Muu Muu</span>
+        </div>
+      </a>
+      <a href="kibo/diemnguunguu.html" class="kibo-card" data-elements="fire" data-race="beast" data-stage="growth" data-size="small" data-role="dps" data-variants="starcolor" data-name="diễm ngưu ngưu 焰牛牛 hỏa dị sinh · thú hình tộc trưởng thành tấn công nhóm lửa">
+        <div class="kibo-card-visual">
+          <div class="kibo-card-elems"><img src="../assets/elements/fire.png" class="kibo-card-elem-icon" alt="Hỏa" loading="lazy"></div>
+          <img src="../assets/kibo/diemnguunguu.png" class="kibo-card-img" alt="Diễm Ngưu Ngưu" loading="lazy">
+        </div>
+        <div class="kibo-card-name-box">
+          <span class="kibo-card-name">Diễm Ngưu Ngưu</span>
+        </div>
+      </a>
+      <a href="kibo/lietdiemgiacnguu.html" class="kibo-card" data-elements="fire" data-race="beast" data-stage="mature" data-size="medium" data-role="dps" data-variants="starcolor" data-name="liệt diễm giác ngưu 烈焰角牛 hỏa dị sinh · thú hình tộc thành thục tấn công nhóm lửa">
+        <div class="kibo-card-visual">
+          <div class="kibo-card-elems"><img src="../assets/elements/fire.png" class="kibo-card-elem-icon" alt="Hỏa" loading="lazy"></div>
+          <img src="../assets/kibo/lietdiemgiacnguu.png" class="kibo-card-img" alt="Liệt Diễm Giác Ngưu" loading="lazy">
+        </div>
+        <div class="kibo-card-name-box">
+          <span class="kibo-card-name">Liệt Diễm Giác Ngưu</span>
+        </div>
+      </a>
+      <a href="kibo/halytu.html" class="kibo-card" data-elements="water" data-race="beast" data-stage="infant" data-size="small" data-role="dps" data-variants="starcolor" data-name="hà ly tử 河狸仔 thủy dị sinh · thú hình tộc ấu niên tấn công đốn gỗ">
+        <div class="kibo-card-visual">
+          <div class="kibo-card-elems"><img src="../assets/elements/water.png" class="kibo-card-elem-icon" alt="Thủy" loading="lazy"></div>
+          <img src="../assets/kibo/halytu.png" class="kibo-card-img" alt="Hà Ly Tử" loading="lazy">
+        </div>
+        <div class="kibo-card-name-box">
+          <span class="kibo-card-name">Hà Ly Tử</span>
+        </div>
+      </a>
+      <a href="kibo/bahaly.html" class="kibo-card" data-elements="water" data-race="beast" data-stage="growth" data-size="small" data-role="dps" data-variants="starcolor" data-name="ba hà ly 波河狸 thủy dị sinh · thú hình tộc trưởng thành tấn công đốn gỗ">
+        <div class="kibo-card-visual">
+          <div class="kibo-card-elems"><img src="../assets/elements/water.png" class="kibo-card-elem-icon" alt="Thủy" loading="lazy"></div>
+          <img src="../assets/kibo/bahaly.png" class="kibo-card-img" alt="Ba Hà Ly" loading="lazy">
+        </div>
+        <div class="kibo-card-name-box">
+          <span class="kibo-card-name">Ba Hà Ly</span>
+        </div>
+      </a>
+      <a href="kibo/halydaisu.html" class="kibo-card" data-elements="water" data-race="beast" data-stage="mature" data-size="medium" data-role="dps" data-variants="starcolor" data-name="hà ly đại sư 河狸大师 thủy dị sinh · thú hình tộc thành thục tấn công đốn gỗ">
+        <div class="kibo-card-visual">
+          <div class="kibo-card-elems"><img src="../assets/elements/water.png" class="kibo-card-elem-icon" alt="Thủy" loading="lazy"></div>
+          <img src="../assets/kibo/halydaisu.png" class="kibo-card-img" alt="Hà Ly Đại Sư" loading="lazy">
+        </div>
+        <div class="kibo-card-name-box">
+          <span class="kibo-card-name">Hà Ly Đại Sư</span>
+        </div>
+      </a>
+      <a href="kibo/dolo.html" class="kibo-card" data-elements="earth" data-race="common" data-stage="mature" data-size="small" data-role="dps" data-variants="shiny,starcolor" data-name="đô lỗ 嘟噜 địa phổ sinh loại thành thục tấn công chăm sóc">
+        <div class="kibo-card-visual">
+          <div class="kibo-card-elems"><img src="../assets/elements/earth.png" class="kibo-card-elem-icon" alt="Địa" loading="lazy"></div>
+          <img src="../assets/kibo/dolo.png" class="kibo-card-img" alt="Đô Lỗ" loading="lazy">
+        </div>
+        <div class="kibo-card-name-box">
+          <span class="kibo-card-name">Đô Lỗ</span>
+        </div>
+      </a>
+      <a href="kibo/duongchiuchiu.html" class="kibo-card" data-elements="fire" data-race="bird" data-stage="mature" data-size="small" data-role="dps" data-variants="special" data-name="đường chíu chíu 糖啾啾 hỏa dị sinh · vũ hình tộc thành thục tấn công nhóm lửa">
+        <div class="kibo-card-visual">
+          <div class="kibo-card-elems"><img src="../assets/elements/fire.png" class="kibo-card-elem-icon" alt="Hỏa" loading="lazy"></div>
+          <img src="../assets/kibo/duongchiuchiu.png" class="kibo-card-img" alt="Đường Chíu Chíu" loading="lazy">
+        </div>
+        <div class="kibo-card-name-box">
+          <span class="kibo-card-name">Đường Chíu Chíu</span>
+        </div>
+      </a>
+      <a href="kibo/mieuke.html" class="kibo-card" data-elements="wood" data-race="bird" data-stage="infant" data-size="small" data-role="dps" data-variants="shiny,starcolor" data-name="miêu kê 苗鸡 mộc dị sinh · vũ hình tộc ấu niên tấn công canh tác chăm sóc">
+        <div class="kibo-card-visual">
+          <div class="kibo-card-elems"><img src="../assets/elements/wood.png" class="kibo-card-elem-icon" alt="Mộc" loading="lazy"></div>
+          <img src="../assets/kibo/mieuke.png" class="kibo-card-img" alt="Miêu Kê" loading="lazy">
+        </div>
+        <div class="kibo-card-name-box">
+          <span class="kibo-card-name">Miêu Kê</span>
+        </div>
+      </a>
+      <a href="kibo/mieuke_dacbiet.html" class="kibo-card" data-elements="wood" data-race="bird" data-stage="infant" data-size="small" data-role="dps" data-variants="special" data-name="miêu kê đặc biệt 苗鸡 mộc dị sinh · vũ hình tộc ấu niên tấn công canh tác">
+        <div class="kibo-card-visual">
+          <div class="kibo-card-elems"><img src="../assets/elements/wood.png" class="kibo-card-elem-icon" alt="Mộc" loading="lazy"></div>
+          <img src="../assets/kibo/mieuke_dacbiet.png" class="kibo-card-img" alt="Miêu Kê Đặc Biệt" loading="lazy">
+        </div>
+        <div class="kibo-card-name-box">
+          <span class="kibo-card-name">Miêu Kê Đặc Biệt</span>
+        </div>
+      </a>
+      <a href="kibo/thaike.html" class="kibo-card" data-elements="wood" data-race="bird" data-stage="mature" data-size="medium" data-role="dps" data-variants="shiny,starcolor" data-name="thái kê 菜鸡 mộc dị sinh · vũ hình tộc thành thục tấn công canh tác chăm sóc">
+        <div class="kibo-card-visual">
+          <div class="kibo-card-elems"><img src="../assets/elements/wood.png" class="kibo-card-elem-icon" alt="Mộc" loading="lazy"></div>
+          <img src="../assets/kibo/thaike.png" class="kibo-card-img" alt="Thái Kê" loading="lazy">
+        </div>
+        <div class="kibo-card-name-box">
+          <span class="kibo-card-name">Thái Kê</span>
+        </div>
+      </a>
+      <a href="kibo/thaike_dacbiet.html" class="kibo-card" data-elements="wood" data-race="bird" data-stage="mature" data-size="medium" data-role="dps" data-variants="special" data-name="thái kê đặc biệt 菜鸡 mộc dị sinh · vũ hình tộc thành thục tấn công canh tác">
+        <div class="kibo-card-visual">
+          <div class="kibo-card-elems"><img src="../assets/elements/wood.png" class="kibo-card-elem-icon" alt="Mộc" loading="lazy"></div>
+          <img src="../assets/kibo/thaike_dacbiet.png" class="kibo-card-img" alt="Thái Kê Đặc Biệt" loading="lazy">
+        </div>
+        <div class="kibo-card-name-box">
+          <span class="kibo-card-name">Thái Kê Đặc Biệt</span>
+        </div>
+      </a>
+      <a href="kibo/tieuke.html" class="kibo-card" data-elements="fire" data-race="bird" data-stage="infant" data-size="small" data-role="support" data-variants="starcolor" data-name="tiêu kê 椒鸡 hỏa dị sinh · vũ hình tộc ấu niên hỗ trợ canh tác nhóm lửa">
+        <div class="kibo-card-visual">
+          <div class="kibo-card-elems"><img src="../assets/elements/fire.png" class="kibo-card-elem-icon" alt="Hỏa" loading="lazy"></div>
+          <img src="../assets/kibo/tieuke.png" class="kibo-card-img" alt="Tiêu Kê" loading="lazy">
+        </div>
+        <div class="kibo-card-name-box">
+          <span class="kibo-card-name">Tiêu Kê</span>
+        </div>
+      </a>
+      <a href="kibo/latke.html" class="kibo-card" data-elements="fire" data-race="bird" data-stage="mature" data-size="medium" data-role="support" data-variants="starcolor" data-name="lạt kê 辣鸡 hỏa dị sinh · vũ hình tộc thành thục hỗ trợ canh tác nhóm lửa">
+        <div class="kibo-card-visual">
+          <div class="kibo-card-elems"><img src="../assets/elements/fire.png" class="kibo-card-elem-icon" alt="Hỏa" loading="lazy"></div>
+          <img src="../assets/kibo/latke.png" class="kibo-card-img" alt="Lạt Kê" loading="lazy">
+        </div>
+        <div class="kibo-card-name-box">
+          <span class="kibo-card-name">Lạt Kê</span>
+        </div>
+      </a>
+      <a href="kibo/mucnhungtho.html" class="kibo-card" data-elements="light" data-race="common" data-stage="infant" data-size="medium" data-role="heal" data-variants="shiny,starcolor" data-name="mục nhung thỏ 目绒兔 quang phổ sinh loại ấu niên hồi phục canh tác chăm sóc thủ công">
+        <div class="kibo-card-visual">
+          <div class="kibo-card-elems"><img src="../assets/elements/light.png" class="kibo-card-elem-icon" alt="Quang" loading="lazy"></div>
+          <img src="../assets/kibo/mucnhungtho.png" class="kibo-card-img" alt="Mục Nhung Thỏ" loading="lazy">
+        </div>
+        <div class="kibo-card-name-box">
+          <span class="kibo-card-name">Mục Nhung Thỏ</span>
+        </div>
+      </a>
+      <a href="kibo/cololo.html" class="kibo-card" data-elements="dark" data-race="plant" data-stage="infant" data-size="small" data-role="support" data-variants="shiny,starcolor" data-name="cô lỗ lỗ 菇噜噜 ám huyễn sinh · thảo mộc tộc ấu niên hỗ trợ thủ công rèn đúc">
+        <div class="kibo-card-visual">
+          <div class="kibo-card-elems"><img src="../assets/elements/dark.png" class="kibo-card-elem-icon" alt="Ám" loading="lazy"></div>
+          <img src="../assets/kibo/cololo.png" class="kibo-card-img" alt="Cô Lỗ Lỗ" loading="lazy">
+        </div>
+        <div class="kibo-card-name-box">
+          <span class="kibo-card-name">Cô Lỗ Lỗ</span>
+        </div>
+      </a>
+      <a href="kibo/hoalinhtu.html" class="kibo-card" data-elements="fire" data-race="elemental" data-stage="infant" data-size="small" data-role="support" data-variants="starcolor" data-name="hỏa linh tử 火灵仔 hỏa huyễn sinh · nguyên tố tộc ấu niên hỗ trợ nguyên tố nhóm lửa">
+        <div class="kibo-card-visual">
+          <div class="kibo-card-elems"><img src="../assets/elements/fire.png" class="kibo-card-elem-icon" alt="Hỏa" loading="lazy"></div>
+          <img src="../assets/kibo/hoalinhtu.png" class="kibo-card-img" alt="Hỏa Linh Tử" loading="lazy">
+        </div>
+        <div class="kibo-card-name-box">
+          <span class="kibo-card-name">Hỏa Linh Tử</span>
+        </div>
+      </a>
+      <a href="kibo/hoalinhngau.html" class="kibo-card" data-elements="fire" data-race="elemental" data-stage="growth" data-size="small" data-role="support" data-variants="starcolor" data-name="hỏa linh ngẫu 火灵偶 hỏa huyễn sinh · nguyên tố tộc trưởng thành hỗ trợ nguyên tố nhóm lửa">
+        <div class="kibo-card-visual">
+          <div class="kibo-card-elems"><img src="../assets/elements/fire.png" class="kibo-card-elem-icon" alt="Hỏa" loading="lazy"></div>
+          <img src="../assets/kibo/hoalinhngau.png" class="kibo-card-img" alt="Hỏa Linh Ngẫu" loading="lazy">
+        </div>
+        <div class="kibo-card-name-box">
+          <span class="kibo-card-name">Hỏa Linh Ngẫu</span>
+        </div>
+      </a>
+      <a href="kibo/diemlinhngau.html" class="kibo-card" data-elements="fire" data-race="elemental" data-stage="mature" data-size="medium" data-role="support" data-variants="starcolor" data-name="diễm linh ngẫu 焰灵偶 hỏa huyễn sinh · nguyên tố tộc thành thục hỗ trợ nguyên tố nhóm lửa">
+        <div class="kibo-card-visual">
+          <div class="kibo-card-elems"><img src="../assets/elements/fire.png" class="kibo-card-elem-icon" alt="Hỏa" loading="lazy"></div>
+          <img src="../assets/kibo/diemlinhngau.png" class="kibo-card-img" alt="Diễm Linh Ngẫu" loading="lazy">
+        </div>
+        <div class="kibo-card-name-box">
+          <span class="kibo-card-name">Diễm Linh Ngẫu</span>
+        </div>
+      </a>
+      <a href="kibo/phonglinhtu.html" class="kibo-card" data-elements="wind" data-race="elemental" data-stage="infant" data-size="small" data-role="support" data-variants="starcolor" data-name="phong linh tử 风灵仔 phong huyễn sinh · nguyên tố tộc ấu niên hỗ trợ nguyên tố">
+        <div class="kibo-card-visual">
+          <div class="kibo-card-elems"><img src="../assets/elements/wind.png" class="kibo-card-elem-icon" alt="Phong" loading="lazy"></div>
+          <img src="../assets/kibo/phonglinhtu.png" class="kibo-card-img" alt="Phong Linh Tử" loading="lazy">
+        </div>
+        <div class="kibo-card-name-box">
+          <span class="kibo-card-name">Phong Linh Tử</span>
+        </div>
+      </a>
+      <a href="kibo/phonglinhngau.html" class="kibo-card" data-elements="wind" data-race="elemental" data-stage="growth" data-size="small" data-role="support" data-variants="starcolor" data-name="phong linh ngẫu 风灵偶 phong huyễn sinh · nguyên tố tộc trưởng thành hỗ trợ nguyên tố">
+        <div class="kibo-card-visual">
+          <div class="kibo-card-elems"><img src="../assets/elements/wind.png" class="kibo-card-elem-icon" alt="Phong" loading="lazy"></div>
+          <img src="../assets/kibo/phonglinhngau.png" class="kibo-card-img" alt="Phong Linh Ngẫu" loading="lazy">
+        </div>
+        <div class="kibo-card-name-box">
+          <span class="kibo-card-name">Phong Linh Ngẫu</span>
+        </div>
+      </a>
+      <a href="kibo/lamlinhngau.html" class="kibo-card" data-elements="wind" data-race="elemental" data-stage="mature" data-size="medium" data-role="support" data-variants="starcolor" data-name="lam linh ngẫu 岚灵偶 phong huyễn sinh · nguyên tố tộc thành thục hỗ trợ nguyên tố">
+        <div class="kibo-card-visual">
+          <div class="kibo-card-elems"><img src="../assets/elements/wind.png" class="kibo-card-elem-icon" alt="Phong" loading="lazy"></div>
+          <img src="../assets/kibo/lamlinhngau.png" class="kibo-card-img" alt="Lam Linh Ngẫu" loading="lazy">
+        </div>
+        <div class="kibo-card-name-box">
+          <span class="kibo-card-name">Lam Linh Ngẫu</span>
+        </div>
+      </a>
+      <a href="kibo/moclinhtu.html" class="kibo-card" data-elements="wood" data-race="elemental" data-stage="infant" data-size="small" data-role="dps" data-variants="starcolor" data-name="mộc linh tử 木灵仔 mộc huyễn sinh · nguyên tố tộc ấu niên tấn công nguyên tố canh tác">
+        <div class="kibo-card-visual">
+          <div class="kibo-card-elems"><img src="../assets/elements/wood.png" class="kibo-card-elem-icon" alt="Mộc" loading="lazy"></div>
+          <img src="../assets/kibo/moclinhtu.png" class="kibo-card-img" alt="Mộc Linh Tử" loading="lazy">
+        </div>
+        <div class="kibo-card-name-box">
+          <span class="kibo-card-name">Mộc Linh Tử</span>
+        </div>
+      </a>
+      <a href="kibo/moclinhngau.html" class="kibo-card" data-elements="wood" data-race="elemental" data-stage="growth" data-size="small" data-role="dps" data-variants="starcolor" data-name="mộc linh ngẫu 木灵偶 mộc huyễn sinh · nguyên tố tộc trưởng thành tấn công nguyên tố canh tác">
+        <div class="kibo-card-visual">
+          <div class="kibo-card-elems"><img src="../assets/elements/wood.png" class="kibo-card-elem-icon" alt="Mộc" loading="lazy"></div>
+          <img src="../assets/kibo/moclinhngau.png" class="kibo-card-img" alt="Mộc Linh Ngẫu" loading="lazy">
+        </div>
+        <div class="kibo-card-name-box">
+          <span class="kibo-card-name">Mộc Linh Ngẫu</span>
+        </div>
+      </a>
+      <a href="kibo/manlinhngau.html" class="kibo-card" data-elements="wood" data-race="elemental" data-stage="mature" data-size="medium" data-role="dps" data-variants="starcolor" data-name="mạn linh ngẫu 蔓灵偶 mộc huyễn sinh · nguyên tố tộc thành thục tấn công nguyên tố canh tác">
+        <div class="kibo-card-visual">
+          <div class="kibo-card-elems"><img src="../assets/elements/wood.png" class="kibo-card-elem-icon" alt="Mộc" loading="lazy"></div>
+          <img src="../assets/kibo/manlinhngau.png" class="kibo-card-img" alt="Mạn Linh Ngẫu" loading="lazy">
+        </div>
+        <div class="kibo-card-name-box">
+          <span class="kibo-card-name">Mạn Linh Ngẫu</span>
+        </div>
+      </a>
+      <a href="kibo/banglinhtu.html" class="kibo-card" data-elements="ice" data-race="elemental" data-stage="infant" data-size="small" data-role="dps" data-variants="starcolor" data-name="băng linh tử 冰灵仔 băng huyễn sinh · nguyên tố tộc ấu niên tấn công nguyên tố">
+        <div class="kibo-card-visual">
+          <div class="kibo-card-elems"><img src="../assets/elements/ice.png" class="kibo-card-elem-icon" alt="Băng" loading="lazy"></div>
+          <img src="../assets/kibo/banglinhtu.png" class="kibo-card-img" alt="Băng Linh Tử" loading="lazy">
+        </div>
+        <div class="kibo-card-name-box">
+          <span class="kibo-card-name">Băng Linh Tử</span>
+        </div>
+      </a>
+      <a href="kibo/banglinhngau.html" class="kibo-card" data-elements="ice" data-race="elemental" data-stage="growth" data-size="small" data-role="dps" data-variants="starcolor" data-name="băng linh ngẫu 冰灵偶 băng huyễn sinh · nguyên tố tộc trưởng thành tấn công nguyên tố">
+        <div class="kibo-card-visual">
+          <div class="kibo-card-elems"><img src="../assets/elements/ice.png" class="kibo-card-elem-icon" alt="Băng" loading="lazy"></div>
+          <img src="../assets/kibo/banglinhngau.png" class="kibo-card-img" alt="Băng Linh Ngẫu" loading="lazy">
+        </div>
+        <div class="kibo-card-name-box">
+          <span class="kibo-card-name">Băng Linh Ngẫu</span>
+        </div>
+      </a>
+      <a href="kibo/suonglinhngau.html" class="kibo-card" data-elements="ice" data-race="elemental" data-stage="mature" data-size="medium" data-role="dps" data-variants="starcolor" data-name="sương linh ngẫu 霜灵偶 băng huyễn sinh · nguyên tố tộc thành thục tấn công nguyên tố">
+        <div class="kibo-card-visual">
+          <div class="kibo-card-elems"><img src="../assets/elements/ice.png" class="kibo-card-elem-icon" alt="Băng" loading="lazy"></div>
+          <img src="../assets/kibo/suonglinhngau.png" class="kibo-card-img" alt="Sương Linh Ngẫu" loading="lazy">
+        </div>
+        <div class="kibo-card-name-box">
+          <span class="kibo-card-name">Sương Linh Ngẫu</span>
+        </div>
+      </a>
+      <a href="kibo/thuylinhtu.html" class="kibo-card" data-elements="water" data-race="elemental" data-stage="infant" data-size="small" data-role="heal" data-variants="shiny,starcolor" data-name="thủy linh tử 水灵仔 thủy huyễn sinh · nguyên tố tộc ấu niên hồi phục nguyên tố tưới nước">
+        <div class="kibo-card-visual">
+          <div class="kibo-card-elems"><img src="../assets/elements/water.png" class="kibo-card-elem-icon" alt="Thủy" loading="lazy"></div>
+          <img src="../assets/kibo/thuylinhtu.png" class="kibo-card-img" alt="Thủy Linh Tử" loading="lazy">
+        </div>
+        <div class="kibo-card-name-box">
+          <span class="kibo-card-name">Thủy Linh Tử</span>
+        </div>
+      </a>
+      <a href="kibo/thuylinhngau.html" class="kibo-card" data-elements="water" data-race="elemental" data-stage="growth" data-size="small" data-role="heal" data-variants="shiny,starcolor" data-name="thủy linh ngẫu 水灵偶 thủy huyễn sinh · nguyên tố tộc trưởng thành hồi phục nguyên tố tưới nước">
+        <div class="kibo-card-visual">
+          <div class="kibo-card-elems"><img src="../assets/elements/water.png" class="kibo-card-elem-icon" alt="Thủy" loading="lazy"></div>
+          <img src="../assets/kibo/thuylinhngau.png" class="kibo-card-img" alt="Thủy Linh Ngẫu" loading="lazy">
+        </div>
+        <div class="kibo-card-name-box">
+          <span class="kibo-card-name">Thủy Linh Ngẫu</span>
+        </div>
+      </a>
+      <a href="kibo/tichlinhngau.html" class="kibo-card" data-elements="water" data-race="elemental" data-stage="mature" data-size="medium" data-role="heal" data-variants="shiny,starcolor" data-name="tịch linh ngẫu 汐灵偶 thủy huyễn sinh · nguyên tố tộc thành thục hồi phục nguyên tố tưới nước">
+        <div class="kibo-card-visual">
+          <div class="kibo-card-elems"><img src="../assets/elements/water.png" class="kibo-card-elem-icon" alt="Thủy" loading="lazy"></div>
+          <img src="../assets/kibo/tichlinhngau.png" class="kibo-card-img" alt="Tịch Linh Ngẫu" loading="lazy">
+        </div>
+        <div class="kibo-card-name-box">
+          <span class="kibo-card-name">Tịch Linh Ngẫu</span>
+        </div>
+      </a>
+      <a href="kibo/loilinhtu.html" class="kibo-card" data-elements="thunder" data-race="elemental" data-stage="infant" data-size="small" data-role="dps" data-variants="starcolor" data-name="lôi linh tử 雷灵仔 lôi huyễn sinh · nguyên tố tộc ấu niên tấn công nguyên tố">
+        <div class="kibo-card-visual">
+          <div class="kibo-card-elems"><img src="../assets/elements/thunder.png" class="kibo-card-elem-icon" alt="Lôi" loading="lazy"></div>
+          <img src="../assets/kibo/loilinhtu.png" class="kibo-card-img" alt="Lôi Linh Tử" loading="lazy">
+        </div>
+        <div class="kibo-card-name-box">
+          <span class="kibo-card-name">Lôi Linh Tử</span>
+        </div>
+      </a>
+      <a href="kibo/loilinhngau.html" class="kibo-card" data-elements="thunder" data-race="elemental" data-stage="growth" data-size="small" data-role="dps" data-variants="starcolor" data-name="lôi linh ngẫu 雷灵偶 lôi huyễn sinh · nguyên tố tộc trưởng thành tấn công nguyên tố">
+        <div class="kibo-card-visual">
+          <div class="kibo-card-elems"><img src="../assets/elements/thunder.png" class="kibo-card-elem-icon" alt="Lôi" loading="lazy"></div>
+          <img src="../assets/kibo/loilinhngau.png" class="kibo-card-img" alt="Lôi Linh Ngẫu" loading="lazy">
+        </div>
+        <div class="kibo-card-name-box">
+          <span class="kibo-card-name">Lôi Linh Ngẫu</span>
+        </div>
+      </a>
+      <a href="kibo/dienlinhngau.html" class="kibo-card" data-elements="thunder" data-race="elemental" data-stage="mature" data-size="medium" data-role="dps" data-variants="starcolor" data-name="điện linh ngẫu 电灵偶 lôi huyễn sinh · nguyên tố tộc thành thục tấn công nguyên tố">
+        <div class="kibo-card-visual">
+          <div class="kibo-card-elems"><img src="../assets/elements/thunder.png" class="kibo-card-elem-icon" alt="Lôi" loading="lazy"></div>
+          <img src="../assets/kibo/dienlinhngau.png" class="kibo-card-img" alt="Điện Linh Ngẫu" loading="lazy">
+        </div>
+        <div class="kibo-card-name-box">
+          <span class="kibo-card-name">Điện Linh Ngẫu</span>
+        </div>
+      </a>
+      <a href="kibo/hagia.html" class="kibo-card" data-elements="wind" data-race="common" data-stage="mature" data-size="small" data-role="dps" data-variants="shiny,starcolor" data-name="ha gia 哈加 phong phổ sinh loại thành thục tấn công khai khoáng">
+        <div class="kibo-card-visual">
+          <div class="kibo-card-elems"><img src="../assets/elements/wind.png" class="kibo-card-elem-icon" alt="Phong" loading="lazy"></div>
+          <img src="../assets/kibo/hagia.png" class="kibo-card-img" alt="Ha Gia" loading="lazy">
+        </div>
+        <div class="kibo-card-name-box">
+          <span class="kibo-card-name">Ha Gia</span>
+        </div>
+      </a>
+      <a href="kibo/diepquanda.html" class="kibo-card" data-elements="wood" data-race="common" data-stage="mature" data-size="large" data-role="break" data-variants="shiny,starcolor" data-name="diệp quán đà 叶冠驼 mộc phổ sinh loại thành thục phá nhẫn đốn gỗ">
+        <div class="kibo-card-visual">
+          <div class="kibo-card-elems"><img src="../assets/elements/wood.png" class="kibo-card-elem-icon" alt="Mộc" loading="lazy"></div>
+          <img src="../assets/kibo/diepquanda.png" class="kibo-card-img" alt="Diệp Quán Đà" loading="lazy">
+        </div>
+        <div class="kibo-card-name-box">
+          <span class="kibo-card-name">Diệp Quán Đà</span>
+        </div>
+      </a>
+      <a href="kibo/phonglinhbao.html" class="kibo-card" data-elements="wind" data-race="spirit" data-stage="infant" data-size="small" data-role="support" data-variants="starcolor" data-name="phong linh bào 风灵苞 phong huyễn sinh · tinh quái tộc ấu niên hỗ trợ thủ công chăm sóc">
+        <div class="kibo-card-visual">
+          <div class="kibo-card-elems"><img src="../assets/elements/wind.png" class="kibo-card-elem-icon" alt="Phong" loading="lazy"></div>
+          <img src="../assets/kibo/phonglinhbao.png" class="kibo-card-img" alt="Phong Linh Bào" loading="lazy">
+        </div>
+        <div class="kibo-card-name-box">
+          <span class="kibo-card-name">Phong Linh Bào</span>
+        </div>
+      </a>
+      <a href="kibo/phonglinhdoa.html" class="kibo-card" data-elements="wind" data-race="spirit" data-stage="growth" data-size="small" data-role="support" data-variants="starcolor" data-name="phong linh đóa 风灵朵 phong huyễn sinh · tinh quái tộc trưởng thành hỗ trợ thủ công chăm sóc">
+        <div class="kibo-card-visual">
+          <div class="kibo-card-elems"><img src="../assets/elements/wind.png" class="kibo-card-elem-icon" alt="Phong" loading="lazy"></div>
+          <img src="../assets/kibo/phonglinhdoa.png" class="kibo-card-img" alt="Phong Linh Đóa" loading="lazy">
+        </div>
+        <div class="kibo-card-name-box">
+          <span class="kibo-card-name">Phong Linh Đóa</span>
+        </div>
+      </a>
+      <a href="kibo/lamamhoa.html" class="kibo-card" data-elements="wind" data-race="spirit" data-stage="mature" data-size="medium" data-role="support" data-variants="starcolor" data-name="lam âm hoa 岚音花 phong huyễn sinh · tinh quái tộc thành thục hỗ trợ thủ công chăm sóc">
+        <div class="kibo-card-visual">
+          <div class="kibo-card-elems"><img src="../assets/elements/wind.png" class="kibo-card-elem-icon" alt="Phong" loading="lazy"></div>
+          <img src="../assets/kibo/lamamhoa.png" class="kibo-card-img" alt="Lam Âm Hoa" loading="lazy">
+        </div>
+        <div class="kibo-card-name-box">
+          <span class="kibo-card-name">Lam Âm Hoa</span>
+        </div>
+      </a>
+      <a href="kibo/moclinhbao.html" class="kibo-card" data-elements="wood" data-race="spirit" data-stage="infant" data-size="small" data-role="heal" data-variants="shiny,starcolor" data-name="mộc linh bào 木灵苞 mộc huyễn sinh · tinh quái tộc ấu niên hồi phục thủ công canh tác">
+        <div class="kibo-card-visual">
+          <div class="kibo-card-elems"><img src="../assets/elements/wood.png" class="kibo-card-elem-icon" alt="Mộc" loading="lazy"></div>
+          <img src="../assets/kibo/moclinhbao.png" class="kibo-card-img" alt="Mộc Linh Bào" loading="lazy">
+        </div>
+        <div class="kibo-card-name-box">
+          <span class="kibo-card-name">Mộc Linh Bào</span>
+        </div>
+      </a>
+      <a href="kibo/moclinhdoa.html" class="kibo-card" data-elements="wood" data-race="spirit" data-stage="growth" data-size="small" data-role="heal" data-variants="shiny,starcolor" data-name="mộc linh đóa 木灵朵 mộc huyễn sinh · tinh quái tộc trưởng thành hồi phục thủ công canh tác">
+        <div class="kibo-card-visual">
+          <div class="kibo-card-elems"><img src="../assets/elements/wood.png" class="kibo-card-elem-icon" alt="Mộc" loading="lazy"></div>
+          <img src="../assets/kibo/moclinhdoa.png" class="kibo-card-img" alt="Mộc Linh Đóa" loading="lazy">
+        </div>
+        <div class="kibo-card-name-box">
+          <span class="kibo-card-name">Mộc Linh Đóa</span>
+        </div>
+      </a>
+      <a href="kibo/manamhoa.html" class="kibo-card" data-elements="wood" data-race="spirit" data-stage="mature" data-size="medium" data-role="heal" data-variants="shiny,starcolor" data-name="mạn âm hoa 蔓音花 mộc huyễn sinh · tinh quái tộc thành thục hồi phục thủ công canh tác">
+        <div class="kibo-card-visual">
+          <div class="kibo-card-elems"><img src="../assets/elements/wood.png" class="kibo-card-elem-icon" alt="Mộc" loading="lazy"></div>
+          <img src="../assets/kibo/manamhoa.png" class="kibo-card-img" alt="Mạn Âm Hoa" loading="lazy">
+        </div>
+        <div class="kibo-card-name-box">
+          <span class="kibo-card-name">Mạn Âm Hoa</span>
+        </div>
+      </a>
+      <a href="kibo/loilinhbao.html" class="kibo-card" data-elements="thunder" data-race="spirit" data-stage="infant" data-size="small" data-role="support" data-variants="starcolor" data-name="lôi linh bào 雷灵苞 lôi huyễn sinh · tinh quái tộc ấu niên hỗ trợ thủ công nguyên tố">
+        <div class="kibo-card-visual">
+          <div class="kibo-card-elems"><img src="../assets/elements/thunder.png" class="kibo-card-elem-icon" alt="Lôi" loading="lazy"></div>
+          <img src="../assets/kibo/loilinhbao.png" class="kibo-card-img" alt="Lôi Linh Bào" loading="lazy">
+        </div>
+        <div class="kibo-card-name-box">
+          <span class="kibo-card-name">Lôi Linh Bào</span>
+        </div>
+      </a>
+      <a href="kibo/loilinhdoa.html" class="kibo-card" data-elements="thunder" data-race="spirit" data-stage="growth" data-size="small" data-role="support" data-variants="starcolor" data-name="lôi linh đóa 雷灵朵 lôi huyễn sinh · tinh quái tộc trưởng thành hỗ trợ thủ công nguyên tố">
+        <div class="kibo-card-visual">
+          <div class="kibo-card-elems"><img src="../assets/elements/thunder.png" class="kibo-card-elem-icon" alt="Lôi" loading="lazy"></div>
+          <img src="../assets/kibo/loilinhdoa.png" class="kibo-card-img" alt="Lôi Linh Đóa" loading="lazy">
+        </div>
+        <div class="kibo-card-name-box">
+          <span class="kibo-card-name">Lôi Linh Đóa</span>
+        </div>
+      </a>
+      <a href="kibo/dienamhoa.html" class="kibo-card" data-elements="thunder" data-race="spirit" data-stage="mature" data-size="medium" data-role="support" data-variants="starcolor" data-name="điện âm hoa 电音花 lôi huyễn sinh · tinh quái tộc thành thục hỗ trợ thủ công nguyên tố">
+        <div class="kibo-card-visual">
+          <div class="kibo-card-elems"><img src="../assets/elements/thunder.png" class="kibo-card-elem-icon" alt="Lôi" loading="lazy"></div>
+          <img src="../assets/kibo/dienamhoa.png" class="kibo-card-img" alt="Điện Âm Hoa" loading="lazy">
+        </div>
+        <div class="kibo-card-name-box">
+          <span class="kibo-card-name">Điện Âm Hoa</span>
+        </div>
+      </a>
+      <a href="kibo/hoahoatuoc.html" class="kibo-card" data-elements="fire" data-race="bird" data-stage="infant" data-size="small" data-role="dps" data-variants="shiny,starcolor" data-name="hỏa hoa tước 火花雀 hỏa dị sinh · vũ hình tộc ấu niên tấn công nhóm lửa">
+        <div class="kibo-card-visual">
+          <div class="kibo-card-elems"><img src="../assets/elements/fire.png" class="kibo-card-elem-icon" alt="Hỏa" loading="lazy"></div>
+          <img src="../assets/kibo/hoahoatuoc.png" class="kibo-card-img" alt="Hỏa Hoa Tước" loading="lazy">
+        </div>
+        <div class="kibo-card-name-box">
+          <span class="kibo-card-name">Hỏa Hoa Tước</span>
+        </div>
+      </a>
+      <a href="kibo/diemhoatuoc.html" class="kibo-card" data-elements="fire" data-race="bird" data-stage="growth" data-size="medium" data-role="dps" data-variants="shiny,starcolor" data-name="diễm hỏa tước 焰火雀 hỏa dị sinh · vũ hình tộc trưởng thành tấn công nhóm lửa">
+        <div class="kibo-card-visual">
+          <div class="kibo-card-elems"><img src="../assets/elements/fire.png" class="kibo-card-elem-icon" alt="Hỏa" loading="lazy"></div>
+          <img src="../assets/kibo/diemhoatuoc.png" class="kibo-card-img" alt="Diễm Hỏa Tước" loading="lazy">
+        </div>
+        <div class="kibo-card-name-box">
+          <span class="kibo-card-name">Diễm Hỏa Tước</span>
+        </div>
+      </a>
+      <a href="kibo/hoalietung.html" class="kibo-card" data-elements="fire" data-race="bird" data-stage="mature" data-size="medium" data-role="dps" data-variants="shiny,starcolor" data-name="hỏa liệt ưng 火烈鹰 hỏa dị sinh · vũ hình tộc thành thục tấn công nhóm lửa">
+        <div class="kibo-card-visual">
+          <div class="kibo-card-elems"><img src="../assets/elements/fire.png" class="kibo-card-elem-icon" alt="Hỏa" loading="lazy"></div>
+          <img src="../assets/kibo/hoalietung.png" class="kibo-card-img" alt="Hỏa Liệt Ưng" loading="lazy">
+        </div>
+        <div class="kibo-card-name-box">
+          <span class="kibo-card-name">Hỏa Liệt Ưng</span>
+        </div>
+      </a>
+      <a href="kibo/nhuphongung.html" class="kibo-card" data-elements="wind" data-race="bird" data-stage="infant" data-size="small" data-role="dps" data-variants="starcolor" data-name="nhu phong ưng 柔风鹰 phong dị sinh · vũ hình tộc ấu niên tấn công chăm sóc">
+        <div class="kibo-card-visual">
+          <div class="kibo-card-elems"><img src="../assets/elements/wind.png" class="kibo-card-elem-icon" alt="Phong" loading="lazy"></div>
+          <img src="../assets/kibo/nhuphongung.png" class="kibo-card-img" alt="Nhu Phong Ưng" loading="lazy">
+        </div>
+        <div class="kibo-card-name-box">
+          <span class="kibo-card-name">Nhu Phong Ưng</span>
+        </div>
+      </a>
+      <a href="kibo/toanphongung.html" class="kibo-card" data-elements="wind" data-race="bird" data-stage="growth" data-size="medium" data-role="dps" data-variants="starcolor" data-name="toàn phong ưng 旋风鹰 phong dị sinh · vũ hình tộc trưởng thành tấn công chăm sóc">
+        <div class="kibo-card-visual">
+          <div class="kibo-card-elems"><img src="../assets/elements/wind.png" class="kibo-card-elem-icon" alt="Phong" loading="lazy"></div>
+          <img src="../assets/kibo/toanphongung.png" class="kibo-card-img" alt="Toàn Phong Ưng" loading="lazy">
+        </div>
+        <div class="kibo-card-name-box">
+          <span class="kibo-card-name">Toàn Phong Ưng</span>
+        </div>
+      </a>
+      <a href="kibo/phongtienung.html" class="kibo-card" data-elements="wind" data-race="bird" data-stage="mature" data-size="medium" data-role="dps" data-variants="starcolor" data-name="phong tiễn ưng 风剪鹰 phong dị sinh · vũ hình tộc thành thục tấn công chăm sóc">
+        <div class="kibo-card-visual">
+          <div class="kibo-card-elems"><img src="../assets/elements/wind.png" class="kibo-card-elem-icon" alt="Phong" loading="lazy"></div>
+          <img src="../assets/kibo/phongtienung.png" class="kibo-card-img" alt="Phong Tiễn Ưng" loading="lazy">
+        </div>
+        <div class="kibo-card-name-box">
+          <span class="kibo-card-name">Phong Tiễn Ưng</span>
+        </div>
+      </a>
+      <a href="kibo/pamola.html" class="kibo-card" data-elements="thunder,wind" data-race="bird" data-stage="mature" data-size="medium" data-role="dps" data-variants="special" data-name="pamola 帕莫拉 lôi phong dị sinh · vũ hình tộc thành thục tấn công nguyên tố">
+        <div class="kibo-card-visual">
+          <div class="kibo-card-elems"><img src="../assets/elements/thunder.png" class="kibo-card-elem-icon" alt="Lôi" loading="lazy"><img src="../assets/elements/wind.png" class="kibo-card-elem-icon" alt="Phong" loading="lazy"></div>
+          <img src="../assets/kibo/pamola.png" class="kibo-card-img" alt="Pamola" loading="lazy">
+        </div>
+        <div class="kibo-card-name-box">
+          <span class="kibo-card-name">Pamola</span>
+        </div>
+      </a>
+      <a href="kibo/linhnhalang.html" class="kibo-card" data-elements="wind" data-race="beast" data-stage="infant" data-size="small" data-role="dps" data-variants="starcolor" data-name="linh nha lang 伶牙狼 phong dị sinh · thú hình tộc ấu niên tấn công đốn gỗ">
+        <div class="kibo-card-visual">
+          <div class="kibo-card-elems"><img src="../assets/elements/wind.png" class="kibo-card-elem-icon" alt="Phong" loading="lazy"></div>
+          <img src="../assets/kibo/linhnhalang.png" class="kibo-card-img" alt="Linh Nha Lang" loading="lazy">
+        </div>
+        <div class="kibo-card-name-box">
+          <span class="kibo-card-name">Linh Nha Lang</span>
+        </div>
+      </a>
+      <a href="kibo/tanlang.html" class="kibo-card" data-elements="wind" data-race="beast" data-stage="mature" data-size="small" data-role="dps" data-variants="starcolor" data-name="tấn lang 迅狼 phong dị sinh · thú hình tộc thành thục tấn công đốn gỗ">
+        <div class="kibo-card-visual">
+          <div class="kibo-card-elems"><img src="../assets/elements/wind.png" class="kibo-card-elem-icon" alt="Phong" loading="lazy"></div>
+          <img src="../assets/kibo/tanlang.png" class="kibo-card-img" alt="Tấn Lang" loading="lazy">
+        </div>
+        <div class="kibo-card-name-box">
+          <span class="kibo-card-name">Tấn Lang</span>
+        </div>
+      </a>
+      <a href="kibo/giadali.html" class="kibo-card" data-elements="earth" data-race="beast" data-stage="infant" data-size="small" data-role="break" data-variants="shiny,starcolor" data-name="gia đa lợi 加多利 địa dị sinh · thú hình tộc ấu niên phá nhẫn đốn gỗ khai khoáng">
+        <div class="kibo-card-visual">
+          <div class="kibo-card-elems"><img src="../assets/elements/earth.png" class="kibo-card-elem-icon" alt="Địa" loading="lazy"></div>
+          <img src="../assets/kibo/giadali.png" class="kibo-card-img" alt="Gia Đa Lợi" loading="lazy">
+        </div>
+        <div class="kibo-card-name-box">
+          <span class="kibo-card-name">Gia Đa Lợi</span>
+        </div>
+      </a>
+      <a href="kibo/giado.html" class="kibo-card" data-elements="earth" data-race="beast" data-stage="mature" data-size="medium" data-role="break" data-variants="shiny,starcolor" data-name="gia đỗ 加杜 địa dị sinh · thú hình tộc thành thục phá nhẫn đốn gỗ khai khoáng">
+        <div class="kibo-card-visual">
+          <div class="kibo-card-elems"><img src="../assets/elements/earth.png" class="kibo-card-elem-icon" alt="Địa" loading="lazy"></div>
+          <img src="../assets/kibo/giado.png" class="kibo-card-img" alt="Gia Đỗ" loading="lazy">
+        </div>
+        <div class="kibo-card-name-box">
+          <span class="kibo-card-name">Gia Đỗ</span>
+        </div>
+      </a>
+      <a href="kibo/tongmocloc.html" class="kibo-card" data-elements="wood" data-race="beast" data-stage="infant" data-size="small" data-role="support" data-variants="starcolor" data-name="tông mộc lộc 棕木鹿 mộc dị sinh · thú hình tộc ấu niên hỗ trợ đốn gỗ">
+        <div class="kibo-card-visual">
+          <div class="kibo-card-elems"><img src="../assets/elements/wood.png" class="kibo-card-elem-icon" alt="Mộc" loading="lazy"></div>
+          <img src="../assets/kibo/tongmocloc.png" class="kibo-card-img" alt="Tông Mộc Lộc" loading="lazy">
+        </div>
+        <div class="kibo-card-name-box">
+          <span class="kibo-card-name">Tông Mộc Lộc</span>
+        </div>
+      </a>
+      <a href="kibo/tungdaloc.html" class="kibo-card" data-elements="wood" data-race="beast" data-stage="growth" data-size="small" data-role="support" data-variants="starcolor" data-name="tùng dã lộc 松野鹿 mộc dị sinh · thú hình tộc trưởng thành hỗ trợ đốn gỗ">
+        <div class="kibo-card-visual">
+          <div class="kibo-card-elems"><img src="../assets/elements/wood.png" class="kibo-card-elem-icon" alt="Mộc" loading="lazy"></div>
+          <img src="../assets/kibo/tungdaloc.png" class="kibo-card-img" alt="Tùng Dã Lộc" loading="lazy">
+        </div>
+        <div class="kibo-card-name-box">
+          <span class="kibo-card-name">Tùng Dã Lộc</span>
+        </div>
+      </a>
+      <a href="kibo/samcanhloc.html" class="kibo-card" data-elements="wood" data-race="beast" data-stage="mature" data-size="medium" data-role="support" data-variants="starcolor" data-name="sâm cảnh lộc 森境鹿 mộc dị sinh · thú hình tộc thành thục hỗ trợ đốn gỗ">
+        <div class="kibo-card-visual">
+          <div class="kibo-card-elems"><img src="../assets/elements/wood.png" class="kibo-card-elem-icon" alt="Mộc" loading="lazy"></div>
+          <img src="../assets/kibo/samcanhloc.png" class="kibo-card-img" alt="Sâm Cảnh Lộc" loading="lazy">
+        </div>
+        <div class="kibo-card-name-box">
+          <span class="kibo-card-name">Sâm Cảnh Lộc</span>
+        </div>
+      </a>
+      <a href="kibo/latia.html" class="kibo-card" data-elements="wood" data-race="beast" data-stage="mature" data-size="small" data-role="support" data-variants="special" data-name="latia 拉缇亚 mộc dị sinh · thú hình tộc thành thục hỗ trợ canh tác">
+        <div class="kibo-card-visual">
+          <div class="kibo-card-elems"><img src="../assets/elements/wood.png" class="kibo-card-elem-icon" alt="Mộc" loading="lazy"></div>
+          <img src="../assets/kibo/latia.png" class="kibo-card-img" alt="Latia" loading="lazy">
+        </div>
+        <div class="kibo-card-name-box">
+          <span class="kibo-card-name">Latia</span>
+        </div>
+      </a>
+      <a href="kibo/dadolong.html" class="kibo-card" data-elements="light" data-race="scale" data-stage="mature" data-size="medium" data-role="support" data-variants="shiny,starcolor" data-name="đà đà long 驮驮龙 quang dị sinh · lân hình tộc thành thục hỗ trợ canh tác">
+        <div class="kibo-card-visual">
+          <div class="kibo-card-elems"><img src="../assets/elements/light.png" class="kibo-card-elem-icon" alt="Quang" loading="lazy"></div>
+          <img src="../assets/kibo/dadolong.png" class="kibo-card-img" alt="Đà Đà Long" loading="lazy">
+        </div>
+        <div class="kibo-card-name-box">
+          <span class="kibo-card-name">Đà Đà Long</span>
+        </div>
+      </a>
+      <a href="kibo/huynhhuynh.html" class="kibo-card" data-elements="light" data-race="spirit" data-stage="infant" data-size="small" data-role="heal" data-variants="starcolor" data-name="huỳnh huỳnh 萤萤 quang huyễn sinh · tinh quái tộc ấu niên hồi phục canh tác">
+        <div class="kibo-card-visual">
+          <div class="kibo-card-elems"><img src="../assets/elements/light.png" class="kibo-card-elem-icon" alt="Quang" loading="lazy"></div>
+          <img src="../assets/kibo/huynhhuynh.png" class="kibo-card-img" alt="Huỳnh Huỳnh" loading="lazy">
+        </div>
+        <div class="kibo-card-name-box">
+          <span class="kibo-card-name">Huỳnh Huỳnh</span>
+        </div>
+      </a>
+      <a href="kibo/thiemthiemhuynh.html" class="kibo-card" data-elements="light" data-race="spirit" data-stage="growth" data-size="small" data-role="heal" data-variants="starcolor" data-name="thiểm thiểm huỳnh 闪闪萤 quang huyễn sinh · tinh quái tộc trưởng thành hồi phục canh tác">
+        <div class="kibo-card-visual">
+          <div class="kibo-card-elems"><img src="../assets/elements/light.png" class="kibo-card-elem-icon" alt="Quang" loading="lazy"></div>
+          <img src="../assets/kibo/thiemthiemhuynh.png" class="kibo-card-img" alt="Thiểm Thiểm Huỳnh" loading="lazy">
+        </div>
+        <div class="kibo-card-name-box">
+          <span class="kibo-card-name">Thiểm Thiểm Huỳnh</span>
+        </div>
+      </a>
+      <a href="kibo/tinhtinhhuynh.html" class="kibo-card" data-elements="light" data-race="spirit" data-stage="mature" data-size="medium" data-role="heal" data-variants="starcolor" data-name="tinh tinh huỳnh 晶晶萤 quang huyễn sinh · tinh quái tộc thành thục hồi phục canh tác">
+        <div class="kibo-card-visual">
+          <div class="kibo-card-elems"><img src="../assets/elements/light.png" class="kibo-card-elem-icon" alt="Quang" loading="lazy"></div>
+          <img src="../assets/kibo/tinhtinhhuynh.png" class="kibo-card-img" alt="Tinh Tinh Huỳnh" loading="lazy">
+        </div>
+        <div class="kibo-card-name-box">
+          <span class="kibo-card-name">Tinh Tinh Huỳnh</span>
+        </div>
+      </a>
+      <a href="kibo/homuhau.html" class="kibo-card" data-elements="thunder" data-race="beast" data-stage="infant" data-size="small" data-role="dps" data-variants="starcolor" data-name="hô mỗ hầu 呼姆猴 lôi dị sinh · thú hình tộc ấu niên tấn công thủ công">
+        <div class="kibo-card-visual">
+          <div class="kibo-card-elems"><img src="../assets/elements/thunder.png" class="kibo-card-elem-icon" alt="Lôi" loading="lazy"></div>
+          <img src="../assets/kibo/homuhau.png" class="kibo-card-img" alt="Hô Mỗ Hầu" loading="lazy">
+        </div>
+        <div class="kibo-card-name-box">
+          <span class="kibo-card-name">Hô Mỗ Hầu</span>
+        </div>
+      </a>
+      <a href="kibo/hoanvihau.html" class="kibo-card" data-elements="thunder" data-race="beast" data-stage="growth" data-size="small" data-role="dps" data-variants="starcolor" data-name="hoàn vĩ hầu 环尾猴 lôi dị sinh · thú hình tộc trưởng thành tấn công thủ công">
+        <div class="kibo-card-visual">
+          <div class="kibo-card-elems"><img src="../assets/elements/thunder.png" class="kibo-card-elem-icon" alt="Lôi" loading="lazy"></div>
+          <img src="../assets/kibo/hoanvihau.png" class="kibo-card-img" alt="Hoàn Vĩ Hầu" loading="lazy">
+        </div>
+        <div class="kibo-card-name-box">
+          <span class="kibo-card-name">Hoàn Vĩ Hầu</span>
+        </div>
+      </a>
+      <a href="kibo/hoananhhau.html" class="kibo-card" data-elements="thunder" data-race="beast" data-stage="mature" data-size="medium" data-role="dps" data-variants="starcolor" data-name="hoàn ảnh hầu 环影猴 lôi dị sinh · thú hình tộc thành thục tấn công thủ công">
+        <div class="kibo-card-visual">
+          <div class="kibo-card-elems"><img src="../assets/elements/thunder.png" class="kibo-card-elem-icon" alt="Lôi" loading="lazy"></div>
+          <img src="../assets/kibo/hoananhhau.png" class="kibo-card-img" alt="Hoàn Ảnh Hầu" loading="lazy">
+        </div>
+        <div class="kibo-card-name-box">
+          <span class="kibo-card-name">Hoàn Ảnh Hầu</span>
+        </div>
+      </a>
+      <a href="kibo/voniemnha.html" class="kibo-card" data-elements="dark" data-race="molt" data-stage="infant" data-size="small" data-role="support" data-variants="starcolor" data-name="vụ niêm oa 雾粘蛙 ám dị sinh · thoái hình tộc ấu niên hỗ trợ nguyên tố">
+        <div class="kibo-card-visual">
+          <div class="kibo-card-elems"><img src="../assets/elements/dark.png" class="kibo-card-elem-icon" alt="Ám" loading="lazy"></div>
+          <img src="../assets/kibo/voniemnha.png" class="kibo-card-img" alt="Vụ Niêm Oa" loading="lazy">
+        </div>
+        <div class="kibo-card-name-box">
+          <span class="kibo-card-name">Vụ Niêm Oa</span>
+        </div>
+      </a>
+      <a href="kibo/vocauoa.html" class="kibo-card" data-elements="dark" data-race="molt" data-stage="mature" data-size="medium" data-role="support" data-variants="starcolor" data-name="vụ cầu oa 雾球蛙 ám dị sinh · thoái hình tộc thành thục hỗ trợ nguyên tố">
+        <div class="kibo-card-visual">
+          <div class="kibo-card-elems"><img src="../assets/elements/dark.png" class="kibo-card-elem-icon" alt="Ám" loading="lazy"></div>
+          <img src="../assets/kibo/vocauoa.png" class="kibo-card-img" alt="Vụ Cầu Oa" loading="lazy">
+        </div>
+        <div class="kibo-card-name-box">
+          <span class="kibo-card-name">Vụ Cầu Oa</span>
+        </div>
+      </a>
+      <a href="kibo/tieuamphau.html" class="kibo-card" data-elements="wind,thunder" data-race="molt" data-stage="infant" data-size="small" data-role="support" data-variants="starcolor" data-name="tiểu âm phù 小音浮 phong lôi dị sinh · thoái hình tộc ấu niên hỗ trợ thủ công">
+        <div class="kibo-card-visual">
+          <div class="kibo-card-elems"><img src="../assets/elements/wind.png" class="kibo-card-elem-icon" alt="Phong" loading="lazy"><img src="../assets/elements/thunder.png" class="kibo-card-elem-icon" alt="Lôi" loading="lazy"></div>
+          <img src="../assets/kibo/tieuamphau.png" class="kibo-card-img" alt="Tiểu Âm Phù" loading="lazy">
+        </div>
+        <div class="kibo-card-name-box">
+          <span class="kibo-card-name">Tiểu Âm Phù</span>
+        </div>
+      </a>
+      <a href="kibo/nhacnhacoa.html" class="kibo-card" data-elements="wind,thunder" data-race="molt" data-stage="growth" data-size="small" data-role="support" data-variants="starcolor" data-name="nhạc nhạc oa 乐乐蛙 phong lôi dị sinh · thoái hình tộc trưởng thành hỗ trợ thủ công">
+        <div class="kibo-card-visual">
+          <div class="kibo-card-elems"><img src="../assets/elements/wind.png" class="kibo-card-elem-icon" alt="Phong" loading="lazy"><img src="../assets/elements/thunder.png" class="kibo-card-elem-icon" alt="Lôi" loading="lazy"></div>
+          <img src="../assets/kibo/nhacnhacoa.png" class="kibo-card-img" alt="Nhạc Nhạc Oa" loading="lazy">
+        </div>
+        <div class="kibo-card-name-box">
+          <span class="kibo-card-name">Nhạc Nhạc Oa</span>
+        </div>
+      </a>
+      <a href="kibo/ambaoa.html" class="kibo-card" data-elements="wind,thunder" data-race="molt" data-stage="mature" data-size="medium" data-role="support" data-variants="starcolor" data-name="âm bá oa 音霸蛙 phong lôi dị sinh · thoái hình tộc thành thục hỗ trợ thủ công">
+        <div class="kibo-card-visual">
+          <div class="kibo-card-elems"><img src="../assets/elements/wind.png" class="kibo-card-elem-icon" alt="Phong" loading="lazy"><img src="../assets/elements/thunder.png" class="kibo-card-elem-icon" alt="Lôi" loading="lazy"></div>
+          <img src="../assets/kibo/ambaoa.png" class="kibo-card-img" alt="Âm Bá Oa" loading="lazy">
+        </div>
+        <div class="kibo-card-name-box">
+          <span class="kibo-card-name">Âm Bá Oa</span>
+        </div>
+      </a>
+      <a href="kibo/phichphadinh.html" class="kibo-card" data-elements="thunder" data-race="spirit" data-stage="infant" data-size="small" data-role="support" data-variants="starcolor" data-name="phích phách đinh 噼啪丁 lôi huyễn sinh · tinh quái tộc ấu niên hỗ trợ tưới nước nguyên tố">
+        <div class="kibo-card-visual">
+          <div class="kibo-card-elems"><img src="../assets/elements/thunder.png" class="kibo-card-elem-icon" alt="Lôi" loading="lazy"></div>
+          <img src="../assets/kibo/phichphadinh.png" class="kibo-card-img" alt="Phích Phách Đinh" loading="lazy">
+        </div>
+        <div class="kibo-card-name-box">
+          <span class="kibo-card-name">Phích Phách Đinh</span>
+        </div>
+      </a>
+      <a href="kibo/loiloivan.html" class="kibo-card" data-elements="thunder" data-race="spirit" data-stage="mature" data-size="small" data-role="support" data-variants="starcolor" data-name="lôi lôi vân 雷雷云 lôi huyễn sinh · tinh quái tộc thành thục hỗ trợ tưới nước nguyên tố">
+        <div class="kibo-card-visual">
+          <div class="kibo-card-elems"><img src="../assets/elements/thunder.png" class="kibo-card-elem-icon" alt="Lôi" loading="lazy"></div>
+          <img src="../assets/kibo/loiloivan.png" class="kibo-card-img" alt="Lôi Lôi Vân" loading="lazy">
+        </div>
+        <div class="kibo-card-name-box">
+          <span class="kibo-card-name">Lôi Lôi Vân</span>
+        </div>
+      </a>
+      <a href="kibo/bobodinh.html" class="kibo-card" data-elements="wind,wood" data-race="spirit" data-stage="infant" data-size="small" data-role="heal" data-variants="starcolor" data-name="bô bô đinh 啵啵丁 phong mộc huyễn sinh · tinh quái tộc ấu niên hồi phục canh tác">
+        <div class="kibo-card-visual">
+          <div class="kibo-card-elems"><img src="../assets/elements/wind.png" class="kibo-card-elem-icon" alt="Phong" loading="lazy"><img src="../assets/elements/wood.png" class="kibo-card-elem-icon" alt="Mộc" loading="lazy"></div>
+          <img src="../assets/kibo/bobodinh.png" class="kibo-card-img" alt="Bô Bô Đinh" loading="lazy">
+        </div>
+        <div class="kibo-card-name-box">
+          <span class="kibo-card-name">Bô Bô Đinh</span>
+        </div>
+      </a>
+      <a href="kibo/nhungnhungvan.html" class="kibo-card" data-elements="wind,wood" data-race="spirit" data-stage="mature" data-size="small" data-role="heal" data-variants="starcolor" data-name="nhung nhung vân 绒绒云 phong mộc huyễn sinh · tinh quái tộc thành thục hồi phục canh tác">
+        <div class="kibo-card-visual">
+          <div class="kibo-card-elems"><img src="../assets/elements/wind.png" class="kibo-card-elem-icon" alt="Phong" loading="lazy"><img src="../assets/elements/wood.png" class="kibo-card-elem-icon" alt="Mộc" loading="lazy"></div>
+          <img src="../assets/kibo/nhungnhungvan.png" class="kibo-card-img" alt="Nhung Nhung Vân" loading="lazy">
+        </div>
+        <div class="kibo-card-name-box">
+          <span class="kibo-card-name">Nhung Nhung Vân</span>
+        </div>
+      </a>
+      <a href="kibo/diemduongduong.html" class="kibo-card" data-elements="fire" data-race="beast" data-stage="infant" data-size="small" data-role="dps" data-variants="shiny,starcolor" data-name="diễm dương dương 焰羊羊 hỏa dị sinh · thú hình tộc ấu niên tấn công nhóm lửa">
+        <div class="kibo-card-visual">
+          <div class="kibo-card-elems"><img src="../assets/elements/fire.png" class="kibo-card-elem-icon" alt="Hỏa" loading="lazy"></div>
+          <img src="../assets/kibo/diemduongduong.png" class="kibo-card-img" alt="Diễm Dương Dương" loading="lazy">
+        </div>
+        <div class="kibo-card-name-box">
+          <span class="kibo-card-name">Diễm Dương Dương</span>
+        </div>
+      </a>
+      <a href="kibo/vihoaduong.html" class="kibo-card" data-elements="fire" data-race="beast" data-stage="growth" data-size="small" data-role="dps" data-variants="shiny,starcolor" data-name="vĩ hỏa dương 尾火羊 hỏa dị sinh · thú hình tộc trưởng thành tấn công nhóm lửa">
+        <div class="kibo-card-visual">
+          <div class="kibo-card-elems"><img src="../assets/elements/fire.png" class="kibo-card-elem-icon" alt="Hỏa" loading="lazy"></div>
+          <img src="../assets/kibo/vihoaduong.png" class="kibo-card-img" alt="Vĩ Hỏa Dương" loading="lazy">
+        </div>
+        <div class="kibo-card-name-box">
+          <span class="kibo-card-name">Vĩ Hỏa Dương</span>
+        </div>
+      </a>
+      <a href="kibo/viemchuocgiacduong.html" class="kibo-card" data-elements="fire" data-race="beast" data-stage="mature" data-size="medium" data-role="dps" data-variants="shiny,starcolor" data-name="viêm chước giác dương 炎灼角羊 hỏa dị sinh · thú hình tộc thành thục tấn công nhóm lửa">
+        <div class="kibo-card-visual">
+          <div class="kibo-card-elems"><img src="../assets/elements/fire.png" class="kibo-card-elem-icon" alt="Hỏa" loading="lazy"></div>
+          <img src="../assets/kibo/viemchuocgiacduong.png" class="kibo-card-img" alt="Viêm Chước Giác Dương" loading="lazy">
+        </div>
+        <div class="kibo-card-name-box">
+          <span class="kibo-card-name">Viêm Chước Giác Dương</span>
+        </div>
+      </a>
+      <a href="kibo/tieutuyetlang.html" class="kibo-card" data-elements="ice" data-race="beast" data-stage="infant" data-size="small" data-role="dps" data-variants="starcolor" data-name="tiểu tuyết lang 小雪狼 băng dị sinh · thú hình tộc ấu niên tấn công đốn gỗ">
+        <div class="kibo-card-visual">
+          <div class="kibo-card-elems"><img src="../assets/elements/ice.png" class="kibo-card-elem-icon" alt="Băng" loading="lazy"></div>
+          <img src="../assets/kibo/tieutuyetlang.png" class="kibo-card-img" alt="Tiểu Tuyết Lang" loading="lazy">
+        </div>
+        <div class="kibo-card-name-box">
+          <span class="kibo-card-name">Tiểu Tuyết Lang</span>
+        </div>
+      </a>
+      <a href="kibo/bangtoclang.html" class="kibo-card" data-elements="ice" data-race="beast" data-stage="growth" data-size="small" data-role="dps" data-variants="starcolor" data-name="băng tốc lang 冰速狼 băng dị sinh · thú hình tộc trưởng thành tấn công đốn gỗ">
+        <div class="kibo-card-visual">
+          <div class="kibo-card-elems"><img src="../assets/elements/ice.png" class="kibo-card-elem-icon" alt="Băng" loading="lazy"></div>
+          <img src="../assets/kibo/bangtoclang.png" class="kibo-card-img" alt="Băng Tốc Lang" loading="lazy">
+        </div>
+        <div class="kibo-card-name-box">
+          <span class="kibo-card-name">Băng Tốc Lang</span>
+        </div>
+      </a>
+      <a href="kibo/suongnhanlang.html" class="kibo-card" data-elements="ice" data-race="beast" data-stage="mature" data-size="medium" data-role="dps" data-variants="starcolor" data-name="sương nhẫn lang 霜刃狼 băng dị sinh · thú hình tộc thành thục tấn công đốn gỗ">
+        <div class="kibo-card-visual">
+          <div class="kibo-card-elems"><img src="../assets/elements/ice.png" class="kibo-card-elem-icon" alt="Băng" loading="lazy"></div>
+          <img src="../assets/kibo/suongnhanlang.png" class="kibo-card-img" alt="Sương Nhẫn Lang" loading="lazy">
+        </div>
+        <div class="kibo-card-name-box">
+          <span class="kibo-card-name">Sương Nhẫn Lang</span>
+        </div>
+      </a>
+      <a href="kibo/ur.html" class="kibo-card" data-elements="ice" data-race="beast" data-stage="mature" data-size="medium" data-role="dps" data-variants="special" data-name="uller 乌尔 băng dị sinh · thú hình tộc thành thục tấn công đốn gỗ">
+        <div class="kibo-card-visual">
+          <div class="kibo-card-elems"><img src="../assets/elements/ice.png" class="kibo-card-elem-icon" alt="Băng" loading="lazy"></div>
+          <img src="../assets/kibo/ur.png" class="kibo-card-img" alt="Uller" loading="lazy">
+        </div>
+        <div class="kibo-card-name-box">
+          <span class="kibo-card-name">Uller</span>
+        </div>
+      </a>
+      <a href="kibo/tieunhamde.html" class="kibo-card" data-elements="earth" data-race="beast" data-stage="infant" data-size="small" data-role="dps" data-variants="starcolor" data-name="tiểu nham đề 小岩蹄 địa dị sinh · thú hình tộc ấu niên tấn công canh tác">
+        <div class="kibo-card-visual">
+          <div class="kibo-card-elems"><img src="../assets/elements/earth.png" class="kibo-card-elem-icon" alt="Địa" loading="lazy"></div>
+          <img src="../assets/kibo/tieunhamde.png" class="kibo-card-img" alt="Tiểu Nham Đề" loading="lazy">
+        </div>
+        <div class="kibo-card-name-box">
+          <span class="kibo-card-name">Tiểu Nham Đề</span>
+        </div>
+      </a>
+      <a href="kibo/trongnhamde.html" class="kibo-card" data-elements="earth" data-race="beast" data-stage="mature" data-size="small" data-role="dps" data-variants="starcolor" data-name="trọng nham đề 重岩蹄 địa dị sinh · thú hình tộc thành thục tấn công canh tác">
+        <div class="kibo-card-visual">
+          <div class="kibo-card-elems"><img src="../assets/elements/earth.png" class="kibo-card-elem-icon" alt="Địa" loading="lazy"></div>
+          <img src="../assets/kibo/trongnhamde.png" class="kibo-card-img" alt="Trọng Nham Đề" loading="lazy">
+        </div>
+        <div class="kibo-card-name-box">
+          <span class="kibo-card-name">Trọng Nham Đề</span>
+        </div>
+      </a>
+      <a href="kibo/makhongcau.html" class="kibo-card" data-elements="wind" data-race="bird" data-stage="mature" data-size="small" data-role="support" data-variants="starcolor" data-name="ma không cầu 摩空球 phong dị sinh · vũ hình tộc thành thục hỗ trợ chăm sóc">
+        <div class="kibo-card-visual">
+          <div class="kibo-card-elems"><img src="../assets/elements/wind.png" class="kibo-card-elem-icon" alt="Phong" loading="lazy"></div>
+          <img src="../assets/kibo/makhongcau.png" class="kibo-card-img" alt="Ma Không Cầu" loading="lazy">
+        </div>
+        <div class="kibo-card-name-box">
+          <span class="kibo-card-name">Ma Không Cầu</span>
+        </div>
+      </a>
+      <a href="kibo/diemlinhlong.html" class="kibo-card" data-elements="fire" data-race="bird" data-stage="mature" data-size="medium" data-role="dps" data-variants="starcolor" data-name="diễm linh long 焰翎龙 hỏa dị sinh · vũ hình tộc thành thục tấn công nhóm lửa">
+        <div class="kibo-card-visual">
+          <div class="kibo-card-elems"><img src="../assets/elements/fire.png" class="kibo-card-elem-icon" alt="Hỏa" loading="lazy"></div>
+          <img src="../assets/kibo/diemlinhlong.png" class="kibo-card-img" alt="Diễm Linh Long" loading="lazy">
+        </div>
+        <div class="kibo-card-name-box">
+          <span class="kibo-card-name">Diễm Linh Long</span>
+        </div>
+      </a>
+      <a href="kibo/truongvichiu.html" class="kibo-card" data-elements="wind" data-race="bird" data-stage="infant" data-size="small" data-role="heal" data-variants="starcolor" data-name="trường vĩ chíu 长尾啾 phong dị sinh · vũ hình tộc ấu niên hồi phục chăm sóc canh tác">
+        <div class="kibo-card-visual">
+          <div class="kibo-card-elems"><img src="../assets/elements/wind.png" class="kibo-card-elem-icon" alt="Phong" loading="lazy"></div>
+          <img src="../assets/kibo/truongvichiu.png" class="kibo-card-img" alt="Trường Vĩ Chíu" loading="lazy">
+        </div>
+        <div class="kibo-card-name-box">
+          <span class="kibo-card-name">Trường Vĩ Chíu</span>
+        </div>
+      </a>
+      <a href="kibo/phitintuoc.html" class="kibo-card" data-elements="wind" data-race="bird" data-stage="mature" data-size="medium" data-role="heal" data-variants="starcolor" data-name="phi tín tước 飞信雀 phong dị sinh · vũ hình tộc thành thục hồi phục chăm sóc canh tác">
+        <div class="kibo-card-visual">
+          <div class="kibo-card-elems"><img src="../assets/elements/wind.png" class="kibo-card-elem-icon" alt="Phong" loading="lazy"></div>
+          <img src="../assets/kibo/phitintuoc.png" class="kibo-card-img" alt="Phi Tín Tước" loading="lazy">
+        </div>
+        <div class="kibo-card-name-box">
+          <span class="kibo-card-name">Phi Tín Tước</span>
+        </div>
+      </a>
+      <a href="kibo/khieukhieudaothaonhan.html" class="kibo-card" data-elements="earth" data-race="mecha" data-stage="infant" data-size="small" data-role="dps" data-variants="starcolor" data-name="khiêu khiêu đạo thảo nhân 跳跳稻草人 địa huyễn sinh · cơ ngẫu tộc ấu niên tấn công thủ công rèn đúc canh tác">
+        <div class="kibo-card-visual">
+          <div class="kibo-card-elems"><img src="../assets/elements/earth.png" class="kibo-card-elem-icon" alt="Địa" loading="lazy"></div>
+          <img src="../assets/kibo/khieukhieudaothaonhan.png" class="kibo-card-img" alt="Khiêu Khiêu Đạo Thảo Nhân" loading="lazy">
+        </div>
+        <div class="kibo-card-name-box">
+          <span class="kibo-card-name">Khiêu Khiêu Đạo Thảo Nhân</span>
+        </div>
+      </a>
+      <a href="kibo/thunhatthuvonggia.html" class="kibo-card" data-elements="earth" data-race="mecha" data-stage="mature" data-size="medium" data-role="dps" data-variants="starcolor" data-name="thu nhật thủ vọng giả 秋日守望者 địa huyễn sinh · cơ ngẫu tộc thành thục tấn công thủ công rèn đúc canh tác">
+        <div class="kibo-card-visual">
+          <div class="kibo-card-elems"><img src="../assets/elements/earth.png" class="kibo-card-elem-icon" alt="Địa" loading="lazy"></div>
+          <img src="../assets/kibo/thunhatthuvonggia.png" class="kibo-card-img" alt="Thu Nhật Thủ Vọng Giả" loading="lazy">
+        </div>
+        <div class="kibo-card-name-box">
+          <span class="kibo-card-name">Thu Nhật Thủ Vọng Giả</span>
+        </div>
+      </a>
+      <a href="kibo/uuudaothaonhan.html" class="kibo-card" data-elements="dark,earth" data-race="mecha" data-stage="infant" data-size="small" data-role="dps" data-variants="starcolor" data-name="u u đạo thảo nhân 幽幽稻草人 ám địa huyễn sinh · cơ ngẫu tộc ấu niên tấn công thủ công rèn đúc nguyên tố">
+        <div class="kibo-card-visual">
+          <div class="kibo-card-elems"><img src="../assets/elements/dark.png" class="kibo-card-elem-icon" alt="Ám" loading="lazy"><img src="../assets/elements/earth.png" class="kibo-card-elem-icon" alt="Địa" loading="lazy"></div>
+          <img src="../assets/kibo/uuudaothaonhan.png" class="kibo-card-img" alt="U U Đạo Thảo Nhân" loading="lazy">
+        </div>
+        <div class="kibo-card-name-box">
+          <span class="kibo-card-name">U U Đạo Thảo Nhân</span>
+        </div>
+      </a>
+      <a href="kibo/amdathuvonggia.html" class="kibo-card" data-elements="dark,earth" data-race="mecha" data-stage="mature" data-size="medium" data-role="dps" data-variants="starcolor" data-name="ám dạ thủ vọng giả 暗夜守望者 ám địa huyễn sinh · cơ ngẫu tộc thành thục tấn công thủ công rèn đúc nguyên tố">
+        <div class="kibo-card-visual">
+          <div class="kibo-card-elems"><img src="../assets/elements/dark.png" class="kibo-card-elem-icon" alt="Ám" loading="lazy"><img src="../assets/elements/earth.png" class="kibo-card-elem-icon" alt="Địa" loading="lazy"></div>
+          <img src="../assets/kibo/amdathuvonggia.png" class="kibo-card-img" alt="Ám Dạ Thủ Vọng Giả" loading="lazy">
+        </div>
+        <div class="kibo-card-name-box">
+          <span class="kibo-card-name">Ám Dạ Thủ Vọng Giả</span>
+        </div>
+      </a>
+      <a href="kibo/baosuongquai.html" class="kibo-card" data-elements="dark" data-race="elemental" data-stage="mature" data-size="small" data-role="support" data-variants="starcolor" data-name="bảo rương quái 宝箱怪 ám huyễn sinh · nguyên tố tộc thành thục hỗ trợ thủ công">
+        <div class="kibo-card-visual">
+          <div class="kibo-card-elems"><img src="../assets/elements/dark.png" class="kibo-card-elem-icon" alt="Ám" loading="lazy"></div>
+          <img src="../assets/kibo/baosuongquai.png" class="kibo-card-img" alt="Bảo Rương Quái" loading="lazy">
+        </div>
+        <div class="kibo-card-name-box">
+          <span class="kibo-card-name">Bảo Rương Quái</span>
+        </div>
+      </a>
+      <a href="kibo/nhungnhungthu.html" class="kibo-card" data-elements="thunder" data-race="beast" data-stage="infant" data-size="small" data-role="dps" data-variants="starcolor" data-name="nhung nhung thử 茸茸鼠 lôi dị sinh · thú hình tộc ấu niên tấn công thủ công">
+        <div class="kibo-card-visual">
+          <div class="kibo-card-elems"><img src="../assets/elements/thunder.png" class="kibo-card-elem-icon" alt="Lôi" loading="lazy"></div>
+          <img src="../assets/kibo/nhungnhungthu.png" class="kibo-card-img" alt="Nhung Nhung Thử" loading="lazy">
+        </div>
+        <div class="kibo-card-name-box">
+          <span class="kibo-card-name">Nhung Nhung Thử</span>
+        </div>
+      </a>
+      <a href="kibo/cauphithu.html" class="kibo-card" data-elements="thunder" data-race="beast" data-stage="growth" data-size="small" data-role="dps" data-variants="starcolor" data-name="cầu phi thử 球飞鼠 lôi dị sinh · thú hình tộc trưởng thành tấn công thủ công">
+        <div class="kibo-card-visual">
+          <div class="kibo-card-elems"><img src="../assets/elements/thunder.png" class="kibo-card-elem-icon" alt="Lôi" loading="lazy"></div>
+          <img src="../assets/kibo/cauphithu.png" class="kibo-card-img" alt="Cầu Phi Thử" loading="lazy">
+        </div>
+        <div class="kibo-card-name-box">
+          <span class="kibo-card-name">Cầu Phi Thử</span>
+        </div>
+      </a>
+      <a href="kibo/nhungducthu.html" class="kibo-card" data-elements="thunder" data-race="beast" data-stage="mature" data-size="small" data-role="dps" data-variants="starcolor" data-name="nhung dực thử 绒翼鼠 lôi dị sinh · thú hình tộc thành thục tấn công thủ công">
+        <div class="kibo-card-visual">
+          <div class="kibo-card-elems"><img src="../assets/elements/thunder.png" class="kibo-card-elem-icon" alt="Lôi" loading="lazy"></div>
+          <img src="../assets/kibo/nhungducthu.png" class="kibo-card-img" alt="Nhung Dực Thử" loading="lazy">
+        </div>
+        <div class="kibo-card-name-box">
+          <span class="kibo-card-name">Nhung Dực Thử</span>
+        </div>
+      </a>
+      <a href="kibo/pholong.html" class="kibo-card" data-elements="earth" data-race="beast" data-stage="infant" data-size="small" data-role="support" data-variants="starcolor" data-name="phổ long 普隆 địa dị sinh · thú hình tộc ấu niên hỗ trợ đốn gỗ">
+        <div class="kibo-card-visual">
+          <div class="kibo-card-elems"><img src="../assets/elements/earth.png" class="kibo-card-elem-icon" alt="Địa" loading="lazy"></div>
+          <img src="../assets/kibo/pholong.png" class="kibo-card-img" alt="Phổ Long" loading="lazy">
+        </div>
+        <div class="kibo-card-name-box">
+          <span class="kibo-card-name">Phổ Long</span>
+        </div>
+      </a>
+      <a href="kibo/bangiaphu.html" class="kibo-card" data-elements="earth" data-race="beast" data-stage="mature" data-size="medium" data-role="support" data-variants="starcolor" data-name="bàn giáp thú 磐甲兽 địa dị sinh · thú hình tộc thành thục hỗ trợ đốn gỗ">
+        <div class="kibo-card-visual">
+          <div class="kibo-card-elems"><img src="../assets/elements/earth.png" class="kibo-card-elem-icon" alt="Địa" loading="lazy"></div>
+          <img src="../assets/kibo/bangiaphu.png" class="kibo-card-img" alt="Bàn Giáp Thú" loading="lazy">
+        </div>
+        <div class="kibo-card-name-box">
+          <span class="kibo-card-name">Bàn Giáp Thú</span>
+        </div>
+      </a>
+      <a href="kibo/condiacau.html" class="kibo-card" data-elements="fire,earth" data-race="beast" data-stage="infant" data-size="small" data-role="break" data-variants="starcolor" data-name="cổn địa cừu 滚地犰 hỏa địa dị sinh · thú hình tộc ấu niên phá nhẫn nhóm lửa">
+        <div class="kibo-card-visual">
+          <div class="kibo-card-elems"><img src="../assets/elements/fire.png" class="kibo-card-elem-icon" alt="Hỏa" loading="lazy"><img src="../assets/elements/earth.png" class="kibo-card-elem-icon" alt="Địa" loading="lazy"></div>
+          <img src="../assets/kibo/condiacau.png" class="kibo-card-img" alt="Cổn Địa Cừu" loading="lazy">
+        </div>
+        <div class="kibo-card-name-box">
+          <span class="kibo-card-name">Cổn Địa Cừu</span>
+        </div>
+      </a>
+      <a href="kibo/phucgiapcau.html" class="kibo-card" data-elements="fire,earth" data-race="beast" data-stage="growth" data-size="small" data-role="break" data-variants="starcolor" data-name="phúc giáp cừu 覆甲犰 hỏa địa dị sinh · thú hình tộc trưởng thành phá nhẫn nhóm lửa">
+        <div class="kibo-card-visual">
+          <div class="kibo-card-elems"><img src="../assets/elements/fire.png" class="kibo-card-elem-icon" alt="Hỏa" loading="lazy"><img src="../assets/elements/earth.png" class="kibo-card-elem-icon" alt="Địa" loading="lazy"></div>
+          <img src="../assets/kibo/phucgiapcau.png" class="kibo-card-img" alt="Phúc Giáp Cừu" loading="lazy">
+        </div>
+        <div class="kibo-card-name-box">
+          <span class="kibo-card-name">Phúc Giáp Cừu</span>
+        </div>
+      </a>
+      <a href="kibo/dungnhamcau.html" class="kibo-card" data-elements="fire,earth" data-race="beast" data-stage="mature" data-size="medium" data-role="break" data-variants="starcolor" data-name="dung nham cừu 熔岩犰 hỏa địa dị sinh · thú hình tộc thành thục phá nhẫn nhóm lửa">
+        <div class="kibo-card-visual">
+          <div class="kibo-card-elems"><img src="../assets/elements/fire.png" class="kibo-card-elem-icon" alt="Hỏa" loading="lazy"><img src="../assets/elements/earth.png" class="kibo-card-elem-icon" alt="Địa" loading="lazy"></div>
+          <img src="../assets/kibo/dungnhamcau.png" class="kibo-card-img" alt="Dung Nham Cừu" loading="lazy">
+        </div>
+        <div class="kibo-card-name-box">
+          <span class="kibo-card-name">Dung Nham Cừu</span>
+        </div>
+      </a>
+      <a href="kibo/nhamgiaptich.html" class="kibo-card" data-elements="earth" data-race="scale" data-stage="infant" data-size="small" data-role="break" data-variants="starcolor" data-name="nham giáp tích 岩甲蜥 địa dị sinh · lân hình tộc ấu niên phá nhẫn khai khoáng">
+        <div class="kibo-card-visual">
+          <div class="kibo-card-elems"><img src="../assets/elements/earth.png" class="kibo-card-elem-icon" alt="Địa" loading="lazy"></div>
+          <img src="../assets/kibo/nhamgiaptich.png" class="kibo-card-img" alt="Nham Giáp Tích" loading="lazy">
+        </div>
+        <div class="kibo-card-name-box">
+          <span class="kibo-card-name">Nham Giáp Tích</span>
+        </div>
+      </a>
+      <a href="kibo/xuyengiaptich.html" class="kibo-card" data-elements="earth" data-race="scale" data-stage="growth" data-size="small" data-role="break" data-variants="starcolor" data-name="xuyên giáp tích 穿甲蜥 địa dị sinh · lân hình tộc trưởng thành phá nhẫn khai khoáng">
+        <div class="kibo-card-visual">
+          <div class="kibo-card-elems"><img src="../assets/elements/earth.png" class="kibo-card-elem-icon" alt="Địa" loading="lazy"></div>
+          <img src="../assets/kibo/xuyengiaptich.png" class="kibo-card-img" alt="Xuyên Giáp Tích" loading="lazy">
+        </div>
+        <div class="kibo-card-name-box">
+          <span class="kibo-card-name">Xuyên Giáp Tích</span>
+        </div>
+      </a>
+      <a href="kibo/toansontich.html" class="kibo-card" data-elements="earth" data-race="scale" data-stage="mature" data-size="large" data-role="break" data-variants="starcolor" data-name="toản sơn tích 钻山蜥 địa dị sinh · lân hình tộc thành thục phá nhẫn khai khoáng">
+        <div class="kibo-card-visual">
+          <div class="kibo-card-elems"><img src="../assets/elements/earth.png" class="kibo-card-elem-icon" alt="Địa" loading="lazy"></div>
+          <img src="../assets/kibo/toansontich.png" class="kibo-card-img" alt="Toản Sơn Tích" loading="lazy">
+        </div>
+        <div class="kibo-card-name-box">
+          <span class="kibo-card-name">Toản Sơn Tích</span>
+        </div>
+      </a>
+      <a href="kibo/hongbaotrung.html" class="kibo-card" data-elements="fire,earth" data-race="molt" data-stage="infant" data-size="small" data-role="support" data-variants="starcolor" data-name="hồng bảo trùng 红宝虫 hỏa địa dị sinh · thoái hình tộc ấu niên hỗ trợ khai khoáng nhóm lửa">
+        <div class="kibo-card-visual">
+          <div class="kibo-card-elems"><img src="../assets/elements/fire.png" class="kibo-card-elem-icon" alt="Hỏa" loading="lazy"><img src="../assets/elements/earth.png" class="kibo-card-elem-icon" alt="Địa" loading="lazy"></div>
+          <img src="../assets/kibo/hongbaotrung.png" class="kibo-card-img" alt="Hồng Bảo Trùng" loading="lazy">
+        </div>
+        <div class="kibo-card-name-box">
+          <span class="kibo-card-name">Hồng Bảo Trùng</span>
+        </div>
+      </a>
+      <a href="kibo/xichtinhgiap.html" class="kibo-card" data-elements="fire,earth" data-race="molt" data-stage="growth" data-size="small" data-role="support" data-variants="starcolor" data-name="xích tinh giáp 赤晶甲 hỏa địa dị sinh · thoái hình tộc trưởng thành hỗ trợ khai khoáng nhóm lửa">
+        <div class="kibo-card-visual">
+          <div class="kibo-card-elems"><img src="../assets/elements/fire.png" class="kibo-card-elem-icon" alt="Hỏa" loading="lazy"><img src="../assets/elements/earth.png" class="kibo-card-elem-icon" alt="Địa" loading="lazy"></div>
+          <img src="../assets/kibo/xichtinhgiap.png" class="kibo-card-img" alt="Xích Tinh Giáp" loading="lazy">
+        </div>
+        <div class="kibo-card-name-box">
+          <span class="kibo-card-name">Xích Tinh Giáp</span>
+        </div>
+      </a>
+      <a href="kibo/viemtinhgiap.html" class="kibo-card" data-elements="fire,earth" data-race="molt" data-stage="mature" data-size="medium" data-role="support" data-variants="starcolor" data-name="viêm tinh giáp 炎晶甲 hỏa địa dị sinh · thoái hình tộc thành thục hỗ trợ khai khoáng nhóm lửa">
+        <div class="kibo-card-visual">
+          <div class="kibo-card-elems"><img src="../assets/elements/fire.png" class="kibo-card-elem-icon" alt="Hỏa" loading="lazy"><img src="../assets/elements/earth.png" class="kibo-card-elem-icon" alt="Địa" loading="lazy"></div>
+          <img src="../assets/kibo/viemtinhgiap.png" class="kibo-card-img" alt="Viêm Tinh Giáp" loading="lazy">
+        </div>
+        <div class="kibo-card-name-box">
+          <span class="kibo-card-name">Viêm Tinh Giáp</span>
+        </div>
+      </a>
+      <a href="kibo/lambaothich.html" class="kibo-card" data-elements="ice,earth" data-race="beast" data-stage="infant" data-size="small" data-role="support" data-variants="starcolor" data-name="lam bảo thích 蓝宝刺 băng địa dị sinh · thú hình tộc ấu niên hỗ trợ khai khoáng">
+        <div class="kibo-card-visual">
+          <div class="kibo-card-elems"><img src="../assets/elements/ice.png" class="kibo-card-elem-icon" alt="Băng" loading="lazy"><img src="../assets/elements/earth.png" class="kibo-card-elem-icon" alt="Địa" loading="lazy"></div>
+          <img src="../assets/kibo/lambaothich.png" class="kibo-card-img" alt="Lam Bảo Thích" loading="lazy">
+        </div>
+        <div class="kibo-card-name-box">
+          <span class="kibo-card-name">Lam Bảo Thích</span>
+        </div>
+      </a>
+      <a href="kibo/lamgiacthich.html" class="kibo-card" data-elements="ice,earth" data-race="beast" data-stage="growth" data-size="small" data-role="support" data-variants="starcolor" data-name="lam giác thích 蓝角刺 băng địa dị sinh · thú hình tộc trưởng thành hỗ trợ khai khoáng">
+        <div class="kibo-card-visual">
+          <div class="kibo-card-elems"><img src="../assets/elements/ice.png" class="kibo-card-elem-icon" alt="Băng" loading="lazy"><img src="../assets/elements/earth.png" class="kibo-card-elem-icon" alt="Địa" loading="lazy"></div>
+          <img src="../assets/kibo/lamgiacthich.png" class="kibo-card-img" alt="Lam Giác Thích" loading="lazy">
+        </div>
+        <div class="kibo-card-name-box">
+          <span class="kibo-card-name">Lam Giác Thích</span>
+        </div>
+      </a>
+      <a href="kibo/lamtinhthich.html" class="kibo-card" data-elements="ice,earth" data-race="beast" data-stage="mature" data-size="medium" data-role="support" data-variants="starcolor" data-name="lam tinh thích 蓝晶刺 băng địa dị sinh · thú hình tộc thành thục hỗ trợ khai khoáng">
+        <div class="kibo-card-visual">
+          <div class="kibo-card-elems"><img src="../assets/elements/ice.png" class="kibo-card-elem-icon" alt="Băng" loading="lazy"><img src="../assets/elements/earth.png" class="kibo-card-elem-icon" alt="Địa" loading="lazy"></div>
+          <img src="../assets/kibo/lamtinhthich.png" class="kibo-card-img" alt="Lam Tinh Thích" loading="lazy">
+        </div>
+        <div class="kibo-card-name-box">
+          <span class="kibo-card-name">Lam Tinh Thích</span>
+        </div>
+      </a>
+      <a href="kibo/thonhidieu.html" class="kibo-card" data-elements="water" data-race="scale" data-stage="infant" data-size="small" data-role="dps" data-variants="shiny,starcolor" data-name="thỏ nhĩ dao 兔耳鳐 thủy dị sinh · lân hình tộc ấu niên tấn công tưới nước">
+        <div class="kibo-card-visual">
+          <div class="kibo-card-elems"><img src="../assets/elements/water.png" class="kibo-card-elem-icon" alt="Thủy" loading="lazy"></div>
+          <img src="../assets/kibo/thonhidieu.png" class="kibo-card-img" alt="Thỏ Nhĩ Dao" loading="lazy">
+        </div>
+        <div class="kibo-card-name-box">
+          <span class="kibo-card-name">Thỏ Nhĩ Dao</span>
+        </div>
+      </a>
+      <a href="kibo/phidieu.html" class="kibo-card" data-elements="water" data-race="scale" data-stage="growth" data-size="small" data-role="dps" data-variants="shiny,starcolor" data-name="phi dao 飞鳐 thủy dị sinh · lân hình tộc trưởng thành tấn công tưới nước">
+        <div class="kibo-card-visual">
+          <div class="kibo-card-elems"><img src="../assets/elements/water.png" class="kibo-card-elem-icon" alt="Thủy" loading="lazy"></div>
+          <img src="../assets/kibo/phidieu.png" class="kibo-card-img" alt="Phi Dao" loading="lazy">
+        </div>
+        <div class="kibo-card-name-box">
+          <span class="kibo-card-name">Phi Dao</span>
+        </div>
+      </a>
+      <a href="kibo/tinhdieu.html" class="kibo-card" data-elements="water" data-race="scale" data-stage="mature" data-size="medium" data-role="dps" data-variants="shiny,starcolor" data-name="tinh dao 星鳐 thủy dị sinh · lân hình tộc thành thục tấn công tưới nước">
+        <div class="kibo-card-visual">
+          <div class="kibo-card-elems"><img src="../assets/elements/water.png" class="kibo-card-elem-icon" alt="Thủy" loading="lazy"></div>
+          <img src="../assets/kibo/tinhdieu.png" class="kibo-card-img" alt="Tinh Dao" loading="lazy">
+        </div>
+        <div class="kibo-card-name-box">
+          <span class="kibo-card-name">Tinh Dao</span>
+        </div>
+      </a>
+      <a href="kibo/tieutinhmieu.html" class="kibo-card" data-elements="light" data-race="beast" data-stage="infant" data-size="small" data-role="dps" data-variants="starcolor" data-name="tiểu tinh miêu 小星喵 quang dị sinh · thú hình tộc ấu niên tấn công chăm sóc">
+        <div class="kibo-card-visual">
+          <div class="kibo-card-elems"><img src="../assets/elements/light.png" class="kibo-card-elem-icon" alt="Quang" loading="lazy"></div>
+          <img src="../assets/kibo/tieutinhmieu.png" class="kibo-card-img" alt="Tiểu Tinh Miêu" loading="lazy">
+        </div>
+        <div class="kibo-card-name-box">
+          <span class="kibo-card-name">Tiểu Tinh Miêu</span>
+        </div>
+      </a>
+      <a href="kibo/lactinhmieu.html" class="kibo-card" data-elements="light" data-race="beast" data-stage="mature" data-size="small" data-role="dps" data-variants="starcolor" data-name="lạc tinh miêu 落星猫 quang dị sinh · thú hình tộc thành thục tấn công chăm sóc">
+        <div class="kibo-card-visual">
+          <div class="kibo-card-elems"><img src="../assets/elements/light.png" class="kibo-card-elem-icon" alt="Quang" loading="lazy"></div>
+          <img src="../assets/kibo/lactinhmieu.png" class="kibo-card-img" alt="Lạc Tinh Miêu" loading="lazy">
+        </div>
+        <div class="kibo-card-name-box">
+          <span class="kibo-card-name">Lạc Tinh Miêu</span>
+        </div>
+      </a>
+      <a href="kibo/luuquangtandiettinhmieu.html" class="kibo-card" data-elements="dark,fire" data-race="beast" data-stage="mature" data-size="small" data-role="support" data-variants="special" data-name="lưu quang tẫn diệt tinh miêu 流光烬灭星喵 ám hỏa dị sinh · thú hình tộc thành thục hỗ trợ nhóm lửa">
+        <div class="kibo-card-visual">
+          <div class="kibo-card-elems"><img src="../assets/elements/dark.png" class="kibo-card-elem-icon" alt="Ám" loading="lazy"><img src="../assets/elements/fire.png" class="kibo-card-elem-icon" alt="Hỏa" loading="lazy"></div>
+          <img src="../assets/kibo/luuquangtandiettinhmieu.png" class="kibo-card-img" alt="Lưu Quang Tẫn Diệt Tinh Miêu" loading="lazy">
+        </div>
+        <div class="kibo-card-name-box">
+          <span class="kibo-card-name">Lưu Quang Tẫn Diệt Tinh Miêu</span>
+        </div>
+      </a>
+      <a href="kibo/tieumohieu.html" class="kibo-card" data-elements="dark" data-race="bird" data-stage="infant" data-size="small" data-role="dps" data-variants="starcolor" data-name="tiểu mộ hiêu 小暮鸮 ám dị sinh · vũ hình tộc ấu niên tấn công canh tác">
+        <div class="kibo-card-visual">
+          <div class="kibo-card-elems"><img src="../assets/elements/dark.png" class="kibo-card-elem-icon" alt="Ám" loading="lazy"></div>
+          <img src="../assets/kibo/tieumohieu.png" class="kibo-card-img" alt="Tiểu Mộ Hiêu" loading="lazy">
+        </div>
+        <div class="kibo-card-name-box">
+          <span class="kibo-card-name">Tiểu Mộ Hiêu</span>
+        </div>
+      </a>
+      <a href="kibo/damieuhieu.html" class="kibo-card" data-elements="dark" data-race="bird" data-stage="mature" data-size="medium" data-role="dps" data-variants="starcolor" data-name="dạ miêu hiêu 夜猫鸮 ám dị sinh · vũ hình tộc thành thục tấn công canh tác">
+        <div class="kibo-card-visual">
+          <div class="kibo-card-elems"><img src="../assets/elements/dark.png" class="kibo-card-elem-icon" alt="Ám" loading="lazy"></div>
+          <img src="../assets/kibo/damieuhieu.png" class="kibo-card-img" alt="Dạ Miêu Hiêu" loading="lazy">
+        </div>
+        <div class="kibo-card-name-box">
+          <span class="kibo-card-name">Dạ Miêu Hiêu</span>
+        </div>
+      </a>
+      <a href="kibo/thunhiphuc.html" class="kibo-card" data-elements="dark" data-race="spirit" data-stage="infant" data-size="small" data-role="support" data-variants="starcolor" data-name="thụ nhĩ bức 竖耳蝠 ám huyễn sinh · tinh quái tộc ấu niên hỗ trợ thủ công rèn đúc">
+        <div class="kibo-card-visual">
+          <div class="kibo-card-elems"><img src="../assets/elements/dark.png" class="kibo-card-elem-icon" alt="Ám" loading="lazy"></div>
+          <img src="../assets/kibo/thunhiphuc.png" class="kibo-card-img" alt="Thụ Nhĩ Bức" loading="lazy">
+        </div>
+        <div class="kibo-card-name-box">
+          <span class="kibo-card-name">Thụ Nhĩ Bức</span>
+        </div>
+      </a>
+      <a href="kibo/hihaphuc.html" class="kibo-card" data-elements="dark" data-race="spirit" data-stage="growth" data-size="small" data-role="support" data-variants="starcolor" data-name="hi ha bức 嘻哈蝠 ám huyễn sinh · tinh quái tộc trưởng thành hỗ trợ thủ công rèn đúc">
+        <div class="kibo-card-visual">
+          <div class="kibo-card-elems"><img src="../assets/elements/dark.png" class="kibo-card-elem-icon" alt="Ám" loading="lazy"></div>
+          <img src="../assets/kibo/hihaphuc.png" class="kibo-card-img" alt="Hi Ha Bức" loading="lazy">
+        </div>
+        <div class="kibo-card-name-box">
+          <span class="kibo-card-name">Hi Ha Bức</span>
+        </div>
+      </a>
+      <a href="kibo/tieudienphuc.html" class="kibo-card" data-elements="dark" data-race="spirit" data-stage="mature" data-size="medium" data-role="support" data-variants="starcolor" data-name="tiếu diện bức 笑面蝠 ám huyễn sinh · tinh quái tộc thành thục hỗ trợ thủ công rèn đúc">
+        <div class="kibo-card-visual">
+          <div class="kibo-card-elems"><img src="../assets/elements/dark.png" class="kibo-card-elem-icon" alt="Ám" loading="lazy"></div>
+          <img src="../assets/kibo/tieudienphuc.png" class="kibo-card-img" alt="Tiếu Diện Bức" loading="lazy">
+        </div>
+        <div class="kibo-card-name-box">
+          <span class="kibo-card-name">Tiếu Diện Bức</span>
+        </div>
+      </a>
+      <a href="kibo/tieuhactieubach.html" class="kibo-card" data-elements="dark" data-race="spirit" data-stage="infant" data-size="small" data-role="support" data-variants="starcolor" data-name="tiểu hắc tiểu bạch 小黑小白 ám huyễn sinh · tinh quái tộc ấu niên hỗ trợ thủ công nguyên tố">
+        <div class="kibo-card-visual">
+          <div class="kibo-card-elems"><img src="../assets/elements/dark.png" class="kibo-card-elem-icon" alt="Ám" loading="lazy"></div>
+          <img src="../assets/kibo/tieuhactieubach.png" class="kibo-card-img" alt="Tiểu Hắc Tiểu Bạch" loading="lazy">
+        </div>
+        <div class="kibo-card-name-box">
+          <span class="kibo-card-name">Tiểu Hắc Tiểu Bạch</span>
+        </div>
+      </a>
+      <a href="kibo/daibachdaihac.html" class="kibo-card" data-elements="dark" data-race="spirit" data-stage="infant" data-size="small" data-role="support" data-variants="special" data-name="đại bạch đại hắc 大白大黑 ám huyễn sinh · tinh quái tộc ấu niên hỗ trợ thủ công nguyên tố">
+        <div class="kibo-card-visual">
+          <div class="kibo-card-elems"><img src="../assets/elements/dark.png" class="kibo-card-elem-icon" alt="Ám" loading="lazy"></div>
+          <img src="../assets/kibo/daibachdaihac.png" class="kibo-card-img" alt="Đại Bạch Đại Hắc" loading="lazy">
+        </div>
+        <div class="kibo-card-name-box">
+          <span class="kibo-card-name">Đại Bạch Đại Hắc</span>
+        </div>
+      </a>
+      <a href="kibo/hacbachvoan.html" class="kibo-card" data-elements="dark" data-race="spirit" data-stage="mature" data-size="medium" data-role="support" data-variants="starcolor" data-name="hắc bạch vô an 黑白无安 ám huyễn sinh · tinh quái tộc thành thục hỗ trợ thủ công nguyên tố">
+        <div class="kibo-card-visual">
+          <div class="kibo-card-elems"><img src="../assets/elements/dark.png" class="kibo-card-elem-icon" alt="Ám" loading="lazy"></div>
+          <img src="../assets/kibo/hacbachvoan.png" class="kibo-card-img" alt="Hắc Bạch Vô An" loading="lazy">
+        </div>
+        <div class="kibo-card-name-box">
+          <span class="kibo-card-name">Hắc Bạch Vô An</span>
+        </div>
+      </a>
+      <a href="kibo/nhienmieu.html" class="kibo-card" data-elements="fire" data-race="beast" data-stage="infant" data-size="small" data-role="dps" data-variants="starcolor" data-name="nhiên miêu 燃喵 hỏa dị sinh · thú hình tộc ấu niên tấn công nhóm lửa">
+        <div class="kibo-card-visual">
+          <div class="kibo-card-elems"><img src="../assets/elements/fire.png" class="kibo-card-elem-icon" alt="Hỏa" loading="lazy"></div>
+          <img src="../assets/kibo/nhienmieu.png" class="kibo-card-img" alt="Nhiên Miêu" loading="lazy">
+        </div>
+        <div class="kibo-card-name-box">
+          <span class="kibo-card-name">Nhiên Miêu</span>
+        </div>
+      </a>
+      <a href="kibo/viembao.html" class="kibo-card" data-elements="fire" data-race="beast" data-stage="growth" data-size="small" data-role="dps" data-variants="starcolor" data-name="viêm báo 炎豹 hỏa dị sinh · thú hình tộc trưởng thành tấn công nhóm lửa">
+        <div class="kibo-card-visual">
+          <div class="kibo-card-elems"><img src="../assets/elements/fire.png" class="kibo-card-elem-icon" alt="Hỏa" loading="lazy"></div>
+          <img src="../assets/kibo/viembao.png" class="kibo-card-img" alt="Viêm Báo" loading="lazy">
+        </div>
+        <div class="kibo-card-name-box">
+          <span class="kibo-card-name">Viêm Báo</span>
+        </div>
+      </a>
+      <a href="kibo/lietbao.html" class="kibo-card" data-elements="fire" data-race="beast" data-stage="mature" data-size="medium" data-role="dps" data-variants="starcolor" data-name="liệt báo 烈豹 hỏa dị sinh · thú hình tộc thành thục tấn công nhóm lửa">
+        <div class="kibo-card-visual">
+          <div class="kibo-card-elems"><img src="../assets/elements/fire.png" class="kibo-card-elem-icon" alt="Hỏa" loading="lazy"></div>
+          <img src="../assets/kibo/lietbao.png" class="kibo-card-img" alt="Liệt Báo" loading="lazy">
+        </div>
+        <div class="kibo-card-name-box">
+          <span class="kibo-card-name">Liệt Báo</span>
+        </div>
+      </a>
+      <a href="kibo/phuvan.html" class="kibo-card" data-elements="water" data-race="common" data-stage="mature" data-size="small" data-role="heal" data-variants="starcolor" data-name="phù vân 浮云 thủy phổ sinh loại thành thục hồi phục chăm sóc tưới nước">
+        <div class="kibo-card-visual">
+          <div class="kibo-card-elems"><img src="../assets/elements/water.png" class="kibo-card-elem-icon" alt="Thủy" loading="lazy"></div>
+          <img src="../assets/kibo/phuvan.png" class="kibo-card-img" alt="Phù Vân" loading="lazy">
+        </div>
+        <div class="kibo-card-name-box">
+          <span class="kibo-card-name">Phù Vân</span>
+        </div>
+      </a>
+      <a href="kibo/gaia.html" class="kibo-card" data-elements="water" data-race="beast" data-stage="mature" data-size="small" data-role="support" data-variants="special" data-name="gaia 盖娅 thủy dị sinh · thú hình tộc thành thục hỗ trợ tưới nước">
+        <div class="kibo-card-visual">
+          <div class="kibo-card-elems"><img src="../assets/elements/water.png" class="kibo-card-elem-icon" alt="Thủy" loading="lazy"></div>
+          <img src="../assets/kibo/gaia.png" class="kibo-card-img" alt="Gaia" loading="lazy">
+        </div>
+        <div class="kibo-card-name-box">
+          <span class="kibo-card-name">Gaia</span>
+        </div>
+      </a>
+      <a href="kibo/meaaotu.html" class="kibo-card" data-elements="earth" data-race="beast" data-stage="infant" data-size="small" data-role="dps" data-variants="starcolor" data-name="meo ngao tử 咩嗷仔 địa dị sinh · thú hình tộc ấu niên tấn công canh tác">
+        <div class="kibo-card-visual">
+          <div class="kibo-card-elems"><img src="../assets/elements/earth.png" class="kibo-card-elem-icon" alt="Địa" loading="lazy"></div>
+          <img src="../assets/kibo/meaaotu.png" class="kibo-card-img" alt="Meo Ngao Tử" loading="lazy">
+        </div>
+        <div class="kibo-card-name-box">
+          <span class="kibo-card-name">Meo Ngao Tử</span>
+        </div>
+      </a>
+      <a href="kibo/meaolang.html" class="kibo-card" data-elements="earth" data-race="beast" data-stage="growth" data-size="small" data-role="dps" data-variants="starcolor" data-name="meo ô lang 咩呜狼 địa dị sinh · thú hình tộc trưởng thành tấn công canh tác">
+        <div class="kibo-card-visual">
+          <div class="kibo-card-elems"><img src="../assets/elements/earth.png" class="kibo-card-elem-icon" alt="Địa" loading="lazy"></div>
+          <img src="../assets/kibo/meaolang.png" class="kibo-card-img" alt="Meo Ô Lang" loading="lazy">
+        </div>
+        <div class="kibo-card-name-box">
+          <span class="kibo-card-name">Meo Ô Lang</span>
+        </div>
+      </a>
+      <a href="kibo/duongdienhanlang.html" class="kibo-card" data-elements="earth" data-race="beast" data-stage="mature" data-size="medium" data-role="dps" data-variants="starcolor" data-name="dương diện hãn lang 羊面悍狼 địa dị sinh · thú hình tộc thành thục tấn công canh tác">
+        <div class="kibo-card-visual">
+          <div class="kibo-card-elems"><img src="../assets/elements/earth.png" class="kibo-card-elem-icon" alt="Địa" loading="lazy"></div>
+          <img src="../assets/kibo/duongdienhanlang.png" class="kibo-card-img" alt="Dương Diện Hãn Lang" loading="lazy">
+        </div>
+        <div class="kibo-card-name-box">
+          <span class="kibo-card-name">Dương Diện Hãn Lang</span>
+        </div>
+      </a>
+      <a href="kibo/hoanhamlinh.html" class="kibo-card" data-elements="fire" data-race="elemental" data-stage="infant" data-size="small" data-role="break" data-variants="starcolor" data-name="hỏa nham linh 火岩灵 hỏa huyễn sinh · nguyên tố tộc ấu niên phá nhẫn nhóm lửa nguyên tố">
+        <div class="kibo-card-visual">
+          <div class="kibo-card-elems"><img src="../assets/elements/fire.png" class="kibo-card-elem-icon" alt="Hỏa" loading="lazy"></div>
+          <img src="../assets/kibo/hoanhamlinh.png" class="kibo-card-img" alt="Hỏa Nham Linh" loading="lazy">
+        </div>
+        <div class="kibo-card-name-box">
+          <span class="kibo-card-name">Hỏa Nham Linh</span>
+        </div>
+      </a>
+      <a href="kibo/hoanhamve.html" class="kibo-card" data-elements="fire" data-race="elemental" data-stage="mature" data-size="medium" data-role="break" data-variants="starcolor" data-name="hỏa nham vệ 火岩卫 hỏa huyễn sinh · nguyên tố tộc thành thục phá nhẫn nhóm lửa nguyên tố">
+        <div class="kibo-card-visual">
+          <div class="kibo-card-elems"><img src="../assets/elements/fire.png" class="kibo-card-elem-icon" alt="Hỏa" loading="lazy"></div>
+          <img src="../assets/kibo/hoanhamve.png" class="kibo-card-img" alt="Hỏa Nham Vệ" loading="lazy">
+        </div>
+        <div class="kibo-card-name-box">
+          <span class="kibo-card-name">Hỏa Nham Vệ</span>
+        </div>
+      </a>
+      <a href="kibo/thuynhamlinh.html" class="kibo-card" data-elements="water" data-race="elemental" data-stage="infant" data-size="small" data-role="break" data-variants="starcolor" data-name="thủy nham linh 水岩灵 thủy huyễn sinh · nguyên tố tộc ấu niên phá nhẫn nguyên tố tưới nước">
+        <div class="kibo-card-visual">
+          <div class="kibo-card-elems"><img src="../assets/elements/water.png" class="kibo-card-elem-icon" alt="Thủy" loading="lazy"></div>
+          <img src="../assets/kibo/thuynhamlinh.png" class="kibo-card-img" alt="Thủy Nham Linh" loading="lazy">
+        </div>
+        <div class="kibo-card-name-box">
+          <span class="kibo-card-name">Thủy Nham Linh</span>
+        </div>
+      </a>
+      <a href="kibo/thuynhamve.html" class="kibo-card" data-elements="water" data-race="elemental" data-stage="mature" data-size="medium" data-role="break" data-variants="starcolor" data-name="thủy nham vệ 水岩卫 thủy huyễn sinh · nguyên tố tộc thành thục phá nhẫn nguyên tố tưới nước">
+        <div class="kibo-card-visual">
+          <div class="kibo-card-elems"><img src="../assets/elements/water.png" class="kibo-card-elem-icon" alt="Thủy" loading="lazy"></div>
+          <img src="../assets/kibo/thuynhamve.png" class="kibo-card-img" alt="Thủy Nham Vệ" loading="lazy">
+        </div>
+        <div class="kibo-card-name-box">
+          <span class="kibo-card-name">Thủy Nham Vệ</span>
+        </div>
+      </a>
+      <a href="kibo/bruda.html" class="kibo-card" data-elements="water" data-race="bird" data-stage="infant" data-size="small" data-role="support" data-variants="shiny,starcolor" data-name="bruda 布鲁达 thủy dị sinh · vũ hình tộc ấu niên hỗ trợ tưới nước">
+        <div class="kibo-card-visual">
+          <div class="kibo-card-elems"><img src="../assets/elements/water.png" class="kibo-card-elem-icon" alt="Thủy" loading="lazy"></div>
+          <img src="../assets/kibo/bruda.png" class="kibo-card-img" alt="Bruda" loading="lazy">
+        </div>
+        <div class="kibo-card-name-box">
+          <span class="kibo-card-name">Bruda</span>
+        </div>
+      </a>
+      <a href="kibo/lamvusygni.html" class="kibo-card" data-elements="water" data-race="bird" data-stage="mature" data-size="small" data-role="support" data-variants="shiny,starcolor" data-name="lam vũ sygni 蓝羽西格尼 thủy dị sinh · vũ hình tộc thành thục hỗ trợ tưới nước">
+        <div class="kibo-card-visual">
+          <div class="kibo-card-elems"><img src="../assets/elements/water.png" class="kibo-card-elem-icon" alt="Thủy" loading="lazy"></div>
+          <img src="../assets/kibo/lamvusygni.png" class="kibo-card-img" alt="Lam Vũ Sygni" loading="lazy">
+        </div>
+        <div class="kibo-card-name-box">
+          <span class="kibo-card-name">Lam Vũ Sygni</span>
+        </div>
+      </a>
+      <a href="kibo/laplaptich.html" class="kibo-card" data-elements="wood,earth" data-race="scale" data-stage="infant" data-size="small" data-role="heal" data-variants="starcolor" data-name="lạp lạp tích 粒粒蜥 mộc địa dị sinh · lân hình tộc ấu niên hồi phục canh tác">
+        <div class="kibo-card-visual">
+          <div class="kibo-card-elems"><img src="../assets/elements/wood.png" class="kibo-card-elem-icon" alt="Mộc" loading="lazy"><img src="../assets/elements/earth.png" class="kibo-card-elem-icon" alt="Địa" loading="lazy"></div>
+          <img src="../assets/kibo/laplaptich.png" class="kibo-card-img" alt="Lạp Lạp Tích" loading="lazy">
+        </div>
+        <div class="kibo-card-name-box">
+          <span class="kibo-card-name">Lạp Lạp Tích</span>
+        </div>
+      </a>
+      <a href="kibo/lizard.html" class="kibo-card" data-elements="wood,earth" data-race="scale" data-stage="growth" data-size="small" data-role="heal" data-variants="starcolor" data-name="lạp trác đức 粒扎德 mộc địa dị sinh · lân hình tộc trưởng thành hồi phục canh tác">
+        <div class="kibo-card-visual">
+          <div class="kibo-card-elems"><img src="../assets/elements/wood.png" class="kibo-card-elem-icon" alt="Mộc" loading="lazy"><img src="../assets/elements/earth.png" class="kibo-card-elem-icon" alt="Địa" loading="lazy"></div>
+          <img src="../assets/kibo/lizard.png" class="kibo-card-img" alt="Lạp Trác Đức" loading="lazy">
+        </div>
+        <div class="kibo-card-name-box">
+          <span class="kibo-card-name">Lạp Trác Đức</span>
+        </div>
+      </a>
+      <a href="kibo/laplapdaivuong.html" class="kibo-card" data-elements="wood,earth" data-race="scale" data-stage="mature" data-size="large" data-role="heal" data-variants="starcolor" data-name="lạp lạp đại vương 粒粒大王 mộc địa dị sinh · lân hình tộc thành thục hồi phục canh tác">
+        <div class="kibo-card-visual">
+          <div class="kibo-card-elems"><img src="../assets/elements/wood.png" class="kibo-card-elem-icon" alt="Mộc" loading="lazy"><img src="../assets/elements/earth.png" class="kibo-card-elem-icon" alt="Địa" loading="lazy"></div>
+          <img src="../assets/kibo/laplapdaivuong.png" class="kibo-card-img" alt="Lạp Lạp Đại Vương" loading="lazy">
+        </div>
+        <div class="kibo-card-name-box">
+          <span class="kibo-card-name">Lạp Lạp Đại Vương</span>
+        </div>
+      </a>
+      <a href="kibo/trinhaho.html" class="kibo-card" data-elements="ice" data-race="beast" data-stage="infant" data-size="small" data-role="dps" data-variants="starcolor" data-name="trĩ nha hổ 稚牙虎 băng dị sinh · thú hình tộc ấu niên tấn công nguyên tố">
+        <div class="kibo-card-visual">
+          <div class="kibo-card-elems"><img src="../assets/elements/ice.png" class="kibo-card-elem-icon" alt="Băng" loading="lazy"></div>
+          <img src="../assets/kibo/trinhaho.png" class="kibo-card-img" alt="Trĩ Nha Hổ" loading="lazy">
+        </div>
+        <div class="kibo-card-name-box">
+          <span class="kibo-card-name">Trĩ Nha Hổ</span>
+        </div>
+      </a>
+      <a href="kibo/tiemnhaho.html" class="kibo-card" data-elements="ice" data-race="beast" data-stage="growth" data-size="small" data-role="dps" data-variants="starcolor" data-name="tiêm nha hổ 尖牙虎 băng dị sinh · thú hình tộc trưởng thành tấn công nguyên tố">
+        <div class="kibo-card-visual">
+          <div class="kibo-card-elems"><img src="../assets/elements/ice.png" class="kibo-card-elem-icon" alt="Băng" loading="lazy"></div>
+          <img src="../assets/kibo/tiemnhaho.png" class="kibo-card-img" alt="Tiêm Nha Hổ" loading="lazy">
+        </div>
+        <div class="kibo-card-name-box">
+          <span class="kibo-card-name">Tiêm Nha Hổ</span>
+        </div>
+      </a>
+      <a href="kibo/loinhaho.html" class="kibo-card" data-elements="ice" data-race="beast" data-stage="mature" data-size="medium" data-role="dps" data-variants="starcolor" data-name="lợi nha hổ 利牙虎 băng dị sinh · thú hình tộc thành thục tấn công nguyên tố">
+        <div class="kibo-card-visual">
+          <div class="kibo-card-elems"><img src="../assets/elements/ice.png" class="kibo-card-elem-icon" alt="Băng" loading="lazy"></div>
+          <img src="../assets/kibo/loinhaho.png" class="kibo-card-img" alt="Lợi Nha Hổ" loading="lazy">
+        </div>
+        <div class="kibo-card-name-box">
+          <span class="kibo-card-name">Lợi Nha Hổ</span>
+        </div>
+      </a>
+      <a href="kibo/trucoluc.html" class="kibo-card" data-elements="thunder,earth" data-race="beast" data-stage="infant" data-size="small" data-role="dps" data-variants="shiny,starcolor" data-name="trư cổ lực 猪古力 lôi địa dị sinh · thú hình tộc ấu niên tấn công canh tác">
+        <div class="kibo-card-visual">
+          <div class="kibo-card-elems"><img src="../assets/elements/thunder.png" class="kibo-card-elem-icon" alt="Lôi" loading="lazy"><img src="../assets/elements/earth.png" class="kibo-card-elem-icon" alt="Địa" loading="lazy"></div>
+          <img src="../assets/kibo/trucoluc.png" class="kibo-card-img" alt="Trư Cổ Lực" loading="lazy">
+        </div>
+        <div class="kibo-card-name-box">
+          <span class="kibo-card-name">Trư Cổ Lực</span>
+        </div>
+      </a>
+      <a href="kibo/cungcung.html" class="kibo-card" data-elements="thunder,earth" data-race="beast" data-stage="infant" data-size="small" data-role="dps" data-variants="special" data-name="củng củng 拱拱 lôi địa dị sinh · thú hình tộc ấu niên tấn công canh tác">
+        <div class="kibo-card-visual">
+          <div class="kibo-card-elems"><img src="../assets/elements/thunder.png" class="kibo-card-elem-icon" alt="Lôi" loading="lazy"><img src="../assets/elements/earth.png" class="kibo-card-elem-icon" alt="Địa" loading="lazy"></div>
+          <img src="../assets/kibo/cungcung.png" class="kibo-card-img" alt="Củng Củng" loading="lazy">
+        </div>
+        <div class="kibo-card-name-box">
+          <span class="kibo-card-name">Củng Củng</span>
+        </div>
+      </a>
+      <a href="kibo/lagiadatru.html" class="kibo-card" data-elements="thunder,earth" data-race="beast" data-stage="mature" data-size="medium" data-role="dps" data-variants="shiny,starcolor" data-name="la gia dã trư 拉加野猪 lôi địa dị sinh · thú hình tộc thành thục tấn công canh tác">
+        <div class="kibo-card-visual">
+          <div class="kibo-card-elems"><img src="../assets/elements/thunder.png" class="kibo-card-elem-icon" alt="Lôi" loading="lazy"><img src="../assets/elements/earth.png" class="kibo-card-elem-icon" alt="Địa" loading="lazy"></div>
+          <img src="../assets/kibo/lagiadatru.png" class="kibo-card-img" alt="La Gia Dã Trư" loading="lazy">
+        </div>
+        <div class="kibo-card-name-box">
+          <span class="kibo-card-name">La Gia Dã Trư</span>
+        </div>
+      </a>
+      <a href="kibo/thiettongbachu.html" class="kibo-card" data-elements="thunder,earth" data-race="beast" data-stage="ultimate" data-size="large" data-role="dps" data-variants="shiny,starcolor" data-name="thiết tông bá chủ 铁鬃霸主 lôi địa dị sinh · thú hình tộc hoàn toàn thể tấn công canh tác">
+        <div class="kibo-card-visual">
+          <div class="kibo-card-elems"><img src="../assets/elements/thunder.png" class="kibo-card-elem-icon" alt="Lôi" loading="lazy"><img src="../assets/elements/earth.png" class="kibo-card-elem-icon" alt="Địa" loading="lazy"></div>
+          <img src="../assets/kibo/thiettongbachu.png" class="kibo-card-img" alt="Thiết Tông Bá Chủ" loading="lazy">
+        </div>
+        <div class="kibo-card-name-box">
+          <span class="kibo-card-name">Thiết Tông Bá Chủ</span>
+        </div>
+      </a>
+      <a href="kibo/trudungluc.html" class="kibo-card" data-elements="fire,earth" data-race="beast" data-stage="infant" data-size="small" data-role="dps" data-variants="starcolor" data-name="trư dũng lực 猪勇力 hỏa địa dị sinh · thú hình tộc ấu niên tấn công nhóm lửa">
+        <div class="kibo-card-visual">
+          <div class="kibo-card-elems"><img src="../assets/elements/fire.png" class="kibo-card-elem-icon" alt="Hỏa" loading="lazy"><img src="../assets/elements/earth.png" class="kibo-card-elem-icon" alt="Địa" loading="lazy"></div>
+          <img src="../assets/kibo/trudungluc.png" class="kibo-card-img" alt="Trư Dũng Lực" loading="lazy">
+        </div>
+        <div class="kibo-card-name-box">
+          <span class="kibo-card-name">Trư Dũng Lực</span>
+        </div>
+      </a>
+      <a href="kibo/chuocgiadatru.html" class="kibo-card" data-elements="fire,earth" data-race="beast" data-stage="mature" data-size="medium" data-role="dps" data-variants="starcolor" data-name="chước gia dã trư 灼加野猪 hỏa địa dị sinh · thú hình tộc thành thục tấn công nhóm lửa">
+        <div class="kibo-card-visual">
+          <div class="kibo-card-elems"><img src="../assets/elements/fire.png" class="kibo-card-elem-icon" alt="Hỏa" loading="lazy"><img src="../assets/elements/earth.png" class="kibo-card-elem-icon" alt="Địa" loading="lazy"></div>
+          <img src="../assets/kibo/chuocgiadatru.png" class="kibo-card-img" alt="Chước Gia Dã Trư" loading="lazy">
+        </div>
+        <div class="kibo-card-name-box">
+          <span class="kibo-card-name">Chước Gia Dã Trư</span>
+        </div>
+      </a>
+      <a href="kibo/viemtongbachu.html" class="kibo-card" data-elements="fire,earth" data-race="beast" data-stage="ultimate" data-size="large" data-role="dps" data-variants="starcolor" data-name="viêm tông bá chủ 炎鬃霸主 hỏa địa dị sinh · thú hình tộc hoàn toàn thể tấn công nhóm lửa">
+        <div class="kibo-card-visual">
+          <div class="kibo-card-elems"><img src="../assets/elements/fire.png" class="kibo-card-elem-icon" alt="Hỏa" loading="lazy"><img src="../assets/elements/earth.png" class="kibo-card-elem-icon" alt="Địa" loading="lazy"></div>
+          <img src="../assets/kibo/viemtongbachu.png" class="kibo-card-img" alt="Viêm Tông Bá Chủ" loading="lazy">
+        </div>
+        <div class="kibo-card-name-box">
+          <span class="kibo-card-name">Viêm Tông Bá Chủ</span>
+        </div>
+      </a>
+      <a href="kibo/mocdaudau.html" class="kibo-card" data-elements="wood" data-race="spirit" data-stage="infant" data-size="small" data-role="dps" data-variants="starcolor" data-name="mộc đâu đâu 木兜兜 mộc huyễn sinh · tinh quái tộc ấu niên tấn công thủ công canh tác">
+        <div class="kibo-card-visual">
+          <div class="kibo-card-elems"><img src="../assets/elements/wood.png" class="kibo-card-elem-icon" alt="Mộc" loading="lazy"></div>
+          <img src="../assets/kibo/mocdaudau.png" class="kibo-card-img" alt="Mộc Đâu Đâu" loading="lazy">
+        </div>
+        <div class="kibo-card-name-box">
+          <span class="kibo-card-name">Mộc Đâu Đâu</span>
+        </div>
+      </a>
+      <a href="kibo/lambongbong.html" class="kibo-card" data-elements="wood" data-race="spirit" data-stage="growth" data-size="small" data-role="dps" data-variants="starcolor" data-name="lâm bồng bồng 林蓬蓬 mộc huyễn sinh · tinh quái tộc trưởng thành tấn công thủ công canh tác">
+        <div class="kibo-card-visual">
+          <div class="kibo-card-elems"><img src="../assets/elements/wood.png" class="kibo-card-elem-icon" alt="Mộc" loading="lazy"></div>
+          <img src="../assets/kibo/lambongbong.png" class="kibo-card-img" alt="Lâm Bồng Bồng" loading="lazy">
+        </div>
+        <div class="kibo-card-name-box">
+          <span class="kibo-card-name">Lâm Bồng Bồng</span>
+        </div>
+      </a>
+      <a href="kibo/samphuphu.html" class="kibo-card" data-elements="wood" data-race="spirit" data-stage="mature" data-size="medium" data-role="dps" data-variants="starcolor" data-name="sâm phù phù 森浮浮 mộc huyễn sinh · tinh quái tộc thành thục tấn công thủ công canh tác">
+        <div class="kibo-card-visual">
+          <div class="kibo-card-elems"><img src="../assets/elements/wood.png" class="kibo-card-elem-icon" alt="Mộc" loading="lazy"></div>
+          <img src="../assets/kibo/samphuphu.png" class="kibo-card-img" alt="Sâm Phù Phù" loading="lazy">
+        </div>
+        <div class="kibo-card-name-box">
+          <span class="kibo-card-name">Sâm Phù Phù</span>
+        </div>
+      </a>
+      <a href="kibo/baobaosa.html" class="kibo-card" data-elements="water,fire" data-race="scale" data-stage="infant" data-size="small" data-role="dps" data-variants="starcolor" data-name="bạo bạo sa 爆爆鲨 thủy hỏa dị sinh · lân hình tộc ấu niên tấn công tưới nước nhóm lửa">
+        <div class="kibo-card-visual">
+          <div class="kibo-card-elems"><img src="../assets/elements/water.png" class="kibo-card-elem-icon" alt="Thủy" loading="lazy"><img src="../assets/elements/fire.png" class="kibo-card-elem-icon" alt="Hỏa" loading="lazy"></div>
+          <img src="../assets/kibo/baobaosa.png" class="kibo-card-img" alt="Bạo Bạo Sa" loading="lazy">
+        </div>
+        <div class="kibo-card-name-box">
+          <span class="kibo-card-name">Bạo Bạo Sa</span>
+        </div>
+      </a>
+      <a href="kibo/lietmanhsa.html" class="kibo-card" data-elements="water,fire" data-race="scale" data-stage="growth" data-size="small" data-role="dps" data-variants="starcolor" data-name="liệt mãnh sa 烈猛鲨 thủy hỏa dị sinh · lân hình tộc trưởng thành tấn công tưới nước nhóm lửa">
+        <div class="kibo-card-visual">
+          <div class="kibo-card-elems"><img src="../assets/elements/water.png" class="kibo-card-elem-icon" alt="Thủy" loading="lazy"><img src="../assets/elements/fire.png" class="kibo-card-elem-icon" alt="Hỏa" loading="lazy"></div>
+          <img src="../assets/kibo/lietmanhsa.png" class="kibo-card-img" alt="Liệt Mãnh Sa" loading="lazy">
+        </div>
+        <div class="kibo-card-name-box">
+          <span class="kibo-card-name">Liệt Mãnh Sa</span>
+        </div>
+      </a>
+      <a href="kibo/liepnhiencuongsa.html" class="kibo-card" data-elements="water,fire" data-race="scale" data-stage="mature" data-size="medium" data-role="dps" data-variants="starcolor" data-name="liệp nhiên cuồng sa 猎燃狂鲨 thủy hỏa dị sinh · lân hình tộc thành thục tấn công tưới nước nhóm lửa">
+        <div class="kibo-card-visual">
+          <div class="kibo-card-elems"><img src="../assets/elements/water.png" class="kibo-card-elem-icon" alt="Thủy" loading="lazy"><img src="../assets/elements/fire.png" class="kibo-card-elem-icon" alt="Hỏa" loading="lazy"></div>
+          <img src="../assets/kibo/liepnhiencuongsa.png" class="kibo-card-img" alt="Liệp Nhiên Cuồng Sa" loading="lazy">
+        </div>
+        <div class="kibo-card-name-box">
+          <span class="kibo-card-name">Liệp Nhiên Cuồng Sa</span>
+        </div>
+      </a>
+      <a href="kibo/thietcautich.html" class="kibo-card" data-elements="earth" data-race="scale" data-stage="infant" data-size="small" data-role="dps" data-variants="shiny,starcolor" data-name="thiết cầu tích 铁球蜥 địa dị sinh · lân hình tộc ấu niên tấn công khai khoáng đốn gỗ">
+        <div class="kibo-card-visual">
+          <div class="kibo-card-elems"><img src="../assets/elements/earth.png" class="kibo-card-elem-icon" alt="Địa" loading="lazy"></div>
+          <img src="../assets/kibo/thietcautich.png" class="kibo-card-img" alt="Thiết Cầu Tích" loading="lazy">
+        </div>
+        <div class="kibo-card-name-box">
+          <span class="kibo-card-name">Thiết Cầu Tích</span>
+        </div>
+      </a>
+      <a href="kibo/tamgiactich.html" class="kibo-card" data-elements="earth" data-race="scale" data-stage="mature" data-size="small" data-role="dps" data-variants="shiny,starcolor" data-name="tam giác tích 三角蜥 địa dị sinh · lân hình tộc thành thục tấn công khai khoáng đốn gỗ">
+        <div class="kibo-card-visual">
+          <div class="kibo-card-elems"><img src="../assets/elements/earth.png" class="kibo-card-elem-icon" alt="Địa" loading="lazy"></div>
+          <img src="../assets/kibo/tamgiactich.png" class="kibo-card-img" alt="Tam Giác Tích" loading="lazy">
+        </div>
+        <div class="kibo-card-name-box">
+          <span class="kibo-card-name">Tam Giác Tích</span>
+        </div>
+      </a>
+      <a href="kibo/giacdautich.html" class="kibo-card" data-elements="earth" data-race="scale" data-stage="ultimate" data-size="large" data-role="dps" data-variants="shiny,starcolor" data-name="giác đấu tích 角斗蜥 địa dị sinh · lân hình tộc hoàn toàn thể tấn công khai khoáng đốn gỗ">
+        <div class="kibo-card-visual">
+          <div class="kibo-card-elems"><img src="../assets/elements/earth.png" class="kibo-card-elem-icon" alt="Địa" loading="lazy"></div>
+          <img src="../assets/kibo/giacdautich.png" class="kibo-card-img" alt="Giác Đấu Tích" loading="lazy">
+        </div>
+        <div class="kibo-card-name-box">
+          <span class="kibo-card-name">Giác Đấu Tích</span>
+        </div>
+      </a>
+      <a href="kibo/loidongdong.html" class="kibo-card" data-elements="thunder,earth" data-race="beast" data-stage="infant" data-size="small" data-role="dps" data-variants="starcolor" data-name="lôi đông đông 雷咚咚 lôi địa dị sinh · thú hình tộc ấu niên tấn công đốn gỗ khai khoáng">
+        <div class="kibo-card-visual">
+          <div class="kibo-card-elems"><img src="../assets/elements/thunder.png" class="kibo-card-elem-icon" alt="Lôi" loading="lazy"><img src="../assets/elements/earth.png" class="kibo-card-elem-icon" alt="Địa" loading="lazy"></div>
+          <img src="../assets/kibo/loidongdong.png" class="kibo-card-img" alt="Lôi Đông Đông" loading="lazy">
+        </div>
+        <div class="kibo-card-name-box">
+          <span class="kibo-card-name">Lôi Đông Đông</span>
+        </div>
+      </a>
+      <a href="kibo/loiquanmao.html" class="kibo-card" data-elements="thunder,earth" data-race="beast" data-stage="ultimate" data-size="large" data-role="dps" data-variants="starcolor" data-name="lôi quán mao 雷冠牦 lôi địa dị sinh · thú hình tộc hoàn toàn thể tấn công khai khoáng đốn gỗ">
+        <div class="kibo-card-visual">
+          <div class="kibo-card-elems"><img src="../assets/elements/thunder.png" class="kibo-card-elem-icon" alt="Lôi" loading="lazy"><img src="../assets/elements/earth.png" class="kibo-card-elem-icon" alt="Địa" loading="lazy"></div>
+          <img src="../assets/kibo/loiquanmao.png" class="kibo-card-img" alt="Lôi Quán Mao" loading="lazy">
+        </div>
+        <div class="kibo-card-name-box">
+          <span class="kibo-card-name">Lôi Quán Mao</span>
+        </div>
+      </a>
+      <a href="kibo/lorelei.html" class="kibo-card" data-elements="light" data-race="beast" data-stage="mature" data-size="medium" data-role="dps" data-variants="special" data-name="lorelei 洛伊莱 quang dị sinh · thú hình tộc thành thục tấn công nguyên tố">
+        <div class="kibo-card-visual">
+          <div class="kibo-card-elems"><img src="../assets/elements/light.png" class="kibo-card-elem-icon" alt="Quang" loading="lazy"></div>
+          <img src="../assets/kibo/lorelei.png" class="kibo-card-img" alt="Lorelei" loading="lazy">
+        </div>
+        <div class="kibo-card-name-box">
+          <span class="kibo-card-name">Lorelei</span>
+        </div>
+      </a>
+      <a href="kibo/auloitraoduc.html" class="kibo-card" data-elements="thunder" data-race="beast" data-stage="infant" data-size="small" data-role="support" data-variants="starcolor" data-name="ấu lôi trảo dực 幼雷爪翼 lôi dị sinh · thú hình tộc ấu niên hỗ trợ nguyên tố khai khoáng">
+        <div class="kibo-card-visual">
+          <div class="kibo-card-elems"><img src="../assets/elements/thunder.png" class="kibo-card-elem-icon" alt="Lôi" loading="lazy"></div>
+          <img src="../assets/kibo/auloitraoduc.png" class="kibo-card-img" alt="Ấu Lôi Trảo Dực" loading="lazy">
+        </div>
+        <div class="kibo-card-name-box">
+          <span class="kibo-card-name">Ấu Lôi Trảo Dực</span>
+        </div>
+      </a>
+      <a href="kibo/azlaiting.html" class="kibo-card" data-elements="thunder" data-race="beast" data-stage="infant" data-size="small" data-role="dps" data-variants="special" data-name="azlaiting 阿兹莱霆 lôi dị sinh · thú hình tộc ấu niên tấn công nguyên tố khai khoáng">
+        <div class="kibo-card-visual">
+          <div class="kibo-card-elems"><img src="../assets/elements/thunder.png" class="kibo-card-elem-icon" alt="Lôi" loading="lazy"></div>
+          <img src="../assets/kibo/azlaiting.png" class="kibo-card-img" alt="Azlaiting" loading="lazy">
+        </div>
+        <div class="kibo-card-name-box">
+          <span class="kibo-card-name">Azlaiting</span>
+        </div>
+      </a>
+      <a href="kibo/dinhvuthu.html" class="kibo-card" data-elements="thunder" data-race="beast" data-stage="mature" data-size="medium" data-role="support" data-variants="starcolor" data-name="đình vũ thú 霆羽兽 lôi dị sinh · thú hình tộc thành thục hỗ trợ nguyên tố khai khoáng">
+        <div class="kibo-card-visual">
+          <div class="kibo-card-elems"><img src="../assets/elements/thunder.png" class="kibo-card-elem-icon" alt="Lôi" loading="lazy"></div>
+          <img src="../assets/kibo/dinhvuthu.png" class="kibo-card-img" alt="Đình Vũ Thú" loading="lazy">
+        </div>
+        <div class="kibo-card-name-box">
+          <span class="kibo-card-name">Đình Vũ Thú</span>
+        </div>
+      </a>
+      <a href="kibo/tieuphudiep.html" class="kibo-card" data-elements="wind,light" data-race="spirit" data-stage="infant" data-size="small" data-role="support" data-variants="shiny,starcolor" data-name="tiểu phù điệp 小浮蝶 phong quang huyễn sinh · tinh quái tộc ấu niên hỗ trợ thủ công chăm sóc">
+        <div class="kibo-card-visual">
+          <div class="kibo-card-elems"><img src="../assets/elements/wind.png" class="kibo-card-elem-icon" alt="Phong" loading="lazy"><img src="../assets/elements/light.png" class="kibo-card-elem-icon" alt="Quang" loading="lazy"></div>
+          <img src="../assets/kibo/tieuphudiep.png" class="kibo-card-img" alt="Tiểu Phù Điệp" loading="lazy">
+        </div>
+        <div class="kibo-card-name-box">
+          <span class="kibo-card-name">Tiểu Phù Điệp</span>
+        </div>
+      </a>
+      <a href="kibo/phudiep.html" class="kibo-card" data-elements="wind,light" data-race="spirit" data-stage="growth" data-size="small" data-role="support" data-variants="shiny,starcolor" data-name="phù điệp 浮蝶 phong quang huyễn sinh · tinh quái tộc trưởng thành hỗ trợ thủ công chăm sóc">
+        <div class="kibo-card-visual">
+          <div class="kibo-card-elems"><img src="../assets/elements/wind.png" class="kibo-card-elem-icon" alt="Phong" loading="lazy"><img src="../assets/elements/light.png" class="kibo-card-elem-icon" alt="Quang" loading="lazy"></div>
+          <img src="../assets/kibo/phudiep.png" class="kibo-card-img" alt="Phù Điệp" loading="lazy">
+        </div>
+        <div class="kibo-card-name-box">
+          <span class="kibo-card-name">Phù Điệp</span>
+        </div>
+      </a>
+      <a href="kibo/huyendiep.html" class="kibo-card" data-elements="wind,light" data-race="spirit" data-stage="mature" data-size="small" data-role="support" data-variants="shiny,starcolor" data-name="huyễn điệp 幻蝶 phong quang huyễn sinh · tinh quái tộc thành thục hỗ trợ thủ công chăm sóc">
+        <div class="kibo-card-visual">
+          <div class="kibo-card-elems"><img src="../assets/elements/wind.png" class="kibo-card-elem-icon" alt="Phong" loading="lazy"><img src="../assets/elements/light.png" class="kibo-card-elem-icon" alt="Quang" loading="lazy"></div>
+          <img src="../assets/kibo/huyendiep.png" class="kibo-card-img" alt="Huyễn Điệp" loading="lazy">
+        </div>
+        <div class="kibo-card-name-box">
+          <span class="kibo-card-name">Huyễn Điệp</span>
+        </div>
+      </a>
+      <a href="kibo/samthailinhdiep.html" class="kibo-card" data-elements="wind,light" data-race="spirit" data-stage="ultimate" data-size="large" data-role="support" data-variants="shiny,starcolor" data-name="sâm thải linh điệp 森彩灵蝶 phong quang huyễn sinh · tinh quái tộc hoàn toàn thể hỗ trợ rèn đúc">
+        <div class="kibo-card-visual">
+          <div class="kibo-card-elems"><img src="../assets/elements/wind.png" class="kibo-card-elem-icon" alt="Phong" loading="lazy"><img src="../assets/elements/light.png" class="kibo-card-elem-icon" alt="Quang" loading="lazy"></div>
+          <img src="../assets/kibo/samthailinhdiep.png" class="kibo-card-img" alt="Sâm Thải Linh Điệp" loading="lazy">
+        </div>
+        <div class="kibo-card-name-box">
+          <span class="kibo-card-name">Sâm Thải Linh Điệp</span>
+        </div>
+      </a>
+      <a href="kibo/tieudaphuc.html" class="kibo-card" data-elements="dark,wind" data-race="spirit" data-stage="infant" data-size="small" data-role="dps" data-variants="shiny,starcolor" data-name="tiểu dạ bức 小夜蝠 ám phong huyễn sinh · tinh quái tộc ấu niên tấn công rèn đúc">
+        <div class="kibo-card-visual">
+          <div class="kibo-card-elems"><img src="../assets/elements/dark.png" class="kibo-card-elem-icon" alt="Ám" loading="lazy"><img src="../assets/elements/wind.png" class="kibo-card-elem-icon" alt="Phong" loading="lazy"></div>
+          <img src="../assets/kibo/tieudaphuc.png" class="kibo-card-img" alt="Tiểu Dạ Bức" loading="lazy">
+        </div>
+        <div class="kibo-card-name-box">
+          <span class="kibo-card-name">Tiểu Dạ Bức</span>
+        </div>
+      </a>
+      <a href="kibo/daphuc.html" class="kibo-card" data-elements="dark,wind" data-race="spirit" data-stage="growth" data-size="small" data-role="dps" data-variants="shiny,starcolor" data-name="dạ bức 夜蝠 ám phong huyễn sinh · tinh quái tộc trưởng thành tấn công rèn đúc">
+        <div class="kibo-card-visual">
+          <div class="kibo-card-elems"><img src="../assets/elements/dark.png" class="kibo-card-elem-icon" alt="Ám" loading="lazy"><img src="../assets/elements/wind.png" class="kibo-card-elem-icon" alt="Phong" loading="lazy"></div>
+          <img src="../assets/kibo/daphuc.png" class="kibo-card-img" alt="Dạ Bức" loading="lazy">
+        </div>
+        <div class="kibo-card-name-box">
+          <span class="kibo-card-name">Dạ Bức</span>
+        </div>
+      </a>
+      <a href="kibo/anhphuc.html" class="kibo-card" data-elements="dark,wind" data-race="spirit" data-stage="mature" data-size="small" data-role="dps" data-variants="shiny,starcolor" data-name="ảnh bức 影蝠 ám phong huyễn sinh · tinh quái tộc thành thục tấn công rèn đúc">
+        <div class="kibo-card-visual">
+          <div class="kibo-card-elems"><img src="../assets/elements/dark.png" class="kibo-card-elem-icon" alt="Ám" loading="lazy"><img src="../assets/elements/wind.png" class="kibo-card-elem-icon" alt="Phong" loading="lazy"></div>
+          <img src="../assets/kibo/anhphuc.png" class="kibo-card-img" alt="Ảnh Bức" loading="lazy">
+        </div>
+        <div class="kibo-card-name-box">
+          <span class="kibo-card-name">Ảnh Bức</span>
+        </div>
+      </a>
+      <a href="kibo/khiepanhchiduc.html" class="kibo-card" data-elements="dark,wind" data-race="spirit" data-stage="ultimate" data-size="large" data-role="dps" data-variants="shiny,starcolor" data-name="khiếp ảnh chi dực 怯影之翼 ám phong huyễn sinh · tinh quái tộc hoàn toàn thể tấn công thủ công rèn đúc">
+        <div class="kibo-card-visual">
+          <div class="kibo-card-elems"><img src="../assets/elements/dark.png" class="kibo-card-elem-icon" alt="Ám" loading="lazy"><img src="../assets/elements/wind.png" class="kibo-card-elem-icon" alt="Phong" loading="lazy"></div>
+          <img src="../assets/kibo/khiepanhchiduc.png" class="kibo-card-img" alt="Khiếp Ảnh Chi Dực" loading="lazy">
+        </div>
+        <div class="kibo-card-name-box">
+          <span class="kibo-card-name">Khiếp Ảnh Chi Dực</span>
+        </div>
+      </a>
+      <a href="kibo/daodienduong.html" class="kibo-card" data-elements="thunder,light" data-race="molt" data-stage="infant" data-size="small" data-role="dps" data-variants="starcolor" data-name="đạo điện đường 导电螳 lôi quang dị sinh · thoái hình tộc ấu niên tấn công nguyên tố đốn gỗ">
+        <div class="kibo-card-visual">
+          <div class="kibo-card-elems"><img src="../assets/elements/thunder.png" class="kibo-card-elem-icon" alt="Lôi" loading="lazy"><img src="../assets/elements/light.png" class="kibo-card-elem-icon" alt="Quang" loading="lazy"></div>
+          <img src="../assets/kibo/daodienduong.png" class="kibo-card-img" alt="Đạo Điện Đường" loading="lazy">
+        </div>
+        <div class="kibo-card-name-box">
+          <span class="kibo-card-name">Đạo Điện Đường</span>
+        </div>
+      </a>
+      <a href="kibo/diencuduong.html" class="kibo-card" data-elements="thunder,light" data-race="molt" data-stage="mature" data-size="medium" data-role="dps" data-variants="starcolor" data-name="điện cứ đường 电锯螳 lôi quang dị sinh · thoái hình tộc thành thục tấn công nguyên tố đốn gỗ">
+        <div class="kibo-card-visual">
+          <div class="kibo-card-elems"><img src="../assets/elements/thunder.png" class="kibo-card-elem-icon" alt="Lôi" loading="lazy"><img src="../assets/elements/light.png" class="kibo-card-elem-icon" alt="Quang" loading="lazy"></div>
+          <img src="../assets/kibo/diencuduong.png" class="kibo-card-img" alt="Điện Cứ Đường" loading="lazy">
+        </div>
+        <div class="kibo-card-name-box">
+          <span class="kibo-card-name">Điện Cứ Đường</span>
+        </div>
+      </a>
+      <a href="kibo/tuyetcau.html" class="kibo-card" data-elements="ice" data-race="spirit" data-stage="infant" data-size="small" data-role="dps" data-variants="starcolor" data-name="tuyết cầu 雪球 băng huyễn sinh · tinh quái tộc ấu niên tấn công nguyên tố">
+        <div class="kibo-card-visual">
+          <div class="kibo-card-elems"><img src="../assets/elements/ice.png" class="kibo-card-elem-icon" alt="Băng" loading="lazy"></div>
+          <img src="../assets/kibo/tuyetcau.png" class="kibo-card-img" alt="Tuyết Cầu" loading="lazy">
+        </div>
+        <div class="kibo-card-name-box">
+          <span class="kibo-card-name">Tuyết Cầu</span>
+        </div>
+      </a>
+      <a href="kibo/nhungnhi.html" class="kibo-card" data-elements="ice" data-race="spirit" data-stage="growth" data-size="small" data-role="dps" data-variants="starcolor" data-name="nhung nhĩ 绒耳 băng huyễn sinh · tinh quái tộc trưởng thành tấn công nguyên tố thủ công">
+        <div class="kibo-card-visual">
+          <div class="kibo-card-elems"><img src="../assets/elements/ice.png" class="kibo-card-elem-icon" alt="Băng" loading="lazy"></div>
+          <img src="../assets/kibo/nhungnhi.png" class="kibo-card-img" alt="Nhung Nhĩ" loading="lazy">
+        </div>
+        <div class="kibo-card-name-box">
+          <span class="kibo-card-name">Nhung Nhĩ</span>
+        </div>
+      </a>
+      <a href="kibo/toaibangtho.html" class="kibo-card" data-elements="ice" data-race="spirit" data-stage="mature" data-size="medium" data-role="dps" data-variants="starcolor" data-name="toái băng thỏ 碎冰兔 băng huyễn sinh · tinh quái tộc thành thục tấn công nguyên tố thủ công">
+        <div class="kibo-card-visual">
+          <div class="kibo-card-elems"><img src="../assets/elements/ice.png" class="kibo-card-elem-icon" alt="Băng" loading="lazy"></div>
+          <img src="../assets/kibo/toaibangtho.png" class="kibo-card-img" alt="Toái Băng Thỏ" loading="lazy">
+        </div>
+        <div class="kibo-card-name-box">
+          <span class="kibo-card-name">Toái Băng Thỏ</span>
+        </div>
+      </a>
+      <a href="kibo/thanhhoaauho.html" class="kibo-card" data-elements="fire,wind" data-race="beast" data-stage="infant" data-size="small" data-role="support" data-variants="starcolor" data-name="thanh hoa ấu hồ 青华幼狐 hỏa phong dị sinh · thú hình tộc ấu niên hỗ trợ nhóm lửa">
+        <div class="kibo-card-visual">
+          <div class="kibo-card-elems"><img src="../assets/elements/fire.png" class="kibo-card-elem-icon" alt="Hỏa" loading="lazy"><img src="../assets/elements/wind.png" class="kibo-card-elem-icon" alt="Phong" loading="lazy"></div>
+          <img src="../assets/kibo/thanhhoaauho.png" class="kibo-card-img" alt="Thanh Hoa Ấu Hồ" loading="lazy">
+        </div>
+        <div class="kibo-card-name-box">
+          <span class="kibo-card-name">Thanh Hoa Ấu Hồ</span>
+        </div>
+      </a>
+      <a href="kibo/yhoalinhho.html" class="kibo-card" data-elements="fire,wind" data-race="beast" data-stage="growth" data-size="medium" data-role="support" data-variants="starcolor" data-name="ỷ hoa linh hồ 绮华灵狐 hỏa phong dị sinh · thú hình tộc trưởng thành hỗ trợ nhóm lửa">
+        <div class="kibo-card-visual">
+          <div class="kibo-card-elems"><img src="../assets/elements/fire.png" class="kibo-card-elem-icon" alt="Hỏa" loading="lazy"><img src="../assets/elements/wind.png" class="kibo-card-elem-icon" alt="Phong" loading="lazy"></div>
+          <img src="../assets/kibo/yhoalinhho.png" class="kibo-card-img" alt="Ỷ Hoa Linh Hồ" loading="lazy">
+        </div>
+        <div class="kibo-card-name-box">
+          <span class="kibo-card-name">Ỷ Hoa Linh Hồ</span>
+        </div>
+      </a>
+      <a href="kibo/monghoacuuvi.html" class="kibo-card" data-elements="fire,wind" data-race="beast" data-stage="mature" data-size="medium" data-role="support" data-variants="starcolor" data-name="mộng hoa cửu vĩ 梦华九尾 hỏa phong dị sinh · thú hình tộc thành thục hỗ trợ nhóm lửa">
+        <div class="kibo-card-visual">
+          <div class="kibo-card-elems"><img src="../assets/elements/fire.png" class="kibo-card-elem-icon" alt="Hỏa" loading="lazy"><img src="../assets/elements/wind.png" class="kibo-card-elem-icon" alt="Phong" loading="lazy"></div>
+          <img src="../assets/kibo/monghoacuuvi.png" class="kibo-card-img" alt="Mộng Hoa Cửu Vĩ" loading="lazy">
+        </div>
+        <div class="kibo-card-name-box">
+          <span class="kibo-card-name">Mộng Hoa Cửu Vĩ</span>
+        </div>
+      </a>
+      <a href="kibo/ungchuithu.html" class="kibo-card" data-elements="wind,light" data-race="beast" data-stage="infant" data-size="small" data-role="dps" data-variants="starcolor" data-name="ưng chủy thú 鹰嘴兽 phong quang dị sinh · thú hình tộc ấu niên tấn công chăm sóc">
+        <div class="kibo-card-visual">
+          <div class="kibo-card-elems"><img src="../assets/elements/wind.png" class="kibo-card-elem-icon" alt="Phong" loading="lazy"><img src="../assets/elements/light.png" class="kibo-card-elem-icon" alt="Quang" loading="lazy"></div>
+          <img src="../assets/kibo/ungchuithu.png" class="kibo-card-img" alt="Ưng Chủy Thú" loading="lazy">
+        </div>
+        <div class="kibo-card-name-box">
+          <span class="kibo-card-name">Ưng Chủy Thú</span>
+        </div>
+      </a>
+      <a href="kibo/tuyetnhunghoa.html" class="kibo-card" data-elements="wind,light" data-race="beast" data-stage="infant" data-size="small" data-role="support" data-variants="special" data-name="tuyết nhung hoa 雪绒花 phong quang dị sinh · thú hình tộc ấu niên hỗ trợ chăm sóc">
+        <div class="kibo-card-visual">
+          <div class="kibo-card-elems"><img src="../assets/elements/wind.png" class="kibo-card-elem-icon" alt="Phong" loading="lazy"><img src="../assets/elements/light.png" class="kibo-card-elem-icon" alt="Quang" loading="lazy"></div>
+          <img src="../assets/kibo/tuyetnhunghoa.png" class="kibo-card-img" alt="Tuyết Nhung Hoa" loading="lazy">
+        </div>
+        <div class="kibo-card-name-box">
+          <span class="kibo-card-name">Tuyết Nhung Hoa</span>
+        </div>
+      </a>
+      <a href="kibo/tieusuthuu.html" class="kibo-card" data-elements="wind,light" data-race="beast" data-stage="growth" data-size="small" data-role="dps" data-variants="starcolor" data-name="tiểu sư thứu 小狮鹫 phong quang dị sinh · thú hình tộc trưởng thành tấn công chăm sóc">
+        <div class="kibo-card-visual">
+          <div class="kibo-card-elems"><img src="../assets/elements/wind.png" class="kibo-card-elem-icon" alt="Phong" loading="lazy"><img src="../assets/elements/light.png" class="kibo-card-elem-icon" alt="Quang" loading="lazy"></div>
+          <img src="../assets/kibo/tieusuthuu.png" class="kibo-card-img" alt="Tiểu Sư Thứu" loading="lazy">
+        </div>
+        <div class="kibo-card-name-box">
+          <span class="kibo-card-name">Tiểu Sư Thứu</span>
+        </div>
+      </a>
+      <a href="kibo/phongducsuthuu.html" class="kibo-card" data-elements="wind,light" data-race="beast" data-stage="mature" data-size="medium" data-role="dps" data-variants="starcolor" data-name="phong dực sư thứu 风翼狮鹫 phong quang dị sinh · thú hình tộc thành thục tấn công chăm sóc">
+        <div class="kibo-card-visual">
+          <div class="kibo-card-elems"><img src="../assets/elements/wind.png" class="kibo-card-elem-icon" alt="Phong" loading="lazy"><img src="../assets/elements/light.png" class="kibo-card-elem-icon" alt="Quang" loading="lazy"></div>
+          <img src="../assets/kibo/phongducsuthuu.png" class="kibo-card-img" alt="Phong Dực Sư Thứu" loading="lazy">
+        </div>
+        <div class="kibo-card-name-box">
+          <span class="kibo-card-name">Phong Dực Sư Thứu</span>
+        </div>
+      </a>
+      <a href="kibo/kuku.html" class="kibo-card" data-elements="wind,water" data-race="bird" data-stage="infant" data-size="small" data-role="dps" data-variants="shiny,starcolor" data-name="kuku 库库 phong thủy dị sinh · vũ hình tộc ấu niên tấn công rèn đúc">
+        <div class="kibo-card-visual">
+          <div class="kibo-card-elems"><img src="../assets/elements/wind.png" class="kibo-card-elem-icon" alt="Phong" loading="lazy"><img src="../assets/elements/water.png" class="kibo-card-elem-icon" alt="Thủy" loading="lazy"></div>
+          <img src="../assets/kibo/kuku.png" class="kibo-card-img" alt="Kuku" loading="lazy">
+        </div>
+        <div class="kibo-card-name-box">
+          <span class="kibo-card-name">Kuku</span>
+        </div>
+      </a>
+      <a href="kibo/kukul.html" class="kibo-card" data-elements="wind,water" data-race="bird" data-stage="growth" data-size="small" data-role="dps" data-variants="shiny,starcolor" data-name="kukul 库库尔 phong thủy dị sinh · vũ hình tộc trưởng thành tấn công rèn đúc">
+        <div class="kibo-card-visual">
+          <div class="kibo-card-elems"><img src="../assets/elements/wind.png" class="kibo-card-elem-icon" alt="Phong" loading="lazy"><img src="../assets/elements/water.png" class="kibo-card-elem-icon" alt="Thủy" loading="lazy"></div>
+          <img src="../assets/kibo/kukul.png" class="kibo-card-img" alt="Kukul" loading="lazy">
+        </div>
+        <div class="kibo-card-name-box">
+          <span class="kibo-card-name">Kukul</span>
+        </div>
+      </a>
+      <a href="kibo/kukulke.html" class="kibo-card" data-elements="wind,water" data-race="bird" data-stage="mature" data-size="medium" data-role="dps" data-variants="shiny,starcolor" data-name="kukulke 库库尔克 phong thủy dị sinh · vũ hình tộc thành thục tấn công rèn đúc">
+        <div class="kibo-card-visual">
+          <div class="kibo-card-elems"><img src="../assets/elements/wind.png" class="kibo-card-elem-icon" alt="Phong" loading="lazy"><img src="../assets/elements/water.png" class="kibo-card-elem-icon" alt="Thủy" loading="lazy"></div>
+          <img src="../assets/kibo/kukulke.png" class="kibo-card-img" alt="Kukulke" loading="lazy">
+        </div>
+        <div class="kibo-card-name-box">
+          <span class="kibo-card-name">Kukulke</span>
+        </div>
+      </a>
+      <a href="kibo/baolamsolong.html" class="kibo-card" data-elements="water,wood" data-race="special" data-stage="infant" data-size="small" data-role="dps" data-variants="starcolor" data-name="bảo lam sồ long 宝蓝雏龙 thủy mộc đặc thù loại ấu niên tấn công tưới nước canh tác">
+        <div class="kibo-card-visual">
+          <div class="kibo-card-elems"><img src="../assets/elements/water.png" class="kibo-card-elem-icon" alt="Thủy" loading="lazy"><img src="../assets/elements/wood.png" class="kibo-card-elem-icon" alt="Mộc" loading="lazy"></div>
+          <img src="../assets/kibo/baolamsolong.png" class="kibo-card-img" alt="Bảo Lam Sồ Long" loading="lazy">
+        </div>
+        <div class="kibo-card-name-box">
+          <span class="kibo-card-name">Bảo Lam Sồ Long</span>
+        </div>
+      </a>
+      <a href="kibo/bichkhongaulong.html" class="kibo-card" data-elements="water,wood" data-race="special" data-stage="growth" data-size="small" data-role="dps" data-variants="starcolor" data-name="bích không ấu long 碧空幼龙 thủy mộc đặc thù loại trưởng thành tấn công tưới nước canh tác">
+        <div class="kibo-card-visual">
+          <div class="kibo-card-elems"><img src="../assets/elements/water.png" class="kibo-card-elem-icon" alt="Thủy" loading="lazy"><img src="../assets/elements/wood.png" class="kibo-card-elem-icon" alt="Mộc" loading="lazy"></div>
+          <img src="../assets/kibo/bichkhongaulong.png" class="kibo-card-img" alt="Bích Không Ấu Long" loading="lazy">
+        </div>
+        <div class="kibo-card-name-box">
+          <span class="kibo-card-name">Bích Không Ấu Long</span>
+        </div>
+      </a>
+      <a href="kibo/bichvulinhlong.html" class="kibo-card" data-elements="water,wood" data-race="special" data-stage="mature" data-size="medium" data-role="dps" data-variants="starcolor" data-name="bích vũ linh long 碧羽灵龙 thủy mộc đặc thù loại thành thục tấn công tưới nước canh tác">
+        <div class="kibo-card-visual">
+          <div class="kibo-card-elems"><img src="../assets/elements/water.png" class="kibo-card-elem-icon" alt="Thủy" loading="lazy"><img src="../assets/elements/wood.png" class="kibo-card-elem-icon" alt="Mộc" loading="lazy"></div>
+          <img src="../assets/kibo/bichvulinhlong.png" class="kibo-card-img" alt="Bích Vũ Linh Long" loading="lazy">
+        </div>
+        <div class="kibo-card-name-box">
+          <span class="kibo-card-name">Bích Vũ Linh Long</span>
+        </div>
+      </a>
+      <a href="kibo/xilongtu.html" class="kibo-card" data-elements="fire" data-race="scale" data-stage="infant" data-size="small" data-role="dps" data-variants="starcolor" data-name="xí long tử 炽龙仔 hỏa dị sinh · lân hình tộc ấu niên tấn công rèn đúc khai khoáng">
+        <div class="kibo-card-visual">
+          <div class="kibo-card-elems"><img src="../assets/elements/fire.png" class="kibo-card-elem-icon" alt="Hỏa" loading="lazy"></div>
+          <img src="../assets/kibo/xilongtu.png" class="kibo-card-img" alt="Xí Long Tử" loading="lazy">
+        </div>
+        <div class="kibo-card-name-box">
+          <span class="kibo-card-name">Xí Long Tử</span>
+        </div>
+      </a>
+      <a href="kibo/xihuanglong.html" class="kibo-card" data-elements="fire" data-race="scale" data-stage="growth" data-size="medium" data-role="dps" data-variants="starcolor" data-name="xí hoàng long 炽煌龙 hỏa dị sinh · lân hình tộc trưởng thành tấn công rèn đúc khai khoáng">
+        <div class="kibo-card-visual">
+          <div class="kibo-card-elems"><img src="../assets/elements/fire.png" class="kibo-card-elem-icon" alt="Hỏa" loading="lazy"></div>
+          <img src="../assets/kibo/xihuanglong.png" class="kibo-card-img" alt="Xí Hoàng Long" loading="lazy">
+        </div>
+        <div class="kibo-card-name-box">
+          <span class="kibo-card-name">Xí Hoàng Long</span>
+        </div>
+      </a>
+      <a href="kibo/lieudiemxilong.html" class="kibo-card" data-elements="fire" data-race="scale" data-stage="mature" data-size="medium" data-role="dps" data-variants="starcolor" data-name="liêu diễm xí long 燎焰炽龙 hỏa dị sinh · lân hình tộc thành thục tấn công rèn đúc khai khoáng">
+        <div class="kibo-card-visual">
+          <div class="kibo-card-elems"><img src="../assets/elements/fire.png" class="kibo-card-elem-icon" alt="Hỏa" loading="lazy"></div>
+          <img src="../assets/kibo/lieudiemxilong.png" class="kibo-card-img" alt="Liêu Diễm Xí Long" loading="lazy">
+        </div>
+        <div class="kibo-card-name-box">
+          <span class="kibo-card-name">Liêu Diễm Xí Long</span>
+        </div>
+      </a>
+      <a href="kibo/keresia.html" class="kibo-card" data-elements="wood,light" data-race="spirit" data-stage="ultimate" data-size="large" data-role="heal" data-variants="starcolor" data-name="keresia 柯瑞夏 mộc quang huyễn sinh · tinh quái tộc hoàn toàn thể hồi phục thủ công canh tác">
+        <div class="kibo-card-visual">
+          <div class="kibo-card-elems"><img src="../assets/elements/wood.png" class="kibo-card-elem-icon" alt="Mộc" loading="lazy"><img src="../assets/elements/light.png" class="kibo-card-elem-icon" alt="Quang" loading="lazy"></div>
+          <img src="../assets/kibo/keresia.png" class="kibo-card-img" alt="Keresia" loading="lazy">
+        </div>
+        <div class="kibo-card-name-box">
+          <span class="kibo-card-name">Keresia</span>
+        </div>
+      </a>
+      <a href="kibo/amalthea.html" class="kibo-card" data-elements="water,light" data-race="beast" data-stage="ultimate" data-size="huge" data-role="support" data-variants="starcolor" data-name="amalthea 阿玛尔蒂亚 thủy quang dị sinh · thú hình tộc hoàn toàn thể hỗ trợ tưới nước canh tác">
+        <div class="kibo-card-visual">
+          <div class="kibo-card-elems"><img src="../assets/elements/water.png" class="kibo-card-elem-icon" alt="Thủy" loading="lazy"><img src="../assets/elements/light.png" class="kibo-card-elem-icon" alt="Quang" loading="lazy"></div>
+          <img src="../assets/kibo/amalthea.png" class="kibo-card-img" alt="Amalthea" loading="lazy">
+        </div>
+        <div class="kibo-card-name-box">
+          <span class="kibo-card-name">Amalthea</span>
+        </div>
+      </a>
+      <a href="kibo/tinhvanio.html" class="kibo-card" data-elements="dark,thunder" data-race="beast" data-stage="mature" data-size="small" data-role="support" data-variants="shiny,starcolor" data-name="tinh vân io 星云伊欧 ám lôi dị sinh · thú hình tộc thành thục hỗ trợ nguyên tố khai khoáng rèn đúc">
+        <div class="kibo-card-visual">
+          <div class="kibo-card-elems"><img src="../assets/elements/dark.png" class="kibo-card-elem-icon" alt="Ám" loading="lazy"><img src="../assets/elements/thunder.png" class="kibo-card-elem-icon" alt="Lôi" loading="lazy"></div>
+          <img src="../assets/kibo/tinhvanio.png" class="kibo-card-img" alt="Tinh Vân Io" loading="lazy">
+        </div>
+        <div class="kibo-card-name-box">
+          <span class="kibo-card-name">Tinh Vân Io</span>
+        </div>
+      </a>
+      <a href="kibo/nhungtambrini.html" class="kibo-card" data-elements="light,fire" data-race="beast" data-stage="mature" data-size="small" data-role="dps" data-variants="shiny,starcolor" data-name="nhung tâm brini 绒心布里尼 quang hỏa dị sinh · thú hình tộc thành thục tấn công thủ công rèn đúc">
+        <div class="kibo-card-visual">
+          <div class="kibo-card-elems"><img src="../assets/elements/light.png" class="kibo-card-elem-icon" alt="Quang" loading="lazy"><img src="../assets/elements/fire.png" class="kibo-card-elem-icon" alt="Hỏa" loading="lazy"></div>
+          <img src="../assets/kibo/nhungtambrini.png" class="kibo-card-img" alt="Nhung Tâm Brini" loading="lazy">
+        </div>
+        <div class="kibo-card-name-box">
+          <span class="kibo-card-name">Nhung Tâm Brini</span>
+        </div>
+      </a>
+      <a href="kibo/tunhung.html" class="kibo-card" data-elements="light,fire" data-race="beast" data-stage="mature" data-size="small" data-role="dps" data-variants="special" data-name="tư nhung 丝绒 quang hỏa dị sinh · thú hình tộc thành thục tấn công thủ công rèn đúc">
+        <div class="kibo-card-visual">
+          <div class="kibo-card-elems"><img src="../assets/elements/light.png" class="kibo-card-elem-icon" alt="Quang" loading="lazy"><img src="../assets/elements/fire.png" class="kibo-card-elem-icon" alt="Hỏa" loading="lazy"></div>
+          <img src="../assets/kibo/tunhung.png" class="kibo-card-img" alt="Tư Nhung" loading="lazy">
+        </div>
+        <div class="kibo-card-name-box">
+          <span class="kibo-card-name">Tư Nhung</span>
+        </div>
+      </a>
+    </div>
+
+    <!-- Empty State -->
+    <div id="empty-state" class="empty-state" style="display: none; text-align: center; padding: 60px 0;">
+      <p style="color: var(--text-dim); font-size: 1.05rem;">Không tìm thấy Kibo phù hợp với bộ lọc hiện tại.</p>
+    </div>
+  </main>
+
+  <!-- Footer: Injected from master template templates/layout.js -->
+  <footer id="site-footer" class="footer"></footer>
+
+  <script>
+    if (window.location.protocol !== 'file:') {
+      const clean = window.location.pathname.replace(/\.html$/, '').replace(/\/index$/, '');
+      if (clean !== window.location.pathname) {
+        window.history.replaceState(null, '', clean + window.location.search + window.location.hash);
+      }
+    }
+
+    (function() {
+      const searchInput = document.getElementById('kibo-search');
+      const resetBtn = document.getElementById('btn-reset-filters');
+      const elemBtns = document.querySelectorAll('#element-filters .filter-pill');
+      const raceBtns = document.querySelectorAll('#race-filters .filter-pill');
+      const stageBtns = document.querySelectorAll('#stage-filters .filter-pill');
+      const sizeBtns = document.querySelectorAll('#size-filters .filter-pill');
+      const roleBtns = document.querySelectorAll('#role-filters .filter-pill');
+      const variantBtns = document.querySelectorAll('#variant-filters .filter-pill');
+      const cards = document.querySelectorAll('#kibo-grid .kibo-card');
+      const emptyState = document.getElementById('empty-state');
+
+      const state = {
+        element: 'all',
+        race: 'all',
+        stage: 'all',
+        size: 'all',
+        role: 'all',
+        variant: 'all',
+        search: ''
+      };
+
+      function applyFilters() {
+        let visibleCount = 0;
+        cards.forEach(card => {
+          const elems = (card.dataset.elements || '').split(',');
+          const variants = (card.dataset.variants || '').split(',');
+
+          const okElem = state.element === 'all' || elems.includes(state.element);
+          const okRace = state.race === 'all' || card.dataset.race === state.race;
+          const okStage = state.stage === 'all' || card.dataset.stage === state.stage;
+          const okSize = state.size === 'all' || card.dataset.size === state.size;
+          const okRole = state.role === 'all' || card.dataset.role === state.role;
+          const okVariant = state.variant === 'all' || variants.includes(state.variant);
+          const okSearch = !state.search || (card.dataset.name || '').includes(state.search);
+
+          if (okElem && okRace && okStage && okSize && okRole && okVariant && okSearch) {
+            card.style.display = 'flex';
+            visibleCount++;
+          } else {
+            card.style.display = 'none';
+          }
+        });
+
+        if (emptyState) {
+          emptyState.style.display = visibleCount === 0 ? 'block' : 'none';
+        }
+      }
+
+      function bindGroup(btns, key, attr) {
+        btns.forEach(btn => {
+          btn.addEventListener('click', () => {
+            btns.forEach(b => b.classList.remove('active'));
+            btn.classList.add('active');
+            state[key] = btn.dataset[attr];
+            applyFilters();
+          });
+        });
+      }
+
+      bindGroup(elemBtns, 'element', 'element');
+      bindGroup(raceBtns, 'race', 'race');
+      bindGroup(stageBtns, 'stage', 'stage');
+      bindGroup(sizeBtns, 'size', 'size');
+      bindGroup(roleBtns, 'role', 'role');
+      bindGroup(variantBtns, 'variant', 'variant');
+
+      if (searchInput) {
+        searchInput.addEventListener('input', (e) => {
+          state.search = e.target.value.trim().toLowerCase();
+          applyFilters();
+        });
+      }
+
+      if (resetBtn) {
+        resetBtn.addEventListener('click', () => {
+          state.element = 'all';
+          state.race = 'all';
+          state.stage = 'all';
+          state.size = 'all';
+          state.role = 'all';
+          state.variant = 'all';
+          state.search = '';
+          if (searchInput) searchInput.value = '';
+          elemBtns.forEach(b => b.classList.toggle('active', b.dataset.element === 'all'));
+          raceBtns.forEach(b => b.classList.toggle('active', b.dataset.race === 'all'));
+          stageBtns.forEach(b => b.classList.toggle('active', b.dataset.stage === 'all'));
+          sizeBtns.forEach(b => b.classList.toggle('active', b.dataset.size === 'all'));
+          roleBtns.forEach(b => b.classList.toggle('active', b.dataset.role === 'all'));
+          variantBtns.forEach(b => b.classList.toggle('active', b.dataset.variant === 'all'));
+          applyFilters();
+        });
+      }
+    })();
+  </script>
+</body>
+</html>

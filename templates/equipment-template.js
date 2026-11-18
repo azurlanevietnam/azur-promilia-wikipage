@@ -632,6 +632,10 @@
 
     // 1. Initialize Fincantieri FREMM EVO Navigation FIRST (Resilient & Fail-Safe)
     function initFremmGaugeNavigation() {
+      if (window.SiteLayout && typeof window.SiteLayout.initFremmGauge === "function") {
+        window.SiteLayout.initFremmGauge();
+        return;
+      }
       const track = document.getElementById('fremm-gauge-track');
       const ruler = document.getElementById('fremm-gauge-ruler');
       const sidebar = document.getElementById('fremm-sidebar');

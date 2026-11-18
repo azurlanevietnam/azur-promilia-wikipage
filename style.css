@@ -268,6 +268,7 @@ img,
 
 .hero-title {
   font-size: 3.2rem;
+  text-wrap: balance;
   font-weight: 900;
   color: #0f172a;
   letter-spacing: -0.5px;
@@ -335,7 +336,7 @@ img,
 /* Feature Portals: Seamless layout, NO rounded box, NO badges */
 .portal-grid {
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
+  grid-template-columns: repeat(2, 1fr);
   gap: 32px;
   margin-bottom: 60px;
 }
@@ -1083,14 +1084,6 @@ img,
   padding-bottom: 56px;
   scroll-margin-top: 100px;
 }
-  border: none;
-  border-radius: 0;
-  padding: 0;
-  box-shadow: none;
-  position: relative;
-  border-bottom: 1px solid var(--border-subtle);
-  padding-bottom: 56px;
-}
 
 .detail-screen:last-child {
   border-bottom: none;
@@ -1217,6 +1210,7 @@ img,
 }
 
 /* Quality buttons have border-radius */
+.quality-tab,
 .q-tab-btn {
   padding: 8px 16px;
   border-radius: var(--btn-radius-pill);
@@ -1229,10 +1223,12 @@ img,
   transition: var(--transition);
 }
 
+.quality-tab:hover,
 .q-tab-btn:hover {
   background: var(--bg-page-alt);
 }
 
+.quality-tab.active,
 .q-tab-btn.active {
   background: #0369a1;
   border-color: #0369a1;
@@ -2066,144 +2062,776 @@ img,
 
 /* ===================================================================
    DESKTOP 4-TIER RESPONSIVE: HD, FULL HD, 2K, 4K
+   - Width-tiered typography & horizontal proportions (no short-viewport downgrade)
+   - Full-height Fincantieri vertical gauge dynamically stretching to the
+     exact maximum safe limit right above the footer block on all 4 tiers
    =================================================================== */
 
-/* TIER 1: HD (1280x720 / 1366x768 / short viewport height <= 820px) */
-@media (min-width: 1025px) and (max-width: 1440px), (min-width: 1025px) and (max-height: 820px) {
+/* TIER 1: HD (1025px - 1440px: 1280x720, 1366x768, 1440x900) */
+@media (min-width: 1025px) and (max-width: 1440px) {
   .fremm-sidebar {
-    width: 270px;
-    left: 20px;
-    top: 72px;
-    --gauge-tick-spacing: 21px;
-    --gauge-dash-w: 11px;
-    --gauge-dash-h: 2px;
-    --gauge-dash-hover-w: 18px;
-    --gauge-active-dash-w: 34px;
-    --fremm-bc-font-size: 0.85rem;
-    --fremm-bc-gap: 5px;
-    --fremm-bc-mb: 8px;
-    --fremm-bc-l2-pad: 10px;
-    --fremm-bc-l3-pad: 20px;
-    --fremm-label-font-size: 0.80rem;
-    --fremm-active-label-font-size: 0.88rem;
-    --fremm-gauge-gap: 10px;
-  }
-  .fremm-content {
-    margin-left: 300px;
-    max-width: 960px;
-    gap: 48px;
-  }
-}
-
-/* TIER 2: FULL HD (1441px - 1920px with standard height > 820px) */
-@media (min-width: 1441px) and (max-width: 1920px) and (min-height: 821px) {
-  .fremm-sidebar {
-    width: 320px;
-    left: 32px;
-    top: 84px;
-    --gauge-tick-spacing: 28px;
+    width: 300px;
+    left: 24px;
+    top: 80px;
+    --fremm-footer-gap: 18px;
+    --gauge-tick-spacing: clamp(18px, calc((100vh - 325px) / 15), 42px);
     --gauge-dash-w: 14px;
     --gauge-dash-h: 2.5px;
     --gauge-dash-hover-w: 22px;
-    --gauge-active-dash-w: 44px;
-    --fremm-bc-font-size: 1.02rem;
-    --fremm-bc-gap: 8px;
-    --fremm-bc-mb: 12px;
-    --fremm-bc-l2-pad: 14px;
-    --fremm-bc-l3-pad: 28px;
-    --fremm-label-font-size: 0.92rem;
+    --gauge-active-dash-w: 42px;
+    --fremm-bc-font-size: 1.00rem;
+    --fremm-bc-gap: 6px;
+    --fremm-bc-mb: 14px;
+    --fremm-bc-l2-pad: 12px;
+    --fremm-bc-l3-pad: 24px;
+    --fremm-label-font-size: 0.90rem;
     --fremm-active-label-font-size: 1.02rem;
-    --fremm-gauge-gap: 14px;
+    --fremm-gauge-gap: 12px;
   }
   .fremm-content {
-    margin-left: 360px;
-    max-width: 1060px;
-    gap: 72px;
+    margin-left: 340px;
+    max-width: 980px;
+    gap: 56px;
+  }
+  .screen-overview-info h1 {
+    font-size: 2.05rem;
+  }
+  .screen-header h2 {
+    font-size: 1.48rem;
+  }
+  .screen-meta-box .meta-k {
+    font-size: 0.78rem;
+  }
+  .screen-meta-box .meta-v {
+    font-size: 0.98rem;
   }
 }
 
-/* TIER 3: 2K / QHD (1921px - 2560px with height > 820px) */
-@media (min-width: 1921px) and (max-width: 2560px) and (min-height: 821px) {
+/* TIER 2: FULL HD (1441px - 1920px: 1920x1080 @ 100% & 125% scaling) */
+@media (min-width: 1441px) and (max-width: 1920px) {
   .fremm-sidebar {
-    width: 400px;
-    left: 48px;
-    top: 96px;
-    --gauge-tick-spacing: 46px;
-    --gauge-dash-w: 20px;
-    --gauge-dash-h: 3px;
-    --gauge-dash-hover-w: 30px;
-    --gauge-active-dash-w: 62px;
-    --fremm-bc-font-size: 1.25rem;
-    --fremm-bc-gap: 12px;
+    width: 370px;
+    left: 36px;
+    top: 86px;
+    --fremm-footer-gap: 24px;
+    --gauge-tick-spacing: clamp(22px, calc((100vh - 355px) / 15), 56px);
+    --gauge-dash-w: 18px;
+    --gauge-dash-h: 2.5px;
+    --gauge-dash-hover-w: 28px;
+    --gauge-active-dash-w: 54px;
+    --fremm-bc-font-size: 1.20rem;
+    --fremm-bc-gap: 8px;
     --fremm-bc-mb: 18px;
-    --fremm-bc-l2-pad: 18px;
-    --fremm-bc-l3-pad: 36px;
-    --fremm-label-font-size: 1.15rem;
-    --fremm-active-label-font-size: 1.28rem;
-    --fremm-gauge-gap: 18px;
+    --fremm-bc-l2-pad: 16px;
+    --fremm-bc-l3-pad: 32px;
+    --fremm-label-font-size: 1.06rem;
+    --fremm-active-label-font-size: 1.22rem;
+    --fremm-gauge-gap: 16px;
   }
   .fremm-content {
-    margin-left: 470px;
-    max-width: 1380px;
-    gap: 90px;
+    margin-left: 428px;
+    max-width: 1180px;
+    gap: 72px;
+  }
+  .screen-overview-info h1 {
+    font-size: 2.35rem;
+  }
+  .screen-overview-original-name {
+    font-size: 1.05rem;
   }
   .screen-header h2 {
-    font-size: 1.85rem;
+    font-size: 1.68rem;
+  }
+  .screen-meta-box .meta-k {
+    font-size: 0.84rem;
+  }
+  .screen-meta-box .meta-v {
+    font-size: 1.08rem;
+  }
+  .screen-lore-card,
+  .kibo-passive-desc,
+  .kibo-skill-desc {
+    font-size: 1.02rem;
+  }
+  .attr-table th {
+    font-size: 0.88rem;
+  }
+  .attr-table td {
+    font-size: 0.98rem;
+  }
+  .source-badge {
+    font-size: 0.95rem;
+  }
+}
+
+/* TIER 3: 2K / QHD (1921px - 2560px: 2560x1440) */
+@media (min-width: 1921px) and (max-width: 2560px) {
+  .container:not(.detail-container) {
+    max-width: 1640px;
+  }
+  .navbar .nav-container {
+    height: 76px;
+  }
+  .brand-info h1 {
+    font-size: 1.45rem;
+  }
+  .nav-item {
+    font-size: 1.12rem;
+    padding: 9px 22px;
+  }
+  .fremm-sidebar {
+    width: 460px;
+    left: 48px;
+    top: 98px;
+    --fremm-footer-gap: 32px;
+    --gauge-tick-spacing: clamp(32px, calc((100vh - 415px) / 15), 76px);
+    --gauge-dash-w: 22px;
+    --gauge-dash-h: 3px;
+    --gauge-dash-hover-w: 34px;
+    --gauge-active-dash-w: 68px;
+    --fremm-bc-font-size: 1.42rem;
+    --fremm-bc-gap: 12px;
+    --fremm-bc-mb: 24px;
+    --fremm-bc-l2-pad: 20px;
+    --fremm-bc-l3-pad: 40px;
+    --fremm-label-font-size: 1.26rem;
+    --fremm-active-label-font-size: 1.44rem;
+    --fremm-gauge-gap: 20px;
+  }
+  .fremm-content {
+    margin-left: 536px;
+    max-width: 1480px;
+    gap: 92px;
+  }
+  .screen-overview-info h1 {
+    font-size: 2.65rem;
+  }
+  .screen-overview-original-name {
+    font-size: 1.20rem;
+  }
+  .screen-header h2 {
+    font-size: 1.95rem;
+  }
+  .screen-meta-box .meta-k {
+    font-size: 0.96rem;
+  }
+  .screen-meta-box .meta-v {
+    font-size: 1.22rem;
+  }
+  .screen-lore-card,
+  .kibo-passive-desc,
+  .kibo-skill-desc {
+    font-size: 1.12rem;
+  }
+  .kibo-passive-name,
+  .kibo-skill-name-line h3 {
+    font-size: 1.22rem;
   }
   .attr-table th, .attr-table td {
     padding: 16px 20px;
-    font-size: 1.1rem;
+    font-size: 1.10rem;
+  }
+  .source-badge {
+    font-size: 1.05rem;
+    padding: 10px 18px;
   }
   .suit-skill-card {
     padding: 24px;
   }
 }
 
-/* TIER 4: 4K / UHD (min-width: 2561px with height > 820px) */
-@media (min-width: 2561px) and (min-height: 821px) {
+/* TIER 4: 4K / UHD (min-width: 2561px: 3840x2160) */
+@media (min-width: 2561px) {
+  .container:not(.detail-container) {
+    max-width: 2240px;
+  }
+  .navbar .nav-container {
+    height: 92px;
+  }
+  .brand-icon {
+    width: 46px;
+    height: 46px;
+    font-size: 22px;
+  }
+  .brand-info h1 {
+    font-size: 1.75rem;
+  }
+  .nav-item {
+    font-size: 1.32rem;
+    padding: 12px 28px;
+  }
+  .social-btn {
+    font-size: 1.02rem;
+    padding: 10px 20px;
+  }
   .fremm-sidebar {
-    width: 520px;
-    left: 64px;
-    top: 120px;
-    --gauge-tick-spacing: 70px;
-    --gauge-dash-w: 28px;
+    width: 600px;
+    left: 72px;
+    top: 118px;
+    --fremm-footer-gap: 40px;
+    --gauge-tick-spacing: clamp(54px, calc((100vh - 515px) / 15), 118px);
+    --gauge-dash-w: 30px;
     --gauge-dash-h: 4px;
-    --gauge-dash-hover-w: 42px;
-    --gauge-active-dash-w: 88px;
-    --fremm-bc-font-size: 1.65rem;
+    --gauge-dash-hover-w: 46px;
+    --gauge-active-dash-w: 92px;
+    --fremm-bc-font-size: 1.85rem;
     --fremm-bc-gap: 16px;
-    --fremm-bc-mb: 24px;
-    --fremm-bc-l2-pad: 24px;
-    --fremm-bc-l3-pad: 48px;
-    --fremm-label-font-size: 1.55rem;
-    --fremm-active-label-font-size: 1.72rem;
-    --fremm-gauge-gap: 24px;
+    --fremm-bc-mb: 32px;
+    --fremm-bc-l2-pad: 26px;
+    --fremm-bc-l3-pad: 52px;
+    --fremm-label-font-size: 1.65rem;
+    --fremm-active-label-font-size: 1.88rem;
+    --fremm-gauge-gap: 26px;
   }
   .fremm-content {
-    margin-left: 620px;
-    max-width: 1800px;
-    gap: 110px;
-  }
-  .screen-header h2 {
-    font-size: 2.3rem;
-  }
-  .attr-table th, .attr-table td {
-    padding: 20px 24px;
-    font-size: 1.35rem;
+    margin-left: 704px;
+    max-width: 1920px;
+    gap: 116px;
   }
   .screen-overview-info h1 {
-    font-size: 2.8rem;
+    font-size: 3.20rem;
   }
   .screen-overview-original-name {
-    font-size: 1.5rem;
+    font-size: 1.50rem;
   }
-  .meta-k {
-    font-size: 1.15rem;
+  .screen-header h2 {
+    font-size: 2.45rem;
   }
-  .meta-v {
+  .screen-meta-box .meta-k {
+    font-size: 1.20rem;
+  }
+  .screen-meta-box .meta-v {
+    font-size: 1.48rem;
+  }
+  .screen-lore-card,
+  .kibo-passive-desc,
+  .kibo-skill-desc {
+    font-size: 1.32rem;
+  }
+  .kibo-passive-name,
+  .kibo-skill-name-line h3 {
+    font-size: 1.48rem;
+  }
+  .attr-table th, .attr-table td {
+    padding: 20px 26px;
     font-size: 1.35rem;
+  }
+  .source-badge {
+    font-size: 1.28rem;
+    padding: 12px 22px;
+  }
+  .footer {
+    font-size: 1.15rem;
+    padding: 48px 0;
   }
   .suit-skill-card {
     padding: 32px;
+  }
+}
+
+/* ===================================================================
+   KIBO CATALOG & DETAIL PAGES
+   Strict Custom Rules:
+   - Border-radius strictly on interactive buttons & pills ONLY
+   - Images & cards strictly border-radius: 0
+   - Seamless transparent containers with hairline dividers
+   =================================================================== */
+
+/* Filter pill with element icon */
+.filter-pill-with-icon {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.filter-pill-icon {
+  width: 18px;
+  height: 18px;
+  object-fit: contain;
+  border-radius: 0 !important;
+  flex-shrink: 0;
+}
+
+/* Kibo Catalog Grid */
+.kibo-catalog-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+  gap: 18px;
+  margin-bottom: 60px;
+}
+
+.kibo-card {
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  background: #ffffff;
+  border: 1px solid var(--border-subtle);
+  border-radius: 0;
+  text-decoration: none;
+  color: var(--text-main);
+  transition: transform 0.2s cubic-bezier(0.16, 1, 0.3, 1),
+              border-color 0.2s ease,
+              box-shadow 0.2s ease;
+  overflow: hidden;
+}
+
+.kibo-card:hover {
+  transform: translateY(-3px);
+  border-color: var(--accent-azure);
+  box-shadow: var(--shadow-md);
+}
+
+.kibo-card-visual {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 1 / 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 12px;
+  background: linear-gradient(180deg, #f8fafc 0%, #ffffff 100%);
+  border-bottom: 1px solid var(--border-subtle);
+}
+
+.kibo-card-img {
+  width: 86%;
+  height: 86%;
+  object-fit: contain;
+  border-radius: 0 !important;
+  transition: transform 0.22s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.kibo-card:hover .kibo-card-img {
+  transform: scale(1.05);
+}
+
+.kibo-card-elems {
+  position: absolute;
+  top: 6px;
+  left: 6px;
+  display: flex;
+  flex-direction: column;
+  gap: 3px;
+  z-index: 2;
+}
+
+.kibo-card-elem-icon {
+  width: 22px;
+  height: 22px;
+  object-fit: contain;
+  border-radius: 0 !important;
+  filter: drop-shadow(0 1px 2px rgba(15, 23, 42, 0.25));
+}
+
+.kibo-card-name-box {
+  padding: 10px 8px;
+  text-align: center;
+  background: #ffffff;
+}
+
+.kibo-card-name {
+  display: block;
+  font-size: 0.88rem;
+  font-weight: 700;
+  color: var(--text-main);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  line-height: 1.3;
+}
+
+/* Kibo Detail Page: Hero Portrait Frame */
+.kibo-visual-frame {
+  position: relative;
+  width: 268px;
+  height: 268px;
+  border: 1px solid var(--border-subtle);
+  border-radius: 0 !important;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto;
+  padding: 16px;
+}
+
+.kibo-visual-portrait {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  border-radius: 0 !important;
+}
+
+.kibo-visual-elems {
+  position: absolute;
+  top: 10px;
+  left: 10px;
+  display: flex;
+  gap: 6px;
+  z-index: 2;
+}
+
+.kibo-visual-elem-icon {
+  width: 30px;
+  height: 30px;
+  object-fit: contain;
+  border-radius: 0 !important;
+  filter: drop-shadow(0 1px 3px rgba(15, 23, 42, 0.25));
+}
+
+.kibo-meta-elems {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+.kibo-elem-inline {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  font-weight: 700;
+  font-size: 0.92rem;
+}
+
+.kibo-elem-mini-icon {
+  width: 20px;
+  height: 20px;
+  object-fit: contain;
+  border-radius: 0 !important;
+}
+
+.screen-lore-card p {
+  max-width: 66ch;
+}
+
+.screen-lore-card p + p {
+  margin-top: 10px;
+}
+
+.kibo-sub-heading {
+  font-size: 1.05rem;
+  font-weight: 800;
+  color: var(--text-main);
+  margin-bottom: 14px;
+}
+
+.kibo-empty-note {
+  color: var(--text-dim);
+  font-size: 0.95rem;
+  padding: 12px 0;
+}
+
+/* Kibo Passives (Seamless Hairline List) */
+.kibo-passives-block {
+  margin-bottom: 36px;
+}
+
+.kibo-passive-list {
+  display: flex;
+  flex-direction: column;
+  border-top: 1px solid var(--border-subtle);
+}
+
+.kibo-passive-item {
+  padding: 16px 0;
+  border-bottom: 1px solid var(--border-subtle);
+}
+
+.kibo-passive-name {
+  font-size: 1rem;
+  font-weight: 800;
+  color: var(--text-main);
+  margin-bottom: 6px;
+}
+
+.kibo-passive-desc {
+  font-size: 0.95rem;
+  color: var(--text-dim);
+  line-height: 1.65;
+  max-width: 68ch;
+}
+
+/* Kibo Skills List */
+.kibo-skills-list {
+  display: flex;
+  flex-direction: column;
+  border-top: 1px solid var(--border-subtle);
+}
+
+.kibo-skill-row {
+  padding: 20px 0;
+  border-bottom: 1px solid var(--border-subtle);
+}
+
+.kibo-skill-head {
+  display: flex;
+  align-items: flex-start;
+  gap: 16px;
+  margin-bottom: 12px;
+}
+
+.kibo-skill-icon-box {
+  width: 56px;
+  height: 56px;
+  flex-shrink: 0;
+  border: 1px solid var(--border-subtle);
+  border-radius: 0 !important;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 6px;
+}
+
+.kibo-skill-icon-box img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  border-radius: 0 !important;
+}
+
+.kibo-skill-title-col {
+  flex: 1;
+  min-width: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.kibo-skill-name-line {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 12px;
+}
+
+.kibo-skill-name-line h3 {
+  font-size: 1.08rem;
+  font-weight: 800;
+  color: var(--text-main);
+}
+
+.kibo-skill-type {
+  font-size: 0.82rem;
+  font-weight: 700;
+  color: var(--text-subtle);
+}
+
+.kibo-skill-lv-bar {
+  display: inline-flex;
+  flex-wrap: wrap;
+  gap: 6px;
+}
+
+.kibo-lv-btn {
+  padding: 4px 12px;
+  border-radius: var(--btn-radius-pill);
+  border: 1px solid var(--border-subtle);
+  background: #ffffff;
+  color: var(--text-muted);
+  font-size: 0.78rem;
+  font-weight: 700;
+  cursor: pointer;
+  transition: var(--transition);
+}
+
+.kibo-lv-btn:hover {
+  border-color: var(--accent-azure);
+  color: var(--accent-azure);
+}
+
+.kibo-lv-btn.active {
+  background: var(--accent-azure);
+  border-color: var(--accent-azure);
+  color: #ffffff;
+}
+
+.kibo-skill-desc {
+  font-size: 0.95rem;
+  color: var(--text-muted);
+  line-height: 1.65;
+  max-width: 68ch;
+}
+
+/* Kibo Drops Block */
+.kibo-drops-block {
+  margin-top: 24px;
+}
+
+/* Kibo Evolution Lineage */
+.kibo-evo-track {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 16px;
+  padding: 12px 0;
+}
+
+.kibo-evo-node {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  width: 150px;
+  padding: 14px 10px;
+  border: 1px solid var(--border-subtle);
+  background: #ffffff;
+  border-radius: 0;
+  text-decoration: none;
+  color: var(--text-main);
+  transition: var(--transition);
+}
+
+.kibo-evo-node:hover {
+  border-color: var(--accent-azure);
+  box-shadow: var(--shadow-sm);
+}
+
+.kibo-evo-node.is-current {
+  border-color: var(--accent-azure);
+  background: #f0f9ff;
+}
+
+.kibo-evo-img-wrap {
+  width: 96px;
+  height: 96px;
+  margin-bottom: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.kibo-evo-img-wrap img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  border-radius: 0 !important;
+}
+
+.kibo-evo-name {
+  font-size: 0.92rem;
+  font-weight: 800;
+  color: var(--text-main);
+  line-height: 1.3;
+}
+
+.kibo-evo-stage {
+  font-size: 0.78rem;
+  font-weight: 600;
+  color: var(--text-subtle);
+  margin-top: 3px;
+}
+
+.kibo-evo-connector {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 4px;
+  min-width: 76px;
+  text-align: center;
+}
+
+.kibo-evo-req {
+  font-size: 0.78rem;
+  font-weight: 700;
+  color: var(--accent-azure);
+  max-width: 130px;
+  line-height: 1.35;
+}
+
+.kibo-evo-arrow {
+  font-size: 1.35rem;
+  font-weight: 700;
+  color: var(--text-subtle);
+  line-height: 1;
+}
+
+/* Kibo Yuanmai Table */
+.kibo-ym-table td {
+  vertical-align: top;
+}
+
+.kibo-ym-breakthrough td {
+  background: #f8fafc;
+}
+
+.kibo-ym-node-title {
+  font-weight: 800;
+  color: var(--text-main);
+  font-size: 0.92rem;
+}
+
+.kibo-ym-node-cond {
+  font-size: 0.78rem;
+  color: var(--text-subtle);
+  margin-top: 2px;
+}
+
+.kibo-ym-effects,
+.kibo-ym-costs {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px 14px;
+}
+
+.kibo-ym-attr {
+  font-size: 0.88rem;
+  color: var(--text-muted);
+}
+
+.kibo-ym-attr strong {
+  color: var(--accent-azure);
+  font-weight: 800;
+}
+
+.kibo-ym-attr.kibo-ym-skill strong {
+  color: var(--accent-gold);
+}
+
+.kibo-ym-cost {
+  font-size: 0.86rem;
+  color: var(--text-dim);
+  font-weight: 600;
+}
+
+.kibo-ym-cumulative {
+  margin-top: 16px;
+  padding: 14px 0;
+  border-top: 1px solid var(--border-subtle);
+  border-bottom: 1px solid var(--border-subtle);
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 12px 24px;
+}
+
+.kibo-ym-cum-label {
+  font-size: 0.9rem;
+  font-weight: 800;
+  color: var(--text-main);
+}
+
+@media (max-width: 640px) {
+  .kibo-catalog-grid {
+    grid-template-columns: repeat(auto-fill, minmax(120px, 1fr));
+    gap: 12px;
+  }
+  .kibo-evo-track {
+    flex-direction: column;
+    align-items: stretch;
+  }
+  .kibo-evo-node {
+    width: 100%;
+    flex-direction: row;
+    text-align: left;
+    gap: 14px;
+  }
+  .kibo-evo-img-wrap {
+    width: 60px;
+    height: 60px;
+    margin-bottom: 0;
+  }
+  .kibo-evo-arrow {
+    transform: rotate(90deg);
   }
 }

@@ -201,6 +201,10 @@
   }
 
   function initGaugeScroll() {
+    if (window.SiteLayout && typeof window.SiteLayout.initFremmGauge === "function") {
+      window.SiteLayout.initFremmGauge();
+      return;
+    }
     const screens = document.querySelectorAll('.detail-screen');
     const gaugeItems = document.querySelectorAll('.fremm-gauge-item');
     if (!screens.length || !gaugeItems.length) return;
