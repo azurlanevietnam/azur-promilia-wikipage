@@ -579,7 +579,7 @@
 
             <div class="screen-overview-info">
               <h1>${w.name}</h1>
-              <div class="screen-overview-original-name">${w.original_name || ''}</div>
+              <div class="screen-overview-original-name">${w.original_name ? `CN: ${w.original_name}` : ''}</div>
 
               <div class="screen-meta-grid">
                 <div class="screen-meta-box">

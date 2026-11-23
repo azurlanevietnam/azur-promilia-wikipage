@@ -391,7 +391,7 @@
 
             <div class="screen-overview-info">
               <h1>${kibo.name}</h1>
-              <div class="screen-overview-original-name">${kibo.original_name || ''}</div>
+              <div class="screen-overview-original-name">${kibo.original_name ? `CN: ${kibo.original_name}` : ''}</div>
 
               <div class="screen-meta-grid">
                 <div class="screen-meta-box">

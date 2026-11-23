@@ -119,7 +119,7 @@
 
             <div class="screen-overview-info">
               <h1>${lz.name}</h1>
-              <div class="screen-overview-original-name">${lz.original_name || ''}</div>
+              <div class="screen-overview-original-name">${lz.original_name ? `CN: ${lz.original_name}` : ''}</div>
 
               <!-- Zero-Clutter Meta Grid: Strictly Only Color, NO Identifier -->
               <div class="screen-meta-grid">

@@ -1,0 +1,691 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Danh Sách Nhân Vật - Azur Promilia Wiki</title>
+  <link rel="stylesheet" href="../style.css">
+  <script src="../templates/layout.js" defer></script>
+</head>
+<body data-active-tab="character" data-depth="1">
+  
+  <div class="cosmic-stars"></div>
+
+  <!-- Top Navigation Bar: Injected from master template templates/layout.js -->
+  <header id="site-navbar" class="navbar"></header>
+
+  <main class="container">
+    <div class="page-header">
+      <h1 class="page-title">Danh Sách Nhân Vật</h1>
+    </div>
+
+    <!-- Search Input: Zero Placeholder per AGENTS.md -->
+    <div class="search-box">
+      <span class="search-icon" aria-hidden="true">🔍</span>
+      <input type="text" id="char-search" class="search-input" aria-label="Tìm kiếm nhân vật">
+    </div>
+
+    <!-- Filter Matrix Table (BWIKI Standard) -->
+    <table class="bwiki-filter-table">
+      <tbody>
+        <tr>
+          <th>Tất cả</th>
+          <td>
+            <button class="filter-pill active" id="btn-reset-filters">Xem tất cả</button>
+          </td>
+        </tr>
+        <tr>
+          <th>Độ hiếm</th>
+          <td>
+            <div class="bwiki-filter-options" id="rarity-filters">
+              <button class="filter-pill active" data-rarity="all">Tất cả</button>
+              <button class="filter-pill" data-rarity="5">Vàng</button>
+              <button class="filter-pill" data-rarity="4">Tím</button>
+            </div>
+          </td>
+        </tr>
+        <tr>
+          <th>Nguyên tố</th>
+          <td>
+            <div class="bwiki-filter-options" id="element-filters">
+              <button class="filter-pill active" data-element="all">Tất cả</button>
+              <button class="filter-pill filter-pill-with-icon" data-element="fire"><img src="../assets/elements/fire.png" class="filter-pill-icon" alt="">Hỏa</button>
+              <button class="filter-pill filter-pill-with-icon" data-element="wind"><img src="../assets/elements/wind.png" class="filter-pill-icon" alt="">Phong</button>
+              <button class="filter-pill filter-pill-with-icon" data-element="earth"><img src="../assets/elements/earth.png" class="filter-pill-icon" alt="">Địa</button>
+              <button class="filter-pill filter-pill-with-icon" data-element="wood"><img src="../assets/elements/wood.png" class="filter-pill-icon" alt="">Mộc</button>
+              <button class="filter-pill filter-pill-with-icon" data-element="ice"><img src="../assets/elements/ice.png" class="filter-pill-icon" alt="">Băng</button>
+              <button class="filter-pill filter-pill-with-icon" data-element="water"><img src="../assets/elements/water.png" class="filter-pill-icon" alt="">Thủy</button>
+              <button class="filter-pill filter-pill-with-icon" data-element="thunder"><img src="../assets/elements/thunder.png" class="filter-pill-icon" alt="">Lôi</button>
+              <button class="filter-pill filter-pill-with-icon" data-element="light"><img src="../assets/elements/light.png" class="filter-pill-icon" alt="">Quang</button>
+              <button class="filter-pill filter-pill-with-icon" data-element="dark"><img src="../assets/elements/dark.png" class="filter-pill-icon" alt="">Ám</button>
+            </div>
+          </td>
+        </tr>
+        <tr>
+          <th>Vai trò</th>
+          <td>
+            <div class="bwiki-filter-options" id="role-filters">
+              <button class="filter-pill active" data-role="all">Tất cả</button>
+              <button class="filter-pill" data-role="burst">Bạo Phát</button>
+              <button class="filter-pill" data-role="break">Phá Hoại</button>
+              <button class="filter-pill" data-role="assault">Mãnh Công</button>
+              <button class="filter-pill" data-role="buff">Tăng Phúc</button>
+              <button class="filter-pill" data-role="debuff">Phú Dữ</button>
+            </div>
+          </td>
+        </tr>
+        <tr>
+          <th>Vũ khí</th>
+          <td>
+            <div class="bwiki-filter-options" id="weapon-filters">
+              <button class="filter-pill active" data-weapon="all">Tất cả</button>
+              <button class="filter-pill" data-weapon="fist">Đấu Quyền</button>
+              <button class="filter-pill" data-weapon="dual_blades">Song Đao</button>
+              <button class="filter-pill" data-weapon="sword">Kiếm Đơn</button>
+              <button class="filter-pill" data-weapon="bow">Cung</button>
+              <button class="filter-pill" data-weapon="polearm">Trường Binh</button>
+              <button class="filter-pill" data-weapon="gun">Hỏa Thương</button>
+              <button class="filter-pill" data-weapon="staff">Pháp Trượng</button>
+              <button class="filter-pill" data-weapon="scythe">Liêm Đao</button>
+              <button class="filter-pill" data-weapon="whip">Roi</button>
+            </div>
+          </td>
+        </tr>
+        <tr>
+          <th>Trận doanh</th>
+          <td>
+            <div class="bwiki-filter-options" id="faction-filters">
+              <button class="filter-pill active" data-faction="all">Tất cả</button>
+              <button class="filter-pill" data-faction="chen">Thần Vương Triều</button>
+              <button class="filter-pill" data-faction="rogia">Đế Quốc Rogia</button>
+              <button class="filter-pill" data-faction="reginia">Liên Bang Reginia</button>
+              <button class="filter-pill" data-faction="qiyun">Kỳ Vân</button>
+              <button class="filter-pill" data-faction="loslanse">Loslanse</button>
+              <button class="filter-pill" data-faction="avalian">Avalian</button>
+              <button class="filter-pill" data-faction="sharuru">Làng Sharuru</button>
+              <button class="filter-pill" data-faction="windbreak">Đoán Phong Bàn</button>
+              <button class="filter-pill" data-faction="fliss">Thành Bang Fliss</button>
+              <button class="filter-pill" data-faction="neutral">Không Thuộc Phe</button>
+            </div>
+          </td>
+        </tr>
+        <tr>
+          <th>Chủng tộc</th>
+          <td>
+            <div class="bwiki-filter-options" id="race-filters">
+              <button class="filter-pill active" data-race="all">Tất cả</button>
+              <button class="filter-pill" data-race="human">Trí Nhân</button>
+              <button class="filter-pill" data-race="beast">Thú Nhân</button>
+              <button class="filter-pill" data-race="dragon">Long Nhân</button>
+              <button class="filter-pill" data-race="oni">Quỷ Nhân</button>
+              <button class="filter-pill" data-race="wood_elf">Mộc Tinh Linh</button>
+              <button class="filter-pill" data-race="high_elf">Cao Đẳng Tinh Linh</button>
+              <button class="filter-pill" data-race="pami">Pami</button>
+            </div>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+
+    <!-- Character Catalog Grid -->
+    <div id="character-grid" class="char-catalog-grid">
+      <a href="characters/luoqing.html" 
+         class="char-card r5" 
+         data-rarity="5" 
+         data-elements="water" 
+         data-role="debuff" 
+         data-weapon="whip" 
+         data-faction="chen" 
+         data-race="dragon" 
+         data-name="lạc khanh lạc khanh 洛卿 luo qing thủy phú dữ roi thần vương triều long nhân tộc">
+        <div class="char-card-visual">
+          <div class="char-card-elems"><img src="../assets/elements/water.png" class="char-card-elem-icon" alt="" loading="lazy"></div>
+          <span class="char-card-rarity r5">Vàng</span>
+          <img src="../assets/characters/icons/luoqing.png" class="char-card-img" alt="Lạc Khanh" loading="lazy">
+        </div>
+        <div class="char-card-info">
+          <div class="char-card-name">Lạc Khanh</div>
+          <div class="char-card-meta">Roi · Phú Dữ</div>
+        </div>
+      </a>
+      <a href="characters/peipei.html" 
+         class="char-card r5" 
+         data-rarity="5" 
+         data-elements="earth light" 
+         data-role="burst" 
+         data-weapon="fist" 
+         data-faction="chen" 
+         data-race="pami" 
+         data-name="peipei peipei 佩佩 peipei địa quang bạo phát đấu quyền thần vương triều pami tộc">
+        <div class="char-card-visual">
+          <div class="char-card-elems"><img src="../assets/elements/earth.png" class="char-card-elem-icon" alt="" loading="lazy"><img src="../assets/elements/light.png" class="char-card-elem-icon" alt="" loading="lazy"></div>
+          <span class="char-card-rarity r5">Vàng</span>
+          <img src="../assets/characters/icons/peipei.png" class="char-card-img" alt="Peipei" loading="lazy">
+        </div>
+        <div class="char-card-info">
+          <div class="char-card-name">Peipei</div>
+          <div class="char-card-meta">Đấu Quyền · Bạo Phát</div>
+        </div>
+      </a>
+      <a href="characters/tushanxiaoyu.html" 
+         class="char-card r5" 
+         data-rarity="5" 
+         data-elements="wind light" 
+         data-role="assault" 
+         data-weapon="dual_blades" 
+         data-faction="chen" 
+         data-race="beast" 
+         data-name="đồ sơn tiểu ngọc đồ sơn tiểu ngọc 涂山小玉 tushan xiaoyu phong quang mãnh công song đao thần vương triều thú nhân tộc">
+        <div class="char-card-visual">
+          <div class="char-card-elems"><img src="../assets/elements/wind.png" class="char-card-elem-icon" alt="" loading="lazy"><img src="../assets/elements/light.png" class="char-card-elem-icon" alt="" loading="lazy"></div>
+          <span class="char-card-rarity r5">Vàng</span>
+          <img src="../assets/characters/icons/tushanxiaoyu.png" class="char-card-img" alt="Đồ Sơn Tiểu Ngọc" loading="lazy">
+        </div>
+        <div class="char-card-info">
+          <div class="char-card-name">Đồ Sơn Tiểu Ngọc</div>
+          <div class="char-card-meta">Song Đao · Mãnh Công</div>
+        </div>
+      </a>
+      <a href="characters/lanxiangzi.html" 
+         class="char-card r5" 
+         data-rarity="5" 
+         data-elements="ice dark" 
+         data-role="buff" 
+         data-weapon="dual_blades" 
+         data-faction="chen" 
+         data-race="human" 
+         data-name="lan hương tử lan hương tử 兰香子 lan xiangzi băng ám tăng phúc song đao thần vương triều trí nhân tộc">
+        <div class="char-card-visual">
+          <div class="char-card-elems"><img src="../assets/elements/ice.png" class="char-card-elem-icon" alt="" loading="lazy"><img src="../assets/elements/dark.png" class="char-card-elem-icon" alt="" loading="lazy"></div>
+          <span class="char-card-rarity r5">Vàng</span>
+          <img src="../assets/characters/icons/lanxiangzi.png" class="char-card-img" alt="Lan Hương Tử" loading="lazy">
+        </div>
+        <div class="char-card-info">
+          <div class="char-card-name">Lan Hương Tử</div>
+          <div class="char-card-meta">Song Đao · Tăng Phúc</div>
+        </div>
+      </a>
+      <a href="characters/ruby.html" 
+         class="char-card r5" 
+         data-rarity="5" 
+         data-elements="fire thunder" 
+         data-role="assault" 
+         data-weapon="gun" 
+         data-faction="reginia" 
+         data-race="human" 
+         data-name="ruby ruby 红宝石 ruby hỏa lôi mãnh công hỏa thương liên bang reginia trí nhân tộc">
+        <div class="char-card-visual">
+          <div class="char-card-elems"><img src="../assets/elements/fire.png" class="char-card-elem-icon" alt="" loading="lazy"><img src="../assets/elements/thunder.png" class="char-card-elem-icon" alt="" loading="lazy"></div>
+          <span class="char-card-rarity r5">Vàng</span>
+          <img src="../assets/characters/icons/ruby.png" class="char-card-img" alt="Ruby" loading="lazy">
+        </div>
+        <div class="char-card-info">
+          <div class="char-card-name">Ruby</div>
+          <div class="char-card-meta">Hỏa Thương · Mãnh Công</div>
+        </div>
+      </a>
+      <a href="characters/minamotochiyo.html" 
+         class="char-card r5" 
+         data-rarity="5" 
+         data-elements="dark" 
+         data-role="burst" 
+         data-weapon="sword" 
+         data-faction="qiyun" 
+         data-race="oni" 
+         data-name="minamoto chiyo minamoto chiyo 源千代 minamoto chiyo ám bạo phát kiếm đơn kỳ vân quỷ nhân tộc">
+        <div class="char-card-visual">
+          <div class="char-card-elems"><img src="../assets/elements/dark.png" class="char-card-elem-icon" alt="" loading="lazy"></div>
+          <span class="char-card-rarity r5">Vàng</span>
+          <img src="../assets/characters/icons/minamotochiyo.png" class="char-card-img" alt="Minamoto Chiyo" loading="lazy">
+        </div>
+        <div class="char-card-info">
+          <div class="char-card-name">Minamoto Chiyo</div>
+          <div class="char-card-meta">Kiếm Đơn · Bạo Phát</div>
+        </div>
+      </a>
+      <a href="characters/metsa.html" 
+         class="char-card r5" 
+         data-rarity="5" 
+         data-elements="wind wood" 
+         data-role="debuff" 
+         data-weapon="scythe" 
+         data-faction="loslanse" 
+         data-race="wood_elf" 
+         data-name="metsa metsa 米砂 metsa phong mộc phú dữ liêm đao loslanse mộc tinh linh tộc">
+        <div class="char-card-visual">
+          <div class="char-card-elems"><img src="../assets/elements/wind.png" class="char-card-elem-icon" alt="" loading="lazy"><img src="../assets/elements/wood.png" class="char-card-elem-icon" alt="" loading="lazy"></div>
+          <span class="char-card-rarity r5">Vàng</span>
+          <img src="../assets/characters/icons/metsa.png" class="char-card-img" alt="Metsa" loading="lazy">
+        </div>
+        <div class="char-card-info">
+          <div class="char-card-name">Metsa</div>
+          <div class="char-card-meta">Liêm Đao · Phú Dữ</div>
+        </div>
+      </a>
+      <a href="characters/abby.html" 
+         class="char-card r5" 
+         data-rarity="5" 
+         data-elements="wood water" 
+         data-role="break" 
+         data-weapon="scythe" 
+         data-faction="loslanse" 
+         data-race="dragon" 
+         data-name="abby abby 阿比 abby mộc thủy phá hoại liêm đao loslanse long nhân tộc">
+        <div class="char-card-visual">
+          <div class="char-card-elems"><img src="../assets/elements/wood.png" class="char-card-elem-icon" alt="" loading="lazy"><img src="../assets/elements/water.png" class="char-card-elem-icon" alt="" loading="lazy"></div>
+          <span class="char-card-rarity r5">Vàng</span>
+          <img src="../assets/characters/icons/abby.png" class="char-card-img" alt="Abby" loading="lazy">
+        </div>
+        <div class="char-card-info">
+          <div class="char-card-name">Abby</div>
+          <div class="char-card-meta">Liêm Đao · Phá Hoại</div>
+        </div>
+      </a>
+      <a href="characters/luruka.html" 
+         class="char-card r5" 
+         data-rarity="5" 
+         data-elements="ice water" 
+         data-role="debuff" 
+         data-weapon="scythe" 
+         data-faction="sharuru" 
+         data-race="beast" 
+         data-name="luruka luruka 璐璐卡 luruka băng thủy phú dữ liêm đao làng sharuru thú nhân tộc">
+        <div class="char-card-visual">
+          <div class="char-card-elems"><img src="../assets/elements/ice.png" class="char-card-elem-icon" alt="" loading="lazy"><img src="../assets/elements/water.png" class="char-card-elem-icon" alt="" loading="lazy"></div>
+          <span class="char-card-rarity r5">Vàng</span>
+          <img src="../assets/characters/icons/luruka.png" class="char-card-img" alt="Luruka" loading="lazy">
+        </div>
+        <div class="char-card-info">
+          <div class="char-card-name">Luruka</div>
+          <div class="char-card-meta">Liêm Đao · Phú Dữ</div>
+        </div>
+      </a>
+      <a href="characters/morwyn.html" 
+         class="char-card r5" 
+         data-rarity="5" 
+         data-elements="wind thunder" 
+         data-role="assault" 
+         data-weapon="dual_blades" 
+         data-faction="avalian" 
+         data-race="high_elf" 
+         data-name="morwyn morwyn halkon 末音 morwyn halkon phong lôi mãnh công song đao avalian cao đẳng tinh linh tộc">
+        <div class="char-card-visual">
+          <div class="char-card-elems"><img src="../assets/elements/wind.png" class="char-card-elem-icon" alt="" loading="lazy"><img src="../assets/elements/thunder.png" class="char-card-elem-icon" alt="" loading="lazy"></div>
+          <span class="char-card-rarity r5">Vàng</span>
+          <img src="../assets/characters/icons/morwyn.png" class="char-card-img" alt="Morwyn" loading="lazy">
+        </div>
+        <div class="char-card-info">
+          <div class="char-card-name">Morwyn</div>
+          <div class="char-card-meta">Song Đao · Mãnh Công</div>
+        </div>
+      </a>
+      <a href="characters/shalle.html" 
+         class="char-card r5" 
+         data-rarity="5" 
+         data-elements="water light" 
+         data-role="burst" 
+         data-weapon="dual_blades" 
+         data-faction="avalian" 
+         data-race="high_elf" 
+         data-name="shalle shalle ensys 夏儿 shalle ensys thủy quang bạo phát song đao avalian cao đẳng tinh linh tộc">
+        <div class="char-card-visual">
+          <div class="char-card-elems"><img src="../assets/elements/water.png" class="char-card-elem-icon" alt="" loading="lazy"><img src="../assets/elements/light.png" class="char-card-elem-icon" alt="" loading="lazy"></div>
+          <span class="char-card-rarity r5">Vàng</span>
+          <img src="../assets/characters/icons/shalle.png" class="char-card-img" alt="Shalle" loading="lazy">
+        </div>
+        <div class="char-card-info">
+          <div class="char-card-name">Shalle</div>
+          <div class="char-card-meta">Song Đao · Bạo Phát</div>
+        </div>
+      </a>
+      <a href="characters/faridah.html" 
+         class="char-card r5" 
+         data-rarity="5" 
+         data-elements="wind thunder" 
+         data-role="break" 
+         data-weapon="polearm" 
+         data-faction="windbreak" 
+         data-race="beast" 
+         data-name="faridah faridah 法兰塔 faridah phong lôi phá hoại trường binh đoán phong bàn thú nhân tộc">
+        <div class="char-card-visual">
+          <div class="char-card-elems"><img src="../assets/elements/wind.png" class="char-card-elem-icon" alt="" loading="lazy"><img src="../assets/elements/thunder.png" class="char-card-elem-icon" alt="" loading="lazy"></div>
+          <span class="char-card-rarity r5">Vàng</span>
+          <img src="../assets/characters/icons/faridah.png" class="char-card-img" alt="Faridah" loading="lazy">
+        </div>
+        <div class="char-card-info">
+          <div class="char-card-name">Faridah</div>
+          <div class="char-card-meta">Trường Binh · Phá Hoại</div>
+        </div>
+      </a>
+      <a href="characters/cathbelle.html" 
+         class="char-card r5" 
+         data-rarity="5" 
+         data-elements="thunder dark" 
+         data-role="break" 
+         data-weapon="gun" 
+         data-faction="fliss" 
+         data-race="beast" 
+         data-name="cathbelle cathbelle 姬瑟贝露 cathbelle lôi ám phá hoại hỏa thương thành bang fliss thú nhân tộc">
+        <div class="char-card-visual">
+          <div class="char-card-elems"><img src="../assets/elements/thunder.png" class="char-card-elem-icon" alt="" loading="lazy"><img src="../assets/elements/dark.png" class="char-card-elem-icon" alt="" loading="lazy"></div>
+          <span class="char-card-rarity r5">Vàng</span>
+          <img src="../assets/characters/icons/cathbelle.png" class="char-card-img" alt="Cathbelle" loading="lazy">
+        </div>
+        <div class="char-card-info">
+          <div class="char-card-name">Cathbelle</div>
+          <div class="char-card-meta">Hỏa Thương · Phá Hoại</div>
+        </div>
+      </a>
+      <a href="characters/hanyouyou.html" 
+         class="char-card r4" 
+         data-rarity="4" 
+         data-elements="fire wood" 
+         data-role="buff" 
+         data-weapon="gun" 
+         data-faction="chen" 
+         data-race="human" 
+         data-name="hàn du du hàn du du 寒悠悠 han youyou hỏa mộc tăng phúc hỏa thương thần vương triều trí nhân tộc">
+        <div class="char-card-visual">
+          <div class="char-card-elems"><img src="../assets/elements/fire.png" class="char-card-elem-icon" alt="" loading="lazy"><img src="../assets/elements/wood.png" class="char-card-elem-icon" alt="" loading="lazy"></div>
+          <span class="char-card-rarity r4">Tím</span>
+          <img src="../assets/characters/icons/hanyouyou.png" class="char-card-img" alt="Hàn Du Du" loading="lazy">
+        </div>
+        <div class="char-card-info">
+          <div class="char-card-name">Hàn Du Du</div>
+          <div class="char-card-meta">Hỏa Thương · Tăng Phúc</div>
+        </div>
+      </a>
+      <a href="characters/pengpeng.html" 
+         class="char-card r4" 
+         data-rarity="4" 
+         data-elements="fire earth" 
+         data-role="buff" 
+         data-weapon="bow" 
+         data-faction="chen" 
+         data-race="pami" 
+         data-name="peng peng peng peng 芃芃 peng peng hỏa địa tăng phúc cung thần vương triều pami tộc">
+        <div class="char-card-visual">
+          <div class="char-card-elems"><img src="../assets/elements/fire.png" class="char-card-elem-icon" alt="" loading="lazy"><img src="../assets/elements/earth.png" class="char-card-elem-icon" alt="" loading="lazy"></div>
+          <span class="char-card-rarity r4">Tím</span>
+          <img src="../assets/characters/icons/pengpeng.png" class="char-card-img" alt="Peng Peng" loading="lazy">
+        </div>
+        <div class="char-card-info">
+          <div class="char-card-name">Peng Peng</div>
+          <div class="char-card-meta">Cung · Tăng Phúc</div>
+        </div>
+      </a>
+      <a href="characters/lily.html" 
+         class="char-card r4" 
+         data-rarity="4" 
+         data-elements="wind" 
+         data-role="buff" 
+         data-weapon="polearm" 
+         data-faction="rogia" 
+         data-race="human" 
+         data-name="lily lily 莉莉 lily phong tăng phúc trường binh đế quốc rogia trí nhân tộc">
+        <div class="char-card-visual">
+          <div class="char-card-elems"><img src="../assets/elements/wind.png" class="char-card-elem-icon" alt="" loading="lazy"></div>
+          <span class="char-card-rarity r4">Tím</span>
+          <img src="../assets/characters/icons/lily.png" class="char-card-img" alt="Lily" loading="lazy">
+        </div>
+        <div class="char-card-info">
+          <div class="char-card-name">Lily</div>
+          <div class="char-card-meta">Trường Binh · Tăng Phúc</div>
+        </div>
+      </a>
+      <a href="characters/symphoria.html" 
+         class="char-card r4" 
+         data-rarity="4" 
+         data-elements="wind wood" 
+         data-role="assault" 
+         data-weapon="bow" 
+         data-faction="loslanse" 
+         data-race="wood_elf" 
+         data-name="symphoria symphoria 西芙莉雅 symphoria phong mộc mãnh công cung loslanse mộc tinh linh tộc">
+        <div class="char-card-visual">
+          <div class="char-card-elems"><img src="../assets/elements/wind.png" class="char-card-elem-icon" alt="" loading="lazy"><img src="../assets/elements/wood.png" class="char-card-elem-icon" alt="" loading="lazy"></div>
+          <span class="char-card-rarity r4">Tím</span>
+          <img src="../assets/characters/icons/symphoria.png" class="char-card-img" alt="Symphoria" loading="lazy">
+        </div>
+        <div class="char-card-info">
+          <div class="char-card-name">Symphoria</div>
+          <div class="char-card-meta">Cung · Mãnh Công</div>
+        </div>
+      </a>
+      <a href="characters/terara.html" 
+         class="char-card r4" 
+         data-rarity="4" 
+         data-elements="fire wind" 
+         data-role="assault" 
+         data-weapon="polearm" 
+         data-faction="sharuru" 
+         data-race="beast" 
+         data-name="terara terara 忒拉拉 terara hỏa phong mãnh công trường binh làng sharuru thú nhân tộc">
+        <div class="char-card-visual">
+          <div class="char-card-elems"><img src="../assets/elements/fire.png" class="char-card-elem-icon" alt="" loading="lazy"><img src="../assets/elements/wind.png" class="char-card-elem-icon" alt="" loading="lazy"></div>
+          <span class="char-card-rarity r4">Tím</span>
+          <img src="../assets/characters/icons/terara.png" class="char-card-img" alt="Terara" loading="lazy">
+        </div>
+        <div class="char-card-info">
+          <div class="char-card-name">Terara</div>
+          <div class="char-card-meta">Trường Binh · Mãnh Công</div>
+        </div>
+      </a>
+      <a href="characters/mitty.html" 
+         class="char-card r4" 
+         data-rarity="4" 
+         data-elements="thunder" 
+         data-role="buff" 
+         data-weapon="bow" 
+         data-faction="windbreak" 
+         data-race="beast" 
+         data-name="mitty mitty 米蒂 mitty lôi tăng phúc cung đoán phong bàn thú nhân tộc">
+        <div class="char-card-visual">
+          <div class="char-card-elems"><img src="../assets/elements/thunder.png" class="char-card-elem-icon" alt="" loading="lazy"></div>
+          <span class="char-card-rarity r4">Tím</span>
+          <img src="../assets/characters/icons/mitty.png" class="char-card-img" alt="Mitty" loading="lazy">
+        </div>
+        <div class="char-card-info">
+          <div class="char-card-name">Mitty</div>
+          <div class="char-card-meta">Cung · Tăng Phúc</div>
+        </div>
+      </a>
+      <a href="characters/kataru.html" 
+         class="char-card r4" 
+         data-rarity="4" 
+         data-elements="fire earth" 
+         data-role="debuff" 
+         data-weapon="polearm" 
+         data-faction="sharuru" 
+         data-race="beast" 
+         data-name="kataru kataru 卡塔露 kataru hỏa địa phú dữ trường binh làng sharuru thú nhân tộc">
+        <div class="char-card-visual">
+          <div class="char-card-elems"><img src="../assets/elements/fire.png" class="char-card-elem-icon" alt="" loading="lazy"><img src="../assets/elements/earth.png" class="char-card-elem-icon" alt="" loading="lazy"></div>
+          <span class="char-card-rarity r4">Tím</span>
+          <img src="../assets/characters/icons/kataru.png" class="char-card-img" alt="Kataru" loading="lazy">
+        </div>
+        <div class="char-card-info">
+          <div class="char-card-name">Kataru</div>
+          <div class="char-card-meta">Trường Binh · Phú Dữ</div>
+        </div>
+      </a>
+      <a href="characters/agnes.html" 
+         class="char-card r4" 
+         data-rarity="4" 
+         data-elements="earth light" 
+         data-role="debuff" 
+         data-weapon="staff" 
+         data-faction="fliss" 
+         data-race="beast" 
+         data-name="agnes agnes 艾妮丝 agnes địa quang phú dữ pháp trượng thành bang fliss thú nhân tộc">
+        <div class="char-card-visual">
+          <div class="char-card-elems"><img src="../assets/elements/earth.png" class="char-card-elem-icon" alt="" loading="lazy"><img src="../assets/elements/light.png" class="char-card-elem-icon" alt="" loading="lazy"></div>
+          <span class="char-card-rarity r4">Tím</span>
+          <img src="../assets/characters/icons/agnes.png" class="char-card-img" alt="Agnes" loading="lazy">
+        </div>
+        <div class="char-card-info">
+          <div class="char-card-name">Agnes</div>
+          <div class="char-card-meta">Pháp Trượng · Phú Dữ</div>
+        </div>
+      </a>
+      <a href="characters/starborn.html" 
+         class="char-card r4" 
+         data-rarity="4" 
+         data-elements="none" 
+         data-role="buff" 
+         data-weapon="sword" 
+         data-faction="neutral" 
+         data-race="unknown" 
+         data-name="tinh lâm giả tinh lâm giả (starborn) 星临者 starborn vô tăng phúc kiếm đơn không thuộc phe chưa rõ">
+        <div class="char-card-visual">
+          <div class="char-card-elems"></div>
+          <span class="char-card-rarity r4">Tím</span>
+          <img src="../assets/characters/icons/starborn.png" class="char-card-img" alt="Tinh Lâm Giả" loading="lazy">
+        </div>
+        <div class="char-card-info">
+          <div class="char-card-name">Tinh Lâm Giả</div>
+          <div class="char-card-meta">Kiếm Đơn · Tăng Phúc</div>
+        </div>
+      </a>
+      <a href="characters/nono.html" 
+         class="char-card r4" 
+         data-rarity="4" 
+         data-elements="earth" 
+         data-role="break" 
+         data-weapon="polearm" 
+         data-faction="neutral" 
+         data-race="pami" 
+         data-name="nono nono 诺诺 nono địa phá hoại trường binh không thuộc phe pami tộc">
+        <div class="char-card-visual">
+          <div class="char-card-elems"><img src="../assets/elements/earth.png" class="char-card-elem-icon" alt="" loading="lazy"></div>
+          <span class="char-card-rarity r4">Tím</span>
+          <img src="../assets/characters/icons/nono.png" class="char-card-img" alt="Nono" loading="lazy">
+        </div>
+        <div class="char-card-info">
+          <div class="char-card-name">Nono</div>
+          <div class="char-card-meta">Trường Binh · Phá Hoại</div>
+        </div>
+      </a>
+      <a href="characters/maple.html" 
+         class="char-card r4" 
+         data-rarity="4" 
+         data-elements="wood light" 
+         data-role="buff" 
+         data-weapon="staff" 
+         data-faction="fliss" 
+         data-race="beast" 
+         data-name="maple maple 枫糖 maple mộc quang tăng phúc pháp trượng thành bang fliss thú nhân tộc">
+        <div class="char-card-visual">
+          <div class="char-card-elems"><img src="../assets/elements/wood.png" class="char-card-elem-icon" alt="" loading="lazy"><img src="../assets/elements/light.png" class="char-card-elem-icon" alt="" loading="lazy"></div>
+          <span class="char-card-rarity r4">Tím</span>
+          <img src="../assets/characters/icons/maple.png" class="char-card-img" alt="Maple" loading="lazy">
+        </div>
+        <div class="char-card-info">
+          <div class="char-card-name">Maple</div>
+          <div class="char-card-meta">Pháp Trượng · Tăng Phúc</div>
+        </div>
+      </a>
+    </div>
+  </main>
+
+  <!-- Footer: Injected from master template templates/layout.js -->
+  <footer id="site-footer" class="footer"></footer>
+
+  <script>
+    (function() {
+      const searchInput = document.getElementById('char-search');
+      const resetBtn = document.getElementById('btn-reset-filters');
+      const rarityBtns = document.querySelectorAll('#rarity-filters .filter-pill');
+      const elementBtns = document.querySelectorAll('#element-filters .filter-pill');
+      const roleBtns = document.querySelectorAll('#role-filters .filter-pill');
+      const weaponBtns = document.querySelectorAll('#weapon-filters .filter-pill');
+      const factionBtns = document.querySelectorAll('#faction-filters .filter-pill');
+      const raceBtns = document.querySelectorAll('#race-filters .filter-pill');
+      const cards = Array.from(document.querySelectorAll('.char-card'));
+
+      let currentSearch = '';
+      let currentRarity = 'all';
+      let currentElement = 'all';
+      let currentRole = 'all';
+      let currentWeapon = 'all';
+      let currentFaction = 'all';
+      let currentRace = 'all';
+
+      function applyFilters() {
+        const query = currentSearch.toLowerCase().trim();
+
+        cards.forEach(card => {
+          const cardRarity = card.dataset.rarity;
+          const cardElems = (card.dataset.elements || '').split(' ');
+          const cardRole = card.dataset.role;
+          const cardWeapon = card.dataset.weapon;
+          const cardFaction = card.dataset.faction;
+          const cardRace = card.dataset.race;
+          const cardName = card.dataset.name || '';
+
+          const matchSearch = !query || cardName.includes(query);
+          const matchRarity = currentRarity === 'all' || cardRarity === currentRarity;
+          const matchElement = currentElement === 'all' || cardElems.includes(currentElement);
+          const matchRole = currentRole === 'all' || cardRole === currentRole;
+          const matchWeapon = currentWeapon === 'all' || cardWeapon === currentWeapon;
+          const matchFaction = currentFaction === 'all' || cardFaction === currentFaction;
+          const matchRace = currentRace === 'all' || cardRace === currentRace;
+
+          if (matchSearch && matchRarity && matchElement && matchRole && matchWeapon && matchFaction && matchRace) {
+            card.style.display = 'flex';
+          } else {
+            card.style.display = 'none';
+          }
+        });
+      }
+
+      if (searchInput) {
+        searchInput.addEventListener('input', (e) => {
+          currentSearch = e.target.value;
+          applyFilters();
+        });
+      }
+
+      function bindButtonGroup(buttons, onSelect) {
+        buttons.forEach(btn => {
+          btn.addEventListener('click', () => {
+            buttons.forEach(b => b.classList.remove('active'));
+            btn.classList.add('active');
+            onSelect(btn);
+            applyFilters();
+          });
+        });
+      }
+
+      bindButtonGroup(rarityBtns, btn => { currentRarity = btn.dataset.rarity; });
+      bindButtonGroup(elementBtns, btn => { currentElement = btn.dataset.element; });
+      bindButtonGroup(roleBtns, btn => { currentRole = btn.dataset.role; });
+      bindButtonGroup(weaponBtns, btn => { currentWeapon = btn.dataset.weapon; });
+      bindButtonGroup(factionBtns, btn => { currentFaction = btn.dataset.faction; });
+      bindButtonGroup(raceBtns, btn => { currentRace = btn.dataset.race; });
+
+      if (resetBtn) {
+        resetBtn.addEventListener('click', () => {
+          currentSearch = '';
+          currentRarity = 'all';
+          currentElement = 'all';
+          currentRole = 'all';
+          currentWeapon = 'all';
+          currentFaction = 'all';
+          currentRace = 'all';
+          if (searchInput) searchInput.value = '';
+
+          [rarityBtns, elementBtns, roleBtns, weaponBtns, factionBtns, raceBtns].forEach(group => {
+            group.forEach(btn => {
+              const val = btn.dataset.rarity || btn.dataset.element || btn.dataset.role || btn.dataset.weapon || btn.dataset.faction || btn.dataset.race;
+              btn.classList.toggle('active', val === 'all');
+            });
+          });
+
+          applyFilters();
+        });
+      }
+    })();
+  </script>
+</body>
+</html>

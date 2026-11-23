@@ -18,6 +18,11 @@
   status = 200
 
 [[redirects]]
+  from = "/characters"
+  to = "/pages/characters.html"
+  status = 200
+
+[[redirects]]
   from = "/kibo"
   to = "/pages/kibo.html"
   status = 200
@@ -35,6 +40,11 @@
 [[redirects]]
   from = "/materials"
   to = "/pages/materials.html"
+  status = 200
+
+[[redirects]]
+  from = "/characters/:id"
+  to = "/pages/characters/:id.html"
   status = 200
 
 [[redirects]]

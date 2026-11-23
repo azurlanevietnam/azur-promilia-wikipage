@@ -4,10 +4,12 @@
   "rewrites": [
     { "source": "/", "destination": "/pages/homepage.html" },
     { "source": "/homepage", "destination": "/pages/homepage.html" },
+    { "source": "/characters", "destination": "/pages/characters.html" },
     { "source": "/kibo", "destination": "/pages/kibo.html" },
     { "source": "/lingzi", "destination": "/pages/lingzi.html" },
     { "source": "/equipments", "destination": "/pages/equipments.html" },
     { "source": "/materials", "destination": "/pages/materials.html" },
+    { "source": "/characters/:id", "destination": "/pages/characters/:id.html" },
     { "source": "/kibo/:id", "destination": "/pages/kibo/:id.html" },
     { "source": "/lingzi/:id", "destination": "/pages/lingzi/:id.html" },
     { "source": "/equipments/:id", "destination": "/pages/equipments/:id.html" },
