@@ -1,0 +1,1563 @@
+﻿{
+    "bichlap":  {
+                    "id":  "bichlap",
+                    "name":  "Bích Lập",
+                    "original_name":  "壁立",
+                    "common_desc":  "Tăng phòng ngự; khi chịu sát thương sẽ tăng tấn công",
+                    "max_level":  15,
+                    "levels":  [
+                                   {
+                                       "level":  1,
+                                       "value":  "30",
+                                       "description":  "Phòng ngự tăng 30 điểm."
+                                   },
+                                   {
+                                       "level":  2,
+                                       "value":  "40",
+                                       "description":  "Phòng ngự tăng 40 điểm."
+                                   },
+                                   {
+                                       "level":  3,
+                                       "value":  "55",
+                                       "description":  "Phòng ngự tăng 55 điểm."
+                                   },
+                                   {
+                                       "level":  4,
+                                       "value":  "75",
+                                       "description":  "Phòng ngự tăng 75 điểm."
+                                   },
+                                   {
+                                       "level":  5,
+                                       "value":  "105",
+                                       "description":  "Phòng ngự tăng 105 điểm."
+                                   },
+                                   {
+                                       "level":  6,
+                                       "value":  "150",
+                                       "description":  "Phòng ngự tăng 150 điểm."
+                                   },
+                                   {
+                                       "level":  7,
+                                       "value":  "195",
+                                       "description":  "Phòng ngự tăng 195 điểm."
+                                   },
+                                   {
+                                       "level":  8,
+                                       "value":  "235",
+                                       "description":  "Phòng ngự tăng 235 điểm."
+                                   },
+                                   {
+                                       "level":  9,
+                                       "value":  "275",
+                                       "description":  "Phòng ngự tăng 275 điểm."
+                                   },
+                                   {
+                                       "level":  10,
+                                       "value":  "305",
+                                       "description":  "Phòng ngự tăng 305 điểm; khi chịu sát thương, giúp bản thân tăng 2.5% tấn công, cộng dồn tối đa 4 tầng, duy trì 15 giây."
+                                   },
+                                   {
+                                       "level":  11,
+                                       "value":  "330",
+                                       "description":  "Phòng ngự tăng 330 điểm; khi chịu sát thương, giúp bản thân tăng 2.5% tấn công, cộng dồn tối đa 4 tầng, duy trì 15 giây."
+                                   },
+                                   {
+                                       "level":  12,
+                                       "value":  "340",
+                                       "description":  "Phòng ngự tăng 340 điểm; khi chịu sát thương, giúp bản thân tăng 2.5% tấn công, cộng dồn tối đa 4 tầng, duy trì 15 giây."
+                                   },
+                                   {
+                                       "level":  13,
+                                       "value":  "350",
+                                       "description":  "Phòng ngự tăng 350 điểm; khi chịu sát thương, giúp bản thân tăng 2.5% tấn công, cộng dồn tối đa 4 tầng, duy trì 15 giây."
+                                   },
+                                   {
+                                       "level":  14,
+                                       "value":  "360",
+                                       "description":  "Phòng ngự tăng 360 điểm; khi chịu sát thương, giúp bản thân tăng 2.5% tấn công, cộng dồn tối đa 4 tầng, duy trì 15 giây."
+                                   },
+                                   {
+                                       "level":  15,
+                                       "value":  "370",
+                                       "description":  "Phòng ngự tăng 370 điểm; khi chịu sát thương, giúp bản thân tăng 2.5% tấn công, cộng dồn tối đa 4 tầng, duy trì 15 giây."
+                                   }
+                               ]
+                },
+    "cuongdosieuhan":  {
+                           "id":  "cuongdosieuhan",
+                           "name":  "Cường độ Siêu Hạn",
+                           "original_name":  "超限强度",
+                           "common_desc":  "Tăng Cường độ Siêu Hạn; khi gây sát thương Siêu Hạn sẽ tăng Tỉ lệ hội tâm Siêu Hạn",
+                           "max_level":  15,
+                           "levels":  [
+                                          {
+                                              "level":  1,
+                                              "value":  "30",
+                                              "description":  "Cường độ Siêu Hạn tăng 30 điểm."
+                                          },
+                                          {
+                                              "level":  2,
+                                              "value":  "35",
+                                              "description":  "Cường độ Siêu Hạn tăng 35 điểm."
+                                          },
+                                          {
+                                              "level":  3,
+                                              "value":  "50",
+                                              "description":  "Cường độ Siêu Hạn tăng 50 điểm."
+                                          },
+                                          {
+                                              "level":  4,
+                                              "value":  "70",
+                                              "description":  "Cường độ Siêu Hạn tăng 70 điểm."
+                                          },
+                                          {
+                                              "level":  5,
+                                              "value":  "100",
+                                              "description":  "Cường độ Siêu Hạn tăng 100 điểm."
+                                          },
+                                          {
+                                              "level":  6,
+                                              "value":  "130",
+                                              "description":  "Cường độ Siêu Hạn tăng 130 điểm."
+                                          },
+                                          {
+                                              "level":  7,
+                                              "value":  "170",
+                                              "description":  "Cường độ Siêu Hạn tăng 170 điểm."
+                                          },
+                                          {
+                                              "level":  8,
+                                              "value":  "210",
+                                              "description":  "Cường độ Siêu Hạn tăng 210 điểm."
+                                          },
+                                          {
+                                              "level":  9,
+                                              "value":  "245",
+                                              "description":  "Cường độ Siêu Hạn tăng 245 điểm."
+                                          },
+                                          {
+                                              "level":  10,
+                                              "value":  "270",
+                                              "description":  "Cường độ Siêu Hạn tăng 270 điểm; khi bản thân gây sát thương Siêu Hạn, giúp bản thân tăng 10% Tỉ lệ hội tâm Siêu Hạn, duy trì 15 giây."
+                                          },
+                                          {
+                                              "level":  11,
+                                              "value":  "290",
+                                              "description":  "Cường độ Siêu Hạn tăng 290 điểm; khi bản thân gây sát thương Siêu Hạn, giúp bản thân tăng 10% Tỉ lệ hội tâm Siêu Hạn, duy trì 15 giây."
+                                          },
+                                          {
+                                              "level":  12,
+                                              "value":  "300",
+                                              "description":  "Cường độ Siêu Hạn tăng 300 điểm; khi bản thân gây sát thương Siêu Hạn, giúp bản thân tăng 10% Tỉ lệ hội tâm Siêu Hạn, duy trì 15 giây."
+                                          },
+                                          {
+                                              "level":  13,
+                                              "value":  "310",
+                                              "description":  "Cường độ Siêu Hạn tăng 310 điểm; khi bản thân gây sát thương Siêu Hạn, giúp bản thân tăng 10% Tỉ lệ hội tâm Siêu Hạn, duy trì 15 giây."
+                                          },
+                                          {
+                                              "level":  14,
+                                              "value":  "320",
+                                              "description":  "Cường độ Siêu Hạn tăng 320 điểm; khi bản thân gây sát thương Siêu Hạn, giúp bản thân tăng 10% Tỉ lệ hội tâm Siêu Hạn, duy trì 15 giây."
+                                          },
+                                          {
+                                              "level":  15,
+                                              "value":  "330",
+                                              "description":  "Cường độ Siêu Hạn tăng 330 điểm; khi bản thân gây sát thương Siêu Hạn, giúp bản thân tăng 10% Tỉ lệ hội tâm Siêu Hạn, duy trì 15 giây."
+                                          }
+                                      ]
+                       },
+    "cuongkich_tangsatthuong":  {
+                                    "id":  "cuongkich_tangsatthuong",
+                                    "name":  "Cường Kích - Tăng Sát Thương",
+                                    "original_name":  "强袭·增伤",
+                                    "common_desc":  "Tăng sát thương Tinh Minh Kỹ và Tinh Quyết Kỹ",
+                                    "max_level":  10,
+                                    "levels":  [
+                                                   {
+                                                       "level":  1,
+                                                       "value":  "3.5%",
+                                                       "description":  "Sát thương do Tinh Minh Kỹ và Tinh Quyết Kỹ gây ra tăng 3.5%."
+                                                   },
+                                                   {
+                                                       "level":  2,
+                                                       "value":  "4.5%",
+                                                       "description":  "Sát thương do Tinh Minh Kỹ và Tinh Quyết Kỹ gây ra tăng 4.5%."
+                                                   },
+                                                   {
+                                                       "level":  3,
+                                                       "value":  "6%",
+                                                       "description":  "Sát thương do Tinh Minh Kỹ và Tinh Quyết Kỹ gây ra tăng 6%."
+                                                   },
+                                                   {
+                                                       "level":  4,
+                                                       "value":  "8%",
+                                                       "description":  "Sát thương do Tinh Minh Kỹ và Tinh Quyết Kỹ gây ra tăng 8%."
+                                                   },
+                                                   {
+                                                       "level":  5,
+                                                       "value":  "10%",
+                                                       "description":  "Sát thương do Tinh Minh Kỹ và Tinh Quyết Kỹ gây ra tăng 10%."
+                                                   },
+                                                   {
+                                                       "level":  6,
+                                                       "value":  "13%",
+                                                       "description":  "Sát thương do Tinh Minh Kỹ và Tinh Quyết Kỹ gây ra tăng 13%."
+                                                   },
+                                                   {
+                                                       "level":  7,
+                                                       "value":  "16%",
+                                                       "description":  "Sát thương do Tinh Minh Kỹ và Tinh Quyết Kỹ gây ra tăng 16%."
+                                                   },
+                                                   {
+                                                       "level":  8,
+                                                       "value":  "18.5%",
+                                                       "description":  "Sát thương do Tinh Minh Kỹ và Tinh Quyết Kỹ gây ra tăng 18.5%."
+                                                   },
+                                                   {
+                                                       "level":  9,
+                                                       "value":  "20%",
+                                                       "description":  "Sát thương do Tinh Minh Kỹ và Tinh Quyết Kỹ gây ra tăng 20%."
+                                                   },
+                                                   {
+                                                       "level":  10,
+                                                       "value":  "22%",
+                                                       "description":  "Sát thương do Tinh Minh Kỹ và Tinh Quyết Kỹ gây ra tăng 22%."
+                                                   }
+                                               ]
+                                },
+    "hungphat":  {
+                     "id":  "hungphat",
+                     "name":  "Hùng Phát",
+                     "original_name":  "雄发",
+                     "common_desc":  "Tăng giới hạn sinh mệnh và phần trăm tấn công",
+                     "max_level":  10,
+                     "levels":  [
+                                    {
+                                        "level":  1,
+                                        "value":  "2% / 4.5%",
+                                        "description":  "Sinh mệnh tăng 2%, tấn công tăng 4.5%."
+                                    },
+                                    {
+                                        "level":  2,
+                                        "value":  "3% / 6%",
+                                        "description":  "Sinh mệnh tăng 3%, tấn công tăng 6%."
+                                    },
+                                    {
+                                        "level":  3,
+                                        "value":  "4% / 7.5%",
+                                        "description":  "Sinh mệnh tăng 4%, tấn công tăng 7.5%."
+                                    },
+                                    {
+                                        "level":  4,
+                                        "value":  "5.5% / 10.5%",
+                                        "description":  "Sinh mệnh tăng 5.5%, tấn công tăng 10.5%."
+                                    },
+                                    {
+                                        "level":  5,
+                                        "value":  "7% / 13.5%",
+                                        "description":  "Sinh mệnh tăng 7%, tấn công tăng 13.5%."
+                                    },
+                                    {
+                                        "level":  6,
+                                        "value":  "9% / 17.5%",
+                                        "description":  "Sinh mệnh tăng 9%, tấn công tăng 17.5%."
+                                    },
+                                    {
+                                        "level":  7,
+                                        "value":  "10.5% / 21.5%",
+                                        "description":  "Sinh mệnh tăng 10.5%, tấn công tăng 21.5%."
+                                    },
+                                    {
+                                        "level":  8,
+                                        "value":  "12.5% / 25%",
+                                        "description":  "Sinh mệnh tăng 12.5%, tấn công tăng 25%."
+                                    },
+                                    {
+                                        "level":  9,
+                                        "value":  "13.5% / 27.5%",
+                                        "description":  "Sinh mệnh tăng 13.5%, tấn công tăng 27.5%."
+                                    },
+                                    {
+                                        "level":  10,
+                                        "value":  "15% / 30%",
+                                        "description":  "Sinh mệnh tăng 15%, tấn công tăng 30%."
+                                    }
+                                ]
+                 },
+    "hungthuc":  {
+                     "id":  "hungthuc",
+                     "name":  "Hung Thực",
+                     "original_name":  "凶蚀",
+                     "common_desc":  "Giảm sinh mệnh tối đa, tăng sát thương xuyên phòng ngự",
+                     "max_level":  10,
+                     "levels":  [
+                                    {
+                                        "level":  1,
+                                        "value":  "-1% / 3.5%",
+                                        "description":  "Sinh mệnh giảm 1%, sát thương xuyên phòng ngự gây ra tăng 3.5%."
+                                    },
+                                    {
+                                        "level":  2,
+                                        "value":  "-1.5% / 4.5%",
+                                        "description":  "Sinh mệnh giảm 1.5%, sát thương xuyên phòng ngự gây ra tăng 4.5%."
+                                    },
+                                    {
+                                        "level":  3,
+                                        "value":  "-2% / 6%",
+                                        "description":  "Sinh mệnh giảm 2%, sát thương xuyên phòng ngự gây ra tăng 6%."
+                                    },
+                                    {
+                                        "level":  4,
+                                        "value":  "-2.5% / 8%",
+                                        "description":  "Sinh mệnh giảm 2.5%, sát thương xuyên phòng ngự gây ra tăng 8%."
+                                    },
+                                    {
+                                        "level":  5,
+                                        "value":  "-3% / 10.5%",
+                                        "description":  "Sinh mệnh giảm 3%, sát thương xuyên phòng ngự gây ra tăng 10.5%."
+                                    },
+                                    {
+                                        "level":  6,
+                                        "value":  "-3.5% / 13.5%",
+                                        "description":  "Sinh mệnh giảm 3.5%, sát thương xuyên phòng ngự gây ra tăng 13.5%."
+                                    },
+                                    {
+                                        "level":  7,
+                                        "value":  "-4% / 16%",
+                                        "description":  "Sinh mệnh giảm 4%, sát thương xuyên phòng ngự gây ra tăng 16%."
+                                    },
+                                    {
+                                        "level":  8,
+                                        "value":  "-4.5% / 18%",
+                                        "description":  "Sinh mệnh giảm 4.5%, sát thương xuyên phòng ngự gây ra tăng 18%."
+                                    },
+                                    {
+                                        "level":  9,
+                                        "value":  "-5% / 20%",
+                                        "description":  "Sinh mệnh giảm 5%, sát thương xuyên phòng ngự gây ra tăng 20%."
+                                    },
+                                    {
+                                        "level":  10,
+                                        "value":  "-5.5% / 22%",
+                                        "description":  "Sinh mệnh giảm 5.5%, sát thương xuyên phòng ngự gây ra tăng 22%."
+                                    }
+                                ]
+                 },
+    "kienthu":  {
+                    "id":  "kienthu",
+                    "name":  "Kiên Thủ",
+                    "original_name":  "坚守",
+                    "common_desc":  "Tăng phòng ngự theo phần trăm",
+                    "max_level":  15,
+                    "levels":  [
+                                   {
+                                       "level":  1,
+                                       "value":  "7%",
+                                       "description":  "Phòng ngự tăng 7%."
+                                   },
+                                   {
+                                       "level":  2,
+                                       "value":  "9%",
+                                       "description":  "Phòng ngự tăng 9%."
+                                   },
+                                   {
+                                       "level":  3,
+                                       "value":  "12%",
+                                       "description":  "Phòng ngự tăng 12%."
+                                   },
+                                   {
+                                       "level":  4,
+                                       "value":  "17%",
+                                       "description":  "Phòng ngự tăng 17%."
+                                   },
+                                   {
+                                       "level":  5,
+                                       "value":  "24%",
+                                       "description":  "Phòng ngự tăng 24%."
+                                   },
+                                   {
+                                       "level":  6,
+                                       "value":  "33%",
+                                       "description":  "Phòng ngự tăng 33%."
+                                   },
+                                   {
+                                       "level":  7,
+                                       "value":  "42.5%",
+                                       "description":  "Phòng ngự tăng 42.5%."
+                                   },
+                                   {
+                                       "level":  8,
+                                       "value":  "52.5%",
+                                       "description":  "Phòng ngự tăng 52.5%."
+                                   },
+                                   {
+                                       "level":  9,
+                                       "value":  "61%",
+                                       "description":  "Phòng ngự tăng 61%."
+                                   },
+                                   {
+                                       "level":  10,
+                                       "value":  "68%",
+                                       "description":  "Phòng ngự tăng 68%."
+                                   },
+                                   {
+                                       "level":  11,
+                                       "value":  "73%",
+                                       "description":  "Phòng ngự tăng 73%."
+                                   },
+                                   {
+                                       "level":  12,
+                                       "value":  "75%",
+                                       "description":  "Phòng ngự tăng 75%."
+                                   },
+                                   {
+                                       "level":  13,
+                                       "value":  "77%",
+                                       "description":  "Phòng ngự tăng 77%."
+                                   },
+                                   {
+                                       "level":  14,
+                                       "value":  "78.5%",
+                                       "description":  "Phòng ngự tăng 78.5%."
+                                   },
+                                   {
+                                       "level":  15,
+                                       "value":  "80%",
+                                       "description":  "Phòng ngự tăng 80%."
+                                   }
+                               ]
+                },
+    "kinhquan":  {
+                     "id":  "kinhquan",
+                     "name":  "Kình Quán",
+                     "original_name":  "劲贯",
+                     "common_desc":  "Tăng tỉ lệ bạo kích",
+                     "max_level":  15,
+                     "levels":  [
+                                    {
+                                        "level":  1,
+                                        "value":  "2%",
+                                        "description":  "Tỉ lệ bạo kích tăng 2%."
+                                    },
+                                    {
+                                        "level":  2,
+                                        "value":  "2.5%",
+                                        "description":  "Tỉ lệ bạo kích tăng 2.5%."
+                                    },
+                                    {
+                                        "level":  3,
+                                        "value":  "3.5%",
+                                        "description":  "Tỉ lệ bạo kích tăng 3.5%."
+                                    },
+                                    {
+                                        "level":  4,
+                                        "value":  "5%",
+                                        "description":  "Tỉ lệ bạo kích tăng 5%."
+                                    },
+                                    {
+                                        "level":  5,
+                                        "value":  "7.5%",
+                                        "description":  "Tỉ lệ bạo kích tăng 7.5%."
+                                    },
+                                    {
+                                        "level":  6,
+                                        "value":  "10%",
+                                        "description":  "Tỉ lệ bạo kích tăng 10%."
+                                    },
+                                    {
+                                        "level":  7,
+                                        "value":  "12.5%",
+                                        "description":  "Tỉ lệ bạo kích tăng 12.5%."
+                                    },
+                                    {
+                                        "level":  8,
+                                        "value":  "16%",
+                                        "description":  "Tỉ lệ bạo kích tăng 16%."
+                                    },
+                                    {
+                                        "level":  9,
+                                        "value":  "18.5%",
+                                        "description":  "Tỉ lệ bạo kích tăng 18.5%."
+                                    },
+                                    {
+                                        "level":  10,
+                                        "value":  "20.5%",
+                                        "description":  "Tỉ lệ bạo kích tăng 20.5%."
+                                    },
+                                    {
+                                        "level":  11,
+                                        "value":  "22%",
+                                        "description":  "Tỉ lệ bạo kích tăng 22%."
+                                    },
+                                    {
+                                        "level":  12,
+                                        "value":  "23%",
+                                        "description":  "Tỉ lệ bạo kích tăng 23%."
+                                    },
+                                    {
+                                        "level":  13,
+                                        "value":  "24%",
+                                        "description":  "Tỉ lệ bạo kích tăng 24%."
+                                    },
+                                    {
+                                        "level":  14,
+                                        "value":  "25%",
+                                        "description":  "Tỉ lệ bạo kích tăng 25%."
+                                    },
+                                    {
+                                        "level":  15,
+                                        "value":  "26%",
+                                        "description":  "Tỉ lệ bạo kích tăng 26%."
+                                    }
+                                ]
+                 },
+    "kinhquan_satthuong":  {
+                               "id":  "kinhquan_satthuong",
+                               "name":  "Kình Quán - Sát Thương",
+                               "original_name":  "劲贯伤害",
+                               "common_desc":  "Tăng sát thương bạo kích",
+                               "max_level":  15,
+                               "levels":  [
+                                              {
+                                                  "level":  1,
+                                                  "value":  "4%",
+                                                  "description":  "Sát thương bạo kích tăng 4%."
+                                              },
+                                              {
+                                                  "level":  2,
+                                                  "value":  "5%",
+                                                  "description":  "Sát thương bạo kích tăng 5%."
+                                              },
+                                              {
+                                                  "level":  3,
+                                                  "value":  "7%",
+                                                  "description":  "Sát thương bạo kích tăng 7%."
+                                              },
+                                              {
+                                                  "level":  4,
+                                                  "value":  "10%",
+                                                  "description":  "Sát thương bạo kích tăng 10%."
+                                              },
+                                              {
+                                                  "level":  5,
+                                                  "value":  "15%",
+                                                  "description":  "Sát thương bạo kích tăng 15%."
+                                              },
+                                              {
+                                                  "level":  6,
+                                                  "value":  "20%",
+                                                  "description":  "Sát thương bạo kích tăng 20%."
+                                              },
+                                              {
+                                                  "level":  7,
+                                                  "value":  "25%",
+                                                  "description":  "Sát thương bạo kích tăng 25%."
+                                              },
+                                              {
+                                                  "level":  8,
+                                                  "value":  "32%",
+                                                  "description":  "Sát thương bạo kích tăng 32%."
+                                              },
+                                              {
+                                                  "level":  9,
+                                                  "value":  "37%",
+                                                  "description":  "Sát thương bạo kích tăng 37%."
+                                              },
+                                              {
+                                                  "level":  10,
+                                                  "value":  "41%",
+                                                  "description":  "Sát thương bạo kích tăng 41%."
+                                              },
+                                              {
+                                                  "level":  11,
+                                                  "value":  "44%",
+                                                  "description":  "Sát thương bạo kích tăng 44%."
+                                              },
+                                              {
+                                                  "level":  12,
+                                                  "value":  "46%",
+                                                  "description":  "Sát thương bạo kích tăng 46%."
+                                              },
+                                              {
+                                                  "level":  13,
+                                                  "value":  "48%",
+                                                  "description":  "Sát thương bạo kích tăng 48%."
+                                              },
+                                              {
+                                                  "level":  14,
+                                                  "value":  "50%",
+                                                  "description":  "Sát thương bạo kích tăng 50%."
+                                              },
+                                              {
+                                                  "level":  15,
+                                                  "value":  "52%",
+                                                  "description":  "Sát thương bạo kích tăng 52%."
+                                              }
+                                          ]
+                           },
+    "kinhquan_tichthe":  {
+                             "id":  "kinhquan_tichthe",
+                             "name":  "Kình Quán - Tích Thế",
+                             "original_name":  "劲贯·累势",
+                             "common_desc":  "Đòn đánh thường gây bạo kích sẽ tăng tấn công và sát thương bạo kích",
+                             "max_level":  3,
+                             "levels":  [
+                                            {
+                                                "level":  1,
+                                                "value":  "1% / 1.5%",
+                                                "description":  "Mỗi khi đòn đánh thường gây bạo kích, giúp bản thân tăng 1% tấn công, tăng 1.5% sát thương bạo kích, cộng dồn tối đa 5 tầng, duy trì 15 giây."
+                                            },
+                                            {
+                                                "level":  2,
+                                                "value":  "2% / 3%",
+                                                "description":  "Mỗi khi đòn đánh thường gây bạo kích, giúp bản thân tăng 2% tấn công, tăng 3% sát thương bạo kích, cộng dồn tối đa 5 tầng, duy trì 15 giây."
+                                            },
+                                            {
+                                                "level":  3,
+                                                "value":  "3% / 5%",
+                                                "description":  "Mỗi khi đòn đánh thường gây bạo kích, giúp bản thân tăng 3% tấn công, tăng 5% sát thương bạo kích, cộng dồn tối đa 5 tầng, duy trì 15 giây."
+                                            }
+                                        ]
+                         },
+    "manhkich":  {
+                     "id":  "manhkich",
+                     "name":  "Mãnh Kích",
+                     "original_name":  "猛击",
+                     "common_desc":  "Tăng tấn công theo phần trăm",
+                     "max_level":  15,
+                     "levels":  [
+                                    {
+                                        "level":  1,
+                                        "value":  "3.5%",
+                                        "description":  "Tấn công tăng 3.5%."
+                                    },
+                                    {
+                                        "level":  2,
+                                        "value":  "4.5%",
+                                        "description":  "Tấn công tăng 4.5%."
+                                    },
+                                    {
+                                        "level":  3,
+                                        "value":  "5.8%",
+                                        "description":  "Tấn công tăng 5.8%."
+                                    },
+                                    {
+                                        "level":  4,
+                                        "value":  "8%",
+                                        "description":  "Tấn công tăng 8%."
+                                    },
+                                    {
+                                        "level":  5,
+                                        "value":  "11.5%",
+                                        "description":  "Tấn công tăng 11.5%."
+                                    },
+                                    {
+                                        "level":  6,
+                                        "value":  "15%",
+                                        "description":  "Tấn công tăng 15%."
+                                    },
+                                    {
+                                        "level":  7,
+                                        "value":  "20%",
+                                        "description":  "Tấn công tăng 20%."
+                                    },
+                                    {
+                                        "level":  8,
+                                        "value":  "25%",
+                                        "description":  "Tấn công tăng 25%."
+                                    },
+                                    {
+                                        "level":  9,
+                                        "value":  "29%",
+                                        "description":  "Tấn công tăng 29%."
+                                    },
+                                    {
+                                        "level":  10,
+                                        "value":  "33%",
+                                        "description":  "Tấn công tăng 33%."
+                                    },
+                                    {
+                                        "level":  11,
+                                        "value":  "35%",
+                                        "description":  "Tấn công tăng 35%."
+                                    },
+                                    {
+                                        "level":  12,
+                                        "value":  "37%",
+                                        "description":  "Tấn công tăng 37%."
+                                    },
+                                    {
+                                        "level":  13,
+                                        "value":  "38%",
+                                        "description":  "Tấn công tăng 38%."
+                                    },
+                                    {
+                                        "level":  14,
+                                        "value":  "39%",
+                                        "description":  "Tấn công tăng 39%."
+                                    },
+                                    {
+                                        "level":  15,
+                                        "value":  "40%",
+                                        "description":  "Tấn công tăng 40%."
+                                    }
+                                ]
+                 },
+    "nhuethu":  {
+                    "id":  "nhuethu",
+                    "name":  "Nhuệ Thủ",
+                    "original_name":  "锐守",
+                    "common_desc":  "Tăng phòng ngự và sát thương bạo kích",
+                    "max_level":  10,
+                    "levels":  [
+                                   {
+                                       "level":  1,
+                                       "value":  "5 / 5%",
+                                       "description":  "Phòng ngự tăng 5 điểm, sát thương bạo kích gây ra tăng 5%."
+                                   },
+                                   {
+                                       "level":  2,
+                                       "value":  "7 / 7%",
+                                       "description":  "Phòng ngự tăng 7 điểm, sát thương bạo kích gây ra tăng 7%."
+                                   },
+                                   {
+                                       "level":  3,
+                                       "value":  "10 / 9.5%",
+                                       "description":  "Phòng ngự tăng 10 điểm, sát thương bạo kích gây ra tăng 9.5%."
+                                   },
+                                   {
+                                       "level":  4,
+                                       "value":  "14 / 13%",
+                                       "description":  "Phòng ngự tăng 14 điểm, sát thương bạo kích gây ra tăng 13%."
+                                   },
+                                   {
+                                       "level":  5,
+                                       "value":  "19 / 17%",
+                                       "description":  "Phòng ngự tăng 19 điểm, sát thương bạo kích gây ra tăng 17%."
+                                   },
+                                   {
+                                       "level":  6,
+                                       "value":  "24 / 22%",
+                                       "description":  "Phòng ngự tăng 24 điểm, sát thương bạo kích gây ra tăng 22%."
+                                   },
+                                   {
+                                       "level":  7,
+                                       "value":  "30 / 25%",
+                                       "description":  "Phòng ngự tăng 30 điểm, sát thương bạo kích gây ra tăng 25%."
+                                   },
+                                   {
+                                       "level":  8,
+                                       "value":  "35 / 30%",
+                                       "description":  "Phòng ngự tăng 35 điểm, sát thương bạo kích gây ra tăng 30%."
+                                   },
+                                   {
+                                       "level":  9,
+                                       "value":  "38 / 32.5%",
+                                       "description":  "Phòng ngự tăng 38 điểm, sát thương bạo kích gây ra tăng 32.5%."
+                                   },
+                                   {
+                                       "level":  10,
+                                       "value":  "40 / 35%",
+                                       "description":  "Phòng ngự tăng 40 điểm, sát thương bạo kích gây ra tăng 35%."
+                                   }
+                               ]
+                },
+    "phongthe":  {
+                     "id":  "phongthe",
+                     "name":  "Phong Thể",
+                     "original_name":  "丰体",
+                     "common_desc":  "Tăng sinh mệnh theo phần trăm",
+                     "max_level":  15,
+                     "levels":  [
+                                    {
+                                        "level":  1,
+                                        "value":  "3.5%",
+                                        "description":  "Sinh mệnh tăng 3.5%."
+                                    },
+                                    {
+                                        "level":  2,
+                                        "value":  "4.5%",
+                                        "description":  "Sinh mệnh tăng 4.5%."
+                                    },
+                                    {
+                                        "level":  3,
+                                        "value":  "6%",
+                                        "description":  "Sinh mệnh tăng 6%."
+                                    },
+                                    {
+                                        "level":  4,
+                                        "value":  "8.5%",
+                                        "description":  "Sinh mệnh tăng 8.5%."
+                                    },
+                                    {
+                                        "level":  5,
+                                        "value":  "12%",
+                                        "description":  "Sinh mệnh tăng 12%."
+                                    },
+                                    {
+                                        "level":  6,
+                                        "value":  "16.5%",
+                                        "description":  "Sinh mệnh tăng 16.5%."
+                                    },
+                                    {
+                                        "level":  7,
+                                        "value":  "21.5%",
+                                        "description":  "Sinh mệnh tăng 21.5%."
+                                    },
+                                    {
+                                        "level":  8,
+                                        "value":  "26.5%",
+                                        "description":  "Sinh mệnh tăng 26.5%."
+                                    },
+                                    {
+                                        "level":  9,
+                                        "value":  "30.5%",
+                                        "description":  "Sinh mệnh tăng 30.5%."
+                                    },
+                                    {
+                                        "level":  10,
+                                        "value":  "34%",
+                                        "description":  "Sinh mệnh tăng 34%."
+                                    },
+                                    {
+                                        "level":  11,
+                                        "value":  "36.5%",
+                                        "description":  "Sinh mệnh tăng 36.5%."
+                                    },
+                                    {
+                                        "level":  12,
+                                        "value":  "38%",
+                                        "description":  "Sinh mệnh tăng 38%."
+                                    },
+                                    {
+                                        "level":  13,
+                                        "value":  "39%",
+                                        "description":  "Sinh mệnh tăng 39%."
+                                    },
+                                    {
+                                        "level":  14,
+                                        "value":  "40%",
+                                        "description":  "Sinh mệnh tăng 40%."
+                                    },
+                                    {
+                                        "level":  15,
+                                        "value":  "41%",
+                                        "description":  "Sinh mệnh tăng 41%."
+                                    }
+                                ]
+                 },
+    "quankich_tangsatthuong":  {
+                                   "id":  "quankich_tangsatthuong",
+                                   "name":  "Quán Kích - Tăng Sát Thương",
+                                   "original_name":  "贯击·增伤",
+                                   "common_desc":  "Tăng sát thương Đòn đánh thường và Trọng kích",
+                                   "max_level":  10,
+                                   "levels":  [
+                                                  {
+                                                      "level":  1,
+                                                      "value":  "3.5%",
+                                                      "description":  "Sát thương do Đòn đánh thường và Trọng kích gây ra tăng 3.5%."
+                                                  },
+                                                  {
+                                                      "level":  2,
+                                                      "value":  "4.5%",
+                                                      "description":  "Sát thương do Đòn đánh thường và Trọng kích gây ra tăng 4.5%."
+                                                  },
+                                                  {
+                                                      "level":  3,
+                                                      "value":  "6%",
+                                                      "description":  "Sát thương do Đòn đánh thường và Trọng kích gây ra tăng 6%."
+                                                  },
+                                                  {
+                                                      "level":  4,
+                                                      "value":  "8%",
+                                                      "description":  "Sát thương do Đòn đánh thường và Trọng kích gây ra tăng 8%."
+                                                  },
+                                                  {
+                                                      "level":  5,
+                                                      "value":  "10%",
+                                                      "description":  "Sát thương do Đòn đánh thường và Trọng kích gây ra tăng 10%."
+                                                  },
+                                                  {
+                                                      "level":  6,
+                                                      "value":  "13%",
+                                                      "description":  "Sát thương do Đòn đánh thường và Trọng kích gây ra tăng 13%."
+                                                  },
+                                                  {
+                                                      "level":  7,
+                                                      "value":  "16%",
+                                                      "description":  "Sát thương do Đòn đánh thường và Trọng kích gây ra tăng 16%."
+                                                  },
+                                                  {
+                                                      "level":  8,
+                                                      "value":  "18.5%",
+                                                      "description":  "Sát thương do Đòn đánh thường và Trọng kích gây ra tăng 18.5%."
+                                                  },
+                                                  {
+                                                      "level":  9,
+                                                      "value":  "20%",
+                                                      "description":  "Sát thương do Đòn đánh thường và Trọng kích gây ra tăng 20%."
+                                                  },
+                                                  {
+                                                      "level":  10,
+                                                      "value":  "22%",
+                                                      "description":  "Sát thương do Đòn đánh thường và Trọng kích gây ra tăng 22%."
+                                                  }
+                                              ]
+                               },
+    "sieuhan_trongphong":  {
+                               "id":  "sieuhan_trongphong",
+                               "name":  "Siêu Hạn - Trọng Phong",
+                               "original_name":  "超限·重锋",
+                               "common_desc":  "Khi Trọng kích sẽ tăng Cường độ Siêu Hạn và Tỉ lệ hội tâm Siêu Hạn",
+                               "max_level":  3,
+                               "levels":  [
+                                              {
+                                                  "level":  1,
+                                                  "value":  "18 / 3%",
+                                                  "description":  "Khi Trọng kích, Cường độ Siêu Hạn bản thân tăng 18 điểm, cộng dồn tối đa 4 tầng; khi cộng dồn tối đa, Tỉ lệ hội tâm Siêu Hạn bản thân tăng 3%, duy trì 15 giây."
+                                              },
+                                              {
+                                                  "level":  2,
+                                                  "value":  "36 / 6%",
+                                                  "description":  "Khi Trọng kích, Cường độ Siêu Hạn bản thân tăng 36 điểm, cộng dồn tối đa 4 tầng; khi cộng dồn tối đa, Tỉ lệ hội tâm Siêu Hạn bản thân tăng 6%, duy trì 15 giây."
+                                              },
+                                              {
+                                                  "level":  3,
+                                                  "value":  "55 / 10%",
+                                                  "description":  "Khi Trọng kích, Cường độ Siêu Hạn bản thân tăng 55 điểm, cộng dồn tối đa 4 tầng; khi cộng dồn tối đa, Tỉ lệ hội tâm Siêu Hạn bản thân tăng 10%, duy trì 15 giây."
+                                              }
+                                          ]
+                           },
+    "sinhtuc":  {
+                    "id":  "sinhtuc",
+                    "name":  "Sinh Tức",
+                    "original_name":  "生息",
+                    "common_desc":  "Tăng sinh mệnh; khi sinh mệnh thấp sẽ nhận khiên bảo hộ",
+                    "max_level":  15,
+                    "levels":  [
+                                   {
+                                       "level":  1,
+                                       "value":  "300",
+                                       "description":  "Sinh mệnh tăng 300 điểm."
+                                   },
+                                   {
+                                       "level":  2,
+                                       "value":  "400",
+                                       "description":  "Sinh mệnh tăng 400 điểm."
+                                   },
+                                   {
+                                       "level":  3,
+                                       "value":  "550",
+                                       "description":  "Sinh mệnh tăng 550 điểm."
+                                   },
+                                   {
+                                       "level":  4,
+                                       "value":  "750",
+                                       "description":  "Sinh mệnh tăng 750 điểm."
+                                   },
+                                   {
+                                       "level":  5,
+                                       "value":  "1050",
+                                       "description":  "Sinh mệnh tăng 1050 điểm."
+                                   },
+                                   {
+                                       "level":  6,
+                                       "value":  "1500",
+                                       "description":  "Sinh mệnh tăng 1500 điểm."
+                                   },
+                                   {
+                                       "level":  7,
+                                       "value":  "1950",
+                                       "description":  "Sinh mệnh tăng 1950 điểm."
+                                   },
+                                   {
+                                       "level":  8,
+                                       "value":  "2350",
+                                       "description":  "Sinh mệnh tăng 2350 điểm."
+                                   },
+                                   {
+                                       "level":  9,
+                                       "value":  "2750",
+                                       "description":  "Sinh mệnh tăng 2750 điểm."
+                                   },
+                                   {
+                                       "level":  10,
+                                       "value":  "3050",
+                                       "description":  "Sinh mệnh tăng 3050 điểm; khi sinh mệnh bản thân dưới 20%, nhận khiên bằng 10% sinh mệnh tối đa bản thân, thời gian hồi 20 giây."
+                                   },
+                                   {
+                                       "level":  11,
+                                       "value":  "3300",
+                                       "description":  "Sinh mệnh tăng 3300 điểm; khi sinh mệnh bản thân dưới 20%, nhận khiên bằng 10% sinh mệnh tối đa bản thân, thời gian hồi 20 giây."
+                                   },
+                                   {
+                                       "level":  12,
+                                       "value":  "3400",
+                                       "description":  "Sinh mệnh tăng 3400 điểm; khi sinh mệnh bản thân dưới 20%, nhận khiên bằng 10% sinh mệnh tối đa bản thân, thời gian hồi 20 giây."
+                                   },
+                                   {
+                                       "level":  13,
+                                       "value":  "3500",
+                                       "description":  "Sinh mệnh tăng 3500 điểm; khi sinh mệnh bản thân dưới 20%, nhận khiên bằng 10% sinh mệnh tối đa bản thân, thời gian hồi 20 giây."
+                                   },
+                                   {
+                                       "level":  14,
+                                       "value":  "3600",
+                                       "description":  "Sinh mệnh tăng 3600 điểm; khi sinh mệnh bản thân dưới 20%, nhận khiên bằng 10% sinh mệnh tối đa bản thân, thời gian hồi 20 giây."
+                                   },
+                                   {
+                                       "level":  15,
+                                       "value":  "3700",
+                                       "description":  "Sinh mệnh tăng 3700 điểm; khi sinh mệnh bản thân dưới 20%, nhận khiên bằng 10% sinh mệnh tối đa bản thân, thời gian hồi 20 giây."
+                                   }
+                               ]
+                },
+    "tatchuyen":  {
+                      "id":  "tatchuyen",
+                      "name":  "Tật Chuyển",
+                      "original_name":  "疾转",
+                      "common_desc":  "Giảm thời gian hồi chiêu Tinh Minh Kỹ",
+                      "max_level":  10,
+                      "levels":  [
+                                     {
+                                         "level":  1,
+                                         "value":  "2%",
+                                         "description":  "Thời gian hồi chiêu Tinh Minh Kỹ giảm 2%."
+                                     },
+                                     {
+                                         "level":  2,
+                                         "value":  "3%",
+                                         "description":  "Thời gian hồi chiêu Tinh Minh Kỹ giảm 3%."
+                                     },
+                                     {
+                                         "level":  3,
+                                         "value":  "4%",
+                                         "description":  "Thời gian hồi chiêu Tinh Minh Kỹ giảm 4%."
+                                     },
+                                     {
+                                         "level":  4,
+                                         "value":  "6%",
+                                         "description":  "Thời gian hồi chiêu Tinh Minh Kỹ giảm 6%."
+                                     },
+                                     {
+                                         "level":  5,
+                                         "value":  "7.5%",
+                                         "description":  "Thời gian hồi chiêu Tinh Minh Kỹ giảm 7.5%."
+                                     },
+                                     {
+                                         "level":  6,
+                                         "value":  "10%",
+                                         "description":  "Thời gian hồi chiêu Tinh Minh Kỹ giảm 10%."
+                                     },
+                                     {
+                                         "level":  7,
+                                         "value":  "12%",
+                                         "description":  "Thời gian hồi chiêu Tinh Minh Kỹ giảm 12%."
+                                     },
+                                     {
+                                         "level":  8,
+                                         "value":  "13%",
+                                         "description":  "Thời gian hồi chiêu Tinh Minh Kỹ giảm 13%."
+                                     },
+                                     {
+                                         "level":  9,
+                                         "value":  "14%",
+                                         "description":  "Thời gian hồi chiêu Tinh Minh Kỹ giảm 14%."
+                                     },
+                                     {
+                                         "level":  10,
+                                         "value":  "15%",
+                                         "description":  "Thời gian hồi chiêu Tinh Minh Kỹ giảm 15%."
+                                     }
+                                 ]
+                  },
+    "thutu":  {
+                  "id":  "thutu",
+                  "name":  "Thù Tử",
+                  "original_name":  "殊死",
+                  "common_desc":  "Giảm phòng ngự, tăng tỉ lệ bạo kích",
+                  "max_level":  10,
+                  "levels":  [
+                                 {
+                                     "level":  1,
+                                     "value":  "-1% / 2.5%",
+                                     "description":  "Phòng ngự giảm 1%, tỉ lệ bạo kích tăng 2.5%."
+                                 },
+                                 {
+                                     "level":  2,
+                                     "value":  "-1.5% / 3%",
+                                     "description":  "Phòng ngự giảm 1.5%, tỉ lệ bạo kích tăng 3%."
+                                 },
+                                 {
+                                     "level":  3,
+                                     "value":  "-2% / 4%",
+                                     "description":  "Phòng ngự giảm 2%, tỉ lệ bạo kích tăng 4%."
+                                 },
+                                 {
+                                     "level":  4,
+                                     "value":  "-2.5% / 6%",
+                                     "description":  "Phòng ngự giảm 2.5%, tỉ lệ bạo kích tăng 6%."
+                                 },
+                                 {
+                                     "level":  5,
+                                     "value":  "-3% / 9%",
+                                     "description":  "Phòng ngự giảm 3%, tỉ lệ bạo kích tăng 9%."
+                                 },
+                                 {
+                                     "level":  6,
+                                     "value":  "-3.5% / 13%",
+                                     "description":  "Phòng ngự giảm 3.5%, tỉ lệ bạo kích tăng 13%."
+                                 },
+                                 {
+                                     "level":  7,
+                                     "value":  "-4% / 18.5%",
+                                     "description":  "Phòng ngự giảm 4%, tỉ lệ bạo kích tăng 18.5%."
+                                 },
+                                 {
+                                     "level":  8,
+                                     "value":  "-4.5% / 20%",
+                                     "description":  "Phòng ngự giảm 4.5%, tỉ lệ bạo kích tăng 20%."
+                                 },
+                                 {
+                                     "level":  9,
+                                     "value":  "-5% / 21%",
+                                     "description":  "Phòng ngự giảm 5%, tỉ lệ bạo kích tăng 21%."
+                                 },
+                                 {
+                                     "level":  10,
+                                     "value":  "-5.5% / 22%",
+                                     "description":  "Phòng ngự giảm 5.5%, tỉ lệ bạo kích tăng 22%."
+                                 }
+                             ]
+              },
+    "tichthe":  {
+                    "id":  "tichthe",
+                    "name":  "Tích Thế",
+                    "original_name":  "累势",
+                    "common_desc":  "Tăng tấn công; khi gây sát thương sẽ tăng thêm sát thương gây ra",
+                    "max_level":  15,
+                    "levels":  [
+                                   {
+                                       "level":  1,
+                                       "value":  "40",
+                                       "description":  "Tấn công tăng 40 điểm."
+                                   },
+                                   {
+                                       "level":  2,
+                                       "value":  "50",
+                                       "description":  "Tấn công tăng 50 điểm."
+                                   },
+                                   {
+                                       "level":  3,
+                                       "value":  "70",
+                                       "description":  "Tấn công tăng 70 điểm."
+                                   },
+                                   {
+                                       "level":  4,
+                                       "value":  "100",
+                                       "description":  "Tấn công tăng 100 điểm."
+                                   },
+                                   {
+                                       "level":  5,
+                                       "value":  "140",
+                                       "description":  "Tấn công tăng 140 điểm."
+                                   },
+                                   {
+                                       "level":  6,
+                                       "value":  "190",
+                                       "description":  "Tấn công tăng 190 điểm."
+                                   },
+                                   {
+                                       "level":  7,
+                                       "value":  "240",
+                                       "description":  "Tấn công tăng 240 điểm."
+                                   },
+                                   {
+                                       "level":  8,
+                                       "value":  "300",
+                                       "description":  "Tấn công tăng 300 điểm."
+                                   },
+                                   {
+                                       "level":  9,
+                                       "value":  "350",
+                                       "description":  "Tấn công tăng 350 điểm."
+                                   },
+                                   {
+                                       "level":  10,
+                                       "value":  "390",
+                                       "description":  "Tấn công tăng 390 điểm; mỗi khi gây sát thương, giúp bản thân tăng 1.2% sát thương gây ra, cộng dồn tối đa 10 tầng, duy trì 15 giây."
+                                   },
+                                   {
+                                       "level":  11,
+                                       "value":  "420",
+                                       "description":  "Tấn công tăng 420 điểm; mỗi khi gây sát thương, giúp bản thân tăng 1.2% sát thương gây ra, cộng dồn tối đa 10 tầng, duy trì 15 giây."
+                                   },
+                                   {
+                                       "level":  12,
+                                       "value":  "430",
+                                       "description":  "Tấn công tăng 430 điểm; mỗi khi gây sát thương, giúp bản thân tăng 1.2% sát thương gây ra, cộng dồn tối đa 10 tầng, duy trì 15 giây."
+                                   },
+                                   {
+                                       "level":  13,
+                                       "value":  "440",
+                                       "description":  "Tấn công tăng 440 điểm; mỗi khi gây sát thương, giúp bản thân tăng 1.2% sát thương gây ra, cộng dồn tối đa 10 tầng, duy trì 15 giây."
+                                   },
+                                   {
+                                       "level":  14,
+                                       "value":  "450",
+                                       "description":  "Tấn công tăng 450 điểm; mỗi khi gây sát thương, giúp bản thân tăng 1.2% sát thương gây ra, cộng dồn tối đa 10 tầng, duy trì 15 giây."
+                                   },
+                                   {
+                                       "level":  15,
+                                       "value":  "460",
+                                       "description":  "Tấn công tăng 460 điểm; mỗi khi gây sát thương, giúp bản thân tăng 1.2% sát thương gây ra, cộng dồn tối đa 10 tầng, duy trì 15 giây."
+                                   }
+                               ]
+                },
+    "tilehoitamsieuhan":  {
+                              "id":  "tilehoitamsieuhan",
+                              "name":  "Tỉ lệ hội tâm Siêu Hạn",
+                              "original_name":  "超限会心率",
+                              "common_desc":  "Tăng Tỉ lệ hội tâm Siêu Hạn",
+                              "max_level":  15,
+                              "levels":  [
+                                             {
+                                                 "level":  1,
+                                                 "value":  "1.75%",
+                                                 "description":  "Tỉ lệ hội tâm Siêu Hạn tăng 1.75%."
+                                             },
+                                             {
+                                                 "level":  2,
+                                                 "value":  "2.25%",
+                                                 "description":  "Tỉ lệ hội tâm Siêu Hạn tăng 2.25%."
+                                             },
+                                             {
+                                                 "level":  3,
+                                                 "value":  "3%",
+                                                 "description":  "Tỉ lệ hội tâm Siêu Hạn tăng 3%."
+                                             },
+                                             {
+                                                 "level":  4,
+                                                 "value":  "4.3%",
+                                                 "description":  "Tỉ lệ hội tâm Siêu Hạn tăng 4.3%."
+                                             },
+                                             {
+                                                 "level":  5,
+                                                 "value":  "6%",
+                                                 "description":  "Tỉ lệ hội tâm Siêu Hạn tăng 6%."
+                                             },
+                                             {
+                                                 "level":  6,
+                                                 "value":  "8.25%",
+                                                 "description":  "Tỉ lệ hội tâm Siêu Hạn tăng 8.25%."
+                                             },
+                                             {
+                                                 "level":  7,
+                                                 "value":  "10.5%",
+                                                 "description":  "Tỉ lệ hội tâm Siêu Hạn tăng 10.5%."
+                                             },
+                                             {
+                                                 "level":  8,
+                                                 "value":  "13%",
+                                                 "description":  "Tỉ lệ hội tâm Siêu Hạn tăng 13%."
+                                             },
+                                             {
+                                                 "level":  9,
+                                                 "value":  "15%",
+                                                 "description":  "Tỉ lệ hội tâm Siêu Hạn tăng 15%."
+                                             },
+                                             {
+                                                 "level":  10,
+                                                 "value":  "17%",
+                                                 "description":  "Tỉ lệ hội tâm Siêu Hạn tăng 17%."
+                                             },
+                                             {
+                                                 "level":  11,
+                                                 "value":  "18%",
+                                                 "description":  "Tỉ lệ hội tâm Siêu Hạn tăng 18%."
+                                             },
+                                             {
+                                                 "level":  12,
+                                                 "value":  "19%",
+                                                 "description":  "Tỉ lệ hội tâm Siêu Hạn tăng 19%."
+                                             },
+                                             {
+                                                 "level":  13,
+                                                 "value":  "20%",
+                                                 "description":  "Tỉ lệ hội tâm Siêu Hạn tăng 20%."
+                                             },
+                                             {
+                                                 "level":  14,
+                                                 "value":  "21%",
+                                                 "description":  "Tỉ lệ hội tâm Siêu Hạn tăng 21%."
+                                             },
+                                             {
+                                                 "level":  15,
+                                                 "value":  "22%",
+                                                 "description":  "Tỉ lệ hội tâm Siêu Hạn tăng 22%."
+                                             }
+                                         ]
+                          },
+    "tinhdi_kinhquan":  {
+                            "id":  "tinhdi_kinhquan",
+                            "name":  "Tinh Di - Kình Quán",
+                            "original_name":  "星移·劲贯",
+                            "common_desc":  "Khi vào sân sẽ tăng tỉ lệ bạo kích và sát thương bạo kích",
+                            "max_level":  6,
+                            "levels":  [
+                                           {
+                                               "level":  1,
+                                               "value":  "3.5% / 7%",
+                                               "description":  "Khi vào sân, bản thân tăng 3.5% tỉ lệ bạo kích, tăng 7% sát thương bạo kích, duy trì 15 giây."
+                                           },
+                                           {
+                                               "level":  2,
+                                               "value":  "5% / 10%",
+                                               "description":  "Khi vào sân, bản thân tăng 5% tỉ lệ bạo kích, tăng 10% sát thương bạo kích, duy trì 15 giây."
+                                           },
+                                           {
+                                               "level":  3,
+                                               "value":  "7% / 14%",
+                                               "description":  "Khi vào sân, bản thân tăng 7% tỉ lệ bạo kích, tăng 14% sát thương bạo kích, duy trì 15 giây."
+                                           },
+                                           {
+                                               "level":  4,
+                                               "value":  "9% / 18%",
+                                               "description":  "Khi vào sân, bản thân tăng 9% tỉ lệ bạo kích, tăng 18% sát thương bạo kích, duy trì 15 giây."
+                                           },
+                                           {
+                                               "level":  5,
+                                               "value":  "10% / 20%",
+                                               "description":  "Khi vào sân, bản thân tăng 10% tỉ lệ bạo kích, tăng 20% sát thương bạo kích, duy trì 15 giây."
+                                           },
+                                           {
+                                               "level":  6,
+                                               "value":  "11% / 22%",
+                                               "description":  "Khi vào sân, bản thân tăng 11% tỉ lệ bạo kích, tăng 22% sát thương bạo kích, duy trì 15 giây."
+                                           }
+                                       ]
+                        },
+    "tinhdi_sieuhan":  {
+                           "id":  "tinhdi_sieuhan",
+                           "name":  "Tinh Di - Siêu Hạn",
+                           "original_name":  "星移·超限",
+                           "common_desc":  "Khi vào sân sẽ tăng Cường độ Siêu Hạn và Tỉ lệ hội tâm Siêu Hạn",
+                           "max_level":  6,
+                           "levels":  [
+                                          {
+                                              "level":  1,
+                                              "value":  "60 / 3%",
+                                              "description":  "Khi vào sân, Cường độ Siêu Hạn tăng 60 điểm, Tỉ lệ hội tâm Siêu Hạn tăng 3%, duy trì 15 giây."
+                                          },
+                                          {
+                                              "level":  2,
+                                              "value":  "85 / 4%",
+                                              "description":  "Khi vào sân, Cường độ Siêu Hạn tăng 85 điểm, Tỉ lệ hội tâm Siêu Hạn tăng 4%, duy trì 15 giây."
+                                          },
+                                          {
+                                              "level":  3,
+                                              "value":  "115 / 5%",
+                                              "description":  "Khi vào sân, Cường độ Siêu Hạn tăng 115 điểm, Tỉ lệ hội tâm Siêu Hạn tăng 5%, duy trì 15 giây."
+                                          },
+                                          {
+                                              "level":  4,
+                                              "value":  "150 / 7%",
+                                              "description":  "Khi vào sân, Cường độ Siêu Hạn tăng 150 điểm, Tỉ lệ hội tâm Siêu Hạn tăng 7%, duy trì 15 giây."
+                                          },
+                                          {
+                                              "level":  5,
+                                              "value":  "175 / 8%",
+                                              "description":  "Khi vào sân, Cường độ Siêu Hạn tăng 175 điểm, Tỉ lệ hội tâm Siêu Hạn tăng 8%, duy trì 15 giây."
+                                          },
+                                          {
+                                              "level":  6,
+                                              "value":  "190 / 10%",
+                                              "description":  "Khi vào sân, Cường độ Siêu Hạn tăng 190 điểm, Tỉ lệ hội tâm Siêu Hạn tăng 10%, duy trì 15 giây."
+                                          }
+                                      ]
+                       },
+    "toaphong":  {
+                     "id":  "toaphong",
+                     "name":  "Tỏa Phong",
+                     "original_name":  "挫锋",
+                     "common_desc":  "Tăng trị phá nhẫn; sau khi phá vỡ tư thế thành công sẽ giảm phòng ngự mục tiêu",
+                     "max_level":  15,
+                     "levels":  [
+                                    {
+                                        "level":  1,
+                                        "value":  "6",
+                                        "description":  "Trị phá nhẫn tăng 6 điểm."
+                                    },
+                                    {
+                                        "level":  2,
+                                        "value":  "8",
+                                        "description":  "Trị phá nhẫn tăng 8 điểm."
+                                    },
+                                    {
+                                        "level":  3,
+                                        "value":  "10",
+                                        "description":  "Trị phá nhẫn tăng 10 điểm."
+                                    },
+                                    {
+                                        "level":  4,
+                                        "value":  "12",
+                                        "description":  "Trị phá nhẫn tăng 12 điểm."
+                                    },
+                                    {
+                                        "level":  5,
+                                        "value":  "17",
+                                        "description":  "Trị phá nhẫn tăng 17 điểm."
+                                    },
+                                    {
+                                        "level":  6,
+                                        "value":  "25",
+                                        "description":  "Trị phá nhẫn tăng 25 điểm."
+                                    },
+                                    {
+                                        "level":  7,
+                                        "value":  "35",
+                                        "description":  "Trị phá nhẫn tăng 35 điểm."
+                                    },
+                                    {
+                                        "level":  8,
+                                        "value":  "45",
+                                        "description":  "Trị phá nhẫn tăng 45 điểm."
+                                    },
+                                    {
+                                        "level":  9,
+                                        "value":  "55",
+                                        "description":  "Trị phá nhẫn tăng 55 điểm."
+                                    },
+                                    {
+                                        "level":  10,
+                                        "value":  "65",
+                                        "description":  "Trị phá nhẫn tăng 65 điểm; khi tư thế kẻ địch bị phá vỡ, phòng ngự giảm 15%, duy trì 24 giây."
+                                    },
+                                    {
+                                        "level":  11,
+                                        "value":  "70",
+                                        "description":  "Trị phá nhẫn tăng 70 điểm; khi tư thế kẻ địch bị phá vỡ, phòng ngự giảm 15%, duy trì 24 giây."
+                                    },
+                                    {
+                                        "level":  12,
+                                        "value":  "75",
+                                        "description":  "Trị phá nhẫn tăng 75 điểm; khi tư thế kẻ địch bị phá vỡ, phòng ngự giảm 15%, duy trì 24 giây."
+                                    },
+                                    {
+                                        "level":  13,
+                                        "value":  "80",
+                                        "description":  "Trị phá nhẫn tăng 80 điểm; khi tư thế kẻ địch bị phá vỡ, phòng ngự giảm 15%, duy trì 24 giây."
+                                    },
+                                    {
+                                        "level":  14,
+                                        "value":  "85",
+                                        "description":  "Trị phá nhẫn tăng 85 điểm; khi tư thế kẻ địch bị phá vỡ, phòng ngự giảm 15%, duy trì 24 giây."
+                                    },
+                                    {
+                                        "level":  15,
+                                        "value":  "90",
+                                        "description":  "Trị phá nhẫn tăng 90 điểm; khi tư thế kẻ địch bị phá vỡ, phòng ngự giảm 15%, duy trì 24 giây."
+                                    }
+                                ]
+                 },
+    "tunang":  {
+                   "id":  "tunang",
+                   "name":  "Tụ Năng",
+                   "original_name":  "聚能",
+                   "common_desc":  "Tăng tốc độ hồi tích năng Tinh Quyết",
+                   "max_level":  10,
+                   "levels":  [
+                                  {
+                                      "level":  1,
+                                      "value":  "2%",
+                                      "description":  "Tốc độ hồi tích năng Tinh Quyết tăng 2%."
+                                  },
+                                  {
+                                      "level":  2,
+                                      "value":  "3%",
+                                      "description":  "Tốc độ hồi tích năng Tinh Quyết tăng 3%."
+                                  },
+                                  {
+                                      "level":  3,
+                                      "value":  "4%",
+                                      "description":  "Tốc độ hồi tích năng Tinh Quyết tăng 4%."
+                                  },
+                                  {
+                                      "level":  4,
+                                      "value":  "6%",
+                                      "description":  "Tốc độ hồi tích năng Tinh Quyết tăng 6%."
+                                  },
+                                  {
+                                      "level":  5,
+                                      "value":  "8.5%",
+                                      "description":  "Tốc độ hồi tích năng Tinh Quyết tăng 8.5%."
+                                  },
+                                  {
+                                      "level":  6,
+                                      "value":  "11%",
+                                      "description":  "Tốc độ hồi tích năng Tinh Quyết tăng 11%."
+                                  },
+                                  {
+                                      "level":  7,
+                                      "value":  "12%",
+                                      "description":  "Tốc độ hồi tích năng Tinh Quyết tăng 12%."
+                                  },
+                                  {
+                                      "level":  8,
+                                      "value":  "13%",
+                                      "description":  "Tốc độ hồi tích năng Tinh Quyết tăng 13%."
+                                  },
+                                  {
+                                      "level":  9,
+                                      "value":  "14%",
+                                      "description":  "Tốc độ hồi tích năng Tinh Quyết tăng 14%."
+                                  },
+                                  {
+                                      "level":  10,
+                                      "value":  "15%",
+                                      "description":  "Tốc độ hồi tích năng Tinh Quyết tăng 15%."
+                                  }
+                              ]
+               },
+    "tuyetdia":  {
+                     "id":  "tuyetdia",
+                     "name":  "Tuyệt Địa",
+                     "original_name":  "绝地",
+                     "common_desc":  "Sau khi né tránh hoàn hảo thành công sẽ tăng tấn công",
+                     "max_level":  6,
+                     "levels":  [
+                                    {
+                                        "level":  1,
+                                        "value":  "2%",
+                                        "description":  "Khi né tránh hoàn hảo, giúp bản thân tăng 2% tấn công, cộng dồn tối đa 3 tầng, duy trì 15 giây."
+                                    },
+                                    {
+                                        "level":  2,
+                                        "value":  "3%",
+                                        "description":  "Khi né tránh hoàn hảo, giúp bản thân tăng 3% tấn công, cộng dồn tối đa 3 tầng, duy trì 15 giây."
+                                    },
+                                    {
+                                        "level":  3,
+                                        "value":  "4%",
+                                        "description":  "Khi né tránh hoàn hảo, giúp bản thân tăng 4% tấn công, cộng dồn tối đa 3 tầng, duy trì 15 giây."
+                                    },
+                                    {
+                                        "level":  4,
+                                        "value":  "5.5%",
+                                        "description":  "Khi né tránh hoàn hảo, giúp bản thân tăng 5.5% tấn công, cộng dồn tối đa 3 tầng, duy trì 15 giây."
+                                    },
+                                    {
+                                        "level":  5,
+                                        "value":  "6.5%",
+                                        "description":  "Khi né tránh hoàn hảo, giúp bản thân tăng 6.5% tấn công, cộng dồn tối đa 3 tầng, duy trì 15 giây."
+                                    },
+                                    {
+                                        "level":  6,
+                                        "value":  "7.5%",
+                                        "description":  "Khi né tránh hoàn hảo, giúp bản thân tăng 7.5% tấn công, cộng dồn tối đa 3 tầng, duy trì 15 giây."
+                                    }
+                                ]
+                 }
+}

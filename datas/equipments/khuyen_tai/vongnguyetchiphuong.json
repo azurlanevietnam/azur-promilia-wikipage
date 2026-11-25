@@ -1,12 +1,17 @@
 ﻿{
     "id":  "vongnguyetchiphuong",
+    "cbt3_id":  "1370311",
     "name":  "Vọng Nguyệt Chi Phương",
     "original_name":  "望月之芳",
     "item_type":  "Khuyên tai",
     "category":  "khuyen_tai",
+    "profession_id":  0,
+    "profession":  "Toàn chức nghiệp",
     "base_rarity":  3,
     "star_count":  4,
-    "max_stars":  "4 sao",
+    "max_star_count":  3,
+    "max_stars":  "Có thể thăng 3 sao",
+    "max_level":  12,
     "image":  "assets/equipment/vongnguyetchiphuong.png",
     "suit":  "Trường Không Hiệp Tấu",
     "suit_id":  "7",
@@ -14,7 +19,356 @@
                         "two_piece":  "Siêu Hạn Cường Độ tăng 110 điểm.",
                         "four_piece":  "Mỗi lần tiêu hao Ấn Ký, sát thương Siêu Hạn người mang tạo ra tăng 7%, duy trì 15 giây, tối đa cộng dồn 3 tầng."
                     },
-    "description":  "Trang bị Khuyên tai thuộc bộ Trường Không Hiệp Tấu, xuất hiện trong Azur Promilia (Lam Sắc Tinh Nguyên).",
+    "description":  "Xưa có kẻ si mê, nghe nói có loài hoa hướng về mặt trời, liền đoán thế gian ắt cũng có loài hoa hướng về mặt trăng. Để chứng minh ý niệm ấy, người đó trồng đủ loại kỳ hoa dị thảo, lùng sục khắp chốn giống quý, đến khi tán gia bại sản vẫn chẳng tìm thấy, bèn ẩn cư nơi sơn lâm nhưng vẫn không ngừng vun trồng.\nMột đêm mưa to gió lớn, sợ hoa cỏ hư hại nên người đó ra ngoài kiểm tra rồi trượt chân rơi xuống khe núi. Nào ngờ dưới đáy khe lại thấy một đóa liên hoa khẽ chuyển đài hoa, xoay theo ánh trăng. Giấc mộng si mê nửa đời người, rốt cuộc cũng được chứng nghiệm.",
+    "base_attributes":  [
+                            {
+                                "attribute":  "Tỉ lệ hội tâm Siêu Hạn",
+                                "is_ratio":  true,
+                                "is_element":  false,
+                                "levels":  [
+                                               80,
+                                               105,
+                                               125,
+                                               145,
+                                               165,
+                                               190,
+                                               210,
+                                               230,
+                                               250,
+                                               270,
+                                               295,
+                                               315,
+                                               335
+                                           ]
+                            },
+                            {
+                                "attribute":  "Tấn công",
+                                "is_ratio":  false,
+                                "is_element":  false,
+                                "levels":  [
+                                               20,
+                                               25,
+                                               30,
+                                               35,
+                                               40,
+                                               45,
+                                               50,
+                                               55,
+                                               60,
+                                               65,
+                                               70,
+                                               75,
+                                               80
+                                           ]
+                            }
+                        ],
+    "star_ascensions":  [
+                            {
+                                "star_level":  "1 sao",
+                                "affix_id":  "tichthe",
+                                "affix_level":  1,
+                                "upgrade_cost":  [
+                                                     {
+                                                         "material_id":  "vongnguyetchiphuong",
+                                                         "name":  "Trang bị cùng tên",
+                                                         "quantity":  1
+                                                     },
+                                                     {
+                                                         "material_id":  "uni",
+                                                         "name":  "Uni",
+                                                         "quantity":  9000
+                                                     }
+                                                 ]
+                            },
+                            {
+                                "star_level":  "2 sao",
+                                "affix_id":  "tilehoitamsieuhan",
+                                "affix_level":  1,
+                                "upgrade_cost":  [
+                                                     {
+                                                         "material_id":  "vongnguyetchiphuong",
+                                                         "name":  "Trang bị cùng tên",
+                                                         "quantity":  2
+                                                     },
+                                                     {
+                                                         "material_id":  "uni",
+                                                         "name":  "Uni",
+                                                         "quantity":  10000
+                                                     }
+                                                 ]
+                            },
+                            {
+                                "star_level":  "3 sao",
+                                "affix_id":  "tichthe",
+                                "affix_level":  2,
+                                "upgrade_cost":  [
+                                                     {
+                                                         "material_id":  "vongnguyetchiphuong",
+                                                         "name":  "Trang bị cùng tên",
+                                                         "quantity":  2
+                                                     },
+                                                     {
+                                                         "material_id":  "uni",
+                                                         "name":  "Uni",
+                                                         "quantity":  11000
+                                                     }
+                                                 ]
+                            }
+                        ],
+    "enhancement_materials":  [
+                                  {
+                                      "stage":  "+0 → +1",
+                                      "materials":  [
+                                                        {
+                                                            "material_id":  "linhtuyphothong",
+                                                            "quantity":  2
+                                                        },
+                                                        {
+                                                            "material_id":  "dungdichtinhchat",
+                                                            "quantity":  24
+                                                        },
+                                                        {
+                                                            "material_id":  "vihatnguyentophong",
+                                                            "quantity":  100
+                                                        },
+                                                        {
+                                                            "material_id":  "uni",
+                                                            "quantity":  500
+                                                        }
+                                                    ]
+                                  },
+                                  {
+                                      "stage":  "+1 → +2",
+                                      "materials":  [
+                                                        {
+                                                            "material_id":  "linhtuyphothong",
+                                                            "quantity":  4
+                                                        },
+                                                        {
+                                                            "material_id":  "dungdichtinhchat",
+                                                            "quantity":  24
+                                                        },
+                                                        {
+                                                            "material_id":  "vihatnguyentophong",
+                                                            "quantity":  100
+                                                        },
+                                                        {
+                                                            "material_id":  "uni",
+                                                            "quantity":  1000
+                                                        }
+                                                    ]
+                                  },
+                                  {
+                                      "stage":  "+2 → +3",
+                                      "materials":  [
+                                                        {
+                                                            "material_id":  "linhtuyphothong",
+                                                            "quantity":  8
+                                                        },
+                                                        {
+                                                            "material_id":  "dungdichtinhchat",
+                                                            "quantity":  24
+                                                        },
+                                                        {
+                                                            "material_id":  "vihatnguyentophong",
+                                                            "quantity":  100
+                                                        },
+                                                        {
+                                                            "material_id":  "uni",
+                                                            "quantity":  1500
+                                                        }
+                                                    ]
+                                  },
+                                  {
+                                      "stage":  "+3 → +4",
+                                      "materials":  [
+                                                        {
+                                                            "material_id":  "linhtuyngungtu",
+                                                            "quantity":  2
+                                                        },
+                                                        {
+                                                            "material_id":  "vayuquang",
+                                                            "quantity":  24
+                                                        },
+                                                        {
+                                                            "material_id":  "vihatnguyentophong",
+                                                            "quantity":  200
+                                                        },
+                                                        {
+                                                            "material_id":  "uni",
+                                                            "quantity":  2000
+                                                        }
+                                                    ]
+                                  },
+                                  {
+                                      "stage":  "+4 → +5",
+                                      "materials":  [
+                                                        {
+                                                            "material_id":  "linhtuyngungtu",
+                                                            "quantity":  4
+                                                        },
+                                                        {
+                                                            "material_id":  "vayuquang",
+                                                            "quantity":  24
+                                                        },
+                                                        {
+                                                            "material_id":  "vihatnguyentophong",
+                                                            "quantity":  200
+                                                        },
+                                                        {
+                                                            "material_id":  "uni",
+                                                            "quantity":  3000
+                                                        }
+                                                    ]
+                                  },
+                                  {
+                                      "stage":  "+5 → +6",
+                                      "materials":  [
+                                                        {
+                                                            "material_id":  "linhtuyngungtu",
+                                                            "quantity":  8
+                                                        },
+                                                        {
+                                                            "material_id":  "vayuquang",
+                                                            "quantity":  24
+                                                        },
+                                                        {
+                                                            "material_id":  "vihatnguyentophong",
+                                                            "quantity":  200
+                                                        },
+                                                        {
+                                                            "material_id":  "uni",
+                                                            "quantity":  4000
+                                                        }
+                                                    ]
+                                  },
+                                  {
+                                      "stage":  "+6 → +7",
+                                      "materials":  [
+                                                        {
+                                                            "material_id":  "linhtuycuontrao",
+                                                            "quantity":  2
+                                                        },
+                                                        {
+                                                            "material_id":  "banhxematvan",
+                                                            "quantity":  24
+                                                        },
+                                                        {
+                                                            "material_id":  "vihatnguyentophong",
+                                                            "quantity":  400
+                                                        },
+                                                        {
+                                                            "material_id":  "uni",
+                                                            "quantity":  5000
+                                                        }
+                                                    ]
+                                  },
+                                  {
+                                      "stage":  "+7 → +8",
+                                      "materials":  [
+                                                        {
+                                                            "material_id":  "linhtuycuontrao",
+                                                            "quantity":  4
+                                                        },
+                                                        {
+                                                            "material_id":  "banhxematvan",
+                                                            "quantity":  24
+                                                        },
+                                                        {
+                                                            "material_id":  "vihatnguyentophong",
+                                                            "quantity":  400
+                                                        },
+                                                        {
+                                                            "material_id":  "uni",
+                                                            "quantity":  6000
+                                                        }
+                                                    ]
+                                  },
+                                  {
+                                      "stage":  "+8 → +9",
+                                      "materials":  [
+                                                        {
+                                                            "material_id":  "linhtuycuontrao",
+                                                            "quantity":  8
+                                                        },
+                                                        {
+                                                            "material_id":  "banhxematvan",
+                                                            "quantity":  24
+                                                        },
+                                                        {
+                                                            "material_id":  "vihatnguyentophong",
+                                                            "quantity":  400
+                                                        },
+                                                        {
+                                                            "material_id":  "uni",
+                                                            "quantity":  7000
+                                                        }
+                                                    ]
+                                  },
+                                  {
+                                      "stage":  "+9 → +10",
+                                      "materials":  [
+                                                        {
+                                                            "material_id":  "linhtuyanhsang",
+                                                            "quantity":  2
+                                                        },
+                                                        {
+                                                            "material_id":  "modongminmang",
+                                                            "quantity":  24
+                                                        },
+                                                        {
+                                                            "material_id":  "vihatnguyentophong",
+                                                            "quantity":  600
+                                                        },
+                                                        {
+                                                            "material_id":  "uni",
+                                                            "quantity":  8000
+                                                        }
+                                                    ]
+                                  },
+                                  {
+                                      "stage":  "+10 → +11",
+                                      "materials":  [
+                                                        {
+                                                            "material_id":  "linhtuyanhsang",
+                                                            "quantity":  4
+                                                        },
+                                                        {
+                                                            "material_id":  "mangmonglanquang",
+                                                            "quantity":  24
+                                                        },
+                                                        {
+                                                            "material_id":  "vihatnguyentophong",
+                                                            "quantity":  600
+                                                        },
+                                                        {
+                                                            "material_id":  "uni",
+                                                            "quantity":  9000
+                                                        }
+                                                    ]
+                                  },
+                                  {
+                                      "stage":  "+11 → +12",
+                                      "materials":  [
+                                                        {
+                                                            "material_id":  "linhtuyanhsang",
+                                                            "quantity":  8
+                                                        },
+                                                        {
+                                                            "material_id":  "tinhhachngunghinh",
+                                                            "quantity":  24
+                                                        },
+                                                        {
+                                                            "material_id":  "vihatnguyentophong",
+                                                            "quantity":  600
+                                                        },
+                                                        {
+                                                            "material_id":  "uni",
+                                                            "quantity":  10000
+                                                        }
+                                                    ]
+                                  }
+                              ],
     "original_link":  "/ap/望月之芳",
     "texture_name":  "Tex icon equipment item changkongxiezou earring 3 3.png"
 }

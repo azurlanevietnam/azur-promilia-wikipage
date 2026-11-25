@@ -1,17 +1,162 @@
 ﻿{
     "id":  "kientapliepnhanhatrang",
+    "cbt3_id":  "1030111",
     "name":  "Kiến Tập Liệp Nhân Hạ Trang",
     "original_name":  "见习猎人下装",
     "item_type":  "Quần dưới",
     "category":  "quan_duoi",
+    "profession_id":  0,
+    "profession":  "Toàn chức nghiệp",
     "base_rarity":  0,
     "star_count":  1,
-    "max_stars":  "1 sao",
+    "max_star_count":  1,
+    "max_stars":  "Có thể thăng 1 sao",
+    "max_level":  5,
     "image":  "assets/equipment/kientapliepnhanhatrang.png",
     "suit":  "Không có bộ trang bị",
     "suit_id":  "0",
-    "suit_skills":  null,
-    "description":  "Trang bị Quần dưới thuộc bộ Không có bộ trang bị, xuất hiện trong Azur Promilia (Lam Sắc Tinh Nguyên).",
+    "description":  "Một chiếc quần giáp nhẹ được khâu từ vỏ cây, tuy khả năng phòng ngự chẳng đáng kể là bao nhưng ít nhất cũng rất gọn nhẹ.",
+    "base_attributes":  [
+                            {
+                                "attribute":  "Phòng ngự",
+                                "is_ratio":  false,
+                                "is_element":  false,
+                                "levels":  [
+                                               3,
+                                               5,
+                                               7,
+                                               9,
+                                               11,
+                                               13
+                                           ]
+                            }
+                        ],
+    "star_ascensions":  [
+                            {
+                                "star_level":  "1 sao",
+                                "affix_id":  "manhkich",
+                                "affix_level":  1,
+                                "upgrade_cost":  [
+                                                     {
+                                                         "material_id":  "kientapliepnhanhatrang",
+                                                         "name":  "Trang bị cùng tên",
+                                                         "quantity":  1
+                                                     },
+                                                     {
+                                                         "material_id":  "uni",
+                                                         "name":  "Uni",
+                                                         "quantity":  1000
+                                                     }
+                                                 ]
+                            }
+                        ],
+    "enhancement_materials":  [
+                                  {
+                                      "stage":  "+0 → +1",
+                                      "materials":  [
+                                                        {
+                                                            "material_id":  "linhtuyphothong",
+                                                            "quantity":  1
+                                                        },
+                                                        {
+                                                            "material_id":  "longvubansac",
+                                                            "quantity":  24
+                                                        },
+                                                        {
+                                                            "material_id":  "vihatnguyenthoa",
+                                                            "quantity":  100
+                                                        },
+                                                        {
+                                                            "material_id":  "uni",
+                                                            "quantity":  500
+                                                        }
+                                                    ]
+                                  },
+                                  {
+                                      "stage":  "+1 → +2",
+                                      "materials":  [
+                                                        {
+                                                            "material_id":  "linhtuyphothong",
+                                                            "quantity":  2
+                                                        },
+                                                        {
+                                                            "material_id":  "longvubansac",
+                                                            "quantity":  24
+                                                        },
+                                                        {
+                                                            "material_id":  "vihatnguyenthoa",
+                                                            "quantity":  100
+                                                        },
+                                                        {
+                                                            "material_id":  "uni",
+                                                            "quantity":  1000
+                                                        }
+                                                    ]
+                                  },
+                                  {
+                                      "stage":  "+2 → +3",
+                                      "materials":  [
+                                                        {
+                                                            "material_id":  "linhtuyphothong",
+                                                            "quantity":  3
+                                                        },
+                                                        {
+                                                            "material_id":  "longvubansac",
+                                                            "quantity":  24
+                                                        },
+                                                        {
+                                                            "material_id":  "vihatnguyenthoa",
+                                                            "quantity":  100
+                                                        },
+                                                        {
+                                                            "material_id":  "uni",
+                                                            "quantity":  1500
+                                                        }
+                                                    ]
+                                  },
+                                  {
+                                      "stage":  "+3 → +4",
+                                      "materials":  [
+                                                        {
+                                                            "material_id":  "linhtuyngungtu",
+                                                            "quantity":  1
+                                                        },
+                                                        {
+                                                            "material_id":  "ngungchatnguyento",
+                                                            "quantity":  24
+                                                        },
+                                                        {
+                                                            "material_id":  "vihatnguyenthoa",
+                                                            "quantity":  200
+                                                        },
+                                                        {
+                                                            "material_id":  "uni",
+                                                            "quantity":  2000
+                                                        }
+                                                    ]
+                                  },
+                                  {
+                                      "stage":  "+4 → +5",
+                                      "materials":  [
+                                                        {
+                                                            "material_id":  "linhtuyngungtu",
+                                                            "quantity":  2
+                                                        },
+                                                        {
+                                                            "material_id":  "ngungchatnguyento",
+                                                            "quantity":  24
+                                                        },
+                                                        {
+                                                            "material_id":  "vihatnguyenthoa",
+                                                            "quantity":  200
+                                                        },
+                                                        {
+                                                            "material_id":  "uni",
+                                                            "quantity":  3000
+                                                        }
+                                                    ]
+                                  }
+                              ],
     "original_link":  "/ap/见习猎人下装",
     "texture_name":  "Tex icon equipment item suit1 5.png"
 }

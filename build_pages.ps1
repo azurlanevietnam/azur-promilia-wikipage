@@ -107,7 +107,7 @@ $homepageHtml = @"
         </h3>
       </div>
       <div class="community-actions">
-        <a href="https://www.facebook.com/azurlanevietnam/" target="_blank" rel="noopener noreferrer" class="hero-community-btn fb">
+        <a href="https://www.facebook.com/dongcaohongapvn/" target="_blank" rel="noopener noreferrer" class="hero-community-btn fb">
           Theo Dõi Fanpage
         </a>
         <a href="https://www.facebook.com/groups/678799927597047/" target="_blank" rel="noopener noreferrer" class="hero-community-btn group">
@@ -118,7 +118,27 @@ $homepageHtml = @"
 
     <!-- Feature Portals: Seamless & Zero Badges -->
     <div class="portal-grid">
-      <!-- Portal 1: Linh Tử -->
+      <!-- Portal 1: Nhân Vật -->
+      <a href="characters.html" class="portal-card">
+        <div>
+          <h2>Danh Sách Nhân Vật</h2>
+        </div>
+        <div class="portal-action">
+          Khám Phá Nhân Vật →
+        </div>
+      </a>
+
+      <!-- Portal 2: Kibo -->
+      <a href="kibo.html" class="portal-card">
+        <div>
+          <h2>Danh Sách Kibo</h2>
+        </div>
+        <div class="portal-action">
+          Khám Phá Kibo →
+        </div>
+      </a>
+
+      <!-- Portal 3: Linh Tử -->
       <a href="lingzi.html" class="portal-card">
         <div>
           <h2>Danh Sách Linh Tử</h2>
@@ -128,7 +148,7 @@ $homepageHtml = @"
         </div>
       </a>
 
-      <!-- Portal 2: Equipments -->
+      <!-- Portal 4: Equipments -->
       <a href="equipments.html" class="portal-card">
         <div>
           <h2>Danh Sách Trang Bị</h2>
@@ -138,7 +158,7 @@ $homepageHtml = @"
         </div>
       </a>
 
-      <!-- Portal 3: Materials -->
+      <!-- Portal 5: Materials -->
       <a href="materials.html" class="portal-card">
         <div>
           <h2>Danh Sách Nguyên Liệu</h2>
@@ -180,12 +200,14 @@ foreach ($w in $sortedEqData) {
     if (-not $suitVal) { $suitVal = "none" }
     
     $origName = if ($w.original_name) { $w.original_name } else { "" }
-    $searchTokens = "$($w.name) $origName $cleanType $($w.item_type)".ToLower()
+    $profId = if ($null -ne $w.profession_id) { "$($w.profession_id)" } else { "0" }
+    $profName = if ($w.profession) { $w.profession } else { "Toàn chức nghiệp" }
+    $searchTokens = "$($w.name) $origName $cleanType $($w.item_type) $profName".ToLower()
     $starsHtml = Get-CardStarsHtml $starCount "../"
     $cat = if ($w.category) { $w.category } else { "vu_khi" }
 
     $eqCardsHtml += @"
-      <a href="equipments/$($w.id).html" class="bwiki-item-card r${rNum}" data-category="$cat" data-rarity="$rNum" data-type="$cleanType" data-suit="$suitVal" data-name="$searchTokens">
+      <a href="equipments/$($w.id).html" class="bwiki-item-card r${rNum}" data-category="$cat" data-rarity="$rNum" data-suit="$suitVal" data-profession="$profId" data-name="$searchTokens">
         <div class="bwiki-item-visual">
           <img src="../assets/equipment/$($w.id).png" class="bwiki-item-img" alt="$($w.name)" loading="lazy">
         </div>
@@ -222,7 +244,7 @@ $setTableRows = @"
               <tr>
                 <td><strong>Hành Lữ Ma Phong</strong></td>
                 <td>Tấn công tăng 10%.</td>
-                <td>Sau khi người trang bị thi triển Kỹ năng Tinh Minh, toàn đội tăng 14% sát thương toàn thuộc tính trong 24 giây. Hiệu ứng giữa các trang bị cùng tên không cộng dồn.</td>
+                <td>Sau khi người trang bị thi triển Kỹ năng Tinh Minh, toàn đội tăng 14% sát thương toàn nguyên tố trong 24 giây. Hiệu ứng giữa các trang bị cùng tên không cộng dồn.</td>
               </tr>
               <tr>
                 <td><strong>Hãm Trận Dũng Chí</strong></td>
@@ -333,24 +355,16 @@ $equipmentsCatalogHtml = @"
             </div>
           </td>
         </tr>
-        <tr id="weapon-type-row">
-          <th>Loại vũ khí</th>
+        <tr id="profession-row">
+          <th>Chức nghiệp</th>
           <td>
-            <div class="bwiki-filter-options" id="type-filters">
-              <button class="filter-pill active" data-type="all">Tất cả</button>
-              <button class="filter-pill" data-type="Song đao">Song đao</button>
-              <button class="filter-pill" data-type="Sách phép">Sách phép</button>
-              <button class="filter-pill" data-type="Đại kiếm">Đại kiếm</button>
-              <button class="filter-pill" data-type="Đại thái đao">Đại thái đao</button>
-              <button class="filter-pill" data-type="Kiếm dài">Kiếm dài</button>
-              <button class="filter-pill" data-type="Gậy phép">Gậy phép</button>
-              <button class="filter-pill" data-type="Đại đao">Đại đao</button>
-              <button class="filter-pill" data-type="Dao găm">Dao găm</button>
-              <button class="filter-pill" data-type="Búa chiến">Búa chiến</button>
-              <button class="filter-pill" data-type="Pháp bảo">Pháp bảo</button>
-              <button class="filter-pill" data-type="Hoành đao">Hoành đao</button>
-              <button class="filter-pill" data-type="Trường kiếm">Trường kiếm</button>
-              <button class="filter-pill" data-type="Đoản đao">Đoản đao</button>
+            <div class="bwiki-filter-options" id="profession-filters">
+              <button class="filter-pill active" data-profession="all">Tất cả</button>
+              <button class="filter-pill" data-profession="1">Bạo Phát</button>
+              <button class="filter-pill" data-profession="2">Phá Hoại</button>
+              <button class="filter-pill" data-profession="3">Mãnh Công</button>
+              <button class="filter-pill" data-profession="4">Tăng Phúc</button>
+              <button class="filter-pill" data-profession="5">Phú Dữ</button>
             </div>
           </td>
         </tr>
@@ -403,13 +417,12 @@ $eqCardsHtml
       const resetBtn = document.getElementById('btn-reset-filters');
       const categoryBtns = document.querySelectorAll('#category-filters .filter-pill');
       const rarityBtns = document.querySelectorAll('#rarity-filters .filter-pill');
-      const typeBtns = document.querySelectorAll('#type-filters .filter-pill');
+      const professionBtns = document.querySelectorAll('#profession-filters .filter-pill');
       const suitBtns = document.querySelectorAll('#suit-filters .filter-pill');
-      const weaponTypeRow = document.getElementById('weapon-type-row');
 
       let currentCategory = 'all';
       let currentRarity = 'all';
-      let currentType = 'all';
+      let currentProfession = 'all';
       let currentSuit = 'all';
       let currentSearch = '';
 
@@ -418,17 +431,17 @@ $eqCardsHtml
         cards.forEach(card => {
           const cardCat = card.dataset.category || 'vu_khi';
           const cardRarity = card.dataset.rarity;
-          const cardType = card.dataset.type;
+          const cardProf = card.dataset.profession || '0';
           const cardSuit = card.dataset.suit;
           const cardName = card.dataset.name;
 
           const matchCat = currentCategory === 'all' || cardCat === currentCategory;
           const matchRarity = currentRarity === 'all' || cardRarity === currentRarity;
-          const matchType = currentType === 'all' || cardType === currentType;
+          const matchProf = currentProfession === 'all' || cardProf === currentProfession;
           const matchSuit = currentSuit === 'all' || cardSuit === currentSuit;
           const matchSearch = !currentSearch || cardName.includes(currentSearch);
 
-          if (matchCat && matchRarity && matchType && matchSuit && matchSearch) {
+          if (matchCat && matchRarity && matchProf && matchSuit && matchSearch) {
             card.style.display = 'inline-flex';
             visibleCount++;
           } else {
@@ -453,13 +466,6 @@ $eqCardsHtml
           categoryBtns.forEach(b => b.classList.remove('active'));
           btn.classList.add('active');
           currentCategory = btn.dataset.category;
-          if (weaponTypeRow) {
-            weaponTypeRow.style.display = (currentCategory === 'all' || currentCategory === 'vu_khi') ? '' : 'none';
-          }
-          if (currentCategory !== 'all' && currentCategory !== 'vu_khi') {
-            currentType = 'all';
-            typeBtns.forEach(b => b.classList.toggle('active', b.dataset.type === 'all'));
-          }
           applyFilters();
         });
       });
@@ -473,11 +479,11 @@ $eqCardsHtml
         });
       });
 
-      typeBtns.forEach(btn => {
+      professionBtns.forEach(btn => {
         btn.addEventListener('click', () => {
-          typeBtns.forEach(b => b.classList.remove('active'));
+          professionBtns.forEach(b => b.classList.remove('active'));
           btn.classList.add('active');
-          currentType = btn.dataset.type;
+          currentProfession = btn.dataset.profession;
           applyFilters();
         });
       });
@@ -495,15 +501,14 @@ $eqCardsHtml
         resetBtn.addEventListener('click', () => {
           currentCategory = 'all';
           currentRarity = 'all';
-          currentType = 'all';
+          currentProfession = 'all';
           currentSuit = 'all';
           currentSearch = '';
           if (searchInput) searchInput.value = '';
           categoryBtns.forEach(b => b.classList.toggle('active', b.dataset.category === 'all'));
           rarityBtns.forEach(b => b.classList.toggle('active', b.dataset.rarity === 'all'));
-          typeBtns.forEach(b => b.classList.toggle('active', b.dataset.type === 'all'));
+          professionBtns.forEach(b => b.classList.toggle('active', b.dataset.profession === 'all'));
           suitBtns.forEach(b => b.classList.toggle('active', b.dataset.suit === 'all'));
-          if (weaponTypeRow) weaponTypeRow.style.display = '';
           applyFilters();
         });
       }
@@ -757,6 +762,7 @@ foreach ($w in $eqData) {
   <link rel="stylesheet" href="../../style.css">
   <script>window.__ITEM_DATA__ = $escapedJson;</script>
   <script src="../../templates/layout.js" defer></script>
+  <script src="../../datas/equipments/affixes.js" defer></script>
   <script src="../../templates/equipment-template.js" defer></script>
 </head>
 <body data-page="equipment-detail" data-item-id="$itemId" data-category="$cat" data-depth="2" data-active-tab="equip">

@@ -1,17 +1,162 @@
 ﻿{
     "id":  "kientapliepnhanchigioi",
+    "cbt3_id":  "1050111",
     "name":  "Kiến Tập Liệp Nhân Chi Giới",
     "original_name":  "见习猎人之戒",
     "item_type":  "Nhẫn",
     "category":  "nhan",
+    "profession_id":  0,
+    "profession":  "Toàn chức nghiệp",
     "base_rarity":  0,
     "star_count":  1,
-    "max_stars":  "1 sao",
+    "max_star_count":  1,
+    "max_stars":  "Có thể thăng 1 sao",
+    "max_level":  5,
     "image":  "assets/equipment/kientapliepnhanchigioi.png",
     "suit":  "Không có bộ trang bị",
     "suit_id":  "0",
-    "suit_skills":  null,
-    "description":  "Trang bị Nhẫn thuộc bộ Không có bộ trang bị, xuất hiện trong Azur Promilia (Lam Sắc Tinh Nguyên).",
+    "description":  "Một chiếc nhẫn được đan từ cỏ khô, tuy nguyên liệu đâu đâu cũng có thể tìm thấy, nhưng vẫn có thể thấy rõ tâm huyết của người đan gửi gắm vào đó.",
+    "base_attributes":  [
+                            {
+                                "attribute":  "Tấn công",
+                                "is_ratio":  false,
+                                "is_element":  false,
+                                "levels":  [
+                                               7,
+                                               12,
+                                               17,
+                                               22,
+                                               27,
+                                               32
+                                           ]
+                            }
+                        ],
+    "star_ascensions":  [
+                            {
+                                "star_level":  "1 sao",
+                                "affix_id":  "manhkich",
+                                "affix_level":  1,
+                                "upgrade_cost":  [
+                                                     {
+                                                         "material_id":  "kientapliepnhanchigioi",
+                                                         "name":  "Trang bị cùng tên",
+                                                         "quantity":  1
+                                                     },
+                                                     {
+                                                         "material_id":  "uni",
+                                                         "name":  "Uni",
+                                                         "quantity":  1000
+                                                     }
+                                                 ]
+                            }
+                        ],
+    "enhancement_materials":  [
+                                  {
+                                      "stage":  "+0 → +1",
+                                      "materials":  [
+                                                        {
+                                                            "material_id":  "linhtuyphothong",
+                                                            "quantity":  1
+                                                        },
+                                                        {
+                                                            "material_id":  "vomemdichchuyen",
+                                                            "quantity":  24
+                                                        },
+                                                        {
+                                                            "material_id":  "vihatnguyentobang",
+                                                            "quantity":  100
+                                                        },
+                                                        {
+                                                            "material_id":  "uni",
+                                                            "quantity":  500
+                                                        }
+                                                    ]
+                                  },
+                                  {
+                                      "stage":  "+1 → +2",
+                                      "materials":  [
+                                                        {
+                                                            "material_id":  "linhtuyphothong",
+                                                            "quantity":  2
+                                                        },
+                                                        {
+                                                            "material_id":  "vomemdichchuyen",
+                                                            "quantity":  24
+                                                        },
+                                                        {
+                                                            "material_id":  "vihatnguyentobang",
+                                                            "quantity":  100
+                                                        },
+                                                        {
+                                                            "material_id":  "uni",
+                                                            "quantity":  1000
+                                                        }
+                                                    ]
+                                  },
+                                  {
+                                      "stage":  "+2 → +3",
+                                      "materials":  [
+                                                        {
+                                                            "material_id":  "linhtuyphothong",
+                                                            "quantity":  3
+                                                        },
+                                                        {
+                                                            "material_id":  "vomemdichchuyen",
+                                                            "quantity":  24
+                                                        },
+                                                        {
+                                                            "material_id":  "vihatnguyentobang",
+                                                            "quantity":  100
+                                                        },
+                                                        {
+                                                            "material_id":  "uni",
+                                                            "quantity":  1500
+                                                        }
+                                                    ]
+                                  },
+                                  {
+                                      "stage":  "+3 → +4",
+                                      "materials":  [
+                                                        {
+                                                            "material_id":  "linhtuyngungtu",
+                                                            "quantity":  1
+                                                        },
+                                                        {
+                                                            "material_id":  "linhkienhaomon",
+                                                            "quantity":  24
+                                                        },
+                                                        {
+                                                            "material_id":  "vihatnguyentobang",
+                                                            "quantity":  200
+                                                        },
+                                                        {
+                                                            "material_id":  "uni",
+                                                            "quantity":  2000
+                                                        }
+                                                    ]
+                                  },
+                                  {
+                                      "stage":  "+4 → +5",
+                                      "materials":  [
+                                                        {
+                                                            "material_id":  "linhtuyngungtu",
+                                                            "quantity":  2
+                                                        },
+                                                        {
+                                                            "material_id":  "linhkienhaomon",
+                                                            "quantity":  24
+                                                        },
+                                                        {
+                                                            "material_id":  "vihatnguyentobang",
+                                                            "quantity":  200
+                                                        },
+                                                        {
+                                                            "material_id":  "uni",
+                                                            "quantity":  3000
+                                                        }
+                                                    ]
+                                  }
+                              ],
     "original_link":  "/ap/见习猎人之戒",
     "texture_name":  "Tex icon equipment item suit1 7.png"
 }

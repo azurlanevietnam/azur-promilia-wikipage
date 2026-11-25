@@ -140,6 +140,79 @@
     return `<div class="bwiki-card-stars">${stars}</div>`;
   }
 
+  // Shared quality bonus multipliers across all equipment (CBT3 verified: +60% ~ +100%)
+  const QUALITY_TIERS = [
+    { quality_level: 1, quality_name: 'Tân thủ',    quality_value: 6000 },
+    { quality_level: 2, quality_name: 'Tiến giai',  quality_value: 7000 },
+    { quality_level: 3, quality_name: 'Tinh lương', quality_value: 8000 },
+    { quality_level: 4, quality_name: 'Sử thi',     quality_value: 9000 },
+    { quality_level: 5, quality_name: 'Truyền kỳ',  quality_value: 10000 }
+  ];
+
+  let AFFIXES_DB = {};
+
+  async function fetchAffixesData(rel) {
+    if (window.AZUR_EQUIPMENT_AFFIXES) {
+      AFFIXES_DB = window.AZUR_EQUIPMENT_AFFIXES;
+      return;
+    }
+    if (window.AZUR_DATA && window.AZUR_DATA.equipment_affixes) {
+      AFFIXES_DB = window.AZUR_DATA.equipment_affixes;
+      return;
+    }
+    if (window.location.protocol !== 'file:') {
+      try {
+        const res = await fetch(`${rel}datas/equipments/affixes.json`);
+        if (res.ok) {
+          AFFIXES_DB = await res.json();
+          return;
+        }
+      } catch (e) {}
+    }
+    try {
+      await loadScript(`${rel}datas/equipments/affixes.js`);
+      if (window.AZUR_EQUIPMENT_AFFIXES) {
+        AFFIXES_DB = window.AZUR_EQUIPMENT_AFFIXES;
+      }
+    } catch (e) {}
+  }
+
+  function resolveAscensionAffix(a) {
+    if (!a) return { title: '', description: '' };
+    if (a.affix_id) {
+      const entry = AFFIXES_DB[a.affix_id];
+      const lvNum = Number(a.affix_level) || 1;
+      if (entry) {
+        const lvObj = (entry.levels || []).find(l => Number(l.level) === lvNum);
+        return {
+          title: `${entry.name} Lv${lvNum}`,
+          description: lvObj ? lvObj.description : (entry.common_desc || '')
+        };
+      }
+      return { title: `${a.affix_id} Lv${lvNum}`, description: '' };
+    }
+    if (a.affix_name) {
+      return {
+        title: formatSkillTitle(a.affix_name, a.affix_level),
+        description: a.description || ''
+      };
+    }
+    return {
+      title: 'Không mở khóa kỹ năng mới',
+      description: 'Mốc thăng sao này không mở khóa hoặc nâng cấp kỹ năng phụ.'
+    };
+  }
+
+  function calculateBaseStatValue(baseVal, isRatio, qualityValue) {
+    const scaledNumerator = Math.round(Number(baseVal) * (10000 + Number(qualityValue)));
+    if (isRatio) {
+      const pct = Math.floor(scaledNumerator / 100000) / 10;
+      return `+${pct.toFixed(1)}%`;
+    }
+    const flatVal = Math.ceil(scaledNumerator / 10000);
+    return `+${flatVal}`;
+  }
+
   function formatSkillTitle(affixName, affixLevel) {
     if (!affixName) return '';
     if (!affixLevel) return affixName;
@@ -234,7 +307,7 @@
       pagesRel = d === 2 ? '../' : d === 1 ? '' : 'pages/';
     }
 
-    const isWeapon = (w.category === 'vu_khi') || (!w.category && w.main_attributes_by_quality && w.main_attributes_by_quality.length > 0);
+    const isWeapon = (w.category === 'vu_khi') || (!w.category && ((w.base_attributes && w.base_attributes.length > 0) || (w.main_attributes_by_quality && w.main_attributes_by_quality.length > 0)));
     const hasSuit = Boolean(w.suit && w.suit !== 'Không có bộ trang bị' && w.suit !== 'none' && w.suit_skills);
     const rNum = getWeaponRarityNumber(w);
     const starCount = w.star_count || getMaxStarsCount(w);
@@ -244,8 +317,13 @@
     const loreText = w.description ? w.description.replace(/\n/g, '<br>') : 'Chưa có thông tin cốt truyện.';
     const typeLabel = isWeapon ? `Vũ khí (${cleanType})` : cleanType;
 
-    // Screen 2: Quality attributes
-    const qualities = w.main_attributes_by_quality || [];
+    // Screen 2: Base attributes & shared quality tiers
+    const baseAttrs = w.base_attributes || [];
+    const legacyQualities = w.main_attributes_by_quality || [];
+    const qualities = baseAttrs.length > 0 ? QUALITY_TIERS : legacyQualities;
+    const maxAttrLevel = typeof w.max_level === 'number'
+      ? w.max_level
+      : (baseAttrs[0] && Array.isArray(baseAttrs[0].levels) ? Math.max(0, baseAttrs[0].levels.length - 1) : 15);
     const defaultQ = 1;
 
     const qualityTabsHtml = qualities.map(q => `
@@ -267,7 +345,8 @@
     let initialAscContentHtml = '';
     if (ascensions.length > 0) {
       const activeAsc = ascensions[defaultAscIndex];
-      const skillTitle = formatSkillTitle(activeAsc.affix_name, activeAsc.affix_level);
+      const resolvedAffix = resolveAscensionAffix(activeAsc);
+      const skillTitle = resolvedAffix.title;
 
       let costCardsHtml = '';
       if (activeAsc.upgrade_cost && activeAsc.upgrade_cost.length > 0) {
@@ -300,7 +379,7 @@
           <div class="asc-skill-pane">
             <div class="asc-section-label">Kỹ năng</div>
             <div class="asc-skill-name">${skillTitle}</div>
-            <div class="asc-skill-desc">${activeAsc.description || ''}</div>
+            <div class="asc-skill-desc">${resolvedAffix.description}</div>
           </div>
           <div class="asc-divider"></div>
           <div class="asc-cost-pane">
@@ -317,7 +396,7 @@
 
     // Screen 4: Enhancement stages (Interactive Slider + Quick Buttons)
     const enhancements = w.enhancement_materials || [];
-    const maxEnhanceLevel = enhancements.length > 0 ? enhancements.length : 15;
+    const maxEnhanceLevel = enhancements.length > 0 ? enhancements.length : maxAttrLevel;
 
     let initialStageHtml = '';
     if (enhancements.length > 0) {
@@ -362,37 +441,26 @@
     `).join('');
 
     // Left Rail Gauge Items & Extra Screens
-    let gaugeItemsHtml = '';
+    const hasStatsData = baseAttrs.length > 0 || legacyQualities.length > 0;
+    const screenItems = [
+      { id: 'screen-overview', label: isWeapon ? 'TỔNG QUAN VŨ KHÍ' : 'TỔNG QUAN TRANG BỊ' }
+    ];
+
     let extraScreensHtml = '';
+    let nextStep = 2;
 
-    if (isWeapon) {
-      gaugeItemsHtml = `
-        <a href="#screen-overview" class="fremm-gauge-item is-active" data-index="0" data-target="screen-overview" style="top: calc(7 * var(--gauge-tick-spacing, 28px));">
-          <span class="fremm-item-dash"></span>
-          <span class="fremm-item-label">TỔNG QUAN VŨ KHÍ</span>
-        </a>
-        <a href="#screen-attributes" class="fremm-gauge-item is-future" data-index="1" data-target="screen-attributes" style="top: calc(11 * var(--gauge-tick-spacing, 28px));">
-          <span class="fremm-item-dash"></span>
-          <span class="fremm-item-label">CHỈ SỐ THUỘC TÍNH</span>
-        </a>
-        <a href="#screen-ascension" class="fremm-gauge-item is-future" data-index="2" data-target="screen-ascension" style="top: calc(12 * var(--gauge-tick-spacing, 28px));">
-          <span class="fremm-item-dash"></span>
-          <span class="fremm-item-label">THĂNG CẤP SAO</span>
-        </a>
-        <a href="#screen-enhancement" class="fremm-gauge-item is-future" data-index="3" data-target="screen-enhancement" style="top: calc(13 * var(--gauge-tick-spacing, 28px));">
-          <span class="fremm-item-dash"></span>
-          <span class="fremm-item-label">NGUYÊN LIỆU CƯỜNG HÓA</span>
-        </a>
-        <a href="#screen-sources" class="fremm-gauge-item is-future" data-index="4" data-target="screen-sources" style="top: calc(14 * var(--gauge-tick-spacing, 28px));">
-          <span class="fremm-item-dash"></span>
-          <span class="fremm-item-label">NGUỒN GỐC THU THẬP</span>
-        </a>`;
+    if (hasStatsData) {
+      screenItems.push(
+        { id: 'screen-attributes', label: 'THÔNG SỐ CƠ BẢN' },
+        { id: 'screen-ascension', label: 'THĂNG CẤP SAO' },
+        { id: 'screen-enhancement', label: 'NGUYÊN LIỆU CƯỜNG HÓA' }
+      );
 
-      extraScreensHtml = `
-        <!-- SCREEN 2: CHỈ SỐ THUỘC TÍNH -->
-        <section id="screen-attributes" class="detail-screen" data-step="2">
+      extraScreensHtml += `
+        <!-- SCREEN 2: THÔNG SỐ CƠ BẢN -->
+        <section id="screen-attributes" class="detail-screen" data-step="${nextStep++}">
           <div class="screen-header">
-            <h2>ChỈ Số Thuộc Tính</h2>
+            <h2>Thông Số Cơ Bản</h2>
           </div>
 
           <div class="attr-filters-bar">
@@ -408,9 +476,9 @@
               <div class="enhance-controls-bar attr-enhance-controls">
                 <button type="button" class="enhance-quick-btn attr-quick-btn active" data-val="0"><span class="btn-sign">+</span>0</button>
                 <div class="enhance-slider-wrap">
-                  <input type="range" class="enhance-slider" id="attr-enhance-slider" min="0" max="15" value="0" step="1" aria-label="Cường hóa thuộc tính">
+                  <input type="range" class="enhance-slider" id="attr-enhance-slider" min="0" max="${maxAttrLevel}" value="0" step="1" aria-label="Cường hóa thông số">
                 </div>
-                <button type="button" class="enhance-quick-btn attr-quick-btn" data-val="15"><span class="btn-sign">+</span>15</button>
+                <button type="button" class="enhance-quick-btn attr-quick-btn" data-val="${maxAttrLevel}"><span class="btn-sign">+</span>${maxAttrLevel}</button>
                 <div class="enhance-level-indicator">
                   <span class="level-label">Cấp:</span>
                   <span class="level-val" id="attr-enhance-level-val">0</span>
@@ -422,7 +490,7 @@
           <table class="attr-table">
             <thead>
               <tr>
-                <th style="width: 50%;">Thuộc tính</th>
+                <th style="width: 50%;">Thông số</th>
                 <th style="width: 50%;">Chỉ số</th>
               </tr>
             </thead>
@@ -433,7 +501,7 @@
         </section>
 
         <!-- SCREEN 3: THĂNG CẤP SAO -->
-        <section id="screen-ascension" class="detail-screen" data-step="3">
+        <section id="screen-ascension" class="detail-screen" data-step="${nextStep++}">
           <div class="screen-header">
             <h2>Thăng Cấp Sao</h2>
           </div>
@@ -448,7 +516,7 @@
         </section>
 
         <!-- SCREEN 4: BẢNG CƯỜNG HÓA -->
-        <section id="screen-enhancement" class="detail-screen" data-step="4">
+        <section id="screen-enhancement" class="detail-screen" data-step="${nextStep++}">
           <div class="screen-header">
             <h2>Nguyên Liệu Cường Hóa</h2>
           </div>
@@ -473,36 +541,13 @@
           </div>
         </section>
       `;
-    } else {
-      const numItems = hasSuit ? 3 : 2;
-      const slot0 = 7;
-      const slot1 = hasSuit ? (15 - 3 + 1) : (15 - 2 + 1); // 13 or 14
-      const slot2 = hasSuit ? (15 - 3 + 2) : null;         // 14
+    }
 
-      let stepIdx = 0;
-      gaugeItemsHtml += `
-        <a href="#screen-overview" class="fremm-gauge-item is-active" data-index="${stepIdx++}" data-target="screen-overview" style="top: calc(${slot0} * var(--gauge-tick-spacing, 28px));">
-          <span class="fremm-item-dash"></span>
-          <span class="fremm-item-label">TỔNG QUAN TRANG BỊ</span>
-        </a>`;
-      if (hasSuit) {
-        gaugeItemsHtml += `
-          <a href="#screen-suit-skills" class="fremm-gauge-item is-future" data-index="${stepIdx++}" data-target="screen-suit-skills" style="top: calc(${slot1} * var(--gauge-tick-spacing, 28px));">
-            <span class="fremm-item-dash"></span>
-            <span class="fremm-item-label">KỸ NĂNG BỘ TRANG BỊ</span>
-          </a>`;
-      }
-      const sourcesSlot = hasSuit ? slot2 : slot1;
-      gaugeItemsHtml += `
-        <a href="#screen-sources" class="fremm-gauge-item is-future" data-index="${stepIdx++}" data-target="screen-sources" style="top: calc(${sourcesSlot} * var(--gauge-tick-spacing, 28px));">
-          <span class="fremm-item-dash"></span>
-          <span class="fremm-item-label">NGUỒN GỐC THU THẬP</span>
-        </a>`;
-
-      if (hasSuit) {
-        extraScreensHtml = `
-          <!-- SCREEN 2: KỸ NĂNG BỘ TRANG BỊ -->
-          <section id="screen-suit-skills" class="detail-screen" data-step="2">
+    if (hasSuit) {
+      screenItems.push({ id: 'screen-suit-skills', label: 'KỸ NĂNG BỘ TRANG BỊ' });
+      extraScreensHtml += `
+          <!-- SCREEN SUIT SKILLS -->
+          <section id="screen-suit-skills" class="detail-screen" data-step="${nextStep++}">
             <div class="screen-header">
               <h2>Kỹ Năng Bộ Trang Bị</h2>
             </div>
@@ -522,22 +567,32 @@
                 <tbody>
                   <tr>
                     <td><strong>Bộ 2 món</strong></td>
-                    <td>${(w.suit_skills && w.suit_skills.two_piece) || '—'}</td>
+                    <td>${((w.suit_skills && w.suit_skills.two_piece) || '—').replace(/thuộc tính/gi, 'nguyên tố')}</td>
                   </tr>
                   <tr>
                     <td><strong>Bộ 4 món</strong></td>
-                    <td>${(w.suit_skills && w.suit_skills.four_piece) || '—'}</td>
+                    <td>${((w.suit_skills && w.suit_skills.four_piece) || '—').replace(/thuộc tính/gi, 'nguyên tố')}</td>
                   </tr>
                 </tbody>
               </table>
             </div>
           </section>
-        `;
-      }
+      `;
     }
 
-    const sourcesStep = isWeapon ? 5 : (hasSuit ? 3 : 2);
-    const occupiedRulerSlots = isWeapon ? [7, 11, 12, 13, 14] : (hasSuit ? [7, 13, 14] : [7, 14]);
+    screenItems.push({ id: 'screen-sources', label: 'NGUỒN GỐC THU THẬP' });
+    const sourcesStep = nextStep;
+    const totalScreens = screenItems.length;
+    const occupiedRulerSlots = [];
+    const gaugeItemsHtml = screenItems.map((sc, i) => {
+      const slot = i === 0 ? 7 : (15 - totalScreens + i);
+      occupiedRulerSlots.push(slot);
+      return `
+        <a href="#${sc.id}" class="fremm-gauge-item ${i === 0 ? 'is-active' : 'is-future'}" data-index="${i}" data-target="${sc.id}" style="top: calc(${slot} * var(--gauge-tick-spacing, 28px));">
+          <span class="fremm-item-dash"></span>
+          <span class="fremm-item-label">${sc.label}</span>
+        </a>`;
+    }).join('');
 
     return `
     <div class="fremm-layout">
@@ -840,7 +895,11 @@
       console.error('FREMM Gauge Init error:', err);
     }
 
-    const qualities = w.main_attributes_by_quality || [];
+    const baseAttrs = w.base_attributes || [];
+    const legacyQualities = w.main_attributes_by_quality || [];
+    const maxAttrLevel = typeof w.max_level === 'number'
+      ? w.max_level
+      : (baseAttrs[0] && Array.isArray(baseAttrs[0].levels) ? Math.max(0, baseAttrs[0].levels.length - 1) : 15);
     const ascensions = w.star_ascensions || [];
     const rNum = getWeaponRarityNumber(w);
     const qualityTabButtons = document.querySelectorAll('.q-tab-btn');
@@ -855,9 +914,9 @@
 
     function calculateAttributeValue(val0Str, val15Str, level) {
       if (!val0Str || !val15Str) return val0Str || val15Str || '';
-      const lvl = Math.max(0, Math.min(15, parseInt(level, 10) || 0));
+      const lvl = Math.max(0, Math.min(maxAttrLevel, parseInt(level, 10) || 0));
       if (lvl === 0) return val0Str;
-      if (lvl === 15) return val15Str;
+      if (lvl === maxAttrLevel) return val15Str;
 
       const isPercent = val0Str.includes('%') || val15Str.includes('%');
       const hasPlus = val0Str.startsWith('+') || val15Str.startsWith('+');
@@ -867,7 +926,7 @@
 
       if (isNaN(num0) || isNaN(num15)) return val0Str;
 
-      const currentNum = num0 + (num15 - num0) * (lvl / 15);
+      const currentNum = num0 + (num15 - num0) * (lvl / maxAttrLevel);
 
       let formatted = '';
       if (isPercent) {
@@ -880,11 +939,10 @@
     }
 
     function renderQualityTable(qLevel, eLevel) {
-      currentQualityLevel = qLevel;
-      currentAttrEnhance = parseInt(eLevel, 10) || 0;
+      currentQualityLevel = Number(qLevel) || 1;
+      currentAttrEnhance = Math.max(0, Math.min(maxAttrLevel, parseInt(eLevel, 10) || 0));
 
-      const q = qualities.find(item => item.quality_level == qLevel);
-      if (!q || !q.attributes || !tableBody) return;
+      if (!tableBody) return;
 
       if (attrThCurrent) {
         attrThCurrent.textContent = `Cường hóa +${currentAttrEnhance}`;
@@ -899,9 +957,29 @@
         btn.classList.toggle('active', parseInt(btn.dataset.val, 10) === currentAttrEnhance);
       });
 
+      if (baseAttrs.length > 0) {
+        const tier = QUALITY_TIERS.find(item => item.quality_level === currentQualityLevel) || QUALITY_TIERS[0];
+        tableBody.innerHTML = baseAttrs.map(a => {
+          const lvArr = Array.isArray(a.levels) ? a.levels : [];
+          const baseVal = lvArr[currentAttrEnhance] !== undefined ? lvArr[currentAttrEnhance] : (lvArr[lvArr.length - 1] || 0);
+          const currentVal = calculateBaseStatValue(baseVal, Boolean(a.is_ratio), tier.quality_value);
+          const attrLabel = (a.attribute || '').replace(/%/g, '').replace(/thuộc tính/gi, 'nguyên tố').trim();
+          return `
+            <tr>
+              <td><strong>${attrLabel}</strong></td>
+              <td><strong style="color:var(--accent-azure);">${currentVal}</strong></td>
+            </tr>
+          `;
+        }).join('');
+        return;
+      }
+
+      const q = legacyQualities.find(item => item.quality_level == currentQualityLevel);
+      if (!q || !q.attributes) return;
+
       tableBody.innerHTML = q.attributes.map(a => {
         const currentVal = calculateAttributeValue(a.enhancement_0, a.enhancement_15, currentAttrEnhance);
-        const attrLabel = (a.attribute || '').replace(/%/g, '').trim();
+        const attrLabel = (a.attribute || '').replace(/%/g, '').replace(/thuộc tính/gi, 'nguyên tố').trim();
         return `
           <tr>
             <td><strong>${attrLabel}</strong></td>
@@ -946,7 +1024,8 @@
       const a = ascensions[idx];
       if (!a || !ascContentRoot) return;
 
-      const skillTitle = formatSkillTitle(a.affix_name, a.affix_level);
+      const resolvedAffix = resolveAscensionAffix(a);
+      const skillTitle = resolvedAffix.title;
 
       let costCardsHtml = '';
       if (a.upgrade_cost && a.upgrade_cost.length > 0) {
@@ -958,7 +1037,7 @@
           const matName = isWeapon ? w.name : (c.name || getMaterialName(c.material_id));
           const matRarity = getMaterialRarity(c.material_id);
           const cardFrameClass = isWeapon ? `r${rNum}` : `r${matRarity}`;
-          const starsHtml = isWeapon ? renderCardStarsHtml(getMaxStarsCount(w), rel) : '';
+          const starsHtml = isWeapon ? renderCardStarsHtml(w.star_count || getMaxStarsCount(w), rel) : '';
           return `
             <a href="${costUrl}" class="bwiki-item-card ${cardFrameClass}" title="${matName} (x${qtyStr})">
               <div class="bwiki-item-visual">
@@ -979,7 +1058,7 @@
           <div class="asc-skill-pane">
             <div class="asc-section-label">Kỹ năng</div>
             <div class="asc-skill-name">${skillTitle}</div>
-            <div class="asc-skill-desc">${a.description || ''}</div>
+            <div class="asc-skill-desc">${resolvedAffix.description}</div>
           </div>
           <div class="asc-divider"></div>
           <div class="asc-cost-pane">
@@ -1189,7 +1268,7 @@
     }
 
     document.title = `${weapon.name} - Azur Promilia Wiki`;
-    await fetchMaterialsData(rel);
+    await Promise.all([fetchMaterialsData(rel), fetchAffixesData(rel)]);
     rootEl.innerHTML = renderEquipmentMain(weapon, rel, pagesRel);
     initEquipmentInteractivity(weapon, rel, pagesRel);
   }
