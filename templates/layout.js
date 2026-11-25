@@ -44,6 +44,7 @@
     }
     const path = (window.location.pathname || '').toLowerCase();
     if (path.includes('character') || path.includes('nhan_vat') || path.includes('nhanvat')) return 'character';
+    if (path.includes('kibo-guide') || path.includes('huong_dan_kibo') || path.includes('kibo_guide')) return 'kibo-guide';
     if (path.includes('kibo')) return 'kibo';
     if (path.includes('lingzi') || path.includes('linhtu') || path.includes('linh_tu')) return 'lingzi';
     if (path.includes('equip') || path.includes('vu_khi')) return 'equip';
@@ -59,6 +60,10 @@
     const lingziHref = isServer ? '/lingzi' : `${pagesRel}lingzi.html`;
     const equipHref = isServer ? '/equipments' : `${pagesRel}equipments.html`;
     const matHref = isServer ? '/materials' : `${pagesRel}materials.html`;
+    const kiboGuideHref = isServer ? '/kibo-guide' : `${pagesRel}kibo-guide.html`;
+
+    const isListActive = ['character', 'kibo', 'lingzi', 'equip', 'mat'].includes(activeTab);
+    const isGuideActive = ['kibo-guide'].includes(activeTab);
 
     return `
     <div class="container nav-container">
@@ -71,11 +76,30 @@
 
       <nav class="nav-links">
         <a href="${homeHref}" class="nav-item ${activeTab === 'home' ? 'active' : ''}">Trang Chủ</a>
-        <a href="${charHref}" class="nav-item ${activeTab === 'character' ? 'active' : ''}">Nhân Vật</a>
-        <a href="${kiboHref}" class="nav-item ${activeTab === 'kibo' ? 'active' : ''}">Kibo</a>
-        <a href="${lingziHref}" class="nav-item ${activeTab === 'lingzi' ? 'active' : ''}">Linh Tử</a>
-        <a href="${equipHref}" class="nav-item ${activeTab === 'equip' ? 'active' : ''}">Trang Bị</a>
-        <a href="${matHref}" class="nav-item ${activeTab === 'mat' ? 'active' : ''}">Nguyên Liệu</a>
+        
+        <div class="nav-dropdown" data-nav-dropdown="lists">
+          <button class="nav-item nav-dropdown-btn ${isListActive ? 'active' : ''}" type="button" aria-haspopup="true" aria-expanded="false">
+            <span>Danh Sách</span>
+            <svg class="dropdown-arrow" width="10" height="6" viewBox="0 0 10 6" fill="currentColor" aria-hidden="true"><path d="M0 0.5L5 5.5L10 0.5H0Z"/></svg>
+          </button>
+          <div class="nav-dropdown-menu">
+            <a href="${charHref}" class="dropdown-item ${activeTab === 'character' ? 'active' : ''}">Nhân Vật</a>
+            <a href="${kiboHref}" class="dropdown-item ${activeTab === 'kibo' ? 'active' : ''}">Kibo</a>
+            <a href="${lingziHref}" class="dropdown-item ${activeTab === 'lingzi' ? 'active' : ''}">Linh Tử</a>
+            <a href="${equipHref}" class="dropdown-item ${activeTab === 'equip' ? 'active' : ''}">Trang Bị</a>
+            <a href="${matHref}" class="dropdown-item ${activeTab === 'mat' ? 'active' : ''}">Nguyên Liệu</a>
+          </div>
+        </div>
+
+        <div class="nav-dropdown" data-nav-dropdown="guides">
+          <button class="nav-item nav-dropdown-btn ${isGuideActive ? 'active' : ''}" type="button" aria-haspopup="true" aria-expanded="false">
+            <span>Hướng Dẫn</span>
+            <svg class="dropdown-arrow" width="10" height="6" viewBox="0 0 10 6" fill="currentColor" aria-hidden="true"><path d="M0 0.5L5 5.5L10 0.5H0Z"/></svg>
+          </button>
+          <div class="nav-dropdown-menu">
+            <a href="${kiboGuideHref}" class="dropdown-item ${activeTab === 'kibo-guide' ? 'active' : ''}">Hướng Dẫn Kibo</a>
+          </div>
+        </div>
       </nav>
 
       <div class="nav-socials">
@@ -355,6 +379,112 @@
     if (navEl) {
       navEl.className = 'navbar';
       navEl.innerHTML = renderNavbarHTML(pagesRel, activeTab);
+
+      // Handle dropdown toggles on click / tap & hover unpin
+      const dropdowns = navEl.querySelectorAll('.nav-dropdown');
+      dropdowns.forEach(dd => {
+        const btn = dd.querySelector('.nav-dropdown-btn');
+
+        // When mouse enters a dropdown, immediately unpin and close any other dropdown
+        // so two menus NEVER display simultaneously
+        dd.addEventListener('mouseenter', () => {
+          dropdowns.forEach(other => {
+            if (other !== dd) {
+              other.classList.remove('is-pinned', 'is-open', 'is-closed');
+              const ob = other.querySelector('.nav-dropdown-btn');
+              if (ob) {
+                ob.setAttribute('aria-expanded', 'false');
+                ob.blur();
+              }
+            }
+          });
+        });
+
+        // When mouse leaves a dropdown, clear the is-closed flag so hover works cleanly next time
+        dd.addEventListener('mouseleave', () => {
+          dd.classList.remove('is-closed');
+        });
+
+        // Clicking directly on the button toggles pinned state & dismisses cleanly on 2nd click
+        if (btn) {
+          btn.addEventListener('click', (e) => {
+            e.stopPropagation();
+            const wasPinned = dd.classList.contains('is-pinned') || dd.classList.contains('is-open');
+            const wasClosed = dd.classList.contains('is-closed');
+
+            // Unpin and reset all other dropdowns
+            dropdowns.forEach(other => {
+              if (other !== dd) {
+                other.classList.remove('is-pinned', 'is-open', 'is-closed');
+                const ob = other.querySelector('.nav-dropdown-btn');
+                if (ob) {
+                  ob.setAttribute('aria-expanded', 'false');
+                  ob.blur();
+                }
+              }
+            });
+
+            if (wasClosed) {
+              // Clicked while in dismissed/closed state -> Re-open and pin!
+              dd.classList.remove('is-closed');
+              dd.classList.add('is-pinned', 'is-open');
+              btn.setAttribute('aria-expanded', 'true');
+            } else if (wasPinned) {
+              // Clicked 2nd time -> Turn off pinned AND force menu to hide immediately!
+              dd.classList.remove('is-pinned', 'is-open');
+              dd.classList.add('is-closed');
+              btn.setAttribute('aria-expanded', 'false');
+              btn.blur();
+            } else {
+              // Clicked 1st time -> Pin the dropdown open!
+              dd.classList.remove('is-closed');
+              dd.classList.add('is-pinned', 'is-open');
+              btn.setAttribute('aria-expanded', 'true');
+            }
+          });
+        }
+
+        // Clicking a dropdown item unpins and closes the menu
+        const items = dd.querySelectorAll('.dropdown-item');
+        items.forEach(item => {
+          item.addEventListener('click', () => {
+            dd.classList.remove('is-pinned', 'is-open', 'is-closed');
+            if (btn) {
+              btn.setAttribute('aria-expanded', 'false');
+              btn.blur();
+            }
+          });
+        });
+      });
+
+      // Clicking anywhere outside closes any open dropdown
+      document.addEventListener('click', (e) => {
+        if (!e.target.closest('.nav-dropdown')) {
+          dropdowns.forEach(dd => {
+            dd.classList.remove('is-pinned', 'is-open', 'is-closed');
+            const btn = dd.querySelector('.nav-dropdown-btn');
+            if (btn) {
+              btn.setAttribute('aria-expanded', 'false');
+              btn.blur();
+            }
+          });
+        }
+      });
+
+      // Pressing Escape key closes any open dropdown
+      document.addEventListener('keydown', (e) => {
+        if (e.key === 'Escape') {
+          dropdowns.forEach(dd => {
+            dd.classList.remove('is-pinned', 'is-open');
+            dd.classList.add('is-closed');
+            const btn = dd.querySelector('.nav-dropdown-btn');
+            if (btn) {
+              btn.setAttribute('aria-expanded', 'false');
+              btn.blur();
+            }
+          });
+        }
+      });
     }
 
     let footerEl = document.getElementById('site-footer');
@@ -375,6 +505,10 @@
       if (clean !== orig) {
         window.history.replaceState(null, '', clean + window.location.search + window.location.hash);
       }
+    }
+
+    if (document.getElementById('fremm-sidebar')) {
+      initFremmGauge();
     }
   }
 

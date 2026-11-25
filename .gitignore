@@ -42,3 +42,8 @@ scratch/
 test-results/
 coverage/
 .taste-skill/
+
+# Graphify cache & internal build states
+graphify-out/cache/
+graphify-out/.*
+graphify-out/manifest.json
